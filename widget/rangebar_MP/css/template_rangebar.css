@@ -1,0 +1,12 @@
+html, body{
+  background:#F5F5F5; 
+}
+
+.jumbotron{
+    letter-spacing: 7px;
+    background-image: url("../graph.png");
+  }
+
+  button{
+    margin: 1.5rem;   
+}

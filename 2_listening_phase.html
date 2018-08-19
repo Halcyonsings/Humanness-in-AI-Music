@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Notice: jQuery-UI should put behind jQuery -->
+    <!-- slide bar need jqueryUI -->
+    <script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="jspsych.js"></script>
+    <script src="http://parsleyjs.org/dist/parsley.min.js"></script>
+    <!--Insert wavesurfer.js -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
+
+    <!-- my css and js -->
+    <script type="text/javascript" src="js/globalsetting.js"></script>
+    <script src="./js/listening_phase/memc.js"></script>
+    <script src="./js/listening_phase/trials.js"></script>
+    <script src="./js/listening_phase/music.js"></script>
+
+    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
+    <link rel="stylesheet" href="css/jspsych.css">
+    <link rel="stylesheet" href="css/listening_style.css">
+    <!--   <link rel="stylesheet" href="css/table.css"></link> -->
+    <link rel="stylesheet" type="text/css" href="css/main_modules.css">
+    <link rel="stylesheet" href="css/range_bar.css" rel="stylesheet" />
+
+    <!-- Add icon library -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <title>NTU Music Study</title>
+</head>
+
+
+<body>
+    <!-- Header image -->
+    <header>
+        <div id="bg-img"></div>
+    </header>
+
+    <!-- 主功能區 -->
+    <section class="main_block card">
+        <div class="form-t1">Listening Session</div>
+        <article class="intro-article">
+            Please fill the questionnaire after listening.The form will show up
+            <span class="highlight">3 seconds later</span>
+            after clicking the mp3.
+        </article>
+
+        <div id="trial1" class="MP3File">
+            <!-- Create a div where the audio waves will be shown -->
+            <div id="audio-spectrum" class="InsertNote"></div>
+
+            <!-- Create action buttons -->
+            <div class="wavesurfer-buttons_set">
+                <!-- Before being turned on by JS, the default value of button is set to disabled -->
+                <button id="btn-play" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">play_arrow</i>Play</button>
+                <button id="btn-pause" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">pause</i>Pause</button>
+                <button id="btn-Restart" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">replay</i>Restart</button>
+
+            </div>
+        </div>
+        <br>
+        <!-- <div class="waveform-duration">Duration: 0</div>  -->
+        <!-- <div class="waveform-counter">Current Time: 0</div>  -->
+
+        <!-- Comments of the music -->
+        <div class="CommentArea">
+            <div class="ClockDesign"><i class="fa fa-clock-o"></i><div id="TimeInformation"></div>
+            </div>
+            <textarea rows="1" cols="50" name="MusicComments" id="MusicComments" class="MusicComments"></textarea>
+            <button type="button" id="SendComments">Add Comments</button>
+        </div>
+        <br>
+        <!-- <!<audio controls preload="auto" class="InsertTag"> -->
+        <!-- preload the music file -->
+        <!-- <source> tag insert below  -->
+        <!-- Your browser does not support the audio element.-->
+        <!-- </audio>-->
+        <hr class="long_dv">
+        <div id="TimeCount">Play time: 0</div> <br>
+
+        <form id="MEMCscale">
+
+
+            <div class="clearfix">
+                <button type="button" id="next" class="g-btn MEMCbutton" onclick="nextPage();">
+                    <span>Next Page<span>
+                </button>
+            </div>
+        </form>
+    </section>
+
+
+</body>
+
+</html>

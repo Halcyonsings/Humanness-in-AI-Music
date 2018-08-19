@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115062914-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-115062914-1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap4 CSS&JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- my css and js -->
+    <link rel="stylesheet" type="text/css" href="css/main_modules.css">
+    <link rel="stylesheet" type="text/css" href="css/demographics_style.css">
+    <link rel="stylesheet" type="text/css" href="css/MusicSurvey_style.css">
+
+    <script type="text/javascript" src="js/quesBasicFunctions.js"></script>
+    <script type="text/javascript" src="js/checkItem.js"></script>
+    <script type="text/javascript" src="js/item_generating.js"></script>
+    <title>NTU Music Study</title>
+</head>
+<body>
+    <div id="bg-img"></div>
+    <section class="main_block card"> 
+    <div class="main_descrp"></div>
+        
+        <!-- Music Survey Part1-->
+        <div class="MusicSurveyCard">
+            <div class="form-t1">Musical Beliefs and Expections</div>
+            <article class="intro-article">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The purpose of this questionnaire is to describe your perception of your musical ability, attitude toward music, and beliefs and expections about music that may fluence response to music. The third part is about beliefs and expections .<br>
+            <!-- "&nbsp;" creates space in HTML5 -->
+
+            <span class="highlight">Directions:</span> Please  place the mark on the scale that best indicates your position between the two sides on each question. 
+            </article>
+            <hr class="long_dv">
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">1. When I listen to "classical" music I tend to concentrate on:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">the features of the composition and performance</span>
+                    <input class="anchor_range" type="range" name="marr" id="item1" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">my own thoughts feelings and emotions</span>
+                </div>
+            </div>
+            <hr> <!-- hotizontal line-->
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">2. The purpose of "classical" music is to:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">move the emotion</span>
+                    <input class="anchor_range" type="range" name="marr" id="item1" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">stimulate the mind</span>
+                </div>
+            </div>
+            <hr>
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">3. When I experience enjoyment with "classical" music it:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">just happens with the right music</span>
+                    <input class="anchor_range" type="range" name="marr" id="item1" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">follows conscious thought & analysis</span>
+                </div>
+            </div>
+            <hr>
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">4. I expect the musical experience with "classical" music to be primarily:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">emotion</span>
+                    <input class="anchor_range" type="range" name="marr" id="item1" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">rational</span>
+                </div>
+            </div>
+            <hr>
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">5. Experience with music is enhanced by:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">attention only to the sounds and structures of music</span>
+                    <input class="anchor_range" type="range" name="marr" id="item1" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">imagination of scenes and stories</span>
+                </div>
+            </div>
+            <hr>
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">6. When I listen to good music I expect to:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">respond with muscular movement (e.g., tapping, swaying, dancing)</span>
+                    <input class="anchor_range" type="range" name="marr" id="item1" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">form a judgment on its quality</span>
+                </div>
+            </div>
+            <hr>
+            <!-- part1 finishing -->
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="next_btn g-btn">Next Step</div>
+                </div>
+            </div>
+        </div>

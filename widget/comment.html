@@ -1,0 +1,48 @@
+<!DOCTYPE>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+  	<script src="js/jquery.min.js"></script>
+
+</head>
+
+
+<body>
+	<div id="InsertNote"></div><br>
+	<textarea rows="1" cols="100" name="MusicComments" id="MusicComments" style="font-family:sans-serif;font-size:1.2em;"></textarea>
+	<button type="button" id="SendComments">send</button>
+	
+	
+
+<script type="text/javascript">	
+	// Comments' function: storage and restart
+	var CommentsArray = [];
+	var now = new Date();
+	
+	$(function(){
+		$('#SendComments').on('click',function(){
+			var NewComments = [now ,$('#MusicComments').val()];
+			//console.log(NewComments);
+			
+			if ($.isEmptyObject(NewComments)==false){ // add a judgement to avoid empty response
+				CommentsArray.push(NewComments);
+				$('#MusicComments').val(''); // clear the textarea
+			}
+
+		});
+	});
+
+
+	//append icon to WaveSurfer
+  	// $(function(){
+   //  	$('#SendComments').on('click',function(){
+   //    var currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
+   //    $('#InsertNote').append('<i class="fa fa-sticky-note-o"></i>')
+
+   //  	});
+  	// });
+
+</script>
+</body>
+
+</html>

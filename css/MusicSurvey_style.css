@@ -1,0 +1,88 @@
+.anchor_opinion_area{
+    height: 200px;
+    padding: 6px 10px;
+    transition-duration: 0.2s;
+}
+
+
+.anchor_opinion_area:hover{
+    background-color: #F7F7F7;
+}
+
+/* New at 20180716 */
+.paragraph_area{
+    height: 350px;
+    padding: 6px 10px;
+    transition-duration: 0.2s;
+}
+
+.paragraph_descrp{
+    font-size: 16px;
+    text-align: left;
+    color: #787878;
+}
+
+
+/* Anchor - descriptions */
+.anchor_title{
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px auto;
+}
+
+
+.anchor_descrp{
+    font-size: 18px;
+    text-align: center;
+    color: #787878;
+}
+
+
+/* Anchor_resonse_block */
+.anchor_res_block{
+    width: 400px;
+    padding: 16px 0px; 
+    font-size: 20px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.labal_polar2{
+    font-size: 14px;
+    position: absolute;
+    right: 0px;
+    width: 90px;
+    text-align: left;
+    text-justify: inter-word;
+}
+
+.labal_polar1{
+    font-size: 14px;
+    position: absolute;
+    left: 0px;
+    width: 90px;
+    text-align: right;
+    text-justify: inter-word;
+}
+
+.anchor_range{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    margin-top: 5px;
+}
+
+
+@media screen and (max-width: 600px){
+    #MusicSurveyCard{
+        width: 95%;
+    }
+}
+
+.highlight{
+    /* font-size: 20px; */
+    font-weight: bold;
+    color: #33A6B8;
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115062914-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-115062914-1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap4 CSS&JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- my css and js -->
+    <link rel="stylesheet" type="text/css" href="css/main_modules.css">
+    <link rel="stylesheet" type="text/css" href="css/demographics_style.css">
+    <link rel="stylesheet" type="text/css" href="css/MusicSurvey_style.css">
+
+    <script type="text/javascript" src="js/globalsetting.js"></script> 
+    <script type="text/javascript" src="js/quesBasicFunctions.js"></script>
+    <script type="text/javascript" src="js/checkItem.js"></script>
+    <script type="text/javascript" src="js/item_generating.js"></script>
+    <title>NTU Music Study</title>
+</head>
+<body>
+    <div id="bg-img"></div>
+    <section class="main_block card"> 
+    <div class="main_descrp"></div>
+        
+        <!-- Music Survey Part1-->
+        <div class="MusicSurveyCard">
+            <div class="form-t1">Musical Ability</div>
+            <article class="intro-article">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The purpose of this questionnaire is to describe your perception of your musical ability, attitude toward music, and beliefs and expections about music that may fluence response to music. The first part is about ability.<br>
+            <!-- "&nbsp;" creates space in HTML5 -->
+
+            <span class="highlight">Directions:</span> Please  place the mark on the scale that best indicates your position between the two sides on each question. 
+            </article>
+            <hr class="long_dv">
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">1. Regardless of specific training, I consider myself to be:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">musically untalented (I am not nor could I be a good musician)</span>
+                    <input class="anchor_range" type="range" name="marr" id="item1" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">musically talented (I am or could be a good musician)</span>
+                </div>
+            </div>
+            <hr> <!-- hotizontal line-->
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">2. In relation to other people my age, I consider my musical performance skills to be:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">undeveloped</span>
+                    <input class="anchor_range" type="range" name="deat" id="item2" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">well-developed</span>
+                </div>
+            </div>
+            <hr>
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">3. I consider my listening skills to be:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">minimal (I do not notice details of music unless someone points them out to me)</span>
+                    <input class="anchor_range" type="range" name="nucl" id="item3" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">well-developed (I notice features and detail in music)</span>
+                </div>
+            </div>
+            <hr>
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">4. People who know me well think of me as:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">a non-musician</span>
+                    <input class="anchor_range" type="range" name="euth" id="item4" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">a good musician</span>
+                </div>
+            </div>
+            <hr>
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">5. When I participate in a group musical performance:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">I understand very few of the leader's criticisms or suggestions</span>
+                    <input class="anchor_range" type="range" name="euth" id="item4" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">I understand many of the leader's technical criticisms</span>
+                </div>
+            </div>
+            <hr>
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">6. When I participate with music as a listener (or performer), I find I have:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">very little musical knowledge in my memory</span>
+                    <input class="anchor_range" type="range" name="euth" id="item4" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">I understand many of the leader's technical criticisms</span>
+                </div>
+            </div>
+            <hr>
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">7. When I look at a printed piece of music:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">I have no idea what the music would sound like</span>
+                    <input class="anchor_range" type="range" name="euth" id="item4" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">I have an idea how the music sounds in my head</span>
+                </div>
+            </div>
+            <hr>
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">8. I feel competent to participate in performances of:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">easy songs, hymns, or elementary pieces in a <b>group</b></span>
+                    <input class="anchor_range" type="range" name="euth" id="item4" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">advanced concertos, sonatas, song cycles <b>solo</b></span>
+                </div>
+            </div>
+            <hr>
+            <div class="paragraph_area">
+                <div class="paragraph_descrp">9. Please read this paragraph and answer the question that follows: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As John looks at the music he recognizes the style. He notices the expressive potential built into the harmonic progression and motivic sequence. As his mind quickly reviews possible ornamentation and interpretation, the choice of expressive devices becomes clear. He regrets, however, not having a different instrument that would be so much more appropriate for this styie. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Experiences of this sort:
+                </div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">never occur in my experience</span>
+                    <input class="anchor_range" type="range" name="euth" id="item4" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">are familiar in my experience</span>
+                </div>
+            </div>
+            <hr>
+            <div class="anchor_opinion_area">
+                <div class="anchor_descrp">10. When I listen to a musical performance:</div>
+                <div class="anchor_res_block">
+                    <span class="labal_polar1">I cannot give a specific label to any musical feature</span>
+                    <input class="anchor_range" type="range" name="euth" id="item4" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">I can recognize elements like harmonic progressions, motive transformations, and formal features</span>
+                </div>
+            </div>
+
+            <!-- part1 finishing -->
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="next_btn g-btn">Next Step</div>
+                </div>
+            </div>
+        </div>

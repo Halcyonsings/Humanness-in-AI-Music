@@ -1,0 +1,212 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="jspsych.js"></script>
+  <script src="http://parsleyjs.org/dist/parsley.min.js"></script>
+  <!--Insert wavesurfer.js -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>  
+  <link rel="stylesheet" href="css/jquery-ui.css"></link>
+  <link rel="stylesheet" href="css/jspsych.css"></link>
+
+
+<Script>
+	/* hide the questionires first */
+	$(function(){
+		$('#MEMCscale').hide(); 
+	});
+
+	/* show the scale after click the MP3 file */
+	$(function(){
+		$('#play').on('click',function(){
+			$('#MEMCscale').delay(10000).show(300); 
+		});
+	});
+
+  /* random select MP3files */
+  var TrialsArray = ['AIBachHCIII.mp3', 'AIMozartCI.mp3', 'AIMozartCIII.mp3']; 
+  var random_music = TrialsArray[Math.floor(Math.random() * TrialsArray.length)];
+
+  /* wavesurfer variables */
+  var wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    waveColor: 'violet',
+    progressColor: 'purple'
+  });
+  wavesurfer.load (random_music);
+  /* record listening time */
+  
+  $(document).ready(function(){
+
+    var isPlaying = false;
+    var songTime = 0;
+    var song = document.createElement('audio');
+    song.src = random_music; /* random assign music here */
+    song.setAttribute('loop', 'preload'); /* Set audio attrbute loop and preload. Loop to solove counting time problem */
+    $.get();
+
+    $('#play').click(function(){
+        /*song.play();*/
+        isPlaying() = true;
+        console.log("Playing...");
+    });
+
+    $('#stop').click(function(){
+        /*song.pause();*/
+        isPlaying() = false;
+        console.log("Paused");
+    });
+
+    setInterval(function(){
+        if (isPlaying == true) {
+          songTime = (Number(songTime) + 0.01).toFixed(2); /* Number() change the string into number */
+          $('#time').text("Play Time"+ songTime);   
+        }
+      },10);  
+  });
+   
+        /*Append <source> tag after audio*/
+  /*$(document).ready(function(){
+    $('.InsertTag').append('<source type="audio/mp3" src='+random_music+'>')
+  });*/
+</Script>
+
+
+
+
+<style type="text/css">
+
+    p {
+      font-size: 100%;
+      line-height: 140%;
+      text-align: center;
+    }
+
+
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;border:none;margin:0px auto;}
+.tg td{
+  font-family:Arial, 
+  sans-serif;
+  font-size:14px;
+  padding:20px 7px;
+  border-style:solid;
+  border-width:0px;
+  overflow:hidden;
+  word-break:normal;
+  border-color:#ccc;
+  color:#333;
+  background-color:#fff;
+}
+.tg th{
+  font-family:Arial, sans-serif;
+  font-size:14px;
+  font-weight:normal;
+  padding:10px 7px;
+  border-style:solid;
+  border-width:0px;
+  overflow:hidden;
+  word-break:normal;
+  border-color:#ccc;
+  color:#333;
+  background-color:#f0f0f0;
+}
+.tg .tg-qsvf{font-size:18px;vertical-align:top}
+.tg .tg-2ktp{font-size:16px;vertical-align:top}
+.tg .tg-s4a2{background-color:#f9f9f9;font-size:18px;vertical-align:top}
+.tg .tg-90fe{background-color:#f9f9f9;font-size:16px;text-align:center;vertical-align:top}
+.tg .tg-3w8c{background-color:#f9f9f9;font-size:16px;vertical-align:top}
+.tg .tg-e9v8{font-size:15px;text-align:center;vertical-align:top}
+.tg .tg-eklo{font-size:20px;vertical-align:top}
+.tg .tg-5s0z{background-color:#f9f9f9;font-size:18px}
+.tg .tg-lvth{font-size:16px;text-align:center;vertical-align:top}
+
+
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 50px auto;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+
+</style>
+</head>
+
+
+<div id="instructions">
+<p>Please fill the questionnaire after listening.The form will show up <b>10 seconds later</b> after you click the mp3.</p>
+</div>
+
+<div id="trial1" class="MP3File">
+  <div id="waveform"></div>
+  <input type="button" id="play" value="PLAY">
+  <input type="button" id="stop" value="STOP">
+  <div id="time">Play time: 0</div> 
+	<!-- <!<audio controls preload="auto" class="InsertTag"> --> <!-- preload the music file --> <!-- <source> tag insert below  -->
+	<!-- Your browser does not support the audio element.-->
+	<!-- </audio>-->
+</div>
+
+<form id="MEMCscale">
+
+<table class="tg" style="undefined;table-layout: fixed; width: 1190px">
+<colgroup>
+<col style="width: 588px">
+<col style="width: 91px">
+<col style="width: 91px">
+<col style="width: 91px">
+<col style="width: 91px">
+<col style="width: 91px">
+<col style="width: 147px">
+</colgroup>
+  <tr>
+    <th class="tg-2ktp"></th>
+    <th class="tg-e9v8">Not at all</th>
+    <th class="tg-e9v8">Somewhat</th>
+    <th class="tg-e9v8">Moderately</th>
+    <th class="tg-e9v8">Quite a lot</th>
+    <th class="tg-e9v8">Very much</th>
+    <th class="tg-eklo"></th>
+  </tr>
+  <tr>
+    <td class="tg-5s0z">1. filled with wonder, amazed</td>
+    <td class="tg-90fe"><input type="radio" name="ME1" value="1" required> 1</td>
+    <td class="tg-90fe"><input type="radio" name="ME1" value="2" required> 2</td>
+    <td class="tg-90fe"><input type="radio" name="ME1" value="3" required> 3</td>
+    <td class="tg-90fe"><input type="radio" name="ME1" value="4" required> 4</td>
+    <td class="tg-90fe"><input type="radio" name="ME1" value="5" required> 5</td>
+    <td class="tg-3w8c"></td>
+  </tr>
+  <tr>
+    <td class="tg-qsvf">2. moved, touched </td>
+    <td class="tg-lvth"><input type="radio" name="ME2" value="1" required> 1</td>
+    <td class="tg-lvth"><input type="radio" name="ME2" value="2" required> 2</td>
+    <td class="tg-lvth"><input type="radio" name="ME2" value="3" required> 3</td>
+    <td class="tg-lvth"><input type="radio" name="ME2" value="4" required> 4</td>
+    <td class="tg-lvth"><input type="radio" name="ME2" value="5" required> 5</td>
+    <td class="tg-2ktp"></td>
+  </tr>	
+
+</table>
+<input type="submit" class="button button2" value="Submit">
+
+</form>
+</body>
+</html>
+

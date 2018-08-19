@@ -1,0 +1,4 @@
+passwd
+ls
+pwd
+logout

@@ -1,0 +1,52 @@
+.formLabel{
+    text-align: right;
+    font-size: 18px;
+    line-height: 45px;
+    color: #454545;
+    white-space: nowrap;
+}
+
+.priviousLabel{
+    text-align: right;
+    font-size: 15px;
+    line-height: 27px;
+    color: #454545;
+}
+
+.radioLabel{
+    text-align: right;
+    font-size: 18px;
+    line-height: 45px;
+    color: #454545;
+    white-space: nowrap;
+}
+
+#sex_radio{
+    white-space: nowrap;
+    text-align: left;
+}
+
+
+#sex_radio > input{
+    margin-right: 20px;
+}
+
+#privious_radio > input{
+    margin-right: 20px;
+}
+
+.ExpComments {
+    width:  100%;
+
+}
+
+@media screen and (max-width: 770px){
+    .formLabel{
+        display: block;
+        text-align: left;
+    }
+    .priviousLabel{
+        display: block;
+        text-align: left;
+    }
+}

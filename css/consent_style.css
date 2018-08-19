@@ -1,0 +1,47 @@
+/* main body of instruction block */
+
+.title{
+    padding-top: 10px;
+    padding-bottom: 16px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+p{
+    line-height: 30px;
+}
+
+
+.content{
+    text-align: center;
+    padding: 0px 14px;
+    font-size: 18px;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.consent-detail{
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.testing{
+    text-align: center;
+}
+
+
+@media screen and (max-width: 600px){
+    #introduce_block{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: -180px;
+        width: 95%;
+    }
+    .mobile_just{
+        display: block;
+    }
+}
