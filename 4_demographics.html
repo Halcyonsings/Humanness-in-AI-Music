@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115062914-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'UA-115062914-1');
     </script>
@@ -14,286 +15,107 @@
 
     <!-- bootstrap4 CSS&JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
     <!-- my css and js -->
     <link rel="stylesheet" type="text/css" href="css/main_modules.css">
     <link rel="stylesheet" type="text/css" href="css/demographics_style.css">
     <link rel="stylesheet" type="text/css" href="css/MusicSurvey_style.css">
 
-    <script type="text/javascript" src="js/globalsetting.js"></script> 
+    <script type="text/javascript" src="js/globalsetting.js"></script>
     <script type="text/javascript" src="js/quesBasicFunctions.js"></script>
     <script type="text/javascript" src="js/checkItem.js"></script>
 
     <title>NTU Music Study</title>
 </head>
+
 <body>
     <div id="bg-img"></div>
-    <section class="main_block card"> 
-        
-    <div class="MusicAbilityCard">
-        <div class="form-t1">Musical Ability</div>
+    <section class="main_block card">
+
+        <div class="MusicAbilityCard">
+            <div class="form-t1">Musical Ability, Attitude, and Beliefs Survey</div>
             <article class="intro-article">
-            <div class="a">
-            The purpose of this questionnaire is to describe your perception of your musical ability, attitude toward music, and beliefs and expectations about music that may influence your response to music. The first part is about ability.<br>
-            <!-- "&nbsp;" creates space in HTML5 -->
-            </div>
-            <div class="a">
-            <span class="highlight">Directions:</span> Please  place the mark on the scale that best indicates your position between the two sides on each question. 
-            </div>
+                <div class="a">
+                    The purpose of this questionnaire is to describe your perception of your musical ability, attitude toward music, and beliefs
+                    and expectations about music that may influence your response to music.
+                    <!-- "&nbsp;" creates space in HTML5 -->
+                </div>
+                <div class="a">
+                    <span class="highlight">Directions:</span> Please place the mark on the scale that best indicates your
+                    position between the two sides on each question.
+                </div>
             </article>
-            <hr class="long_dv">
             <div class="anchor_opinion_area">
-                <div class="anchor_descrp">1. Regardless of specific training, I consider myself to be:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">musically untalented (I am not nor could I be a good musician)</span>
-                    <input class="anchor_range" type="range" name="item1" id="MAb1" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">musically talented (I am or could be a good musician)</span>
-                </div>
-            </div>
-            <hr> <!-- hotizontal line-->
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">2. In relation to other people my age, I consider my musical performance skills to be:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">undeveloped</span>
-                    <input class="anchor_range" type="range" name="item2" id="MAb2" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">well-developed</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">3. I consider my listening skills to be:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">minimal (I do not notice details of music unless someone points them out to me)</span>
-                    <input class="anchor_range" type="range" name="item3" id="MAb3" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">well-developed (I notice features and detail in music)</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">4. People who know me well think of me as:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">a non-musician</span>
-                    <input class="anchor_range" type="range" name="item4" id="MAb4" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">a good musician</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">5. When I participate in a group musical performance:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">I understand very few of the leader's criticisms or suggestions</span>
-                    <input class="anchor_range" type="range" name="item5" id="MAb5" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">I understand many of the leader's technical criticisms</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">6. When I participate with music as a listener (or performer), I find I have:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">very little musical knowledge in my memory</span>
-                    <input class="anchor_range" type="range" name="item6" id="MAb6" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">I understand many of the leader's technical criticisms</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">7. When I look at a printed piece of music:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">I have no idea what the music would sound like</span>
-                    <input class="anchor_range" type="range" name="item7" id="MAb7" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">I have an idea how the music sounds in my head</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">8. I feel competent to participate in performances of:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">easy songs, hymns, or elementary pieces in a <b>group</b></span>
-                    <input class="anchor_range" type="range" name="item8" id="MAb8" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">advanced concertos, sonatas, song cycles <b>solo</b></span>
-                </div>
-            </div>
-            <hr>
-            <div class="paragraph_area">
-                <div class="paragraph_descrp">9. Please read this paragraph and answer the question that follows: <br>
-                    <div class="a">
-                As John looks at the music he recognizes the style. He notices the expressive potential built into the harmonic progression and motivic sequence. As his mind quickly reviews possible ornamentation and interpretation, the choice of expressive devices becomes clear. He regrets, however, not having a different instrument that would be so much more appropriate for this styie. <br>
-                    </div>
-                    <div class="a">
-                Experiences of this sort:
-                    </div>
-                </div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">never occur in my experience</span>
-                    <input class="anchor_range" type="range" name="item9" id="MAb9" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">are familiar in my experience</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">10. When I listen to a musical performance:</div>
+                <div class="anchor_descrp">1. When I listen to a musical performance:</div>
                 <div class="anchor_res_block">
                     <span class="labal_polar1">I cannot give a specific label to any musical feature</span>
-                    <input class="anchor_range" type="range" name="item10" id="MAb10" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">I can recognize elements like harmonic progressions, motive transformations, and formal features</span>
+                    <input class="anchor_range" type="range" name="item1" id="MAAB1" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">I can recognize elements like harmonic progressions, motive transformations,
+                        and formal features</span>
                 </div>
             </div>
-
-            <!-- part1 finishing -->
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="NextToMAt_btn g-btn">Next Step</div>
-                </div>
-            </div>
-    </div>
-    <div class="MusicAttitudeCard">
-        <div class="form-t1">Musical Attitude</div>
-            <article class="intro-article">
-            <div class="a">
-            The purpose of this questionnaire is to describe your perception of your musical ability, attitude toward music, and beliefs and expectations about music that may influence your response to music. The second part is about attitude.<br>
-            </div>
-            <!-- "&nbsp;" creates space in HTML5 -->
-            <div class="a">
-            <span class="highlight">Directions:</span> Please  place the mark on the scale that best indicates your position between the two sides on each question. 
-            </div>
-            </article>
-            <hr class="long_dv">
+            <hr>
             <div class="anchor_opinion_area">
-                <div class="anchor_descrp">11. My current involvement with music making is most like:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">I do not regularly make music. I just occationally sing with a group at social gatherings or at church.</span>
-                    <input class="anchor_range" type="range" name="item11" id="MAt1" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">I take private lessons, practice, participate in an ensemble and perform at least once a month</span>
-                </div>
-            </div>
-            <hr> <!-- hotizontal line-->
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">12. I attend concerts:</div>
+                <div class="anchor_descrp">2. I attend concerts:</div>
                 <div class="anchor_res_block">
                     <span class="labal_polar1">rarely</span>
-                    <input class="anchor_range" type="range" name="item12" id="MAt2" min="0" max="100" step="0.01" value="50" data-check="">
+                    <input class="anchor_range" type="range" name="item2" id="MAAB2" min="0" max="100" step="0.01" value="50" data-check="">
                     <span class="labal_polar2">at least twice a month</span>
                 </div>
             </div>
             <hr>
             <div class="anchor_opinion_area">
-                <div class="anchor_descrp">13. I choose to listen to recorded music:</div>
+                <div class="anchor_descrp">3. I choose to listen to recorded music:</div>
                 <div class="anchor_res_block">
                     <span class="labal_polar1">rarely</span>
-                    <input class="anchor_range" type="range" name="item13" id="MAt3" min="0" max="100" step="0.01" value="50" data-check="">
+                    <input class="anchor_range" type="range" name="item3" id="MAAB3" min="0" max="100" step="0.01" value="50" data-check="">
                     <span class="labal_polar2">at every opportunity</span>
                 </div>
             </div>
             <hr>
             <div class="anchor_opinion_area">
-                <div class="anchor_descrp">14. The music I choose to listen to:</div>
+                <div class="anchor_descrp">4. The music I choose to listen to:</div>
                 <div class="anchor_res_block">
-                    <span class="labal_polar1">rarely</span>
-                    <input class="anchor_range" type="range" name="item14" id="MAt4" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">at least twice a month</span>
+                    <span class="labal_polar1">is primarily of one style</span>
+                    <input class="anchor_range" type="range" name="item4" id="MAAB4" min="0" max="100" step="0.01" value="50" data-check="">
+                    <span class="labal_polar2">includes music of all popular and classical styles</span>
                 </div>
             </div>
             <hr>
             <div class="anchor_opinion_area">
-                <div class="anchor_descrp">15. My attitude toward "classical" music (e.g., a Mozart symphony) is:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">dislike very much</span>
-                    <input class="anchor_range" type="range" name="item15" id="MAt5" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">like very much</span>
-                </div>
-            </div>
-            <!-- part2 finishing -->
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="NextToMB_btn g-btn">Next Step</div>
-                </div>
-            </div>
-    </div>
-
-    <div class="MusicBeliefCard">
-        <div class="form-t1">Musical Beliefs and Expections</div>
-            <article class="intro-article">
-            <div class="a">
-            The purpose of this questionnaire is to describe your perception of your musical ability, attitude toward music, and beliefs and expectations about music that may influence your response to music. The third part is about beliefs and expections.<br>
-            <!-- "&nbsp;" creates space in HTML5 -->
-            </div>
-            <div class="a">
-            <span class="highlight">Directions:</span> Please  place the mark on the scale that best indicates your position between the two sides on each question. 
-            </div>
-            </article>
-            <hr class="long_dv">
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">16. When I listen to "classical" music I tend to concentrate on:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">the features of the composition and performance</span>
-                    <input class="anchor_range" type="range" name="item16" id="MB1" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">my own thoughts feelings and emotions</span>
-                </div>
-            </div>
-            <hr> <!-- hotizontal line-->
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">17. The purpose of "classical" music is to:</div>
+                <div class="anchor_descrp">5. The purpose of "classical" music is to:</div>
                 <div class="anchor_res_block">
                     <span class="labal_polar1">move the emotion</span>
-                    <input class="anchor_range" type="range" name="item17" id="MB2" min="0" max="100" step="0.01" value="50" data-check="">
+                    <input class="anchor_range" type="range" name="item5" id="MAA5" min="0" max="100" step="0.01" value="50" data-check="">
                     <span class="labal_polar2">stimulate the mind</span>
                 </div>
             </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">18. When I experience enjoyment with "classical" music it:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">just happens with the right music</span>
-                    <input class="anchor_range" type="range" name="item18" id="MB3" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">follows conscious thought & analysis</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">19. I expect the musical experience with "classical" music to be primarily:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">emotion</span>
-                    <input class="anchor_range" type="range" name="item19" id="MB4" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">rational</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">20. Experience with music is enhanced by:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">attention only to the sounds and structures of music</span>
-                    <input class="anchor_range" type="range" name="item20" id="MB5" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">imagination of scenes and stories</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">21. When I listen to good music I expect to:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">respond with muscular movement (e.g., tapping, swaying, dancing)</span>
-                    <input class="anchor_range" type="range" name="item21" id="MB6" min="0" max="100" step="0.01" value="50" data-check="">
-                    <span class="labal_polar2">form a judgment on its quality</span>
-                </div>
-            </div>
-       
             <!-- part3 finishing -->
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="NextToDemo_btn g-btn">Next Step</div>
                 </div>
             </div>
-    </div>
-    <form action="" id="demoForm">
-        <div class="container-fluid demoCard">
-        <p class="form-t1 text-center">Basic Information Survey</p>
-            <article class="intro-article text-center">
-            <div class="a">
-            In the last session, please fill in some information. All data will implement de-idenficattion, which means other people could not retrieve the data with your personal information. After submit the form, the experiment is finished. </article>
-            </div>
+        </div>
+
+        <form action="" id="demoForm">
+            <div class="container-fluid demoCard">
+                <p class="form-t1 text-center">Basic Information Survey</p>
+                <article class="intro-article text-center">
+                    <div class="a">
+                        In the last session, please fill in some information. All data will implement de-idenficattion, which means other people
+                        could not retrieve the data with your personal information. After submit the form, the experiment
+                        is finished.
+                </article>
+                </div>
                 <hr class="long_dv">
                 <div class="row item-container">
                     <div class="col-md-4 formLabel">Age</div>
@@ -309,8 +131,15 @@
                         <input type="radio" name="sex" id="sexInput_male" value="1">
                         <label for="sexInput_female" class="radioLabel">Female</label>
                         <input type="radio" name="sex" id="sexInput_female" value="2">
-                        <label for="sexInput_female" class="radioLabel">Other</label>
-                        <input type="radio" name="sex" id="sexInput_female" value="3">
+                        <label for="sexInput_other" class="radioLabel">Other</label>
+                        <input type="radio" name="sex" id="sexInput_orher" value="3">
+                    </div>
+                </div>
+                <div class="row item-container">
+                    <div class="col-md-4 formLabel">Years of Musical<br> Training</div>
+                    <div class="col-md-8" id="Training_range">
+                        <input type="text" class="form-control" name="training" id="TrainingInput" placeholder="Training Years">
+                        <small id="TrainingHelp" class="form-text text-muted">Please Fill in a number</small>
                     </div>
                 </div>
                 <div class="row item-container">
@@ -334,9 +163,9 @@
                     </div>
                 </div>
                 <div class="row item-container">
-                    <div class="col-md-4 formLabel"> Suggestions <br> of the <br>  Experiment</div>
+                    <div class="col-md-4 formLabel"> Suggestions <br> of the <br> Experiment</div>
                     <div class="col-md-8" id="ExpBox">
-                        <textarea rows="5"  name="ExpComments" id="ExpComments" class="ExpComments"></textarea>
+                        <textarea rows="5" name="ExpComments" id="ExpComments" class="ExpComments"></textarea>
                     </div>
                 </div>
 
@@ -347,138 +176,73 @@
             <!-- Recording -->
             <input type="hidden" id="userId" name="uid">
             <input type="hidden" id="user_finish_time" name="finishTime">
-            <input type="hidden" id="MAb_response" name="MAb_response">
-            <input type="hidden" id="MAt_response" name="MAt_response">
-            <input type="hidden" id="MB_response" name="MB_response">
+            <input type="hidden" id="MAAB_response" name="MAAB_response">
 
-    </form>
+        </form>
 
-    <!-- initializing -->
-    <script type="text/javascript">
-    // Avoid closing window
-    window.onbeforeunload = function(){return "糟糕！別走！"};
+        <!-- initializing -->
+        <script type="text/javascript">
+            // Avoid closing window
+            window.onbeforeunload = function () { return "糟糕！別走！" };
 
-    // Display setting
-    $(".MusicAttitudeCard").css("display","none");
-    $(".MusicBeliefCard").css("display","none");
-    $("#demoForm").css("display","none");
-    
+            // Display setting
+            $(".demoCard").css("display", "none");
 
 
-        // Anchor
-        $('input[class=anchor_range]').change(function(){
-            $(this).attr("data-check", "on");
-            // console.log($(this).attr("id"));
-        })
 
-        // Go to the second part
-        $('.NextToMAt_btn').click(function(){
-            // verifying
-            var checking = checkRange(10);
-            if(checking=="finished"){
-                // recording
-                MAb_response = {
-                    MAb1: $('input[id=MAb1]').val(),
-                    MAb2: $('input[id=MAb2]').val(),
-                    MAb3: $('input[id=MAb3]').val(),
-                    MAb4: $('input[id=MAb4]').val(),
-                    MAb5: $('input[id=MAb5]').val(),
-                    MAb6: $('input[id=MAb6]').val(),
-                    MAb7: $('input[id=MAb7]').val(),
-                    MAb8: $('input[id=MAb8]').val(),
-                    MAb9: $('input[id=MAb9]').val(),
-                    MAb10: $('input[id=MAb10]').val(),
-                }
-                // animation
-                $('.MusicAbilityCard').addClass("hiding"); 
-                $('.MusicAttitudeCard').addClass("showing");
-                $('html, body').animate({
+            // Anchor
+            $('input[class=anchor_range]').change(function () {
+                $(this).attr("data-check", "on");
+                // console.log($(this).attr("id"));
+            })
+
+            // Go to the second part
+            $('.NextToDemo_btn').click(function () {
+                // verifying
+                var checking = checkRange(21); //the number should equal to the last item
+                if (checking == "finished") {
+                    // recording
+                    MAAB_response = {
+                        MAAB1: $('input[id=MAAB1]').val(),
+                        MAAB2: $('input[id=MAAB2]').val(),
+                        MAAB3: $('input[id=MAAB3]').val(),
+                        MAAB4: $('input[id=MAAB4]').val(),
+                        MAAB5: $('input[id=MAAB5]').val(),
+
+                    }
+                    // animation
+                    $('.MusicSurveyCard').addClass("hiding");
+                    $(".demoCard").addClass("showing");
+                    $('html, body').animate({
                         scrollTop: $("body").offset().top
-                    }, 700);   
-                setTimeout(function(){
-                    $('.MusicAbilityCard').hide();
-                    $('.MusicAttitudeCard').show();
-                    // $(window).scrollTop(0);
-                }, 700)
-            }
-        });
-
-        // Go to the third part
-        $('.NextToMB_btn').click(function(){
-            // verifying
-            var checking = checkRange(15); //the number should equal to the last item
-            if(checking=="finished"){
-                // recording
-                MAt_response = {
-                    MAt1: $('input[id=MAt1]').val(),
-                    MAt2: $('input[id=MAt2]').val(),
-                    MAt3: $('input[id=MAt3]').val(),
-                    MAt4: $('input[id=MAt4]').val(),
-                    MAt5: $('input[id=MAt5]').val(),
+                    }, 700);
+                    setTimeout(function () {
+                        $('.MusicSurveyCard').hide();
+                        $(".demoCard").show();
+                        // $(window).scrollTop(0);
+                    }, 700)
                 }
-                // animation
-                $('.MusicAttitudeCard').addClass("hiding"); 
-                $('.MusicBeliefCard').addClass("showing");
-                $('html, body').animate({
-                        scrollTop: $("body").offset().top
-                    }, 700);   
-                setTimeout(function(){
-                    $('.MusicAttitudeCard').hide();
-                    $('.MusicBeliefCard').show();
-                    // $(window).scrollTop(0);
-                }, 700)
-            }
-        });
+            });
 
-        // Go to the fourth part
-        $('.NextToDemo_btn').click(function(){
-            // verifying
-            var checking = checkRange(21); //the number should equal to the last item
-            if(checking=="finished"){
-                // recording
-                MB_response = {
-                    MB1: $('input[id=MB1]').val(),
-                    MB2: $('input[id=MB2]').val(),
-                    MB3: $('input[id=MB3]').val(),
-                    MB4: $('input[id=MB4]').val(),
-                    MB5: $('input[id=MB5]').val(),
-                    MB6: $('input[id=MB6]').val(),
-                }
-                // animation
-                $('.MusicBeliefCard').addClass("hiding"); 
-                $(".demoCard").addClass("showing");
-                $('html, body').animate({
-                        scrollTop: $("body").offset().top
-                    }, 700);   
-                setTimeout(function(){
-                    $('.MusicBeliefCard').hide();
-                    $(".demoCard").show();
-                    // $(window).scrollTop(0);
-                }, 700)
-            }
-        });
-
-        //submit the form
-        $("#form_submit").click(function(){
+            //submit the form
+            $("#form_submit").click(function () {
                 window.onbeforeunload = null;
                 // form validating
                 var check = checkAllDemo();
-                if(check=="allFinished"){
+                if (check == "allFinished") {
                     // record finishing time
                     var time = new Date();
                     var time_info = time.toDateString() + "/" + time.toTimeString();
                     // data inserting
-                    $("#MAb_response").attr("value", JSON.stringify(MAb_response));
-                    $("#MAt_response").attr("value", JSON.stringify(MAt_response));
-                    $("#MB_response").attr("value", JSON.stringify(MB_response));
+                    $("#MAAB_response").attr("value", JSON.stringify(MAAB_response));
 
                     $("#hoverTimeRec").attr("value", hover_time_record.toString());
                     $("#user_finish_time").attr("value", time_info);
                     $("#userId").attr("value", uid);
 
                     // form submission
-                    $("form").attr("action","database/8_demographics_db.php");
-                    $("form").attr("method","POST");
+                    $("form").attr("action", "database/8_demographics_db.php");
+                    $("form").attr("method", "POST");
                     $("form").submit();
                 }
             })
@@ -486,6 +250,7 @@
 
 
 
-    </script>
+        </script>
 </body>
+
 </html>

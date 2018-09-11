@@ -16,7 +16,7 @@ $(function () {
 /* show the scale after click the MP3 file */
 $(function () {
     $('#btn-play').on('click', function () {
-        $('#MEMCscale').delay(3000).show(300);
+        $('#MEMCscale').delay(3000).show(300).scrollTop(0);
     });
 });
 
@@ -25,35 +25,35 @@ $(function () {
 //--------------------------------------- MEMC questions ---------------------------------------
 MEMC = {
     // Musical Emotion
-    "1": "filled with wonder, amazed",
-    "2": "moved, touched",
-    // "3": "enchanted, in awe",
-    // "4": "inspired, enthusiastic",
-    // "5": "energetic, lively",
-    // "6": "joyful, wanting to dance",
-    // "7": "powerful, strong",
-    // "8": "full of tenderness, warmhearted",
-    // "9": "relaxed, peaceful",
-    // "10": "melancholic, sad",
-    // "11": "nostalgic, sentimental",
-    // "12": "indifferent, bored",
-    // "13": "tense, uneasy",
-    // "14": "agitated, aggressive",
+    "1": "Filled with wonder, amazed",
+    "2": "Moved, touched",
+    "3": "Enchanted, in awe",
+    "4": "Inspired, enthusiastic",
+    "5": "Energetic, lively",
+    "6": "Joyful, wanting to dance",
+    "7": "Powerful, strong",
+    "8": "Full of tenderness, warmhearted",
+    "9": "Relaxed, peaceful",
+    "10": "Melancholic, sad",
+    "11": "Nostalgic, sentimental",
+    "12": "Indifferent, bored",
+    "13": "Tense, uneasy",
+    "14": "Agitated, aggressive",
 
-    // // Musical Cognition
-    // "15": "Structured",
-    // "16": "Orderly",
-    // "17": "Balanced",
-    // "18": "Artistic",
-    // "19": "Clear",
-    // "20": "Complex",
-    // "21": "Ornate",
-    // "22": "Subtle",
-    // "23": "Delicate",
+    // Musical Cognition
+    "15": "Structured",
+    "16": "Orderly",
+    "17": "Balanced",
+    "18": "Artistic",
+    "19": "Clear",
+    "20": "Complex",
+    "21": "Ornate",
+    "22": "Subtle",
+    "23": "Delicate",
 
-    // // Add by experimenters
-    // "24": "familiar",
-    // "25": "Awkward",
+    // Add by experimenters
+    "24": "Familiar",
+    "25": "Awkward",
 
 }
 
@@ -66,7 +66,7 @@ MEMC = {
 var Qlength = Object.keys(MEMC).length
 // var Qorder = shuffle(range(1,Qlength)) //radom order
 var Qorder = range(1, Qlength) // non random order
-var itemsPrePage = 10 //一頁幾題
+var itemsPrePage = 25 //一頁幾題
 var Npage = Math.ceil(Qlength / itemsPrePage) //共有幾頁
 var currentPage = 1 //沒有指導語頁面0
 var Response = {}

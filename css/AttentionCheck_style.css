@@ -1,0 +1,29 @@
+.Attention_check_area{
+    height: 250px;
+    padding: 6px 10px;
+    transition-duration: 0.2s;
+}
+
+
+.Attention_check_area:hover{
+    background-color: #F7F7F7;
+}
+
+
+
+
+
+
+/* Attention Check - descriptions */
+.Attention_check_descrp{
+    font-size: 18px;
+    text-align: left;
+    color: #787878;
+    margin-bottom: 10px
+}
+
+.AC_option{
+    font-size: 14px;
+    color: #787878;
+    margin-bottom: 5px
+}

@@ -17,12 +17,16 @@ emotional scale 指導語太長，故獨立一頁
 
 
 ## Abbreviation
+AC = Attetion Check
 MP = Mind Perception Scale
 ME = Musical Emotion Scale
 MC = Musical Cognition Scale
 MAb = Musical Ability
 MAt = Musical Attitude
 MB = Musical Belief
+
+##  20180828
+將MAb, MAt, MB整合成一個 MAAB 
 
 ##  20180716
 雙極性量表的高分端應該是要音樂很好的 -> 只變動CSS
