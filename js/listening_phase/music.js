@@ -3,7 +3,7 @@
 // 
 
 
-$(function () {
+$(function() {
 
 
     var buttons = {
@@ -25,7 +25,7 @@ $(function () {
     });
 
     // Handle Play button
-    buttons.play.addEventListener("click", function () {
+    buttons.play.addEventListener("click", function() {
         Spectrum.play();
 
         // Enable/Disable respectively buttons
@@ -35,7 +35,7 @@ $(function () {
     }, false);
 
     // Handle Pause button
-    buttons.pause.addEventListener("click", function () {
+    buttons.pause.addEventListener("click", function() {
         Spectrum.pause();
 
         // Enable/Disable respectively buttons
@@ -45,7 +45,7 @@ $(function () {
 
 
     // Handle Restart button
-    buttons.Restart.addEventListener("click", function () {
+    buttons.Restart.addEventListener("click", function() {
         Spectrum.stop();
 
         // Enable/Disable respectively buttons
@@ -56,13 +56,13 @@ $(function () {
 
 
     // Add a listener to enable the play button once it's ready
-    Spectrum.on('ready', function () {
+    Spectrum.on('ready', function() {
         buttons.play.disabled = false;
     });
 
     // If you want a responsive mode (so when the user resizes the window)
     // the spectrum will be still playable
-    window.addEventListener("resize", function () {
+    window.addEventListener("resize", function() {
         // Get the current progress according to the cursor position
         var currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
 
@@ -80,17 +80,20 @@ $(function () {
 
 
     //--------------------------------------- record listening time ---------------------------------------
-    var songTime = 0;
-    setInterval(function () {
-        if (Spectrum.isPlaying() == true) {
-            //console.log("Sucessful record");
-            songTime = (Number(songTime) + 0.01).toFixed(2); // Number() change the string into number 
-            $('#TimeCount').text("Play Time" + songTime);
-        }
-    }, 10);
+
+
+
+    //     var songTime = 0;
+    //     setInterval(function() {
+    //         if (Spectrum.isPlaying() == true) {
+    //             //console.log("Sucessful record");
+    //             songTime = (Number(songTime) + 0.01).toFixed(2); // Number() change the string into number 
+    //             $('#TimeCount').text("Play Time" + songTime);
+    //         }
+    //     }, 10);
 
     // Set the time information in "X:XX" form
-    var formatTime = function (time) {
+    var formatTime = function(time) {
         return [
             Math.floor((time % 3600) / 60), // minutes
             ('00' + Math.floor(time % 60)).slice(-2) // seconds
@@ -110,19 +113,19 @@ $(function () {
     //   });
 
     //--------------------------------------- Update for time information ---------------------------------------
-    Spectrum.on('ready', function () {
+    Spectrum.on('ready', function() {
         //console.log("Sucessfully assess current time");
         $('#TimeInformation').text(formatTime(Spectrum.getCurrentTime()) + " / " + formatTime(Spectrum.getDuration()));
     });
 
 
-    Spectrum.on('audioprocess', function () {
+    Spectrum.on('audioprocess', function() {
         //console.log("Sucessfully assess current time");
         $('#TimeInformation').text(formatTime(Spectrum.getCurrentTime()) + " / " + formatTime(Spectrum.getDuration()));
     });
 
 
-    Spectrum.on('seek', function () {
+    Spectrum.on('seek', function() {
         //console.log("Sucessfully assess current time");
         $('#TimeInformation').text(formatTime(Spectrum.getCurrentTime()) + " / " + formatTime(Spectrum.getDuration()));
     });
@@ -132,9 +135,30 @@ $(function () {
     // 一開始先 load 第0首
     var idx = 0;
     var random_music = sampleMusic();
-    Spectrum.load(random_music[idx]);  // random assign music here 
+    Spectrum.load(random_music[idx]); // random assign music here 
 
-    $("#next").click(function () {
+    //  記錄每一首歌的時間
+    var listeningTime = {};
+    setInterval(function() {
+        if (Spectrum.isPlaying() === true) {
+
+            // 如果music 已經有紀錄，就取出之前紀錄的時間，不然songTime就設為0
+            let music = random_music[idx];
+            let songTime = (music in listeningTime) ? listeningTime[music] : 0;
+
+            // 累加時間
+            //console.log("Sucessful record");
+            songTime = (Number(songTime) + 0.01).toFixed(2); // Number() change the string into number 
+            $('#TimeCount').text("Play Time" + songTime);
+
+            // 把時間存回去            
+            listeningTime[music] = songTime;
+            console.log(listeningTime);
+        }
+    }, 10);
+
+
+    $("#next").click(function() {
 
         // TODO: 上傳分數 要吃music ID 當 參數
 
@@ -146,7 +170,7 @@ $(function () {
 
         // TODO: 繼續 清掉range bar
         idx += 1;
-        Spectrum.load(random_music[idx]);  // random assign music here 
+        Spectrum.load(random_music[idx]); // random assign music here 
         reloadRangebar();
         $('#MEMCscale').hide();
 
@@ -157,6 +181,3 @@ $(function () {
 
 
 })
-
-
-
