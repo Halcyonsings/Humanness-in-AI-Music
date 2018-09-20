@@ -12,11 +12,7 @@
     <!--Insert wavesurfer.js -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
 
-    <!-- my css and js -->
-    <script type="text/javascript" src="js/globalsetting.js"></script>
-    <script src="./js/listening_phase/memc.js"></script>
-    <script src="./js/listening_phase/trials.js"></script>
-    <script src="./js/listening_phase/music.js"></script>
+
 
     <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="stylesheet" href="css/jspsych.css">
@@ -45,8 +41,7 @@
         <div class="form-t1">Listening Session</div>
         <article class="intro-article">
             Please fill the questionnaire after listening.The form will show up
-            <span class="highlight">3 seconds later</span>
-            after clicking the mp3.
+            <span class="highlight">3 seconds later</span> after clicking the mp3.
         </article>
 
         <div id="trial1" class="MP3File">
@@ -68,7 +63,8 @@
 
         <!-- Comments of the music -->
         <div class="CommentArea">
-            <div class="ClockDesign"><i class="fa fa-clock-o"></i><div id="TimeInformation"></div>
+            <div class="ClockDesign"><i class="fa fa-clock-o"></i>
+                <div id="TimeInformation"></div>
             </div>
             <textarea rows="1" cols="50" name="MusicComments" id="MusicComments" class="MusicComments"></textarea>
             <button type="button" id="SendComments">Add Comments</button>
@@ -93,7 +89,12 @@
         </form>
     </section>
 
-
+    <!-- my css and js -->
+    <script type="text/javascript" src="js/globalsetting.js"></script>
+    <script src="./js/listening_phase/memc.js"></script>
+    <script src="./js/listening_phase/trials.js"></script>
+    <script src="./js/listening_phase/music.js"></script>
+    <script src="./js/listening_phase/main.js"></script>
 </body>
 
 </html>
