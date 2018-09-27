@@ -1,13 +1,41 @@
-/*
- *  執行memc初始好的問卷與music初始好的音樂
- * 
+/**
+ * @author Doublebite r05921030@g.ntu.edu.tw
+ * @fileoverview 執行memc初始好的問卷與music初始好的音樂
  */
 
+var random_music;
 
 
-// 一開始先 load 第0首
-var random_music = sampleMusic();
-Spectrum.load(random_music[currentPage]); // random assign music here 
+$.ajax({
+
+        // Get the csv file from server and read it.
+        url: "clips_information.csv", //The url of the csv file
+        async: false,
+        dataType: "text",
+
+    })
+    .done(function(csv) {
+
+        // When the reading is done, convert the csv format to an array of objects, and then 
+        // convert the array to an object with each element as value and the ID of it as key.
+        // arrItems[i] is like: {clips_id: "1", pairs: "1", author: "AI", music_file: "music/AIBachHCII.mp3"}
+        // objItem = { 1:{clips_id: "1", pairs: "1", author: "AI", music_file: "music/AIBachHCII.mp3"}, 2:{.......}, ......}
+        const arrMusic = $.csv.toObjects(csv);
+        const objMusic = arrMusic.reduce((obj, item) => {
+            obj[item.clips_id] = item
+            return obj
+        }, {});
+
+        //     Get the music IDs.
+        const music_Ids = shuffle(Object.keys(objMusic));
+
+        random_music = music_Ids.map(id => objMusic[id].music_file);
+        Spectrum.load(random_music[currentPage]); // random assign music here 
+
+    });
+
+
+
 
 function nextPage() {
 
@@ -80,6 +108,8 @@ setInterval(function() {
         //             console.log(listeningTime);
     }
 }, 10);
+
+
 
 
 //     $("#next").click(function() {
