@@ -73,7 +73,7 @@ var Response = {}
 var ResponseTime = {}
 var starttime, endtime
 var itemsPerPage = 25;
-Npage = 10;
+Npage = 5;
 
 window.onload = function() {
     //get startTime

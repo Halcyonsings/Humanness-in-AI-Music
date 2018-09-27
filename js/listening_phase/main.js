@@ -20,21 +20,29 @@ $.ajax({
         // convert the array to an object with each element as value and the ID of it as key.
         // arrItems[i] is like: {clips_id: "1", pairs: "1", author: "AI", music_file: "music/AIBachHCII.mp3"}
         // objItem = { 1:{clips_id: "1", pairs: "1", author: "AI", music_file: "music/AIBachHCII.mp3"}, 2:{.......}, ......}
-        const arrMusic = $.csv.toObjects(csv);
-        const objMusic = arrMusic.reduce((obj, item) => {
+        const arrMusicItems = $.csv.toObjects(csv);
+        const objMusicItems = arrMusicItems.reduce((obj, item) => {
             obj[item.clips_id] = item
             return obj
         }, {});
 
         //     Get the music IDs.
-        const music_Ids = shuffle(Object.keys(objMusic));
-
-        random_music = music_Ids.map(id => objMusic[id].music_file);
+        //         const music_Ids = shuffle(Object.keys(objMusic));
+        random_music = sampleAHMusic(objMusicItems);
+        console.log(random_music)
         Spectrum.load(random_music[currentPage]); // random assign music here 
 
     });
 
+function sampleAHMusic(objMusicItems) {
 
+    let human_ai_ids = shuffle([...Array(8).keys()].map(x => x + 1)).slice(0, 2);
+    human_ai_ids = human_ai_ids.map(x => x * 2 - 1).concat(human_ai_ids.map(x => x * 2));
+    const control_ids = shuffle([...Array(2).keys()].map(x => x + 17)).slice(0, 1);
+    const music_ids = human_ai_ids.concat(control_ids);
+    const random_musics = music_ids.map(id => objMusicItems[id].music_file);
+    return random_musics;
+}
 
 
 function nextPage() {
