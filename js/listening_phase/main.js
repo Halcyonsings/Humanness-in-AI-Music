@@ -37,7 +37,10 @@ $.ajax({
 function sampleAHMusic(objMusicItems) {
 
     let human_ai_ids = shuffle([...Array(8).keys()].map(x => x + 1)).slice(0, 2);
-    human_ai_ids = human_ai_ids.map(x => x * 2 - 1).concat(human_ai_ids.map(x => x * 2));
+    human_ai_ids = human_ai_ids.reduce(function(r, e) {
+        r.push(e * 2 - 1, e * 2);
+        return r;
+    }, []);
     const control_ids = shuffle([...Array(2).keys()].map(x => x + 17)).slice(0, 1);
     const music_ids = human_ai_ids.concat(control_ids);
     const random_musics = music_ids.map(id => objMusicItems[id].music_file);
