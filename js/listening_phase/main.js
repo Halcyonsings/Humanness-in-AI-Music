@@ -30,7 +30,7 @@ $.ajax({
         //         const music_Ids = shuffle(Object.keys(objMusic));
         random_music = sampleAHMusic(objMusicItems);
         console.log(random_music)
-        Spectrum.load(random_music[currentPage]); // random assign music here 
+        Spectrum.load(random_music[currentPage-1]); // random assign music here 
 
     });
 
@@ -63,7 +63,7 @@ function nextPage() {
             currentPage++
 
             //             Load new music, reload range bar, hide the MEMC.
-            Spectrum.load(random_music[currentPage]); // random assign music here 
+            Spectrum.load(random_music[currentPage-1]); // random assign music here 
             reloadRangebar();
             $('#MEMCscale').hide();
 
