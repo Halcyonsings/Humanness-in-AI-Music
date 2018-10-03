@@ -95,8 +95,16 @@ $(function() {
         $("form").prepend("<div class='page Hide' id='page" + i + "'></div>")
         for (var j = 0; j < Math.ceil(itemsPerPage / itemPerCollapse); j++) {
             $("#page" + i).append(`<div class="panel panel-default" id="panel${i}${j}">` +
-                `<div class="panel-heading" data-toggle="collapse" data-parent="#page${i}" data-target="#collapse${i}${j}">${j+1}</div>` +
-                `<div id="collapse${i}${j}" class="panel-collapse collapse"></div>` +
+                `<div class="panel-heading" data-toggle="collapse" data-parent="#page${i}" data-target="#collapse${i}${j}">` +
+                `<ul class="list-group">` +
+                `<li class="list-group-item list-group-item-primary">${j*5 + 1}. ${MEMC[j*5 + 1]}</li>` +
+                `<li class="list-group-item list-group-item-warning">${j*5 + 2}. ${MEMC[j*5 + 2]}</li>` +
+                `<li class="list-group-item list-group-item-success">${j*5 + 3}. ${MEMC[j*5 + 3]}</li>` +
+                `<li class="list-group-item list-group-item-danger">${j*5 + 4}. ${MEMC[j*5 + 4]}</li>` +
+                `<li class="list-group-item list-group-item-info">${j*5 + 5}. ${MEMC[j*5 + 5]}</li>` +
+                `</ul>` +
+                `</div >` +
+                `<div id = "collapse${i}${j}" class = "panel-collapse collapse" > </div>` +
                 `</div>`)
         }
 
