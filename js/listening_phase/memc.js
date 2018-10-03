@@ -75,6 +75,8 @@ var starttime, endtime
 var itemsPerPage = 25;
 Npage = 5;
 
+var itemPerCollapse = 5;
+
 window.onload = function() {
     //get startTime
     starttime = performance.now()
@@ -91,9 +93,16 @@ $(function() {
     console.log(Npage)
     for (var i = 1; i <= Npage; i++) {
         $("form").prepend("<div class='page Hide' id='page" + i + "'></div>")
+        for (var j = 0; j < Math.ceil(itemsPerPage / itemPerCollapse); j++) {
+            $("#page" + i).append(`<div class="panel panel-default" id="panel${i}${j}">` +
+                `<div class="panel-heading" data-toggle="collapse" data-parent="#page${i}" data-target="#collapse${i}${j}">${j+1}</div>` +
+                `<div id="collapse${i}${j}" class="panel-collapse collapse"></div>` +
+                `</div>`)
+        }
+
         for (var j = 0; j < itemsPerPage; j++) {
             //             var itemOrder = (i - 1) * itemsPrePage + (j + 1)
-            $("#page" + i).append("<div class='itembox'><div class='itemcontent'>" + (j + 1) + ". " + MEMC[j + 1] + "</div><div data-item='" + (j + 1) + "' class='rangebar'></div></div>")
+            $("#page" + i).find(`#collapse${i}${Math.floor(j / itemPerCollapse)}`).append("<div class='itembox'><div class='itemcontent'>" + (j + 1) + ". " + MEMC[j + 1] + "</div><div data-item='" + (j + 1) + "' class='rangebar'></div></div>")
 
             //             if (itemOrder <= Qlength) {
             //                 $("#page" + i).append("<div class='itembox'><div class='itemcontent'>" + itemOrder + ". " + MEMC[Qorder[itemOrder - 1]] + "</div><div data-item='" + (Qorder[itemOrder - 1]) + "' class='rangebar'></div></div>")
