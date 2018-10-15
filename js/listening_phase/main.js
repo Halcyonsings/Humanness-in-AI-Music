@@ -3,6 +3,27 @@
  * @fileoverview 執行memc初始好的問卷與music初始好的音樂
  */
 
+
+
+rederMEMC(25);
+
+
+$question_menus = $(".question-block").find("select").selectmenu({
+    classes: {
+        "ui-selectmenu-button": " question-menu",
+
+    },
+    width: '80%'
+});
+
+$(".question-block").click(function() {
+
+    $(this).find("select").selectmenu("open");
+    console.log(123);
+
+});
+
+
 var random_music;
 
 

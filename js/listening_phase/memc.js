@@ -87,36 +87,67 @@ window.onload = function() {
 }
 
 
+
+function rederMEMC(numQuestion) {
+
+    $memc_area = $("#memc-row");
+
+    for (let i = numQuestion; i > 0; i--) {
+
+        let questionText = `<div class="col-12 col-sm-6">` +
+            `<div class="row btn-info align-items-center question-block">` +
+            ` <div class="col-12">` +
+            `<h5>${i}. ${MEMC[i]}</h5>` +
+            `</div>` +
+            `<div class="col-12 d-flex justify-content-center">` +
+            `<select>` +
+            `<option hidden disabled selected value>Choose</option>` +
+            `<option name="test1">Very mch</option>` +
+            `<option name="test1">Quite a lot</option>` +
+            `<option name="test1">Moderately</option>` +
+            `<option name="test2">Somewhat</option>` +
+            `<option name="test2">Not at all</option>` +
+            `</select>` +
+            `</div>` +
+            `</div>` +
+            `</div>`
+
+        $memc_area.prepend(questionText);
+
+    }
+}
+
+
 //append items
 //start from 1 because no instruction
 $(function() {
-    console.log(Npage)
-    for (var i = 1; i <= Npage; i++) {
-        $("form").prepend("<div class='page Hide' id='page" + i + "'></div>")
-        for (var j = 0; j < Math.ceil(itemsPerPage / itemPerCollapse); j++) {
-            $("#page" + i).append(`<div class="panel panel-default" id="panel${i}${j}">` +
-                `<div class="panel-heading" data-toggle="collapse" data-parent="#page${i}" data-target="#collapse${i}${j}">` +
-                `<ul class="list-group">` +
-                `<li class="list-group-item list-group-item-primary">${j*5 + 1}. ${MEMC[j*5 + 1]}</li>` +
-                `<li class="list-group-item list-group-item-warning">${j*5 + 2}. ${MEMC[j*5 + 2]}</li>` +
-                `<li class="list-group-item list-group-item-success">${j*5 + 3}. ${MEMC[j*5 + 3]}</li>` +
-                `<li class="list-group-item list-group-item-danger">${j*5 + 4}. ${MEMC[j*5 + 4]}</li>` +
-                `<li class="list-group-item list-group-item-info">${j*5 + 5}. ${MEMC[j*5 + 5]}</li>` +
-                `</ul>` +
-                `</div >` +
-                `<div id = "collapse${i}${j}" class = "panel-collapse collapse" > </div>` +
-                `</div>`)
-        }
+    //     console.log(Npage)
+//     for (var i = 1; i <= Npage; i++) {
+//         $("form").prepend("<div class='page Hide' id='page" + i + "'></div>")
+//         for (var j = 0; j < Math.ceil(itemsPerPage / itemPerCollapse); j++) {
+//             $("#page" + i).append(`<div class="panel panel-default" id="panel${i}${j}">` +
+//                 `<div class="panel-heading" data-toggle="collapse" data-parent="#page${i}" data-target="#collapse${i}${j}">` +
+//                 `<ul class="list-group">` +
+//                 `<li class="list-group-item list-group-item-primary">${j*5 + 1}. ${MEMC[j*5 + 1]}</li>` +
+//                 `<li class="list-group-item list-group-item-warning">${j*5 + 2}. ${MEMC[j*5 + 2]}</li>` +
+//                 `<li class="list-group-item list-group-item-success">${j*5 + 3}. ${MEMC[j*5 + 3]}</li>` +
+//                 `<li class="list-group-item list-group-item-danger">${j*5 + 4}. ${MEMC[j*5 + 4]}</li>` +
+//                 `<li class="list-group-item list-group-item-info">${j*5 + 5}. ${MEMC[j*5 + 5]}</li>` +
+//                 `</ul>` +
+//                 `</div >` +
+//                 `<div id = "collapse${i}${j}" class = "panel-collapse collapse" > </div>` +
+//                 `</div>`)
+//         }
 
-        for (var j = 0; j < itemsPerPage; j++) {
-            //             var itemOrder = (i - 1) * itemsPrePage + (j + 1)
-            $("#page" + i).find(`#collapse${i}${Math.floor(j / itemPerCollapse)}`).append("<div class='itembox'><div class='itemcontent'>" + (j + 1) + ". " + MEMC[j + 1] + "</div><div data-item='" + (j + 1) + "' class='rangebar'></div></div>")
+//         for (var j = 0; j < itemsPerPage; j++) {
+//             //             var itemOrder = (i - 1) * itemsPrePage + (j + 1)
+//             $("#page" + i).find(`#collapse${i}${Math.floor(j / itemPerCollapse)}`).append("<div class='itembox'><div class='itemcontent'>" + (j + 1) + ". " + MEMC[j + 1] + "</div><div data-item='" + (j + 1) + "' class='rangebar'></div></div>")
 
-            //             if (itemOrder <= Qlength) {
-            //                 $("#page" + i).append("<div class='itembox'><div class='itemcontent'>" + itemOrder + ". " + MEMC[Qorder[itemOrder - 1]] + "</div><div data-item='" + (Qorder[itemOrder - 1]) + "' class='rangebar'></div></div>")
-            //             }
-        }
-    }
+//             //             if (itemOrder <= Qlength) {
+//             //                 $("#page" + i).append("<div class='itembox'><div class='itemcontent'>" + itemOrder + ". " + MEMC[Qorder[itemOrder - 1]] + "</div><div data-item='" + (Qorder[itemOrder - 1]) + "' class='rangebar'></div></div>")
+//             //             }
+//         }
+//     }
     $("#page1").removeClass("Hide").fadeIn(500)
     if (currentPage == Npage) {
         $("#next").html("Finished")
