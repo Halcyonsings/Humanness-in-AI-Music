@@ -4,11 +4,12 @@
 */
 
 .question-block {
-    margin: 5px auto;
+        margin: 5px auto;
     min-height: 80px;
-    border-radius: 25px;
+        border-radius: 25px;
     cursor: pointer;
     padding-bottom: 5px;
+    border: 1px solid #FFF;
 }
 
 .question-block div[class^="col"] h5 {
