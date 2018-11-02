@@ -5,43 +5,56 @@
 /* ============================= The header part =============================== */
 
 header {
-    min-height: 300px;
+    height: 60px;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../../asset/violin1.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
+.jumbotron {
+    margin-bottom: 0;
+}
+
 /* ============================= The main part =============================== */
 
-#main-block {
+main {
+    background-color: #fff;
+}
+
+/* #main-block {
     margin-bottom: 20px;
     padding-top: 20px;
     padding-left: 5%;
     padding-right: 5%;
     background-color: #fff;
     border-radius: 4px;
-    /* add shadow */
-    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
+    add shadow box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid #d8d8d8;
-}
+} */
 
-#main-block section {
+section {
     /*     border: 1px solid black; */
-    margin-bottom: 30px;
+    /*     margin-top: 30px; */
 }
 
 #instruction-section {
+    padding-top: 50px;
+}
+
+#instruction-section div[class^=col] {
     border-bottom: 1px ridge;
+    background-color: redl
 }
 
 #music-section {
+    padding-top: 30px;
+    padding-bottom: 60px;
     border-bottom: 1px ridge;
-    padding-bottom: 10px;
 }
 
 #music-section #audio-spectrum {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 #music-section .MusicButtonDesign,
@@ -54,13 +67,14 @@ header {
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
-    width: 20%;
+    width: 23%;
     height: 70px;
-    position: relative;
+    /*     position: relative; */
     display: inline-block;
     /* set the position in the same line */
-    margin-right: 1px;
+    /*     margin-right: 1px;
     margin-left: 1px;
+    */
 }
 
 /* Darker background on mouse-over */
@@ -73,7 +87,7 @@ header {
 
 #music-section .ClockDesign {
     padding-top: 10px;
-    padding-bottom: 10px;
+    /*     padding-bottom: 10px; */
     padding-left: 0px;
     padding-right: 0px;
 }

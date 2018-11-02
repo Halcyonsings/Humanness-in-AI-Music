@@ -17,8 +17,8 @@ var Spectrum = WaveSurfer.create({
     container: '#audio-spectrum',
     waveColor: 'violet',
     progressColor: 'purple',
-    height: 128,
-    barHeight: 1,
+    height: 80,
+    barHeight: 2,
     // normalize: true, // positive correlate with volume
     barWidth: 4,
     minPxPerSec: 25

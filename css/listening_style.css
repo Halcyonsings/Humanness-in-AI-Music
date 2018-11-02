@@ -1,14 +1,15 @@
-.MusicComments{
-	font-family:sans-serif;
-	font-size:1.2em;
-	position: relative;
+.MusicComments {
+    font-family: sans-serif;
+    font-size: 1.2em;
+    position: relative;
     display: inline-block;
     float: right;
     width: 75%;
 }
 
 /* Button */
-.MusicButtonDesign{
+
+.MusicButtonDesign {
     background-color: DodgerBlue;
     border: none;
     color: white;
@@ -17,17 +18,19 @@
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
-    width: 22%;    /* width: 7.5rem; */
+    width: 22%;
+    /* width: 7.5rem; */
     height: 70px;
     position: relative;
-    display: inline-block; /* set the position in the same line */
+    display: inline-block;
+    /* set the position in the same line */
 }
 
-.ClockDesign{
+.ClockDesign {
     background-color: DodgerBlue;
     border: none;
     color: white;
-    padding-top: 10px; 
+    padding-top: 10px;
     padding-bottom: 0px;
     padding-left: 0px;
     padding-right: 0px;
@@ -41,24 +44,25 @@
     display: inline-block;
 }
 
-
 /* Darker background on mouse-over */
-.MusicButtonDesign:hover, .ClockDesign:hover { /* Need a "," if have "hover:" comments */
+
+.MusicButtonDesign:hover,
+.ClockDesign:hover {
+    /* Need a "," if have "hover:" comments */
     background-color: RoyalBlue;
 }
 
 /* Comment Area */
 
-.CommentArea{
+.CommentArea {
     display: inline-block;
     height: 5rem;
 }
 
-
-#audio-spectrum{
+#audio-spectrum {
     margin-bottom: 20px;
 }
 
-#SendComments{
+#SendComments {
     float: right;
 }

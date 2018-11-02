@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
+    <!--   Jquery CSV  ||  To read the csv file of music list-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script>
+
     <!-- Wavesurfer JS -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
     <!--     <script src="jspsych.js"></script> -->
@@ -32,7 +35,6 @@
     <!--     <link rel="stylesheet" href="css/range_bar.css" /> -->
     <link rel="stylesheet" href="css/2_listening_phase/style.css">
     <link rel="stylesheet" href="css/2_listening_phase/music.css">
-
 </head>
 
 
@@ -40,7 +42,7 @@
 
     <header class="jumbotron">
         <div class="container">
-            <h1>AI Music</h1>
+            <!--             <h1>AI Music</h1> -->
         </div>
     </header>
 
@@ -48,71 +50,71 @@
     <main>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-sm-8" id="main-block">
 
-                    <!--        The section for the instruction             -->
-                    <section id="instruction-section">
-                        <div class="form-t1">Listening Session</div>
-                        <article class="intro-article">
-                            Please fill the questionnaire after listening.The form will show up
-                            <span class="highlight">3 seconds later</span> after clicking the mp3.
-                        </article>
-                    </section>
+                <!--        The section for the instruction             -->
+                <section class="col-12" id="instruction-section">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-8">
+                            <div class="form-t1">Listening Session</div>
+                            <article class="intro-article">
+                                Please fill the questionnaire after listening.The form will show up
+                                <span class="highlight">3 seconds later</span> after clicking the mp3.
+                            </article>
+                        </div>
+                    </div>
+                </section>
 
-                    <!--        The section for music and button group             -->
-                    <section id="music-section">
-                        <!-- Create a div where the audio waves will be shown -->
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-sm-8">
-                                <div id="audio-spectrum" class="InsertNote"></div>
+                <!--       The section for music and button group             -->
+                <section class="col-12" id="music-section">
+
+                    <!-- Create a div where the audio waves will be shown -->
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-6">
+                            <div id="audio-spectrum" class="InsertNote"></div>
+                        </div>
+                    </div>
+
+                    <!-- Create action buttons -->
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-6">
+                            <div class="row justify-content-between">
+                                <!-- Before being turned on by JS, the default value of button is set to disabled -->
+                                <button id="btn-play" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">play_arrow</i>Play</button>
+                                <button id="btn-pause" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">pause</i>Pause</button>
+                                <button id="btn-Restart" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">replay</i>Restart</button>
+                                <button class="ClockDesign">
+                                 <i class="fa fa-clock-o"></i>
+                                 <div id="TimeInformation"></div> 
+                            </button>
                             </div>
                         </div>
-                        <!-- Create action buttons -->
-                        <div class="row justify-content-center">
-                            <!-- Before being turned on by JS, the default value of button is set to disabled -->
-                            <button id="btn-play" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">play_arrow</i>Play</button>
-                            <button id="btn-pause" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">pause</i>Pause</button>
-                            <button id="btn-Restart" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">replay</i>Restart</button>
-                            <div class="ClockDesign">
-                                <i class="fa fa-clock-o"></i>
-                                <div id="TimeInformation"></div>
-                            </div>
-                        </div>
-                    </section>
+                    </div>
+                </section>
 
-                    <!--   
-                      <hr class="long_dv">
-                      <div id="TimeCount">Play time: 0</div> <br>
-                    -->
 
-                    <!--         The section for MEMC             -->
-                    <section id="memc">
-                        <div class="row" id="memc-row"></div>
-                    </section>
+                <!--         The section for MEMC             -->
+                <section class="col-12" id="memc">
+                </section>
 
-                    <form id="MEMCscale">
-                        <div class="clearfix">
-                            <button type="button" id="next" class="g-btn MEMCbutton" onclick="nextPage();">
+                <form id="MEMCscale">
+                    <div class="clearfix">
+                        <button type="button" id="next" class="g-btn MEMCbutton" onclick="nextStep()">
                             <span>Next Page<span>
                             </button>
-                        </div>
-                    </form>
+                    </div>
+                </form>
 
-                </div>
             </div>
         </div>
     </main>
 
 
-
-
     <!-- Custom JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script>
     <script type="text/javascript" src="js/globalsetting.js"></script>
-    <script src="./js/listening_phase/memc.js"></script>
-    <script src="./js/listening_phase/trials.js"></script>
-    <script src="./js/listening_phase/music.js"></script>
-    <script src="./js/listening_phase/main.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/memc.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/music.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/index.js"></script>
+
 </body>
 
 </html>
