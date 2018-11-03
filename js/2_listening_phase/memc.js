@@ -1,6 +1,11 @@
 /**
- * @author Doublebite r05921030@g.ntu.edu.tw
- * @fileoverview Manages the questions of this test.
+ * @author - Doublebite r05921030@g.ntu.edu.tw
+ * @fileoverview - 此script負責定義問卷的題目、以及相關操作的function。
+ * MEMC本身是ㄧ個object，無論是題目或是相關操作都可以透過MEMC.xxx來使用。
+ * 相關操作的function包括：
+ *          1. render: 繪製題目container 及題目到所指定的 div 
+ *          2. shuffle: 重新整理題目，並把 select 歸零
+ *          3. getAnswers: 得到所填寫的問卷答案
  */
 
 
@@ -40,8 +45,10 @@ let MEMC = {
 
 
 /**
- * Render the questions to div with the id "memc-row".
- * @param {int} numQuestion The number of questions to render.
+ * 繪製題目container 及題目到所指定的 div ID，首先會先畫出 M x N 個container，然後再對每一個container填上題目
+ * @param {string} divToRender - The div ID to render problems.
+ * @param {int} numQuestion - The number of questions to render.
+ * @param {int} numQuesPerRow - The number of questions per row.
  * @return {null}
  */
 MEMC.render = function(divToRender, numQuestions, numQuesPerRow = 5) {
@@ -49,7 +56,7 @@ MEMC.render = function(divToRender, numQuestions, numQuesPerRow = 5) {
     //  Get the div to render question text
     $memcArea = $(`#${divToRender}`);
 
-    // Draw Row x numQuesPerRow empty containers to render our question text.
+    // Draw M x N empty containers to render our question text.
     // In our case is 5x5 containers.
     let numRow = Math.ceil(numQuestions / numQuesPerRow);
 
@@ -82,41 +89,70 @@ MEMC.render = function(divToRender, numQuestions, numQuesPerRow = 5) {
     }
 
     // Set the conatiners property for our object
-    this.containers = $("div[id^=questionContainer]");
     // Make our select more functional with Jquery UI 
+    // Add click listener
+    this.containers = $("div[id^=questionContainer]");
     this.containers.find("select").selectmenu({
         classes: {
             "ui-selectmenu-button": " question-menu",
         },
         width: '80%'
     });
-    // Add click listener
     this.containers.click(function() {
         $(this).find("select").selectmenu("open");
     });
 
-
+    // Render questions to our container.
     this.renderQuestions();
 }
 
 
 /**
- * Demonstrates how top-level functions follow the same rules.  This one
- * makes an array.
- * @param {TYPE} arg
- * @return {!Array<TYPE>}
+ * 重新整理題目，並把 select 歸零
+ * @param {null} 
+ * @return {null}
  */
-MEMC.renderQuestions = function(numQuestion = 10) {
+MEMC.shuffle = function() {
+    // Re-render the questions
+    this.renderQuestions();
+    // clear the selections.
+    this.clear();
+}
+
+
+
+/**
+ * 得到所填寫的問卷答案，並回傳一個object，key是問卷題號，value是針對該題的回答。
+ * @param {null}
+ * @return {Object} answers- 
+ */
+MEMC.getAnswers = function() {
+    // Collect answers
+    let answers = {};
+    this.containers.find("select").each(function(index) {
+        answers[$(this).attr("id")] = $(this).val();
+    });
+    return answers
+}
+
+
+
+/**
+ * (Axiliary function) Render the questions to each container
+ * @param {boolean} isRandom - whether to randomly render
+ * @return {null}
+ */
+MEMC.renderQuestions = function(isRandom = true) {
 
     let IDs = Array(25).fill().map((i, v) => v + 1);
-    let randomQuestionIds = shuffle(IDs);
-    console.log("Random question IDs", randomQuestionIds);
+    if (isRandom)
+        IDs = shuffle(IDs);
+    console.log("The order of question IDs", IDs);
 
     //   Render the text to each container one by one.
     this.containers.each(function(index) {
-        let questionID = randomQuestionIds[index];
-        let quesText = `${index+1}. ${MEMC[questionID]}`;
-        $(this).find("h5").text(quesText);
+        let questionID = IDs[index];
+        $(this).find("h5").text(`${index+1}. ${MEMC[questionID]}`);
         $(this).find("select").attr("id", `question-${questionID}`);
     });
 }
@@ -124,7 +160,7 @@ MEMC.renderQuestions = function(numQuestion = 10) {
 
 
 /**
- * Clear the selections when the replies are submitted.
+ * (Axiliary function) Clear the selections.
  * Reference: The reply of Stephen James on https://stackoverflow.com/questions/6305253/jquery-ui-selectmenu-how-to-reset-dropdown-on-form-reset-button
  * @param {null}
  * @return {null}
@@ -138,25 +174,11 @@ MEMC.clear = function() {
 
 
 
-MEMC.getAnswers = function() {
-
-    // Collect answers
-    let answers = {};
-    this.containers.find("select").each(function(index) {
-        answers[$(this).attr("id")] = $(this).val();
-    });
-    return answers
-
-}
 
 
-
-MEMC.shuffle = function() {
-    this.renderQuestions();
-    this.clear();
-}
-
-
+// ====================================================================
+// Some old functions
+// ====================================================================
 
 
 //Warning before existing
@@ -172,10 +194,8 @@ window.onbeforeunload = function() {
 
 
 /* hide the questionires first */
-$(function() {
-    $('#MEMCscale').hide();
-    $('#memc').hide();
-});
+$('#MEMCscale').hide();
+$('#memc').hide();
 
 /* show the scale after click the MP3 file */
 $('#btn-play').on('click', function() {

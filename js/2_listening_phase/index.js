@@ -1,6 +1,6 @@
 /**
  * @author Doublebite r05921030@g.ntu.edu.tw
- * @fileoverview Manages the configuration settings for the widget.
+ * @fileoverview - 使用music.js跟memc.js初始化的問卷跟音樂物件以執行問卷功能的script
  */
 
 
@@ -47,18 +47,26 @@ $.ajax({
     });
 
 
+
+/**
+ * The function to execute when the "Next" button is clicked.
+ * @param {null} 
+ * @return {null}
+ */
 function nextStep() {
 
-    // Get answers
+    // Get answers and 
     let answers = MEMC.getAnswers();
 
+    // Check answers, submit the answers and jump to next page. 
     if (Object.values(answers).includes(null)) {
+        // If the the answers contain null, alert the user.
         alert("Please finish questions: \n" + getAllIndexes(Object.values(answers), null).map(e => e + 1).join(", "));
     } else {
         // Do something to send these answers to server.
         console.log(playList[currentTrial - 1], answers);
 
-        // Go to the next step
+        // Jump to next page
         if (currentTrial == playList.length) {
             // The last trial is over. Do something.
         } else {
@@ -67,12 +75,13 @@ function nextStep() {
             MEMC.shuffle();
             $('#memc').hide();
             $('#MEMCscale').hide();
-
         }
     }
 }
 
-
+/**
+ * Get the indexes of the input val occuring on the input array.
+ */
 function getAllIndexes(arr, val) {
     var indexes = [];
     for (let i = 0; i < arr.length; i++)
