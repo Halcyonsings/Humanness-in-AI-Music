@@ -8,13 +8,12 @@
 
 // The umber of questions to render and the current page
 // Declare the variable for the play list of musics
-let numQuestions = 25;
 let currentTrial = 1;
 let playList;
-
+let allAnswers = {};
 
 // Render the questions
-MEMC.render("memc", numQuestions);
+MEMC.render("memc");
 
 
 // Get the music list(a csv file) from server, save to our play list, and then play the first song
@@ -54,27 +53,36 @@ $.ajax({
  * @return {null}
  */
 function nextStep() {
-
     // Get answers and 
-    let answers = MEMC.getAnswers();
+    let phase = MEMC.getCurrentPhase();
+    let phaseAnswers = MEMC.getAnswers(phase);
 
     // Check answers, submit the answers and jump to next page. 
-    if (Object.values(answers).includes(null)) {
+    if (Object.values(phaseAnswers).includes(null)) {
         // If the the answers contain null, alert the user.
-        alert("Please finish questions: \n" + getAllIndexes(Object.values(answers), null).map(e => e + 1).join(", "));
+        alert("Please finish questions: \n" + getAllIndexes(Object.values(phaseAnswers), null).map(e => e + 1).join(", "));
     } else {
-        // Do something to send these answers to server.
-        console.log(playList[currentTrial - 1], answers);
 
-        // Jump to next page
-        if (currentTrial == playList.length) {
-            // The last trial is over. Do something.
-        } else {
-            currentTrial++;
-            Spectrum.load(playList[currentTrial - 1]);
-            MEMC.shuffle();
-            $('#memc').hide();
-            $('#MEMCscale').hide();
+        MEMC.toggle();
+        if (phase === "phase1")
+            return false;
+        else {
+            let answers = MEMC.getAnswers();
+            // Do something to send these answers to server.
+            console.log(playList[currentTrial - 1], answers);
+            allAnswers[playList[currentTrial - 1]] = answers;
+
+            // Jump to next page
+            if (currentTrial == playList.length) {
+                // The last trial is over. Do something.
+                console.log(allAnswers);
+            } else {
+                currentTrial++;
+                Spectrum.load(playList[currentTrial - 1]);
+                MEMC.shuffle();
+                $('#memc').hide();
+                $('#MEMCscale').hide();
+            }
         }
     }
 }
