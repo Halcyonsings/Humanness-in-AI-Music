@@ -100,8 +100,8 @@ MEMC.render = function(divToRender) {
 
 
 /**
- * 繪製問卷card到所指定的container，問卷container裡面首先會先畫出 M x N 個card
- * @param {string} divToRender - The div ID to render problems.
+ * 繪製問卷M x N 個card到所指定的container
+ * @param {string} divID - The container ID to render problems.
  * @param {int} numQuestion - The number of questions to render.
  * @param {int} numQuesPerRow - The number of questions per row.
  * @return {null}
@@ -147,6 +147,8 @@ MEMC.renderEmptyCards = function(divId, numQuestion, numQuesPerRow = 5) {
 
 /**
  * (Axiliary function) Render the questions to each container
+ * @param {string} divID - The container ID to render problems.
+ * @param {!Array<int>} questionIds - The question Ids to render into the container.
  * @param {boolean} isRandom - whether to randomly render
  * @return {null}
  */
@@ -207,7 +209,7 @@ MEMC.getAnswers = function(phase = "all") {
 
 
 /**
- * Demonstrates how top-level functions follow the same rules.  This one
+ * 得到現在是在問卷狀態1還是狀態2。
  */
 MEMC.getCurrentPhase = function() {
     return this.phase;

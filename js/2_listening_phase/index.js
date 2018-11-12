@@ -53,7 +53,7 @@ $.ajax({
  * @return {null}
  */
 function nextStep() {
-    // Get answers and 
+    // Phase1 指的是第一階段的1-25題，phase2是第二階段的26 27
     let phase = MEMC.getCurrentPhase();
     let phaseAnswers = MEMC.getAnswers(phase);
 
@@ -62,17 +62,21 @@ function nextStep() {
         // If the the answers contain null, alert the user.
         alert("Please finish questions: \n" + getAllIndexes(Object.values(phaseAnswers), null).map(e => e + 1).join(", "));
     } else {
-
+        //不管怎樣都要換頁
         MEMC.toggle();
+
+        // 如果是phase1就繼續做phase2
         if (phase === "phase1")
             return false;
+        // 如果是phase2 就把答案存起來，看要上傳或是繼續做下去。
         else {
             let answers = MEMC.getAnswers();
+
             // Do something to send these answers to server.
             console.log(playList[currentTrial - 1], answers);
             allAnswers[playList[currentTrial - 1]] = answers;
 
-            // Jump to next page
+            // 跳下一首歌。 Jump to next page
             if (currentTrial == playList.length) {
                 // The last trial is over. Do something.
                 console.log(allAnswers);
