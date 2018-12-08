@@ -14,7 +14,7 @@
 <body>
     <h1></h1>
     <div id="BachBCI" class="randselected">
-        <div>
+        <div class="item-container">
             <audio class="player1" src="http://mil.psy.ntu.edu.tw/~hsiang/music/AIBachBCI.mp3" controls>
                 Your browser does not support the <code>audio</code> element.
             </audio><br>
@@ -24,7 +24,7 @@
             <input type="radio" class="MusicRes1" name="AIBachBCI" value="4" required> 4
             <input type="radio" class="MusicRes1" name="AIBachBCI" value="5" required> 5
         </div>
-        <div>
+        <div class="item-container">
             <audio class="player2" src="http://mil.psy.ntu.edu.tw/~hsiang/music/HBachBCI_temp.mp3" controls>
                 Your browser does not support the <code>audio</code> element.
             </audio><br>
@@ -37,7 +37,7 @@
     </div>
 
     <div id="BachBCII" class="randselected">
-        <div>
+        <div class="item-container">
             <audio class="player3" src="http://mil.psy.ntu.edu.tw/~hsiang/music/AIBachBCII.mp3" controls>
                 Your browser does not support the <code>audio</code> element.
             </audio><br>
@@ -47,7 +47,7 @@
             <input type="radio" class="MusicRes3" name="AIBachBCII" value="4" required> 4
             <input type="radio" class="MusicRes3" name="AIBachBCII" value="5" required> 5
         </div>
-        <div>
+        <div class="item-container">
             <audio class="player4" src="http://mil.psy.ntu.edu.tw/~hsiang/music/HBachBCII_temp.mp3" controls>
                 Your browser does not support the <code>audio</code> element.
             </audio><br>
@@ -60,7 +60,7 @@
     </div>
 
     <div id="BachBCIII" class="randselected">
-        <div>
+        <div class="item-container">
             <audio class="player5" src="http://mil.psy.ntu.edu.tw/~hsiang/music/AIBachBCIII.mp3" controls>
                 Your browser does not support the <code>audio</code> element.
             </audio><br>
@@ -70,7 +70,7 @@
             <input type="radio" class="MusicRes5" name="AIBachBCIII" value="4" required> 4
             <input type="radio" class="MusicRes5" name="AIBachBCIII" value="5" required> 5
         </div>
-        <div>
+        <div class="item-container">
             <audio class="player6" src="http://mil.psy.ntu.edu.tw/~hsiang/music/HBachBCIII_temp.mp3" controls>
                 Your browser does not support the <code>audio</code> element.
             </audio><br>
@@ -86,22 +86,17 @@
         //----------------------random select----------------------
         function shuffle(array) {
             var m = array.length, t, i;
-
             // While there remain elements to shuffle…
             while (m) {
-
                 // Pick a remaining element…
                 i = Math.floor(Math.random() * m--);
-
                 // And swap it with the current element.
                 t = array[m];
                 array[m] = array[i];
                 array[i] = t;
             }
-
             return array;
         }
-
         $(function () {
             var $trials = $(".randselected"); // crandom select HTML elelment
             $(shuffle($trials).slice(0, 1)).remove(); // remove some trials
@@ -113,25 +108,27 @@
                 $('.MusicRes' + i).hide();
             }
         });
-
-
-
         /* show the scale after click the MP3 file */
         $(function () {
             for (var i = 1; i <= 16; i++) {
                 console.log("a:" + i)
                 temp = String('.MusicRes' + i)
-
                 $('.player' + i).on('click', function () {
                     console.log("b:" + i)
-
                     $(temp).delay(300).show(300);
                     console.log(temp)
                 });
             }
         });
 
+        /* prevent simultaneously playing */
+        $("audio").on("play", function () {
+            var id = $(this).attr('id');
 
+            $("audio").not(this).each(function (index, audio) {
+                audio.pause();
+            });
+        });
     </script>
 </body>
 

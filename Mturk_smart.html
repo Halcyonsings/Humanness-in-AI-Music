@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://mil.psy.ntu.edu.tw/~hsiang/js/checkItem.js"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="http://mil.psy.ntu.edu.tw/~hsiang/css/main_modules.css">
+    <link rel="stylesheet" type="text/css" href="http://mil.psy.ntu.edu.tw/~hsiang/css/demographics_style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- <style type="text/css">
+        .player {
+            margin-bottom: 30px
+        }
+    </style> -->
+
+    <title>NTU Music Study</title>
+</head>
+
+<body>
+    <!-- Header image -->
+    <header>
+        <div id="bg-img" src="http://mil.psy.ntu.edu.tw/~hsiang/asset/violin1.jpg"></div>
+    </header>
+
+    <section class="main_block card">
+        <div class="ListeningCard">
+            <div class="form-t1">Listening Session</div>
+            <article class="intro-article">
+                <div class="a">
+                    Please fill the questions after listening each clips. Please rate your preference on a scale
+                    ranging
+                    from 1
+                    (not like this song) to 5 (very like this song).The radio button will show up
+                    <span class="highlight">1 minute later</span>
+                    after clicking the mp3 button. You will listen to <span class="highlight">8 clips</span>.
+                </div>
+            </article>
+
+            <div class="item-container">
+                <audio id="soundtrack1" class="player" controls>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+                <br>
+                <input type="radio" class="MusicRes1" value="1" required> 1
+                <input type="radio" class="MusicRes1" value="2" required> 2
+                <input type="radio" class="MusicRes1" value="3" required> 3
+                <input type="radio" class="MusicRes1" value="4" required> 4
+                <input type="radio" class="MusicRes1" value="5" required> 5
+            </div>
+            <div class="item-container">
+                <audio id="soundtrack2" class="player" controls>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+                <br>
+                <input type="radio" class="MusicRes2" value="1" required> 1
+                <input type="radio" class="MusicRes2" value="2" required> 2
+                <input type="radio" class="MusicRes2" value="3" required> 3
+                <input type="radio" class="MusicRes2" value="4" required> 4
+                <input type="radio" class="MusicRes2" value="5" required> 5
+            </div>
+            <div class="item-container">
+                <audio id="soundtrack3" class="player" controls>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+                <br>
+                <input type="radio" class="MusicRes3" value="1" required> 1
+                <input type="radio" class="MusicRes3" value="2" required> 2
+                <input type="radio" class="MusicRes3" value="3" required> 3
+                <input type="radio" class="MusicRes3" value="4" required> 4
+                <input type="radio" class="MusicRes3" value="5" required> 5
+            </div>
+            <div class="item-container">
+                <audio id="soundtrack4" class="player" controls>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+                <br>
+                <input type="radio" class="MusicRes4" value="1" required> 1
+                <input type="radio" class="MusicRes4" value="2" required> 2
+                <input type="radio" class="MusicRes4" value="3" required> 3
+                <input type="radio" class="MusicRes4" value="4" required> 4
+                <input type="radio" class="MusicRes4" value="5" required> 5
+            </div>
+            <div class="item-container">
+                <audio id="soundtrack5" class="player" controls>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+                <br>
+                <input type="radio" class="MusicRes5" value="1" required> 1
+                <input type="radio" class="MusicRes5" value="2" required> 2
+                <input type="radio" class="MusicRes5" value="3" required> 3
+                <input type="radio" class="MusicRes5" value="4" required> 4
+                <input type="radio" class="MusicRes5" value="5" required> 5
+            </div>
+            <div class="item-container">
+                <audio id="soundtrack6" class="player" controls>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+                <br>
+                <input type="radio" class="MusicRes6" value="1" required> 1
+                <input type="radio" class="MusicRes6" value="2" required> 2
+                <input type="radio" class="MusicRes6" value="3" required> 3
+                <input type="radio" class="MusicRes6" value="4" required> 4
+                <input type="radio" class="MusicRes6" value="5" required> 5
+            </div>
+            <div class="item-container">
+                <audio id="soundtrack7" class="player" controls>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+                <br>
+                <input type="radio" class="MusicRes7" value="1" required> 1
+                <input type="radio" class="MusicRes7" value="2" required> 2
+                <input type="radio" class="MusicRes7" value="3" required> 3
+                <input type="radio" class="MusicRes7" value="4" required> 4
+                <input type="radio" class="MusicRes7" value="5" required> 5
+            </div>
+            <div class="item-container">
+                <audio id="soundtrack8" class="player" controls>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+                <br>
+                <input type="radio" class="MusicRes8" value="1" required> 1
+                <input type="radio" class="MusicRes8" value="2" required> 2
+                <input type="radio" class="MusicRes8" value="3" required> 3
+                <input type="radio" class="MusicRes8" value="4" required> 4
+                <input type="radio" class="MusicRes8" value="5" required> 5
+            </div>
+
+
+
+
+
+            <!-- part1 finishing -->
+            <!-- <div class="container">
+                <div class="row justify-content-center">
+                    <div class="NextToDemo_btn g-btn">Next Step</div>
+                </div>
+            </div> -->
+        </div>
+
+        <div class="container-fluid demoCard">
+            <p class="form-t1 text-center">Basic Information Survey</p>
+            <article class="intro-article">
+                <div class="a">
+                    In the last session, please fill in some information. All data will implement de-idenficattion,
+                    which means other people
+                    could not retrieve the data with your personal information. After submit the form, the
+                    experiment
+                    is finished.
+                </div>
+            </article>
+
+            <hr class="long_dv">
+            <div class="row item-container">
+                <div class="col-md-4 formLabel">Age</div>
+                <div class="col-md-8" id="age_range">
+                    <input type="text" class="form-control" name="age" id="ageInput" placeholder="Age">
+                    <small id="ageHelp" class="form-text text-muted">Please Fill in a number</small>
+                </div>
+            </div>
+            <div class="row item-container">
+                <div class="col-4 formLabel">Gender</div>
+                <div class="col-8" id="sex_radio">
+                    <label for="sexInput_male" class="radioLabel">Male</label>
+                    <input type="radio" name="sex" id="sexInput_male" value="1">
+                    <label for="sexInput_female" class="radioLabel">Female</label>
+                    <input type="radio" name="sex" id="sexInput_female" value="2">
+                    <label for="sexInput_other" class="radioLabel">Other</label>
+                    <input type="radio" name="sex" id="sexInput_orher" value="3">
+                </div>
+            </div>
+            <div class="row item-container">
+                <div class="col-md-4 formLabel">Years of Musical<br> Training</div>
+                <div class="col-md-8" id="Training_range">
+                    <input type="text" class="form-control" name="training" id="TrainingInput" placeholder="Training Years">
+                    <small id="TrainingHelp" class="form-text text-muted">Please Fill in a number</small>
+                </div>
+            </div>
+            <div class="row item-container">
+                <div class="col-4 formLabel">
+                    <label for="eduInput">Education level</label>
+                </div>
+                <div class="col-8" id="edu">
+                    <select name="education" form="demoForm" class="form-control custom-select" id="eduInput">
+                        <option selected>--Please Select--</option>
+                        <option>Under junior high school</option>
+                        <option>Senior high school</option>
+                        <option>Bachelor degree</option>
+                        <option>Graduate school</option>
+                    </select>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            // Avoid closing window
+            window.onbeforeunload = function () { return "糟糕！別走！" };
+
+            // // Display setting
+            // $(".demoCard").css("display", "none");
+
+
+            var musicList = [
+                // AI list
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/AIBachBCI.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/AIBachBCII.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/AIBachBCIII.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/AIBachHCII.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/AIBachHCIII.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/AIMozartSII.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/AIMozartSIII.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/AIMozartSIV.mp3",
+
+
+
+                // Human List
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/HBachBCI_temp.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/HBachBCII_temp.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/HBachBCIII_temp.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/HBachHC1III_temp.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/HBachHC7II_temp.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/HMozartS10I_temp.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/HMozartS41II_temp.mp3",
+                "http://mil.psy.ntu.edu.tw/~hsiang/music/HMozartS41III_temp.mp3",
+
+            ];
+
+            /**
+             * Shuffles array in place. ES6 version
+             * @param {Array} a items An array containing the items.
+             * From: https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
+             */
+            function shuffle(a) {
+                for (let i = a.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [a[i], a[j]] = [a[j], a[i]];
+                }
+                return a;
+            }
+
+            /**
+             * Get the music name from music URL. 
+             * @param {String} the music URL.
+             * By: Doublebite
+             */
+            function splitName(url) {
+                tmp = url.split('.').slice(-2)[0];  // tmp is something like "tw/~hsiang/music/AIBachBCIII".
+                name = tmp.split('/').slice(-1)[0]; // name is something like "HBachBCII_temp".
+                name = name.replace("_temp", ""); // Replace the _temp with empty string.
+                return name;
+            }
+
+            $(function () {
+
+                newList = shuffle(musicList);
+                for (let i = 1; i <= 8; i++) {
+
+                    trackName = `#soundtrack${i}`;
+                    musicURL = newList[i];
+                    musicName = splitName(musicURL);
+
+                    console.log("Load music", musicName);
+                    $(trackName).attr("src", musicURL);
+                    $(`.MusicRes${i}`).attr("name", musicName);
+                }
+
+            });
+            /* hide the questionires first */
+            $(function () {
+                for (var i = 1; i <= 16; i++) {
+                    $('.MusicRes' + i).hide();
+                }
+            });
+
+
+
+            /* show the scale after click the MP3 file */
+            $(function () {
+                for (let i = 1; i <= 16; i++) { // "var i=1" could not work
+                    // console.log("a:" + i)
+                    // temp = String('.MusicRes' + i)
+
+                    $('#soundtrack' + i).on('click', function () {
+                        // console.log("b:" + i)
+
+                        $('.MusicRes' + i).delay(300).show(300);
+                        // console.log(temp)
+                    });
+                }
+            });
+
+
+
+            /* prevent simultaneously playing */
+            $("audio").on("play", function () {
+                var id = $(this).attr('id');
+
+                $("audio").not(this).each(function (index, audio) {
+                    audio.pause();
+                });
+            });
+
+            // Go to the second part
+            // $('.NextToDemo_btn').click(function () {
+
+            //     // animation
+            //     $('.ListeningCard').addClass("hiding");
+            //     $(".demoCard").addClass("showing");
+            //     $('html, body').animate({
+            //         scrollTop: $("body").offset().top
+            //     }, 700);
+            //     setTimeout(function () {
+            //         $('.ListeningCard').hide();
+            //         $(".demoCard").show();
+            //         // $(window).scrollTop(0);
+            //     }, 700)
+            // });
+
+        </script>
+</body>
+
+</html>

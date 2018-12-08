@@ -29,6 +29,11 @@ MAb = Musical Ability
 MAt = Musical Attitude
 MB = Musical Belief
 
+##  20180920
+develop 拆出一個新的 main.js，整合memc.js和music.js的功能
+Npage變成有幾個trial的操控變項
+
+
 ##  20180828
 將MAb, MAt, MB整合成一個 MAAB 
 
