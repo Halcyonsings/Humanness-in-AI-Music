@@ -1,0 +1,41 @@
+/* 
+    The style sheet for music components.
+
+*/
+
+.question-card {
+    margin: 5px auto;
+    min-height: 80px;
+    border-radius: 25px;
+    cursor: pointer;
+    padding-bottom: 5px;
+    /*     border: 1px solid #0000ff; */
+}
+
+.question-card div[class^="col"] h5 {
+    /*     border: 1px solid black; */
+    margin-top: 10px;
+    /*     height: 40px; */
+    font-size: 120%;
+    height: 45px;
+}
+
+.little {
+    font-size: 105%;
+}
+
+.ui-widget {
+    font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+    font-size: 100%;
+}
+
+.ui-selectmenu-button {
+    height: 27px;
+    padding: 0px;
+    padding-top: 4px;
+    padding-left: 5%;
+}
+
+.ui-selectmenu-text {
+    margin: 0 auto;
+}
