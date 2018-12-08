@@ -24,10 +24,11 @@ $ip = get_client_ip();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- TODO: Add google track    -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115062914-1"></script> -->
     <!-- <script> -->
- <!--        window.dataLayer = window.dataLayer || [];
+    <!--        window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'UA-115062914-1'); -->
@@ -80,7 +81,7 @@ $ip = get_client_ip();
                 <input type="hidden" name="browser" id="user_browser">
                 <input type="hidden" name="start_time" id="user_start_time">
                 <input type="hidden" name="userObj" id="user_object">
-                <input type="hidden" name="inattention" id="inattention">
+                <input type="hidden" name="inattentionP0" id="inattention_P0">
                 <div class="row justify-content-center">
                     <div class="g-btn" id="go_to_consent_btn">Agree & Start</div>
                 </div>
@@ -91,27 +92,30 @@ $ip = get_client_ip();
     <!-- initializing -->
     <script type="text/javascript">
         var uid = uuidGenerator();
-        // console.log(uid);
-        var uid = uid.replaceAll('-','').substring(0,16);
+        // console.log(typeof uid);
+        // var uid = uid.replaceAll('-','').substring(0,16);  
+        // [20181208] js does not have a function "replaceAll"
+        var uid = uid.split("-").join("").substring(0,16);
         console.log(uid);
-
-        // user object
-        var user = init_exp(uid);
-        // console.log(user.opinion.part1.)
-        var user_json = JSON.stringify(user);
+        // TODO: Add whole JSON [20181208] temptive do not use these code
+        // // user object
+        // var user = init_exp(uid);
+        // // console.log(user.opinion.part1.)
+        // var user_json = JSON.stringify(user);
 
         // user device
         var user_ip = '<?php echo $ip;?>';
         var user_browser = navigator.userAgent;
         var time = new Date();
         var time_info = time.toDateString() + "/" + time.toTimeString();
-        $('.testing').text("測試ID: " + uid);
+        // $('.testing').text("測試ID: " + uid);     // [20181208] success
         $('#go_to_consent_btn').click(function(){
             $("#user_id").attr("value", uid);
             $("#user_ip").attr("value", user_ip);
             $("#user_browser").attr("value", user_browser);
             $("#user_start_time").attr("value", time_info);
-            $("#user_object").attr("value", user_json);
+            $("#inattention_P0").attr("value", inattention);
+            // $("#user_object").attr("value", user_json);
             
             // form submission
             $("form").attr("action","db/exp_init.php")
