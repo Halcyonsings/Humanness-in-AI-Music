@@ -14,7 +14,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
   var warningColor = 'red';
   var requirePlayback = true;
   var st_isPlaying = false;
-  var headphoneCheckData = {
+  headphoneCheckData = {
     pageNum: 0,
     stimIDList: [],
     stimDataList: [],
@@ -29,7 +29,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
   var headphoneCheckConfig = {};
   // NOTE: DON'T CHANGE VALUES HERE. Use a similar config object to
   // override any default values you wish to change.
-  var headphoneCheckDefaultConfig = {
+  headphoneCheckDefaultConfig = {
     jsonPath: undefined,
     totalTrials: 2,
     trialsPerPage: 2,
@@ -141,7 +141,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
     $('<div/>', {
       class: 'hc-instruction intro-article',
       html: '<div class="a">When you hit <b>Play</b>, you will hear three sounds separated by silences. Simply judge <span class="highlight"> which sound was softest/ quietest </span> -- 1, 2, or 3? Test sounds can only be played once!</div>'
-    }).appendTo($('#hc-task'));
+    }).appendTo($('#hc-container'));
 
     if (headphoneCheckConfig.debug) console.log(headphoneCheckData);
 
@@ -153,7 +153,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
         var stimData = headphoneCheckData.stimDataList[trialInd];
         var stimID = headphoneCheckData.stimIDList[trialInd];
         // add in a group for each item in stimulus
-        renderHeadphoneCheckTrial('hc-task', stimID, stimData.src);
+        renderHeadphoneCheckTrial('hc-container', stimID, stimData.src);
       }
     }
 
@@ -179,6 +179,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
 
     // Add button to continue
     $('<button/>', {
+      // id: 'go_to_listening_btn',
       text: 'Continue',
       click: function () {
         var canContinue = checkCanContinue();
@@ -200,33 +201,19 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
             // add some data to the response object
             headphoneCheckData.totalCorrect = getTotalCorrect(headphoneCheckData.trialScoreList);
             headphoneCheckData.didPass = didPass;
-            // $(document).trigger('hcHeadphoneCheckEnd', { 'didPass': didPass, 'data': headphoneCheckData, 'config': headphoneCheckConfig });
-
-            // [20181210] storage data and turn to the next page 
-            // trialInd = current trial
-            if (trialInd == headphoneCheckData.stimDataList.length - 1) {
-              // console.log("end");
-              $("#did_Pass").attr("value", didPass);
-              $("#total_Correct").attr("value", headphoneCheckData.totalCorrect);
-              $("#inattention_P1").attr("value", inattention);
-              $("#HC_All_Data").attr("value", headphoneCheckData);
-
-              // form submission
-              $("form").attr("action", "db/a_headphone.php")
-              $("form").attr("method", "POST")
-              $("form").submit()
-
-              // window.location = "2_listening_phase.html"
-            }
+            $(document).trigger('hcHeadphoneCheckEnd', { 'didPass': didPass, 'data': headphoneCheckData, 'config': headphoneCheckConfig });
           }
-          // else {
-          //   teardownHTMLPage();
-          //   headphoneCheckData.pageNum++;
-          //   HeadphoneCheck.renderHeadphoneCheckPage();
-          // }
+
+          else {
+            teardownHTMLPage();
+            headphoneCheckData.pageNum++;
+            HeadphoneCheck.renderHeadphoneCheckPage();
+          }
         }
+
         else { // need responses, don't advance page, show warnings
           renderResponseWarnings();
+          // console.log(headphoneCheckData);
         }
       }
     }).appendTo($('#hc-task'));

@@ -14,6 +14,7 @@
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/globalsetting.js"></script>
     <script type="text/javascript" src="js/1_headphone/HeadphoneCheck.js"></script>
+    <script type="text/javascript" src="js/1_headphone/TurnPage.js"></script>
 </head>
 
 <body onload="HeadphoneCheck.runHeadphoneCheck();">
@@ -30,6 +31,9 @@
             <input type="hidden" name="totalCorrect" id="total_Correct">
             <input type="hidden" name="inattentionP1" id="inattention_P1">
             <input type="hidden" name="HCAllData" id="HC_All_Data">
+            <div class="row justify-content-center">
+                <div class="g-btn" id="go_to_listening_btn">Agree & Start</div>
+            </div>
         </form>
 
 </body>

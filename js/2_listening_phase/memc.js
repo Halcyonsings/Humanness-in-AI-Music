@@ -61,7 +61,7 @@ MEMC.phase2Ids = [26, 27];
  * 繪製題目container 及題目到所指定的 div ID，首先會先畫出 M x N 個container，然後再對每一個container填上題目
  * @param {string} divToRender - The div ID to render problems.
  */
-MEMC.render = function(divToRender) {
+MEMC.render = function (divToRender) {
 
     let $memc = $(`#${divToRender}`);
     this.memc = $memc;
@@ -92,7 +92,7 @@ MEMC.render = function(divToRender) {
         },
         width: '80%'
     });
-    this.cards.click(function() {
+    this.cards.click(function () {
         $(this).find("select").selectmenu("open");
     });
 
@@ -106,7 +106,7 @@ MEMC.render = function(divToRender) {
  * @param {int} numQuesPerRow - The number of questions per row.
  * @return {null}
  */
-MEMC.renderEmptyCards = function(divId, numQuestion, numQuesPerRow = 5) {
+MEMC.renderEmptyCards = function (divId, numQuestion, numQuesPerRow = 5) {
 
     let $memcContainer = $(`#${divId}`); // The questionnaire container
     let numRow = Math.ceil(numQuestion / numQuesPerRow); // The number of row to render
@@ -121,7 +121,7 @@ MEMC.renderEmptyCards = function(divId, numQuestion, numQuesPerRow = 5) {
         for (let j = 1; j <= numQuesPerRow; j++) {
 
             let quesCard = `<div class="col-12 col-sm">` +
-                `<div class="row btn-info align-items-center question-card" id="question-card-${i*5+j}">` +
+                `<div class="row btn-info align-items-center question-card" id="question-card-${i * 5 + j}">` +
                 ` <div class="col-12">` +
                 `<h5></h5>` +
                 `</div>` +
@@ -150,7 +150,7 @@ MEMC.renderEmptyCards = function(divId, numQuestion, numQuesPerRow = 5) {
  * @param {boolean} isRandom - whether to randomly render
  * @return {null}
  */
-MEMC.renderQuestions = function(containerId, questionIds, isRandom = true) {
+MEMC.renderQuestions = function (containerId, questionIds, isRandom = true) {
 
     let $memcContainer = $(`#${containerId}`); // The questionnaire container
     let $cards = $memcContainer.find(".question-card");
@@ -160,8 +160,8 @@ MEMC.renderQuestions = function(containerId, questionIds, isRandom = true) {
     console.log("The order of question IDs", ids);
 
     //   Render the text to each container one by one.
-    ids.forEach(function(id, index) {
-        $cards.eq(index).find("h5").text(`${index+1}. ${MEMC[id]}`);
+    ids.forEach(function (id, index) {
+        $cards.eq(index).find("h5").text(`${index + 1}. ${MEMC[id]}`);
         $cards.eq(index).find("select").attr("id", `question-${id}`);
     });
 }
@@ -173,7 +173,7 @@ MEMC.renderQuestions = function(containerId, questionIds, isRandom = true) {
  * @param {null} 
  * @return {null}
  */
-MEMC.shuffle = function() {
+MEMC.shuffle = function () {
     // Re-render the questions
     this.renderQuestions("phase1", MEMC.phase1Ids);
     // clear the selections.
@@ -187,7 +187,7 @@ MEMC.shuffle = function() {
  * @param {null}
  * @return {Object} answers- 
  */
-MEMC.getAnswers = function(phase = "all") {
+MEMC.getAnswers = function (phase = "all") {
 
     let targetContainer;
     if (phase === "phase1")
@@ -199,7 +199,7 @@ MEMC.getAnswers = function(phase = "all") {
 
     // Collect answers
     let answers = {};
-    targetContainer.find('select').each(function(index) {
+    targetContainer.find('select').each(function (index) {
         answers[$(this).attr("id")] = $(this).val();
     });
     return answers
@@ -209,7 +209,7 @@ MEMC.getAnswers = function(phase = "all") {
 /**
  * Demonstrates how top-level functions follow the same rules.  This one
  */
-MEMC.getCurrentPhase = function() {
+MEMC.getCurrentPhase = function () {
     return this.phase;
 }
 
@@ -218,7 +218,7 @@ MEMC.getCurrentPhase = function() {
 /**
  * Toggle the memc phase1 and phase2
  */
-MEMC.toggle = function() {
+MEMC.toggle = function () {
 
     if (this.phase === "phase1") {
         this.phase = "phase2";
@@ -242,8 +242,8 @@ MEMC.toggle = function() {
  * @param {null}
  * @return {null}
  */
-MEMC.clear = function() {
-    this.cards.find("select").each(function(index) {
+MEMC.clear = function () {
+    this.cards.find("select").each(function (index) {
         $(this)[0].selectedIndex = 0;
         $(this).selectmenu("refresh");
     });
@@ -258,7 +258,7 @@ MEMC.clear = function() {
 
 //Warning before existing
 // var AttemptLeave = 0
-window.onbeforeunload = function() {
+window.onbeforeunload = function () {
     return "糟糕！別走！"
 };
 
@@ -273,7 +273,7 @@ $('#MEMCscale').hide();
 $('#memc').hide();
 
 /* show the scale after click the MP3 file */
-$('#btn-play').on('click', function() {
+$('#btn-play').on('click', function () {
     $('#memc').show();
     $('#MEMCscale').delay(3000).show(300).scrollTop(0);
     $('html, body').animate({
@@ -288,21 +288,21 @@ $('#btn-play').on('click', function() {
 
 
 //問卷分頁參數
-var Qlength = Object.keys(MEMC).length
+// var Qlength = Object.keys(MEMC).length
 // var Qorder = shuffle(range(1,Qlength)) //radom order
-var Qorder = range(1, Qlength) // non random order
+// var Qorder = range(1, Qlength) // non random order
 var itemsPrePage = 25 //一頁幾題
-var Npage = Math.ceil(Qlength / itemsPrePage) //共有幾頁
+var Npage = 5 //共有幾頁，等同於要聽幾個clips
 // var currentPage = 1 //沒有指導語頁面0
 var Response = {}
 var ResponseTime = {}
 var starttime, endtime
 var itemsPerPage = 25;
-Npage = 5;
+
 
 var itemPerCollapse = 5;
 
-window.onload = function() {
+window.onload = function () {
     //get startTime
     starttime = performance.now()
     // prepare Object
@@ -313,11 +313,11 @@ window.onload = function() {
 
 
 //Preventing send the data repeatedly
-$("#MEMCscale").submit(function() {
+$("#MEMCscale").submit(function () {
     $("#MEMCbutton").prop('disabled', true);
 });
 
 //Submitting the form
-$(".submit_btn").click(function() {
+$(".submit_btn").click(function () {
     window.onbeforeunload = null; //prevent window.onbeforeunload event being triggered by button
 });

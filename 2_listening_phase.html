@@ -7,10 +7,13 @@
     <title>NTU Music Study</title>
 
     <!--   Bootstrap CSS & Jquery & Popper.js & Bootstrap JS  -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
     <!--   Jquery UI CSS & JS ||   Notice: jQuery-UI should put behind jQuery   -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -83,9 +86,9 @@
                                 <button id="btn-pause" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">pause</i>Pause</button>
                                 <button id="btn-Restart" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">replay</i>Restart</button>
                                 <button class="ClockDesign">
-                                 <i class="fa fa-clock-o"></i>
-                                 <div id="TimeInformation"></div> 
-                            </button>
+                                    <i class="fa fa-clock-o"></i>
+                                    <div id="TimeInformation"></div>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -94,15 +97,17 @@
 
                 <!--         The section for MEMC             -->
                 <section class="col-12" id="memc">
-                </section>
 
-                <form id="MEMCscale">
-                    <div class="clearfix">
-                        <button type="button" id="next" class="g-btn MEMCbutton" onclick="nextStep()">
-                            <span>Next Page<span>
+                    <form id="MEMCscale">
+                        <input type="hidden" name="allAnswers" id="all_Answers">
+                        <input type="hidden" name="inattentionP2" id="inattention_P2">
+                        <div class="clearfix">
+                            <button type="button" id="next" class="g-btn MEMCbutton" onclick="nextStep()">
+                                <span>Next Page<span>
                             </button>
-                    </div>
-                </form>
+                        </div>
+                    </form>
+                </section>
 
             </div>
         </div>
