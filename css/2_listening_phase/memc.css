@@ -12,9 +12,10 @@
     /*     border: 1px solid #0000ff; */
 }
 
-.question-card div[class^="col"] h5 {
+.question-card div[class^="col"] h5 {  /* MEMC question words */
     /*     border: 1px solid black; */
-    margin-top: 10px;
+    margin-top: 10%;
+    margin-bottom: 20%; /* Add this comments to avoid plate shifting */
     /*     height: 40px; */
     font-size: 120%;
     height: 45px;

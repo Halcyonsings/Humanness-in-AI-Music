@@ -23,7 +23,7 @@ $allAnswers = $_POST["allAnswers"];
 $inattention = $_POST["inattentionP2"];
 
 
-$sql = "INSERT INTO HC_test (uid, `L-`,`L-startTime`, `L-finishedTime` , `L-inattention`) VALUES ('$uid', '$didPass', '$totalCorrect', '$startTime', '$finishedTime', '$inattention')";
+$sql = "INSERT INTO Listening_test (uid, `L-allAnswers`,`L-startTime`, `L-finishedTime` , `L-inattention`) VALUES ('$uid', '$allAnswers', '$startTime', '$finishedTime', '$inattention')";
 
 
 

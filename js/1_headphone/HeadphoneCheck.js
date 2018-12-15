@@ -31,8 +31,8 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
   // override any default values you wish to change.
   headphoneCheckDefaultConfig = {
     jsonPath: undefined,
-    totalTrials: 2,
-    trialsPerPage: 2,
+    totalTrials: 1,
+    trialsPerPage: 1,
     correctThreshold: 5 / 6,
     useSequential: true,
     doShuffleTrials: true,
@@ -179,7 +179,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
 
     // Add button to continue
     $('<button/>', {
-      // id: 'go_to_listening_btn',
+      id: 'go_to_listening_btn',
       text: 'Continue',
       click: function () {
         var canContinue = checkCanContinue();
@@ -216,7 +216,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
           // console.log(headphoneCheckData);
         }
       }
-    }).appendTo($('#hc-task'));
+    }).appendTo($('#hc-container'));
   };
 
   /**

@@ -14,8 +14,33 @@
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/globalsetting.js"></script>
     <script type="text/javascript" src="js/1_headphone/HeadphoneCheck.js"></script>
-    <script type="text/javascript" src="js/1_headphone/TurnPage.js"></script>
+    <!-- <script type="text/javascript" src="js/1_headphone/TurnPage.js"></script> -->
 </head>
+<script>
+    // Bind callback to hcHeadphoneCheckEnd event
+    $(document).on('hcHeadphoneCheckEnd', function (event, data) {
+        var results = data.data;
+        var config = data.config;
+        var didPass = data.didPass;
+
+        window.onbeforeunload = null;
+        // console.log("end");
+        $("#did_Pass").attr("value", didPass);
+        // console.log(didPass);
+        $("#total_Correct").attr("value", headphoneCheckData.totalCorrect);
+        // console.log(results.totalCorrect);
+        $("#inattention_P1").attr("value", inattention);
+        // console.log(inattention);
+        $("#HC_All_Data").attr("value", results);
+        // form submission
+        $("form").attr("action", "db/a_headphone.php")
+        $("form").attr("method", "POST")
+        $("form").submit()
+        // window.location = "2_listening_phase.html"
+    });
+</script>
+
+
 
 <body onload="HeadphoneCheck.runHeadphoneCheck();">
     <!-- Header image -->
@@ -31,9 +56,7 @@
             <input type="hidden" name="totalCorrect" id="total_Correct">
             <input type="hidden" name="inattentionP1" id="inattention_P1">
             <input type="hidden" name="HCAllData" id="HC_All_Data">
-            <div class="row justify-content-center">
-                <div class="g-btn" id="go_to_listening_btn">Agree & Start</div>
-            </div>
+
         </form>
 
 </body>

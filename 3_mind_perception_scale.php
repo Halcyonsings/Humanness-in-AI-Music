@@ -22,7 +22,7 @@ $_SESSION['startTime'] = date("Y-m-d H:i:s");
    <script type="text/javascript" src="js/globalsetting.js"></script> 
   <!-- my css -->
   <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
-  <link rel="stylesheet" href="css/jspsych.css"></link>
+  <link rel="stylesheet" href="css/jspsych.css">
 
   <link rel="stylesheet" type="text/css" href="css/main_modules.css">
   <link rel="stylesheet" href="css/MP_range_bar.css" rel="stylesheet" />
@@ -42,7 +42,7 @@ $_SESSION['startTime'] = date("Y-m-d H:i:s");
         Please judge about the perceived mental capacities of eight targets. Each of which was accompanied by a brief description. Please indicate the extent to which you perceived each target to be capable of six capacities on a scale from<span class="highlight"> 0 (not at all) to 6 (very much).</span>
         </div>
         </article>
-    <form action="/~hsiang/db/c_mind perception scale.php" id="MPscale" method="post"> <!-- send to backend -->
+    <form action="/~hsiang/db/c_mind_perception_scale.php" id="MPscale" method="post"> <!-- send to backend -->
 
 
 

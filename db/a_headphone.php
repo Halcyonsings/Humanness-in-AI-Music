@@ -29,7 +29,7 @@ $sql = "INSERT INTO HC_test (uid, `HC-didPass`, `HC-totalCorrect`,`HC-startTime`
 
 
 // close and heading to next page
-$path = "/~hsiang/4_demographics.html";
+$path = "../3_mind_perception_scale.php";
 
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);

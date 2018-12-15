@@ -25,7 +25,7 @@ var Spectrum = WaveSurfer.create({
 });
 
 // Handle Play button
-buttons.play.addEventListener("click", function() {
+buttons.play.addEventListener("click", function () {
     Spectrum.play();
 
     // Enable/Disable respectively buttons
@@ -35,7 +35,7 @@ buttons.play.addEventListener("click", function() {
 }, false);
 
 // Handle Pause button
-buttons.pause.addEventListener("click", function() {
+buttons.pause.addEventListener("click", function () {
     Spectrum.pause();
 
     // Enable/Disable respectively buttons
@@ -45,7 +45,7 @@ buttons.pause.addEventListener("click", function() {
 
 
 // Handle Restart button
-buttons.Restart.addEventListener("click", function() {
+buttons.Restart.addEventListener("click", function () {
     Spectrum.stop();
 
     // Enable/Disable respectively buttons
@@ -56,13 +56,13 @@ buttons.Restart.addEventListener("click", function() {
 
 
 // Add a listener to enable the play button once it's ready
-Spectrum.on('ready', function() {
+Spectrum.on('ready', function () {
     buttons.play.disabled = false;
 });
 
 // If you want a responsive mode (so when the user resizes the window)
 // the spectrum will be still playable
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
     // Get the current progress according to the cursor position
     var currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
 
@@ -83,17 +83,17 @@ window.addEventListener("resize", function() {
 
 
 
-//     var songTime = 0;
-//     setInterval(function() {
-//         if (Spectrum.isPlaying() == true) {
-//             //console.log("Sucessful record");
-//             songTime = (Number(songTime) + 0.01).toFixed(2); // Number() change the string into number 
-//             $('#TimeCount').text("Play Time" + songTime);
-//         }
-//     }, 10);
+var songTime = 0;
+setInterval(function () {
+    if (Spectrum.isPlaying() == true) {
+        //console.log("Sucessful record");
+        songTime = (Number(songTime) + 0.01).toFixed(2); // Number() change the string into number 
+        $('#TimeCount').text("Play Time" + songTime);
+    }
+}, 10);
 
 // Set the time information in "X:XX" form
-var formatTime = function(time) {
+var formatTime = function (time) {
     return [
         Math.floor((time % 3600) / 60), // minutes
         ('00' + Math.floor(time % 60)).slice(-2) // seconds
@@ -113,29 +113,21 @@ var formatTime = function(time) {
 //   });
 
 //--------------------------------------- Update for time information ---------------------------------------
-Spectrum.on('ready', function() {
+Spectrum.on('ready', function () {
     //console.log("Sucessfully assess current time");
     $('#TimeInformation').text(formatTime(Spectrum.getCurrentTime()) + " / " + formatTime(Spectrum.getDuration()));
 });
 
 
-Spectrum.on('audioprocess', function() {
+Spectrum.on('audioprocess', function () {
     //console.log("Sucessfully assess current time");
     $('#TimeInformation').text(formatTime(Spectrum.getCurrentTime()) + " / " + formatTime(Spectrum.getDuration()));
 });
 
 
-Spectrum.on('seek', function() {
+Spectrum.on('seek', function () {
     //console.log("Sucessfully assess current time");
     $('#TimeInformation').text(formatTime(Spectrum.getCurrentTime()) + " / " + formatTime(Spectrum.getDuration()));
 });
 
 
-
-
-
-
-
-
-
-// })
