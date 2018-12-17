@@ -99,10 +99,16 @@
                 <section class="col-12" id="memc">
 
                     <form id="MEMCscale">
+                        <input type="hidden" name="playTime" id="play_Time">
                         <input type="hidden" name="allAnswers" id="all_Answers">
                         <input type="hidden" name="inattentionP2" id="inattention_P2">
                         <div class="clearfix">
                             <button type="button" id="next" class="g-btn MEMCbutton" onclick="nextStep()">
+                                <span>Next Page<span>
+                            </button>
+                        </div>
+                        <div class="clearfix">
+                            <button type="button" id="go_to_MP_btn" class="g-btn">
                                 <span>Next Page<span>
                             </button>
                         </div>
@@ -119,7 +125,22 @@
     <script type="text/javascript" src="./js/2_listening_phase/memc.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/music.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/index.js"></script>
+    <script>
+        $('#go_to_MP_btn').hide();
 
+        $('#go_to_MP_btn').click(function () {
+            window.onbeforeunload = null;
+            $("#play_Time").attr("value", playTime);
+            $("#all_Answers").attr("value", allAnswers);
+            $("#inattention_P3").attr("value", inattention);
+            // $("#user_object").attr("value", user_json);
+
+            // form submission
+            $("form").attr("action", "db/b_listening_phase.php")
+            $("form").attr("method", "POST")
+            $("form").submit()
+        });
+    </script>
 </body>
 
 </html>

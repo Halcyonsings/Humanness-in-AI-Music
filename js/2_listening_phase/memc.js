@@ -285,33 +285,6 @@ $('#btn-play').on('click', function () {
 
 
 
-
-
-//問卷分頁參數
-// var Qlength = Object.keys(MEMC).length
-// var Qorder = shuffle(range(1,Qlength)) //radom order
-// var Qorder = range(1, Qlength) // non random order
-var itemsPrePage = 25 //一頁幾題
-var Npage = 5 //共有幾頁，等同於要聽幾個clips
-// var currentPage = 1 //沒有指導語頁面0
-var Response = {}
-var ResponseTime = {}
-var starttime, endtime
-var itemsPerPage = 25;
-
-
-var itemPerCollapse = 5;
-
-window.onload = function () {
-    //get startTime
-    starttime = performance.now()
-    // prepare Object
-    for (var i = 0; i < Qlength; i++) {
-        ResponseTime[(i + 1)] = 0
-    }
-}
-
-
 //Preventing send the data repeatedly
 $("#MEMCscale").submit(function () {
     $("#MEMCbutton").prop('disabled', true);

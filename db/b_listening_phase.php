@@ -19,11 +19,12 @@ $finishedTime = date("Y-m-d H:i:s");
 // echo $startTime;
 
 // receiving variables
+$playTime = $_POST["playTime"];
 $allAnswers = $_POST["allAnswers"];
 $inattention = $_POST["inattentionP2"];
 
 
-$sql = "INSERT INTO Listening_test (uid, `L-allAnswers`,`L-startTime`, `L-finishedTime` , `L-inattention`) VALUES ('$uid', '$allAnswers', '$startTime', '$finishedTime', '$inattention')";
+$sql = "INSERT INTO Listening_test (uid, `L-playTime`, `L-allAnswers`,`L-startTime`, `L-finishedTime` , `L-inattention`) VALUES ('$uid', '$playTime', '$allAnswers', '$startTime', '$finishedTime', '$inattention')";
 
 
 

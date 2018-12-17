@@ -82,16 +82,6 @@ window.addEventListener("resize", function () {
 //--------------------------------------- record listening time ---------------------------------------
 
 
-
-var songTime = 0;
-setInterval(function () {
-    if (Spectrum.isPlaying() == true) {
-        //console.log("Sucessful record");
-        songTime = (Number(songTime) + 0.01).toFixed(2); // Number() change the string into number 
-        $('#TimeCount').text("Play Time" + songTime);
-    }
-}, 10);
-
 // Set the time information in "X:XX" form
 var formatTime = function (time) {
     return [
