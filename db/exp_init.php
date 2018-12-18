@@ -33,7 +33,7 @@ $sql_status_init = "INSERT INTO `user-status` (uid) VALUES ('$uid')";
 $conn->query($sql_status_init);
 
 // close and heading to next page
-$path = "../3_mind_perception_scale.php";
+$path = "../1_headphone.php";
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);
 } else {

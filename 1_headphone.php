@@ -1,3 +1,15 @@
+<?php
+session_start();
+$userId = $_SESSION['uid'];
+// $user_json = $_SESSION['userObj'];
+
+// avoid jump
+// include "database/avoidJump.php";
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +37,9 @@
         // Stringify JSON data to save in backend
         var results_json = JSON.stringify(results);
 
+        
+        var uid = '<?php echo $userId;?>';
+        $("#user_id").attr("value", uid);
         window.onbeforeunload = null;
         // console.log("end");
         $("#did_Pass").attr("value", didPass);
@@ -53,7 +68,7 @@
         <div class="form-t1">Headphone Test</div>
         <div id="hc-container"></div>
         <form id="hc-task">
-
+            <input type="hidden" name="uid" id="user_id">
             <input type="hidden" name="didPass" id="did_Pass">
             <input type="hidden" name="totalCorrect" id="total_Correct">
             <input type="hidden" name="inattentionP1" id="inattention_P1">
