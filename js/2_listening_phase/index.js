@@ -10,7 +10,7 @@
 // Declare the variable for the play list of musics
 let currentTrial = 1;
 let playList;
-let allAnswers = {};
+var allAnswers = {};
 
 // Render the questions
 MEMC.render("memc");
@@ -35,12 +35,16 @@ $.ajax({
         let sampledMusics = musicItems.filter(item => sampledIDs.includes(+item.pairs));
 
         // If control music is needed
-        let controlMusic = musicItems[shuffle([16, 17])[0]];
+        // let controlMusic = musicItems[shuffle([16, 17])[0]];
 
         // Set our play list
 
         // If control music is needed
-        playList = sampledMusics.concat(controlMusic).map(item => item.music_file);
+        // playList = sampledMusics.concat(controlMusic).map(item => item.music_file);
+
+        // If control music is nit needed
+        playList = sampledMusics.map(item => item.music_file);
+
         // playList = sampledMusics;
         playList = shuffle(playList);
         console.log("Play list", playList);
@@ -60,7 +64,7 @@ $.ajax({
 
 
 /// Record playing time of an excerpt
-let playTime = {};
+var playTime = {};
 var songTime = 0;
 setInterval(function () {
     if (Spectrum.isPlaying() == true) {
@@ -88,21 +92,16 @@ function nextStep() {
         else {
             let answers = MEMC.getAnswers();
             // Do something to send these answers to server.
-            console.log(playList[currentTrial - 1], answers);
+            // console.log(playList[currentTrial - 1], answers);
             allAnswers[playList[currentTrial - 1]] = answers;
-
-
             playTime[playList[currentTrial - 1]] = songTime;
 
 
             // Jump to next page
             if (currentTrial == playList.length) {
                 // The last trial is over. Do something.
-                console.log(allAnswers);
+                // console.log(allAnswers);
 
-                // Show go to MP button
-                $('#next').hide();
-                $('#go_to_MP_btn').show();
             } else {
                 currentTrial++;
                 Spectrum.load(playList[currentTrial - 1]);
@@ -110,11 +109,24 @@ function nextStep() {
                 songTime = 0;
                 $('#memc').hide();
                 $('#MEMCscale').hide();
+                console.log(allAnswers);
+                console.log(playTime);
             }
         }
     }
 }
 
+function sendData(currentTrial) {
+    // Get answers and 
+    let phase = MEMC.getCurrentPhase();
+    if (currentTrial == playList.length) {
+        if (phase === "phase2") {
+            // Show go to MP button
+            $('#next').hide();
+            $('#go_to_MP_btn').show();
+        }
+    }
+}
 /**
  * Get the indexes of the input val occuring on the input array.
  */

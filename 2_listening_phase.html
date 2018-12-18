@@ -103,13 +103,13 @@
                         <input type="hidden" name="allAnswers" id="all_Answers">
                         <input type="hidden" name="inattentionP2" id="inattention_P2">
                         <div class="clearfix">
-                            <button type="button" id="next" class="g-btn MEMCbutton" onclick="nextStep()">
+                            <button type="button" id="next" class="g-btn MEMCbutton" onclick="nextStep();sendData(currentTrial)">
                                 <span>Next Page<span>
                             </button>
                         </div>
                         <div class="clearfix">
                             <button type="button" id="go_to_MP_btn" class="g-btn">
-                                <span>Next Page<span>
+                                <span>MP Page<span>
                             </button>
                         </div>
                     </form>
@@ -128,10 +128,15 @@
     <script>
         $('#go_to_MP_btn').hide();
 
+        // Stringify JSON data to save in backend
+        // var playTime_json = JSON.stringify(playTime);    // Fail: playTime_json will be empaty collection {}
+        // var allAnswers_json = JSON.stringify(allAnswers);
+
+
         $('#go_to_MP_btn').click(function () {
             window.onbeforeunload = null;
-            $("#play_Time").attr("value", playTime);
-            $("#all_Answers").attr("value", allAnswers);
+            $("#play_Time").attr("value", JSON.stringify(playTime));
+            $("#all_Answers").attr("value", JSON.stringify(allAnswers));
             $("#inattention_P3").attr("value", inattention);
             // $("#user_object").attr("value", user_json);
 
