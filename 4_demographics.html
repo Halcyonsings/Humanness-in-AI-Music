@@ -3,13 +3,13 @@
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115062914-1"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115062914-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'UA-115062914-1');
-    </script>
+    </script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -174,7 +174,7 @@
                     </div>
                 </div>
                 <div class="row item-container">
-                    <div class="col-md-4 formLabel"> Suggestions <br> of the <br> Experiment</div>
+                    <div class="col-md-4 formLabel"> Suggestions <br> of the <br> Experiment (optional)</div>
                     <div class="col-md-8" id="ExpBox">
                         <textarea rows="5" name="ExpComments" id="ExpComments" class="ExpComments"></textarea>
                     </div>
@@ -185,10 +185,10 @@
                 </div>
             </div>
             <!-- Recording -->
-            <input type="hidden" id="userId" name="uid">
-            <input type="hidden" id="user_finish_time" name="finishTime">
-            <input type="hidden" id="MAAB_response" name="MAAB_response">
-
+            <!-- <input type="hidden" name="uid" id="user_id"> -->
+            <input type="hidden" name="finishTime" id="user_finish_time">
+            <input type="hidden" name="MAABResponse" id="MAAB_response">
+            <input type="hidden" name="inattentionP4" id="inattention_P4">
         </form>
 
         <!-- initializing -->
@@ -210,7 +210,7 @@
             // Go to the second part
             $('.NextToDemo_btn').click(function () {
                 // verifying
-                var checking = checkRange(21); //the number should equal to the last item
+                var checking = checkRange(5); //the number should equal to the last item
                 if (checking == "finished") {
                     // recording
                     MAAB_response = {
@@ -228,7 +228,7 @@
                         scrollTop: $("body").offset().top
                     }, 700);
                     setTimeout(function () {
-                        $('.MusicSurveyCard').hide();
+                        $(".MusicAbilityCard").hide();
                         $(".demoCard").show();
                         // $(window).scrollTop(0);
                     }, 700)
@@ -247,12 +247,12 @@
                     // data inserting
                     $("#MAAB_response").attr("value", JSON.stringify(MAAB_response));
 
-                    $("#hoverTimeRec").attr("value", hover_time_record.toString());
+                    // $("#hoverTimeRec").attr("value", hover_time_record.toString());
                     $("#user_finish_time").attr("value", time_info);
-                    $("#userId").attr("value", uid);
+                    // $("user_id").attr("value", uid);
 
                     // form submission
-                    $("form").attr("action", "database/8_demographics_db.php");
+                    $("form").attr("action", "db/d_demo.php");
                     $("form").attr("method", "POST");
                     $("form").submit();
                 }
