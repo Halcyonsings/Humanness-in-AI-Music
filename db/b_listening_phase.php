@@ -29,7 +29,7 @@ $sql = "INSERT INTO Listening_test (uid, `L-playTime`, `L-allAnswers`,`L-startTi
 
 
 // close and heading to next page
-$path = "/~hsiang/4_demographics.html";
+$path = "/~hsiang/3_mind_perception_scale.php";
 
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);

@@ -3,7 +3,7 @@ function checkRadios(itemAmout) {
     // check the 'data-item-check'
     var counter = 0;
     for (var ci = 1; ci <= itemAmout; ci++) {
-        if ($('input[data-item-check=' + ci + ']:checked').val() == undefined) {
+        if ($('input[name=AC' + ci + ']:checked').val() == undefined) {
             alert('Question' + ci + ' is not answered.');
             counter++;
             break

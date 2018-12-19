@@ -36,11 +36,10 @@ $userId = $_SESSION['uid'];
         var didPass = data.didPass;
         // Stringify JSON data to save in backend
         var results_json = JSON.stringify(results);
-
-        
         var uid = '<?php echo $userId;?>';
-        $("#user_id").attr("value", uid);
+        
         window.onbeforeunload = null;
+        $("#user_id").attr("value", uid);
         // console.log("end");
         $("#did_Pass").attr("value", didPass);
         // console.log(didPass);

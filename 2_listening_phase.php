@@ -1,3 +1,15 @@
+<?php
+session_start();
+$userId = $_SESSION['uid'];
+// $user_json = $_SESSION['userObj'];
+
+// avoid jump
+// include "database/avoidJump.php";
+
+?>
+
+
+
 <!doctype html>
 <html>
 
@@ -99,6 +111,7 @@
                 <section class="col-12" id="memc">
 
                     <form id="MEMCscale">
+                        <input type="hidden" name="uid" id="user_id">
                         <input type="hidden" name="playTime" id="play_Time">
                         <input type="hidden" name="allAnswers" id="all_Answers">
                         <input type="hidden" name="inattentionP2" id="inattention_P2">
@@ -131,10 +144,11 @@
         // Stringify JSON data to save in backend
         // var playTime_json = JSON.stringify(playTime);    // Fail: playTime_json will be empaty collection {}
         // var allAnswers_json = JSON.stringify(allAnswers);
-
+        var uid = '<?php echo $userId;?>';
 
         $('#go_to_MP_btn').click(function () {
             window.onbeforeunload = null;
+            $("#user_id").attr("value", uid);
             $("#play_Time").attr("value", JSON.stringify(playTime));
             $("#all_Answers").attr("value", JSON.stringify(allAnswers));
             $("#inattention_P3").attr("value", inattention);

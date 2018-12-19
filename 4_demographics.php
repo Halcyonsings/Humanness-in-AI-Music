@@ -1,3 +1,15 @@
+<?php
+session_start();
+$userId = $_SESSION['uid'];
+// $user_json = $_SESSION['userObj'];
+
+// avoid jump
+// include "database/avoidJump.php";
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,7 +118,7 @@
                     <span class="labal_polar2">stimulate the mind</span>
                 </div>
             </div>
-            <!-- part3 finishing -->
+            <!-- part1 finishing -->
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="NextToDemo_btn g-btn">Next Step</div>
@@ -185,7 +197,7 @@
                 </div>
             </div>
             <!-- Recording -->
-            <!-- <input type="hidden" name="uid" id="user_id"> -->
+            <input type="hidden" name="uid" id="user_id">
             <input type="hidden" name="finishTime" id="user_finish_time">
             <input type="hidden" name="MAABResponse" id="MAAB_response">
             <input type="hidden" name="inattentionP4" id="inattention_P4">

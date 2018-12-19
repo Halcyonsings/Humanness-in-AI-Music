@@ -51,8 +51,11 @@ function nextPage() {
         if (currentPage == Npage) {
             // last page, do something
             window.onbeforeunload = null;
-            $("#Response").attr("value", JSON.stringify(Response));
-            $("#ResponseTime").attr("value", JSON.stringify(ResponseTime));
+            $("#user_id").attr("value", uid);
+            $("#AC_Response").attr("value", JSON.stringify(AC_Response));
+            $("#MP_Response").attr("value", JSON.stringify(Response));
+            $("#MP_ResponseTime").attr("value", JSON.stringify(ResponseTime));
+
 
             $("form").attr("action", "db/c_mind_perception_scale.php")
             $("form").attr("method", "POST")

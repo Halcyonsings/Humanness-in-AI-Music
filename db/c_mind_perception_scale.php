@@ -19,17 +19,18 @@ $finishedTime = date("Y-m-d H:i:s");
 // echo $startTime;
 
 // receiving variables
-$Response = $_POST["Response"];
-$ResponseTime = $_POST["ResponseTime"];
+$AC_Response = $_POST["ACResponse"];
+$MP_Response = $_POST["Response"];
+$MP_ResponseTime = $_POST["ResponseTime"];
 
 
 
-$sql = "INSERT INTO MP_test (uid, Response, RT ,startTime, finishedTime) VALUES ('$uid', '$Response', '$ResponseTime', '$startTime', '$finishedTime')";
+$sql = "INSERT INTO MP_test (uid, `AC-Response`,`MP-Response`, `MP-RT` ,`AC-startTime`, `MP-finishedTime`) VALUES ('$uid', '$AC_Response', '$MP_Response', '$MP_ResponseTime', '$startTime', '$finishedTime')";
 
 
 
 // close and heading to next page
-$path = "/~hsiang/4_demographics.html";
+$path = "/~hsiang/4_demographics.php";
 
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);
