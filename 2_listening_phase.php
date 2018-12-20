@@ -38,7 +38,8 @@ $userId = $_SESSION['uid'];
     <script src="http://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
     <!--     <script src="jspsych.js"></script> -->
     <!--     <script src="http://parsleyjs.org/dist/parsley.min.js"></script> -->
-
+    <script type="text/javascript" src="js/globalsetting.js"></script>
+    
     <!-- Add icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -116,15 +117,11 @@ $userId = $_SESSION['uid'];
                         <input type="hidden" name="allAnswers" id="all_Answers">
                         <input type="hidden" name="inattentionP2" id="inattention_P2">
                         <div class="clearfix">
-                            <button type="button" id="next" class="g-btn MEMCbutton" onclick="nextStep();sendData(currentTrial)">
+                            <button type="button" id="next" class="g-btn MEMCbutton" onclick="nextStep()">
                                 <span>Next Page<span>
                             </button>
                         </div>
-                        <div class="clearfix">
-                            <button type="button" id="go_to_MP_btn" class="g-btn">
-                                <span>MP Page<span>
-                            </button>
-                        </div>
+  
                     </form>
                 </section>
 
@@ -139,26 +136,14 @@ $userId = $_SESSION['uid'];
     <script type="text/javascript" src="./js/2_listening_phase/music.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/index.js"></script>
     <script>
-        $('#go_to_MP_btn').hide();
 
         // Stringify JSON data to save in backend
         // var playTime_json = JSON.stringify(playTime);    // Fail: playTime_json will be empaty collection {}
         // var allAnswers_json = JSON.stringify(allAnswers);
         var uid = '<?php echo $userId;?>';
 
-        $('#go_to_MP_btn').click(function () {
-            window.onbeforeunload = null;
-            $("#user_id").attr("value", uid);
-            $("#play_Time").attr("value", JSON.stringify(playTime));
-            $("#all_Answers").attr("value", JSON.stringify(allAnswers));
-            $("#inattention_P3").attr("value", inattention);
-            // $("#user_object").attr("value", user_json);
+    
 
-            // form submission
-            $("form").attr("action", "db/b_listening_phase.php")
-            $("form").attr("method", "POST")
-            $("form").submit()
-        });
     </script>
 </body>
 

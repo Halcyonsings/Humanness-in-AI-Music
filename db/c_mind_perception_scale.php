@@ -22,10 +22,11 @@ $finishedTime = date("Y-m-d H:i:s");
 $AC_Response = $_POST["ACResponse"];
 $MP_Response = $_POST["Response"];
 $MP_ResponseTime = $_POST["ResponseTime"];
+$inattention = $_POST["inattentionP3"];
 
 
 
-$sql = "INSERT INTO MP_test (uid, `AC-Response`,`MP-Response`, `MP-RT` ,`AC-startTime`, `MP-finishedTime`) VALUES ('$uid', '$AC_Response', '$MP_Response', '$MP_ResponseTime', '$startTime', '$finishedTime')";
+$sql = "INSERT INTO MP_test (uid, `AC-Response`,`MP-Response`, `MP-RT` ,`AC-startTime`, `MP-finishedTime`, `ACMP-inattetion`) VALUES ('$uid', '$AC_Response', '$MP_Response', '$MP_ResponseTime', '$startTime', '$finishedTime', '$inattention')";
 
 
 

@@ -55,6 +55,7 @@ function nextPage() {
             $("#AC_Response").attr("value", JSON.stringify(AC_Response));
             $("#MP_Response").attr("value", JSON.stringify(Response));
             $("#MP_ResponseTime").attr("value", JSON.stringify(ResponseTime));
+            $("#inattention_P3").attr("value", inattention);
 
 
             $("form").attr("action", "db/c_mind_perception_scale.php")

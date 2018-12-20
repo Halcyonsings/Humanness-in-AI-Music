@@ -4,7 +4,7 @@ $userId = $_SESSION['uid'];
 // $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "database/avoidJump.php";
+include "db/avoidJump.php";
 
 ?>
 

@@ -151,6 +151,7 @@ $_SESSION['startTime'] = date("Y-m-d H:i:s");
             <input type="hidden" id="AC_Response" name="ACResponse">
             <input type="hidden" id="MP_Response" name="Response">
             <input type="hidden" id="MP_ResponseTime" name="ResponseTime">
+            <input type="hidden" name="inattentionP3" id="inattention_P3">
         </form>
         </div>
     </section>

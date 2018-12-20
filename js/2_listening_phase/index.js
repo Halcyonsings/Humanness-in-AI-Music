@@ -101,7 +101,18 @@ function nextStep() {
             if (currentTrial == playList.length) {
                 // The last trial is over. Do something.
                 // console.log(allAnswers);
+                // $(document).trigger('ListeningPhaseEnd', { 'playTime': playTime, 'allAnswers': allAnswers });
+                window.onbeforeunload = null;
+                $("#user_id").attr("value", uid);
+                $("#play_Time").attr("value", JSON.stringify(playTime));
+                $("#all_Answers").attr("value", JSON.stringify(allAnswers));
+                $("#inattention_P2").attr("value", inattention);
+                // $("#user_object").attr("value", user_json);
 
+                // form submission
+                $("form").attr("action", "db/b_listening_phase.php")
+                $("form").attr("method", "POST")
+                $("form").submit()
             } else {
                 currentTrial++;
                 Spectrum.load(playList[currentTrial - 1]);
@@ -116,17 +127,7 @@ function nextStep() {
     }
 }
 
-function sendData(currentTrial) {
-    // Get answers and 
-    let phase = MEMC.getCurrentPhase();
-    if (currentTrial == playList.length) {
-        if (phase === "phase2") {
-            // Show go to MP button
-            $('#next').hide();
-            $('#go_to_MP_btn').show();
-        }
-    }
-}
+
 /**
  * Get the indexes of the input val occuring on the input array.
  */
