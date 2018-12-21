@@ -1,5 +1,5 @@
 .anchor_opinion_area{
-    height: 200px;
+    height: 250px;
     padding: 6px 10px;
     transition-duration: 0.2s;
 }
@@ -41,7 +41,7 @@
 
 /* Anchor_resonse_block */
 .anchor_res_block{
-    width: 400px;
+    width: 100%;
     padding: 16px 0px; 
     font-size: 20px;
     position: relative;
@@ -49,19 +49,19 @@
     transform: translateX(-50%);
 }
 .labal_polar2{
-    font-size: 14px;
+    font-size: 16px;
     position: absolute;
     right: 0px;
-    width: 90px;
+    width: 25%;
     text-align: left;
     text-justify: inter-word;
 }
 
 .labal_polar1{
-    font-size: 14px;
+    font-size: 16px;
     position: absolute;
     left: 0px;
-    width: 90px;
+    width: 25%;
     text-align: right;
     text-justify: inter-word;
 }
@@ -70,7 +70,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 200px;
+    width: 40%;
     margin-top: 5px;
 }
 
@@ -85,4 +85,46 @@
     /* font-size: 20px; */
     font-weight: bold;
     color: #33A6B8;
+}
+
+/* all solution of changing rangebar color for main browsers */
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      -webkit-appearance: none;
+      background-color: #9a905d;
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      color: #f3d516;
+      margin-top: -1px;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 10px;
+      -webkit-appearance: none;
+      height: 10px;
+      cursor: ew-resize;
+      background: #434343;
+      /* changing maximum legth side bar */
+      box-shadow: -300px 0 0 300px #f3d516; 
+    }
+
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: #f3d516; 
+}
+input[type="range"]::-moz-range-track {  
+  background-color: #9a905d;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color: #f3d516; 
+}
+input[type="range"]::-ms-fill-upper {  
+  background-color: #9a905d;
 }

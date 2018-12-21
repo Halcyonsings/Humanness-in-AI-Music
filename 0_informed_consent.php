@@ -91,6 +91,10 @@ $ip = get_client_ip();
     </div>
     <!-- initializing -->
     <script type="text/javascript">
+        // Avoid closing window
+        window.onbeforeunload = function () { return "糟糕！別走！" };
+        
+        
         var uid = uuidGenerator();
         // console.log(typeof uid);
         // var uid = uid.replaceAll('-','').substring(0,16);  
@@ -110,6 +114,7 @@ $ip = get_client_ip();
         var time_info = time.toDateString() + "/" + time.toTimeString();
         // $('.testing').text("測試ID: " + uid);     // [20181208] success
         $('#go_to_consent_btn').click(function(){
+            window.onbeforeunload = null;
             $("#user_id").attr("value", uid);
             $("#user_ip").attr("value", user_ip);
             $("#user_browser").attr("value", user_browser);

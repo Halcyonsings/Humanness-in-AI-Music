@@ -39,7 +39,7 @@ $userId = $_SESSION['uid'];
     <!--     <script src="jspsych.js"></script> -->
     <!--     <script src="http://parsleyjs.org/dist/parsley.min.js"></script> -->
     <script type="text/javascript" src="js/globalsetting.js"></script>
-    
+
     <!-- Add icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -136,10 +136,9 @@ $userId = $_SESSION['uid'];
     <script type="text/javascript" src="./js/2_listening_phase/music.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/index.js"></script>
     <script>
-
-        // Stringify JSON data to save in backend
-        // var playTime_json = JSON.stringify(playTime);    // Fail: playTime_json will be empaty collection {}
-        // var allAnswers_json = JSON.stringify(allAnswers);
+        // Avoid closing window
+        window.onbeforeunload = function () { return "糟糕！別走！" };
+        
         var uid = '<?php echo $userId;?>';
 
     

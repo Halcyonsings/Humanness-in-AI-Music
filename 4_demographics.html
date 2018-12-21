@@ -1,12 +1,12 @@
-<?php
-session_start();
-$userId = $_SESSION['uid'];
+<!-- 
+// session_start();
+// $userId = $_SESSION['uid'];
 // $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/avoidJump.php";
+// include "db/avoidJump.php";
 
-?>
+// -->
 
 
 
@@ -38,8 +38,8 @@ include "db/avoidJump.php";
         integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <!-- my css and js -->
     <link rel="stylesheet" type="text/css" href="css/main_modules.css">
-    <link rel="stylesheet" type="text/css" href="css/demographics_style.css">
-    <link rel="stylesheet" type="text/css" href="css/MusicSurvey_style.css">
+    <link rel="stylesheet" type="text/css" href="css/4_demographics/demographics_style.css">
+    <link rel="stylesheet" type="text/css" href="css/4_demographics/MusicSurvey_style.css">
 
     <script type="text/javascript" src="js/globalsetting.js"></script>
     <script type="text/javascript" src="js/quesBasicFunctions.js"></script>
@@ -218,6 +218,12 @@ include "db/avoidJump.php";
                 $(this).attr("data-check", "on");
                 // console.log($(this).attr("id"));
             })
+
+
+
+            $('.anchor_range').mousedown(function () {
+                $(this).css('background-color', '#c56868');
+            });
 
             // Go to the second part
             $('.NextToDemo_btn').click(function () {

@@ -20,11 +20,16 @@ $finishedTime = date("Y-m-d H:i:s");
 // echo $startTime;
 
 // receiving variables
+$age = $_POST["age"];
+$sex = $_POST["sex"];
+$musicTrain = $_POST["training"];
+$education = $_POST["education"];
+$ExpComments = $_POST['ExpComments'];
 $MAAB_Response = $_POST["MAABResponse"];
 $inattention = $_POST["inattentionP4"];
 
 
-$sql = "INSERT INTO `Demo-test` (uid, `D-MAAB-Response` ,`D-startTime`, `D-finishedTime`, `D-inattention`) VALUES ('$uid', '$MAAB_Response', '$startTime', '$finishedTime', '$inattention')";
+$sql = "INSERT INTO `Demo-test` (uid, `D-MAAB-Response`, age , sex, musicTrain , education , ExpComments ,`D-startTime`, `D-finishedTime`, `D-inattention`) VALUES ('$uid', '$MAAB_Response', '$age', '$sex', '$musicTrain' , '$education', '$ExpComments', '$startTime', '$finishedTime', '$inattention')";
 
 
 

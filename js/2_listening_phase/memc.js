@@ -258,9 +258,7 @@ MEMC.clear = function () {
 
 //Warning before existing
 // var AttemptLeave = 0
-window.onbeforeunload = function () {
-    return "糟糕！別走！"
-};
+
 
 // if (window.onbeforeunload== !null) {
 //   AttemptLeave += 1;

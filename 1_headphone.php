@@ -29,6 +29,9 @@ include "db/avoidJump.php";
     <!-- <script type="text/javascript" src="js/1_headphone/TurnPage.js"></script> -->
 </head>
 <script>
+    // Avoid closing window
+    window.onbeforeunload = function () { return "糟糕！別走！" };
+    
     // Bind callback to hcHeadphoneCheckEnd event
     $(document).on('hcHeadphoneCheckEnd', function (event, data) {
         var results = data.data;

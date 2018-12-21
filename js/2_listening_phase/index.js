@@ -102,6 +102,11 @@ function nextStep() {
                 // The last trial is over. Do something.
                 // console.log(allAnswers);
                 // $(document).trigger('ListeningPhaseEnd', { 'playTime': playTime, 'allAnswers': allAnswers });
+
+                // Stringify JSON data to save in backend
+                // var playTime_json = JSON.stringify(playTime);    // Fail: playTime_json will be empaty collection {}
+                // var allAnswers_json = JSON.stringify(allAnswers);
+
                 window.onbeforeunload = null;
                 $("#user_id").attr("value", uid);
                 $("#play_Time").attr("value", JSON.stringify(playTime));
