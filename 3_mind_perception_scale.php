@@ -65,7 +65,7 @@ $_SESSION['startTime'] = date("Y-m-d H:i:s");
         </div>
         <hr>
         <div class="Attention_check_area">
-            <div class="Attention_check_descrp">2. Did you wear headphones while listening to the sounds in this HIT? Please
+            <div class="Attention_check_descrp">2. Did you wear headphones while listening to the sounds in this HIT (in the page "Headphone Test" and "Listening Session")?  Please
                 answer honestly. <span class="highlight">Your payment does NOT depend on your response to this question.</span></div>
             <div class="AC_res_block">
                 <input type="radio" class="AC_option" name="AC2" value="Yes">Yes

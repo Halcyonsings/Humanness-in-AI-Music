@@ -47,7 +47,6 @@ buttons.pause.addEventListener("click", function () {
 // Handle Restart button
 buttons.Restart.addEventListener("click", function () {
     Spectrum.stop();
-
     // Enable/Disable respectively buttons
     buttons.pause.disabled = true;
     buttons.play.disabled = false;

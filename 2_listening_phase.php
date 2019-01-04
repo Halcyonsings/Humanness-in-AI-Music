@@ -1,12 +1,10 @@
-<?php
-session_start();
-$userId = $_SESSION['uid'];
+<!-- // session_start();
+// $userId = $_SESSION['uid'];
 // $user_json = $_SESSION['userObj'];
 
 // avoid jump
 // include "database/avoidJump.php";
-
-?>
+ -->
 
 
 
@@ -39,6 +37,7 @@ $userId = $_SESSION['uid'];
     <!--     <script src="jspsych.js"></script> -->
     <!--     <script src="http://parsleyjs.org/dist/parsley.min.js"></script> -->
     <script type="text/javascript" src="js/globalsetting.js"></script>
+    <script type="text/javascript" src="js/intro.js"></script>
 
     <!-- Add icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -46,11 +45,14 @@ $userId = $_SESSION['uid'];
 
     <!--   Custom CSS   -->
     <link rel="stylesheet" href="css/jspsych.css">
-    <!--     <link rel="stylesheet" href="css/listening_style.css"> -->
+
     <link rel="stylesheet" href="css/main_modules.css">
-    <!--     <link rel="stylesheet" href="css/range_bar.css" /> -->
+
     <link rel="stylesheet" href="css/2_listening_phase/style.css">
     <link rel="stylesheet" href="css/2_listening_phase/memc.css">
+
+    <!-- Add IntroJs styles -->
+    <link href="css/introjs.css" rel="stylesheet">
 </head>
 
 
@@ -72,9 +74,14 @@ $userId = $_SESSION['uid'];
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-8">
                             <div class="form-t1">Listening Session</div>
-                            <article class="intro-article">
-                                Please fill the questionnaire after listening.The form will show up
-                                <span class="highlight">3 seconds later</span> after clicking the mp3.
+                            <article class="intro-article" data-step="1" data-intro="Read the notice first">
+                                Please read the notice before listening the clips:</p>
+                                <ol>
+                                    <li><span class="highlight">Wear a headphone when listening</span></li>
+                                    <li>You will listent to 4 clips</li>
+                                    <li>Using a computer with stable website connection</li>
+                                    <li>You may listen to a single piece of music several times.</li>
+                                </ol>
                             </article>
                         </div>
                     </div>
@@ -86,7 +93,7 @@ $userId = $_SESSION['uid'];
                     <!-- Create a div where the audio waves will be shown -->
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6">
-                            <div id="audio-spectrum" class="InsertNote"></div>
+                            <div id="audio-spectrum" class="InsertNote" data-step="4" data-intro="You could adjust the time here."></div>
                         </div>
                     </div>
 
@@ -95,7 +102,8 @@ $userId = $_SESSION['uid'];
                         <div class="col-12 col-sm-6">
                             <div class="row justify-content-between">
                                 <!-- Before being turned on by JS, the default value of button is set to disabled -->
-                                <button id="btn-play" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">play_arrow</i>Play</button>
+                                <button id="btn-play" class="MusicButtonDesign" disabled="disabled" data-step="2"
+                                    data-intro="Click here to play the music"><i class="material-icons">play_arrow</i>Play</button>
                                 <button id="btn-pause" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">pause</i>Pause</button>
                                 <button id="btn-Restart" class="MusicButtonDesign" disabled="disabled"><i class="material-icons">replay</i>Restart</button>
                                 <button class="ClockDesign">
@@ -106,7 +114,7 @@ $userId = $_SESSION['uid'];
                         </div>
                     </div>
                 </section>
-
+                <div id="intro3" class="intro-article" data-step="3" data-intro="The questionnaire will show up here">Questionnaire</div>
 
                 <!--         The section for MEMC             -->
                 <section class="col-12" id="memc">
@@ -121,7 +129,7 @@ $userId = $_SESSION['uid'];
                                 <span>Next Page<span>
                             </button>
                         </div>
-  
+
                     </form>
                 </section>
 
@@ -138,10 +146,13 @@ $userId = $_SESSION['uid'];
     <script>
         // Avoid closing window
         window.onbeforeunload = function () { return "糟糕！別走！" };
-        
+
         var uid = '<?php echo $userId;?>';
 
-    
+
+        $(document).ready(function () {
+            introJs().start();
+        });
 
     </script>
 </body>

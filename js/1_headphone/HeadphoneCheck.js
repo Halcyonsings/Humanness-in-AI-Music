@@ -229,7 +229,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
     // render boilerplate instruction text
     $('<div/>', {
       class: 'hc-calibration-instruction intro-article',
-      html: '<div class="a">You must be wearing headphones to do this HIT!</div>'
+      html: '<div class="a">You must be <span class="highlight"> wearing headphones </span> to do this HIT!</div>'
     }).appendTo($('#hc-container'));
     $('<div/>', {
       class: 'hc-calibration-instruction intro-article',

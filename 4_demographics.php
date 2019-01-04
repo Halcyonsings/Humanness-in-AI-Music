@@ -1,13 +1,13 @@
-<!-- 
-// session_start();
-// $userId = $_SESSION['uid'];
-// $user_json = $_SESSION['userObj'];
+<?php
+session_start();
+$userId = $_SESSION['uid'];
+$user_json = $_SESSION['userObj'];
 
 // avoid jump
 // include "db/avoidJump.php";
 
-// -->
 
+?>
 
 
 <!DOCTYPE html>
@@ -129,7 +129,7 @@
         <form action="" id="demoForm">
             <div class="container-fluid demoCard">
                 <p class="form-t1 text-center">Basic Information Survey</p>
-                <article class="intro-article text-center">
+                <article class="intro-article">
                     <div class="a">
                         In the last session, please fill in some information. All data will implement de-idenficattion,
                         which means other people
@@ -186,7 +186,7 @@
                     </div>
                 </div>
                 <div class="row item-container">
-                    <div class="col-md-4 formLabel"> Suggestions <br> of the <br> Experiment (optional)</div>
+                    <div class="col-md-4 formLabel"> Suggestions of <br> the Experiment<br> (optional)</div>
                     <div class="col-md-8" id="ExpBox">
                         <textarea rows="5" name="ExpComments" id="ExpComments" class="ExpComments"></textarea>
                     </div>
