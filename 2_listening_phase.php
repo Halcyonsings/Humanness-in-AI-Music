@@ -74,13 +74,14 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-8">
                             <div class="form-t1">Listening Session</div>
-                            <article class="intro-article" data-step="1" data-intro="Read the notice first">
+                            <article class="intro-article" data-step="1" data-intro="First, read the notice">
                                 Please read the notice before listening the clips:</p>
                                 <ol>
                                     <li><span class="highlight">Wear a headphone when listening</span></li>
-                                    <li>You will listent to 4 clips</li>
-                                    <li>Using a computer with stable website connection</li>
-                                    <li>You may listen to a single piece of music several times.</li>
+                                    <li>You will hear 4 clips. After clicking the "play" button, a questionaire will appear below 30 seconds later.</li>
+                                    <li>You are able to listen to a single piece of music several times</li>
+                                    <li>In the questionnaire, please rate each piece of music clips on the following dimensions (feelings or musical features) on a scale ranging from 1 (not at all) to 5 (very much).</li>
+                                    
                                 </ol>
                             </article>
                         </div>
@@ -93,7 +94,7 @@
                     <!-- Create a div where the audio waves will be shown -->
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6">
-                            <div id="audio-spectrum" class="InsertNote" data-step="4" data-intro="You could adjust the time here."></div>
+                            <div id="audio-spectrum" class="InsertNote" data-step="4" data-intro="Adjusting the time here."></div>
                         </div>
                     </div>
 
@@ -114,7 +115,7 @@
                         </div>
                     </div>
                 </section>
-                <div id="intro3" class="intro-article" data-step="3" data-intro="The questionnaire will show up here">Questionnaire</div>
+                <div id="intro3" class="intro-article" data-step="3" data-intro="Questionnaire will show up here">Questionnaire</div>
 
                 <!--         The section for MEMC             -->
                 <section class="col-12" id="memc">

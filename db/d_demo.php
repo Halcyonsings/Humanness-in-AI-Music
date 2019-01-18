@@ -20,16 +20,18 @@ $finishedTime = date("Y-m-d H:i:s");
 // echo $startTime;
 
 // receiving variables
+$MturkToken = $_POST['MturkToken'];
 $age = $_POST["age"];
 $sex = $_POST["sex"];
-$musicTrain = $_POST["training"];
+$musicTrain_yr = $_POST["training_yr"];
+$musicTrain_min = $_POST["training_min"];
 $education = $_POST["education"];
 $ExpComments = $_POST['ExpComments'];
 $MAAB_Response = $_POST["MAABResponse"];
 $inattention = $_POST["inattentionP4"];
 
 
-$sql = "INSERT INTO `Demo-test` (uid, `D-MAAB-Response`, age , sex, musicTrain , education , ExpComments ,`D-startTime`, `D-finishedTime`, `D-inattention`) VALUES ('$uid', '$MAAB_Response', '$age', '$sex', '$musicTrain' , '$education', '$ExpComments', '$startTime', '$finishedTime', '$inattention')";
+$sql = "INSERT INTO `Demo-test` (uid, MturkFourNum ,`D-MAAB-Response`, age , sex, musicTrain_yr, musicTrain_min , education , ExpComments ,`D-startTime`, `D-finishedTime`, `D-inattention`) VALUES ('$uid', '$MturkToken', '$MAAB_Response', '$age', '$sex', '$musicTrain_yr', '$musicTrain_min' , '$education', '$ExpComments', '$startTime', '$finishedTime', '$inattention')";
 
 
 

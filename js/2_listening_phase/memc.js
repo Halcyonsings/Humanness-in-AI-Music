@@ -41,8 +41,8 @@ let MEMC = {
     "24": "Familiar",
     "25": "Awkward",
     // Special questions
-    "26": "What is your overall  preference of the excerpts?",
-    "27": "Do you think the excerpts compose by Mozart?",
+    "26": "What is your overall preference of the excerpt (from 1 to 5)? ",
+    "27": "Do you think the excerpts compose by Mozart (from 1 to 5)? ",
 }
 
 
@@ -54,7 +54,7 @@ MEMC.phase1Ids = Array(25).fill().map((i, v) => v + 1); // 1-25
 // MEMC.phase1Ids = [1, 2, 3, 4, 5];
 
 // Phase 2 question IDs.
-MEMC.phase2Ids = [26, 27];
+MEMC.phase2Ids = [26]; //In condition 2 and 3, this should be "= [26, 27]"
 
 
 /**
@@ -128,11 +128,11 @@ MEMC.renderEmptyCards = function (divId, numQuestion, numQuesPerRow = 5) {
                 `<div class="col-12 d-flex justify-content-center">` +
                 `<select>` +
                 `<option hidden disabled selected value>Choose</option>` +
-                `<option name="test1">Very much</option>` +
-                `<option name="test1">Quite a lot</option>` +
-                `<option name="test1">Moderately</option>` +
-                `<option name="test2">Somewhat</option>` +
-                `<option name="test2">Not at all</option>` +
+                `<option name="test1">5 / Very much</option>` +
+                `<option name="test1">4 / Quite a lot</option>` +
+                `<option name="test1">3 / Moderately</option>` +
+                `<option name="test2">2 / Somewhat</option>` +
+                `<option name="test2">1 / Not at all</option>` +
                 `</select>` +
                 `</div>` +
                 `</div>` +

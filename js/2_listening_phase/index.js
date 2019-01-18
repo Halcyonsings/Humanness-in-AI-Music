@@ -27,7 +27,7 @@ $.ajax({
 
         // Get an object with each music item taking its ID as key.
         const musicItems = $.csv.toObjects(csv) // Returns an array:  Array[0] = {clips_id: "1", pairs: "1", author: "AI", music_file: "music/AIBachHCII.mp3"}
-        console.log("Music items", musicItems);
+        // console.log("Music items", musicItems);
 
         // Ramdon sample two numbers in range 1 to 8, and get the musics which pair id is in the sampled IDs
         // Sample the control music.
@@ -47,7 +47,7 @@ $.ajax({
 
         // playList = sampledMusics;
         playList = shuffle(playList);
-        console.log("Play list", playList);
+        // console.log("Play list", playList);
 
         // Play the first song
         Spectrum.load(playList[currentTrial - 1]);

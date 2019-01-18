@@ -31,8 +31,8 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
   // override any default values you wish to change.
   headphoneCheckDefaultConfig = {
     jsonPath: undefined,
-    totalTrials: 1,
-    trialsPerPage: 1,
+    totalTrials: 6,
+    trialsPerPage: 6,
     correctThreshold: 5 / 6,
     useSequential: true,
     doShuffleTrials: true,
@@ -140,7 +140,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
     // render boilerplate instruction text
     $('<div/>', {
       class: 'hc-instruction intro-article',
-      html: '<div class="a">When you hit <b>Play</b>, you will hear three sounds separated by silences. Simply judge <span class="highlight"> which sound was softest/ quietest </span> -- 1, 2, or 3? Test sounds can only be played once!</div>'
+      html: '<div class="a">When you hit the button <b>"Play"</b>, you will hear three sounds separated by silences. Please  <span class="highlight"> select the softest and quietest sound </span> (e.g., the first/second/third). The tested sound will  <span class="highlight"> only be played once. </span></div>'
     }).appendTo($('#hc-container'));
 
     if (headphoneCheckConfig.debug) console.log(headphoneCheckData);
@@ -229,15 +229,15 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
     // render boilerplate instruction text
     $('<div/>', {
       class: 'hc-calibration-instruction intro-article',
-      html: '<div class="a">You must be <span class="highlight"> wearing headphones </span> to do this HIT!</div>'
+      html: '<div class="a">You must be <span class="highlight"> wearing headphones </span> to do this experiment.</div>'
     }).appendTo($('#hc-container'));
+    // $('<div/>', {
+    //   class: 'hc-calibration-instruction intro-article',
+    //   html: '<b>Level Calibration</b>'
+    // }).appendTo($('#hc-container'));
     $('<div/>', {
       class: 'hc-calibration-instruction intro-article',
-      html: '<b>Level Calibration</b>'
-    }).appendTo($('#hc-container'));
-    $('<div/>', {
-      class: 'hc-calibration-instruction intro-article',
-      html: '<div class="a">First, set your computer volume to about 25% of maximum. Press the button, then turn up the volume on your computer until the ' +
+      html: '<div class="a">First, please set your computer volume to about 25% of maximum. Press the button, then turn up the volume on your computer until the ' +
         'calibration noise is at a loud but comfortable level.</div>'
     }).appendTo($('#hc-container'));
     $('<div/>', {

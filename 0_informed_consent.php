@@ -46,7 +46,7 @@ $ip = get_client_ip();
     <!-- social optimizing -->
     <!-- my css -->
     <link rel="stylesheet" type="text/css" href="css/main_modules.css">
-    <link rel="stylesheet" type="text/css" href="css/consent_style.css">
+    <link rel="stylesheet" type="text/css" href="css/0_consent/consent_style.css">
     
     <script type="text/javascript" src="js/globalsetting.js"></script> 
     
@@ -58,20 +58,21 @@ $ip = get_client_ip();
         <div class="container instruction">
             <div class="title">Informed Consent Form</div>
             <hr>
-            <p>Thank you for joining in our experiment. First of all, the requirements of participating this research are listed below:</p>
+            <p>Thank you for participating in our experiment. First of all, the requirements to participate in this research are listed below:</p>
             <ol>
+                <li>Make sure your computer has a stable website connection</li>
                 <li>Fluent in <b>English</b> reading</li>
-                <li>Familiar with website usage</li>
-                <li>Using a computer with stable website connection</li>
+                <li> <span class="highlight">Wear a headphone during the experiment</span> </li>  
             </ol>
             <p>If you fulfill the requriements, please read the following information：</p>
             <p>This study is conducted by Modeling & Informatics Lab (MIL) at Department of Psychology, National Taiwan University. This experiment aims to delve more into mechanism of musical emotion.</p>
-            <p><b>Procedure</b>:  While you listen to some music pieces in the first session, you will need to fill in 2 questionnaires. After the listening session, we will collect the responses of other 2 question sheets. It usually takes about <span class="highlight"> 15 minutes </span> to complete all the task. For the accuracy, please focus on the instruction and questions on the screen. Do not open other tabs during the experiment.
-            <p><b>Benefit</b>: You will gain <span class="highlight"> $0.5 </span> and know more about music after completing all the sessions. </p>
-            <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However, no one could access the data except researchers listed below. If you want to retrieve your data, please send an e-mail to the researchers. Moreover, the outcome of the experiments is not related to any commercial use. </p>
-            <p><b>Other ethical issues</b>: (1) this research is self-financing (2) Although the experiments do not have any risk to hurt the subjects, you can quit freely during the experiment. </p>
-            <p>Principal Investigators：<span class="mobile_just">Department of Psychology, National Taiwan University </span><span class="mobile_just">Tsung-Ren Huang, assitant professor;</span><span class="mobile_just">Department of Economics, National Taiwan University</span>Chenying Huang, professor</p>
-            <p>Developer & Researcher：<span class="mobile_just">Department of Psychology, National Taiwan University </span><span class="mobile_just">Zih-Hsiang Wang, graduate student</span></p>
+            <p><b>Procedure</b>:  In the first session, you will listen to some music pieces. At the same time, you will need to fill in one questionnaires. After the listening session, you will be given two other questionaires. It usually takes about <span class="highlight"> 30 minutes </span> to complete all the tasks. Please concentrate on the instructions and questions on the screen. Do not open other tabs during the experiment.
+            <p><b>Benefit</b>: You will gain <span class="highlight"> $0.5 </span>if you complete the whole experiment. </p>
+            <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However, no one could get access to the data except for researchers listed below. If you want to retrieve your data, please send an e-mail to the researchers. In addition, the result of the experiments will not be used for any commercial purpose. </p>
+            <p><b>Other ethical issues</b>: (1) This research is self-financing. (2) There is no any potential risk for our study. However, you may decline to answer any or all questions and you may terminate your involvement at any time if you choose. </p>
+            <br>
+            <p class="devInfo">Principal Investigators：<span class="mobile_just">Department of Psychology, National Taiwan University </span><span class="mobile_just">Tsung-Ren Huang, assitant professor;</span><span class="mobile_just">Department of Economics, National Taiwan University</span>Chenying Huang, professor</p>
+            <p class="devInfo">Developer & Researcher：<span class="mobile_just">Department of Psychology, National Taiwan University </span><span class="mobile_just">Zih-Hsiang Wang, graduate student</span></p>
         </div>
         <!-- form part -->
         <form>
