@@ -1,0 +1,173 @@
+* {
+    /* border: solid 1px black; */
+    box-sizing: border-box;
+    position: relative;
+}
+html, body{
+    margin:0;
+    padding:0;
+}
+
+a{
+    text-decoration: none;
+    color: #454545;
+}
+
+#logo{
+    float: left;
+    position: absolute;
+    background-image: url(../asset/logo.png);
+    background-size: cover;
+    height: 60px;
+    width:60px;
+    left: 40px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+
+#bg-img{
+    height: 300px;
+}
+
+
+#banner_text{
+    color: #fff;
+    font-size: 50px; /*use media query*/
+    font-weight: 700;
+    padding-top:80px;
+    text-align: center;
+}
+
+.section_sizing{
+    height: 400px;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: 700;
+    /* padding: 16px 18px; */
+    padding-top: 20px;
+    margin-left: 30px;
+}
+
+article{
+    padding: 14px 12px;
+}
+
+.g-btn{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
+}
+
+#about_title{
+    margin-top:40px;
+}
+
+#about_article{
+    font-size: 24px;
+    text-align: center;
+    color: #454545;
+}
+
+#sec_about_exp{
+    background-color: #FCFCFC;
+}
+
+#sec_about_exp > .container{
+    height: 100%;
+}
+
+#sec_about_mil{
+    background-image: url(../asset/score.jpg);
+    opacity: 0.8;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color:#454545;
+    font-size: 18px;
+}
+
+#about_mil_article{
+    width: 480px;
+    background-color: rgba(255, 255, 255, 0.7)
+}
+
+footer{
+    position: relative;
+    background-color: #FCFCFC;
+}
+
+.subTitle{
+    font-size: 20px;
+    color: #454545;
+    font-size: bold;
+}
+
+.link{
+    font-weight: lighter;
+    font-size: 16px;
+}
+
+.contactBox{
+    display: grid;
+    grid-template-areas: 
+        "title emailContent" 
+        ". faContent";
+    grid-template-rows: 60px 60px;
+    grid-template-columns: 160px 200px;
+    position: absolute;
+    right: 140px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.contactBox > .title{
+    grid-area: title;
+    vertical-align: top;
+    padding-top: 0px;
+}
+.contactBox > .mailArea{
+    grid-area: emailContent;
+}
+.contactBox > .fbArea{
+    grid-area: faContent;
+}
+
+
+
+@media screen and (max-width: 480px){
+    #banner_text{
+        font-size: 25px;
+    }
+    .title{
+        font-size: 24px;
+    }
+    #about_article{
+        font-size: 16px;
+    }
+    #logo{
+        display: none;
+    }
+    #about_mil_article{
+        width: 100%;
+    }
+    .g-btn{
+        bottom: 60px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .contactBox{
+        grid-template-areas: 
+            "title" 
+            "emailContent"
+            "faContent";
+        grid-template-rows: 60px 60px 60px;
+        grid-template-columns:200px;
+        left: 10px;
+        margin-bottom: 10px;
+    }    
+}

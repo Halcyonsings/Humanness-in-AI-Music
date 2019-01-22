@@ -60,7 +60,7 @@ $ip = get_client_ip();
             <hr>
             <p>Thank you for participating in our experiment. First of all, the requirements to participate in this research are listed below:</p>
             <ol>
-                <li>Make sure your computer has a stable website connection</li>
+                <li>Make sure your computer has a stable website connection. <span class="highlight">Do not particpate in this experiment with a smartphone</span> </li>
                 <li>Fluent in <b>English</b> reading</li>
                 <li> <span class="highlight">Wear a headphone during the experiment</span> </li>  
             </ol>
