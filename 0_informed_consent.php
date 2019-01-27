@@ -60,18 +60,18 @@ $ip = get_client_ip();
             <hr>
             <p>Thank you for participating in our experiment. First of all, the requirements to participate in this research are listed below:</p>
             <ol>
-                <li>Make sure your computer has a stable website connection. <span class="highlight">Do not particpate in this experiment with a smartphone</span> </li>
-                <li>Fluent in <b>English</b> reading</li>
-                <li> <span class="highlight">Wear a headphone during the experiment</span> </li>  
+                <li>Make sure your computer has a stable website connection. <span class="highlight">Do not participate in this experiment with a smartphone</span> </li>
+                <li>Fluency in <b>English</b> reading</li>
+                <li> <span class="highlight">Wear headphones during the experiment</span> </li>  
             </ol>
-            <p>If you fulfill the requriements, please read the following information：</p>
+            <p>If you fulfill the requirements, please read the following information：</p>
             <p>This study is conducted by Modeling & Informatics Lab (MIL) at Department of Psychology, National Taiwan University. This experiment aims to delve more into mechanism of musical emotion.</p>
-            <p><b>Procedure</b>:  In the first session, you will listen to some music pieces. At the same time, you will need to fill in one questionnaires. After the listening session, you will be given two other questionaires. It usually takes about <span class="highlight"> 30 minutes </span> to complete all the tasks. Please concentrate on the instructions and questions on the screen. Do not open other tabs during the experiment.
-            <p><b>Benefit</b>: You will gain <span class="highlight"> $0.5 </span>if you complete the whole experiment. </p>
-            <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However, no one could get access to the data except for researchers listed below. If you want to retrieve your data, please send an e-mail to the researchers. In addition, the result of the experiments will not be used for any commercial purpose. </p>
+            <p><b>Procedure</b>:  In the first session, we will examine whether subjects wear headphones or not. And then, you will listen to some music pieces. At the same time, you will need to fill in a questionnaire. After the listening session, you will be given two other questionnaires. It usually takes about <span class="highlight"> 30 minutes </span> to complete all the tasks. Please concentrate on the instructions and questions on the screen. Do not open other tabs during the experiment.
+            <p><b>Benefit</b>: You will gain <span class="highlight"> $0.50 </span>if you complete the whole experiment. </p>
+            <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However, no one can access the data except for researchers listed below. If you want to retrieve your data, please send an e-mail to the researchers. In addition, the results of the experiments will not be used for any commercial purpose. </p>
             <p><b>Other ethical issues</b>: (1) This research is self-financing. (2) There is no any potential risk for our study. However, you may decline to answer any or all questions and you may terminate your involvement at any time if you choose. </p>
             <br>
-            <p class="devInfo">Principal Investigators：<span class="mobile_just">Department of Psychology, National Taiwan University </span><span class="mobile_just">Tsung-Ren Huang, assitant professor;</span><span class="mobile_just">Department of Economics, National Taiwan University</span>Chenying Huang, professor</p>
+            <p class="devInfo">Principal Investigators：<span class="mobile_just">Department of Psychology, National Taiwan University </span><span class="mobile_just">Tsung-Ren Huang, assistant professor;</span><span class="mobile_just"> Department of Economics, National Taiwan University</span> Chenying Huang, professor</p>
             <p class="devInfo">Developer & Researcher：<span class="mobile_just">Department of Psychology, National Taiwan University </span><span class="mobile_just">Zih-Hsiang Wang, graduate student</span></p>
         </div>
         <!-- form part -->

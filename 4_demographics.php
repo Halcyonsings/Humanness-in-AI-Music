@@ -69,14 +69,12 @@ $user_json = $_SESSION['userObj'];
             <div class="form-t1">Musical Ability, Attitude, and Beliefs Survey</div>
             <article class="intro-article">
                 <div class="a">
-                    The purpose of this questionnaire is to understand humans' perception of musical ability, attitude
-                    toward music, beliefs
-                    and expectations on music which may influence individual's response to music.
+                The purpose of this questionnaire is to understand (1) humans' perception of musical ability (2) attitude toward music (3) beliefs and expectations on music. These may influence an individual's response to music.
                     <!-- "&nbsp;" creates space in HTML5 -->
                 </div>
                 <div class="a">
-                    <span class="highlight">Directions:</span> Please pull the bar on the scale to the position
-                    that best indicates your tendency toward each question.
+                    <span class="highlight">Directions:</span> Please drag the bar on the scale to the position
+                    that best indicates your opinion for each question.
                 </div>
             </article>
             <div class="anchor_opinion_area">
@@ -140,15 +138,15 @@ $user_json = $_SESSION['userObj'];
 
         <form action="" id="demoForm">
             <div class="container-fluid demoCard">
-                <p class="form-t1 text-center">Personnal Information</p>
+                <p class="form-t1 text-center">Personal  Information</p>
                 <article class="intro-article">
                     <div class="a">
-                        In the last session, please fill in your personnal information. Your responses to this survey
+                        In the last session, please fill in your personal information. Your responses to this survey
                         will be anonymous. Please do not write any identifying information on your answer sheet. You
                         have
-                        to anwser
+                        to answer
                         all the questions except the last one. After submitting the form, the
-                        experiment is finished.
+                        experiment is complete.
                     </div>
                 </article>
 
@@ -220,9 +218,9 @@ $user_json = $_SESSION['userObj'];
             <div class="container-fluid endingCard">
                 <p class="form-t1 text-center">The End</p>
                 <article class="intro-article">
-                    <div class="a">The experiment is now completed. Thank you for participating in our experiment.To
-                        get the reward, first please enter the 4-digits number below on the Amazon Mechnical Turk. Then
-                        please come back to this page and<span class="highlight"> click the submit button.</span>
+                    <div class="a">The experiment is now complete. Thank you for participating in our experiment. To
+                        get the reward, please enter the 4-digit number below on the Amazon Mechanical Turk then
+                        return to this page and<span class="highlight"> click the submit button.</span>
                         <br>
                     </div>
                 </article>

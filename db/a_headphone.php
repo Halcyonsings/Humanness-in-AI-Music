@@ -26,6 +26,9 @@ $HCAllData = $_POST["HCAllData"];
 
 $sql = "INSERT INTO HC_test (uid, `HC-didPass`, `HC-totalCorrect`,`HC-startTime`, `HC-finishedTime` , `HC-inattention`, `HC-All-Data`) VALUES ('$uid', '$didPass', '$totalCorrect', '$startTime', '$finishedTime', '$inattention', '$HCAllData')";
 
+// SQL - updating the data of status table 
+$sql_udate_status = "UPDATE `user-status_test` SET q1_HC = '1' WHERE uid = '$uid'";
+$conn->query($sql_udate_status);
 
 
 // close and heading to next page
@@ -34,7 +37,7 @@ $path = "../2_listening_phase.php";
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error."Fail to connect the server，please contect the developer: hchs981809@gmail.com:";
+    echo "Error: " . $sql . "<br>" . $conn->error."Fail to connect the server, please contect the developer: hchs981809@gmail.com:";
 }
 
 ?>

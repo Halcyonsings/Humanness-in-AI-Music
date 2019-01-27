@@ -30,13 +30,19 @@ $ExpComments = $_POST['ExpComments'];
 $MAAB_Response = $_POST["MAABResponse"];
 $inattention = $_POST["inattentionP4"];
 
-
+// SQL - to demographics table
 $sql = "INSERT INTO `Demo-test` (uid, MturkFourNum ,`D-MAAB-Response`, age , sex, musicTrain_yr, musicTrain_min , education , ExpComments ,`D-startTime`, `D-finishedTime`, `D-inattention`) VALUES ('$uid', '$MturkToken', '$MAAB_Response', '$age', '$sex', '$musicTrain_yr', '$musicTrain_min' , '$education', '$ExpComments', '$startTime', '$finishedTime', '$inattention')";
 
+// SQL - updating finishing time
+$sql_udate_time = "UPDATE `user-profile_test` SET  `time-end` = '$finishTime' WHERE uid = '$uid'";
+$conn->query($sql_udate_time);
 
+// SQL - updating the data of status table 
+$sql_udate_status = "UPDATE `user-status_test` SET q4_Demo = '1' WHERE uid = '$uid'";
+$conn->query($sql_udate_status);
 
 // close and heading to next page
-$path = "/~hsiang/0_informed_consent.php";
+$path = "/~hsiang/index.html";
 
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);

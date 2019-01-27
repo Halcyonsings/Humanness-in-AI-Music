@@ -29,6 +29,9 @@ $inattention = $_POST["inattentionP3"];
 $sql = "INSERT INTO MP_test (uid, `AC-Response`,`MP-Response`, `MP-RT` ,`AC-startTime`, `MP-finishedTime`, `ACMP-inattetion`) VALUES ('$uid', '$AC_Response', '$MP_Response', '$MP_ResponseTime', '$startTime', '$finishedTime', '$inattention')";
 
 
+// SQL - updating the data of status table 
+$sql_udate_status = "UPDATE `user-status_test` SET q3_ACMP = '1' WHERE uid = '$uid'";
+$conn->query($sql_udate_status);
 
 // close and heading to next page
 $path = "/~hsiang/4_demographics.php";
@@ -36,7 +39,7 @@ $path = "/~hsiang/4_demographics.php";
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error."Fail to connect the server，please contect the developer: hchs981809@gmail.com:";
+    echo "Error: " . $sql . "<br>" . $conn->error."Fail to connect the server, please contect the developer: hchs981809@gmail.com:";
 }
 
 ?>

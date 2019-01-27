@@ -26,7 +26,9 @@ $inattention = $_POST["inattentionP2"];
 
 $sql = "INSERT INTO Listening_test (uid, `L-playTime`, `L-allAnswers`,`L-startTime`, `L-finishedTime` , `L-inattention`) VALUES ('$uid', '$playTime', '$allAnswers', '$startTime', '$finishedTime', '$inattention')";
 
-
+// SQL - updating the data of status table 
+$sql_udate_status = "UPDATE `user-status_test` SET q2_L = '1' WHERE uid = '$uid'";
+$conn->query($sql_udate_status);
 
 // close and heading to next page
 $path = "/~hsiang/3_mind_perception_scale.php";
@@ -34,7 +36,7 @@ $path = "/~hsiang/3_mind_perception_scale.php";
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error."Fail to connect the server，please contect the developer: hchs981809@gmail.com:";
+    echo "Error: " . $sql . "<br>" . $conn->error."Fail to connect the server, please contect the developer: hchs981809@gmail.com:";
 }
 
 ?>

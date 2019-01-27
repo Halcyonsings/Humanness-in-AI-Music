@@ -31,8 +31,8 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
   // override any default values you wish to change.
   headphoneCheckDefaultConfig = {
     jsonPath: undefined,
-    totalTrials: 6,
-    trialsPerPage: 6,
+    totalTrials: 2,
+    trialsPerPage: 2,
     correctThreshold: 5 / 6,
     useSequential: true,
     doShuffleTrials: true,
@@ -98,15 +98,15 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
 
     if (jsonPath === undefined) {
       var data = {
-        'stimuli': [
-          { 'id': 1, 'src': 'https://s3.amazonaws.com/mcd-headphone-check/v1.0/assets/antiphase_HC_ISO.wav', 'correct': '2' },
-          { 'id': 2, 'src': 'https://s3.amazonaws.com/mcd-headphone-check/v1.0/assets/antiphase_HC_IOS.wav', 'correct': '3' },
-          { 'id': 3, 'src': 'https://s3.amazonaws.com/mcd-headphone-check/v1.0/assets/antiphase_HC_SOI.wav', 'correct': '1' },
-          { 'id': 4, 'src': 'https://s3.amazonaws.com/mcd-headphone-check/v1.0/assets/antiphase_HC_SIO.wav', 'correct': '1' },
-          { 'id': 5, 'src': 'https://s3.amazonaws.com/mcd-headphone-check/v1.0/assets/antiphase_HC_OSI.wav', 'correct': '2' },
-          { 'id': 6, 'src': 'https://s3.amazonaws.com/mcd-headphone-check/v1.0/assets/antiphase_HC_OIS.wav', 'correct': '3' }
+        "stimuli": [
+          { "id": 1, "src": "http://mil.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_ISO.wav", "correct": "2" },
+          { "id": 2, "src": "http://mil.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_IOS.wav", "correct": "3" },
+          { "id": 3, "src": "http://mil.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_SOI.wav", "correct": "1" },
+          { "id": 4, "src": "http://mil.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_SIO.wav", "correct": "1" },
+          { "id": 5, "src": "http://mil.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_OSI.wav", "correct": "2" },
+          { "id": 6, "src": "http://mil.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_OIS.wav", "correct": "3" }
         ],
-        'calibration': { 'src': 'https://s3.amazonaws.com/mcd-headphone-check/v1.0/assets/noise_calib_stim.wav' }
+        "calibration": { "src": "http://mil.psy.ntu.edu.tw/~hsiang/asset/noise_calib_stim.wav" }
       };
       var status = 'loadedDefault';
       var error;
@@ -140,7 +140,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
     // render boilerplate instruction text
     $('<div/>', {
       class: 'hc-instruction intro-article',
-      html: '<div class="a">When you hit the button <b>"Play"</b>, you will hear three sounds separated by silences. Please  <span class="highlight"> select the softest and quietest sound </span> (e.g., the first/second/third). The tested sound will  <span class="highlight"> only be played once. </span></div>'
+      html: '<div class="a">When you hit the button <b>"Play"</b>, you will hear three sounds separated by silences. Please  <span class="highlight"> select which sound was the softest(or quietest)</span> (e.g., the first/second/third). The test sound will  <span class="highlight"> only be played once. </span></div>'
     }).appendTo($('#hc-container'));
 
     if (headphoneCheckConfig.debug) console.log(headphoneCheckData);
@@ -229,7 +229,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
     // render boilerplate instruction text
     $('<div/>', {
       class: 'hc-calibration-instruction intro-article',
-      html: '<div class="a">You must be <span class="highlight"> wearing headphones </span> to do this experiment.</div>'
+      html: '<div class="a">You must be <span class="highlight"> wearing headphones </span> to participate in this experiment.</div>'
     }).appendTo($('#hc-container'));
     // $('<div/>', {
     //   class: 'hc-calibration-instruction intro-article',
@@ -237,7 +237,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
     // }).appendTo($('#hc-container'));
     $('<div/>', {
       class: 'hc-calibration-instruction intro-article',
-      html: '<div class="a">First, please set your computer volume to about 25% of maximum. Press the button, then turn up the volume on your computer until the ' +
+      html: '<div class="a">First, please set your computer volume to about 25% of its maximum. Press the button, then turn up the volume on your computer until the ' +
         'calibration noise is at a loud but comfortable level.</div>'
     }).appendTo($('#hc-container'));
     $('<div/>', {

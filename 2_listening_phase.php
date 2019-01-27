@@ -75,12 +75,12 @@
                         <div class="col-12 col-sm-8">
                             <div class="form-t1">Listening Session</div>
                             <article class="intro-article" data-step="1" data-intro="First, read the notice">
-                                Please read the notice before listening the clips:</p>
+                                Please read the notice before listening to the clips:</p>
                                 <ol>
-                                    <li><span class="highlight">Wear a headphone when listening</span></li>
-                                    <li>You will hear 4 clips. After clicking the "play" button, a questionaire will appear below 30 seconds later.</li>
+                                    <li><span class="highlight">Wear headphones when listening</span></li>
+                                    <li>You will hear 4 clips. After clicking the "play" button, a questionnaire will appear below 30 seconds later.</li>
                                     <li>You are able to listen to a single piece of music several times</li>
-                                    <li>In the questionnaire, please rate each piece of music clips on the following dimensions (feelings or musical features) on a scale ranging from 1 (not at all) to 5 (very much).</li>
+                                    <li>In the questionnaire, please rate each piece of the music clip on the following dimensions (feelings or musical features) on a scale ranging from 1 (not at all) to 5 (very much).</li>
                                     
                                 </ol>
                             </article>

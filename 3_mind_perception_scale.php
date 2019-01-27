@@ -80,10 +80,10 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">3. Turkers are working on this experiment in many different places.
+                <div class="Attention_check_descrp">3. Subjects participate in this experiment in many different places.
                     Please
                     tell
-                    us about the place where you worked on this experiment. Please answer honestly. <span class="highlight">Your
+                    us about the place where you took this experiment. Please answer honestly. <span class="highlight">Your
                         payment
                         does NOT depend on your response to this question.</span></div>
                 <div class="AC_res_block">
@@ -110,10 +110,10 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">4. Turkers are working on this experiment with many different
+                <div class="Attention_check_descrp">4. Subjects participate in this experiment with many different
                     devices,
                     browsers,
-                    and internet connections. Please tell us about whether you had difficulty loading the sounds.
+                    and internet connection speeds. Please tell us whether you had difficulty loading the sounds.
                     Please answer
                     honestly. <span class="highlight">Your payment does NOT depend on your response to this question.</span></div>
                 <div class="AC_res_block">
