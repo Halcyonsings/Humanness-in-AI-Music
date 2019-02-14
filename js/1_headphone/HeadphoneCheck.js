@@ -31,8 +31,8 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
   // override any default values you wish to change.
   headphoneCheckDefaultConfig = {
     jsonPath: undefined,
-    totalTrials: 2,
-    trialsPerPage: 2,
+    totalTrials: 6,
+    trialsPerPage: 6,
     correctThreshold: 5 / 6,
     useSequential: true,
     doShuffleTrials: true,
@@ -140,7 +140,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
     // render boilerplate instruction text
     $('<div/>', {
       class: 'hc-instruction intro-article',
-      html: '<div class="a">When you hit the button <b>"Play"</b>, you will hear three sounds separated by silences. Please  <span class="highlight"> select which sound was the softest(or quietest)</span> (e.g., the first/second/third). The test sound will  <span class="highlight"> only be played once. </span></div>'
+      html: '<div class="a">When you hit the <b>"Play"</b> button, you will hear three sounds separated by silences. Please  <span class="highlight"> select the sound which was the softest(or quietest)</span> (e.g., the first/second/third). The test sound will  <span class="highlight"> only be played once. </span>Please follow the order and answer the questions.</div>'
     }).appendTo($('#hc-container'));
 
     if (headphoneCheckConfig.debug) console.log(headphoneCheckData);
@@ -266,7 +266,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
 
     $('<div/>', {
       class: 'hc-calibration-instruction intro-article',
-      html: '<hr><div class="a">Press <b>Continue</b> when level calibration is complete.</div>',
+      html: '<hr><div class="a">Press <b>Continue</b> when calibration is complete.</div>',
     }).appendTo($('#hc-container'));
 
     // Add button to continue

@@ -141,7 +141,7 @@ $user_json = $_SESSION['userObj'];
                 <p class="form-t1 text-center">Personal  Information</p>
                 <article class="intro-article">
                     <div class="a">
-                        In the last session, please fill in your personal information. Your responses to this survey
+                        In this last section, please fill in your personal information. Your responses to this survey
                         will be anonymous. Please do not write any identifying information on your answer sheet. You
                         have
                         to answer

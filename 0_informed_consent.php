@@ -60,19 +60,19 @@ $ip = get_client_ip();
             <hr>
             <p>Thank you for participating in our experiment. First of all, the requirements to participate in this research are listed below:</p>
             <ol>
-                <li>Make sure your computer has a stable website connection. <span class="highlight">Do not participate in this experiment with a smartphone</span> </li>
-                <li>Fluency in <b>English</b> reading</li>
+                <li>Make sure your computer has a stable website connection. <span class="highlight">Do not participate in this experiment with a smartphone.</span> </li>
+                <li>Fluency in <span class="highlight">English</span> reading</li>
                 <li> <span class="highlight">Wear headphones during the experiment</span> </li>  
             </ol>
             <p>If you fulfill the requirements, please read the following information：</p>
-            <p>This study is conducted by Modeling & Informatics Lab (MIL) at Department of Psychology, National Taiwan University. This experiment aims to delve more into mechanism of musical emotion.</p>
-            <p><b>Procedure</b>:  In the first session, we will examine whether subjects wear headphones or not. And then, you will listen to some music pieces. At the same time, you will need to fill in a questionnaire. After the listening session, you will be given two other questionnaires. It usually takes about <span class="highlight"> 30 minutes </span> to complete all the tasks. Please concentrate on the instructions and questions on the screen. Do not open other tabs during the experiment.
-            <p><b>Benefit</b>: You will gain <span class="highlight"> $0.50 </span>if you complete the whole experiment. </p>
-            <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However, no one can access the data except for researchers listed below. If you want to retrieve your data, please send an e-mail to the researchers. In addition, the results of the experiments will not be used for any commercial purpose. </p>
-            <p><b>Other ethical issues</b>: (1) This research is self-financing. (2) There is no any potential risk for our study. However, you may decline to answer any or all questions and you may terminate your involvement at any time if you choose. </p>
+            <p>This study is conducted by Modeling & Informatics Lab (MIL) at Department of Psychology, National Taiwan University. This experiment aims to delve more into the mechanism of musical emotion.</p>
+            <p><b>Procedure</b>:  In the first session, we will examine whether participants are wearing headphones or not. You will then listen to some music pieces as you simultaneously fill in a questionnaire. After the listening session, you will be given two other questionnaires. It will take about <span class="highlight"> 30 minutes </span> to complete all the tasks. Please concentrate on the instructions and questions on the screen. Do not open other tabs during the experiment.
+            <p><b>Benefit</b>: You will receive <span class="highlight"> $0.50 </span> if you successfully complete all the tasks in the experiment.  </p>
+            <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However, no one can access the data except for researchers listed below. If you want to retrieve your data, please send an e-mail to the researchers (r05227104@ntu.edu.tw). In addition, the results of the experiments will not be used for any commercial purposes. </p>
+            <p><b>Other ethical issues</b>: (1) This research is self-financed. (2) There is no potential risk in this study. However, you have the right to decline to answer any or all questions and you may terminate your involvement at any time if you choose. </p>
             <br>
-            <p class="devInfo">Principal Investigators：<span class="mobile_just">Department of Psychology, National Taiwan University </span><span class="mobile_just">Tsung-Ren Huang, assistant professor;</span><span class="mobile_just"> Department of Economics, National Taiwan University</span> Chenying Huang, professor</p>
-            <p class="devInfo">Developer & Researcher：<span class="mobile_just">Department of Psychology, National Taiwan University </span><span class="mobile_just">Zih-Hsiang Wang, graduate student</span></p>
+            <p class="devInfo"><b>Principal Investigators</b>：<br>Tsung-Ren Huang, Assistant Professor, Department of Psychology, National Taiwan University;<br>Chen-Ying Huang, Professor, Department of Economics, National Taiwan University</p>
+            <p class="devInfo"><b>Developer & Researcher</b>：<br>Zih-Hsiang Wang, graduate student, Department of Psychology, National Taiwan University </p>
         </div>
         <!-- form part -->
         <form>

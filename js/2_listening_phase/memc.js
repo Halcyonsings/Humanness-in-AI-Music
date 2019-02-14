@@ -41,7 +41,7 @@ let MEMC = {
     "24": "Familiar",
     "25": "Awkward",
     // Special questions
-    "26": "What is your overall preference of the excerpt (from 1 to 5)? ",
+    "26": "What is your overall preference of the excerpt (from 1 to 5)? You like it _____.",
     "27": "Do you think the excerpts compose by Mozart (from 1 to 5)? ",
 }
 
@@ -252,7 +252,7 @@ MEMC.clear = function () {
 
 
 // ====================================================================
-// Some old functions
+// First timing setting
 // ====================================================================
 
 
@@ -269,10 +269,15 @@ MEMC.clear = function () {
 /* hide the questionires first */
 $('#MEMCscale').hide();
 $('#memc').hide();
+$('#music-section').show();
+
+// $('.WaitMusic').hide();
+// $('.WaitMusic').delay(3000).hide();
+
 
 /* show the scale after click the MP3 file */
 $('#btn-play').on('click', function () {
-    $('#memc').show();
+    $('#memc').delay(3000).show(300);
     $('#MEMCscale').delay(3000).show(300).scrollTop(0);
     $('html, body').animate({
         scrollTop: $('#memc').offset().top - 300

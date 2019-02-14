@@ -31,7 +31,17 @@ $.ajax({
 
         // Ramdon sample two numbers in range 1 to 8, and get the musics which pair id is in the sampled IDs
         // Sample the control music.
-        let sampledIDs = shuffle([1, 2, 3, 4, 5, 6, 7, 8]).slice(0, 1); // set trial numbers
+
+        // ===== stratified sampling =====
+        let BHC = shuffle([1, 2]).slice(0, 1);
+        let BBC = shuffle([3, 4]).slice(0, 1);
+        let MPC = shuffle([5, 6]).slice(0, 1);
+        let MSY = shuffle([7, 8]).slice(0, 1);
+        sampledIDs = BHC.concat(BBC).concat(MPC).concat(MSY);
+
+        // ===== All random selcet =====
+        // let sampledIDs = shuffle([1, 2, 3, 4, 5, 6, 7, 8]).slice(0, 1); // set trial numbers
+
         let sampledMusics = musicItems.filter(item => sampledIDs.includes(+item.pairs));
 
         // If control music is needed
@@ -123,10 +133,14 @@ function nextStep() {
                 Spectrum.load(playList[currentTrial - 1]);
                 MEMC.shuffle();
                 songTime = 0;
+                // $('.WaitMusic').toggle(1800).hide();
+                $('.ButtonSet').hide().delay(2000).show(300);
+
+
                 $('#memc').hide();
                 $('#MEMCscale').hide();
-                console.log(allAnswers);
-                console.log(playTime);
+                // console.log(allAnswers);
+                // console.log(playTime);
             }
         }
     }

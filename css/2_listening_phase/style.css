@@ -92,3 +92,7 @@ section {
     padding-left: 0px;
     padding-right: 0px;
 }
+
+#audio-spectrum {
+    margin-top: 20px;
+}

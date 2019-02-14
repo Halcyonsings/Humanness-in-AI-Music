@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 function timerIncrement() {
     idleTime = idleTime + 1;
-    if (idleTime > 2) { // 5 minutes
+    if (idleTime > 5) { // 5 minutes
         alert('There have been no response for 5 miniutes. We hope that you will come back and focus on the experiment.');
         inattention = inattention + 1;  //record inatteional subjects
     }

@@ -83,7 +83,7 @@ $user_json = $_SESSION['userObj'];
                 <div class="Attention_check_descrp">3. Subjects participate in this experiment in many different places.
                     Please
                     tell
-                    us about the place where you took this experiment. Please answer honestly. <span class="highlight">Your
+                    us about the place where you completed this experiment. Please answer honestly. <span class="highlight">Your
                         payment
                         does NOT depend on your response to this question.</span></div>
                 <div class="AC_res_block">
