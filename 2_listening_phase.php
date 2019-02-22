@@ -1,3 +1,14 @@
+<?php
+session_start();
+$userId = $_SESSION['uid'];
+$user_json = $_SESSION['userObj'];
+// avoid jump
+// include "db/avoidJump.php";
+
+?>
+
+
+
 <!doctype html>
 <html>
 
@@ -43,8 +54,10 @@
     <link rel="stylesheet" href="css/2_listening_phase/style.css">
     <link rel="stylesheet" href="css/2_listening_phase/memc.css">
     <!-- <link rel="stylesheet" href="css/2_listening_phase/loader.css"> -->
+    
     <!-- Add IntroJs styles -->
     <link href="css/introjs.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 
@@ -66,12 +79,12 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-8">
                             <div class="form-t1">Listening Session</div>
-                            <article class="intro-article" data-step="1" data-intro="First, read the notice">
+                            <article class="intro-article" data-step="1" data-intro="First, read the notice" data-position="left">
                                 Please read the notice before listening to the clips:</p>
                                 <ol>
                                     <li><span class="highlight">Please wear headphones when listening.</span></li>
                                     <li>You will listen to 8 different clips. Thirty seconds after clicking the "play"
-                                        button, a questionnaire will appear below. </li>
+                                        button, a questionnaire will appear below. Twenty-six items should be answered.</li>
                                     <li>You will be able to listen to a single piece of music several times.</li>
                                     <li>In the questionnaire, please rate each piece of the music clip on the following
                                         dimensions (feelings or musical features) on a scale ranging from 1 (not at
@@ -90,8 +103,8 @@
                     <!-- Create a div where the audio waves will be shown -->
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6">
-                            <div id="audio-spectrum" class="InsertNote" data-step="4"
-                                data-intro="Drag the bar to adjust time. Click 'Done' to end intro."></div>
+                            <div id="audio-spectrum" class="InsertNote" data-step="4" data-position="left"
+                                data-intro="Drag the bar to adjust time."></div>
                         </div>
                     </div>
                     <!-- Set the loader            
@@ -108,7 +121,7 @@
                             <div class="row justify-content-between ButtonSet">
                                 <!-- Before being turned on by JS, the default value of button is set to disabled -->
                                 <button id="btn-play" class="MusicButtonDesign" disabled="disabled" data-step="2"
-                                    data-intro="Click here to play the music"><i
+                                    data-intro="Click here to play the music" data-position="left"><i
                                         class="material-icons">play_arrow</i>Play</button>
                                 <button id="btn-pause" class="MusicButtonDesign" disabled="disabled"><i
                                         class="material-icons">pause</i>Pause</button>

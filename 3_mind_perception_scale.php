@@ -194,11 +194,11 @@ $user_json = $_SESSION['userObj'];
             if (checking == "finished") {
                 // recording
                 AC_Response = {
-                    AC1: $('input[name=AC1]').val(),
-                    AC2: $('input[name=AC2]').val(),
-                    AC3: $('input[name=AC3]').val(),
-                    AC4: $('input[name=AC4]').val(),
-                    AC5: $('input[name=AC5]').val(),
+                    AC1: $('input[name=AC1]:checked').val(), // Radio buttons need "checked". 
+                    AC2: $('input[name=AC2]:checked').val(), // Unless, it will only get the opition in each question.  
+                    AC3: $('input[name=AC3]:checked').val(),
+                    AC4: $('input[name=AC4]:checked').val(),
+                    AC5: $('input[name=AC5]:checked').val(),
 
                 }
 

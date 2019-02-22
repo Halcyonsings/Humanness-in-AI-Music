@@ -61,8 +61,9 @@ $ip = get_client_ip();
             <p>Thank you for participating in our experiment. First of all, the requirements to participate in this research are listed below:</p>
             <ol>
                 <li>Make sure your computer has a stable website connection. <span class="highlight">Do not participate in this experiment with a smartphone.</span> </li>
-                <li>Fluency in <span class="highlight">English</span> reading</li>
-                <li> <span class="highlight">Wear headphones during the experiment</span> </li>  
+                <li>You shoud have the ability of fluency in English reading.</li>
+                <li>Please wear headphones during the experiment.</li>  
+                <li><span class="highlight">Do not participate this experiment with IE (Internet Explorer) browser.</span> </li>  
             </ol>
             <p>If you fulfill the requirements, please read the following information：</p>
             <p>This study is conducted by Modeling & Informatics Lab (MIL) at Department of Psychology, National Taiwan University. This experiment aims to delve more into the mechanism of musical emotion.</p>

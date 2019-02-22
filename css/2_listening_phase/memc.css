@@ -23,7 +23,9 @@
     margin-top: 10%;
     margin-bottom: 20%; /* Add this comments to avoid plate shifting */
     /*     height: 40px; */
-    font-size: 120%;
+    font-size: 130%;
+    font-family: 微軟正黑體;
+    font-weight: 500;
     height: 45px;
 }
 
