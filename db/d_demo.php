@@ -30,6 +30,9 @@ $ExpComments = $_POST['ExpComments'];
 $MAAB_Response = $_POST["MAABResponse"];
 $inattention = $_POST["inattentionP4"];
 
+// Add this line to avoid insert error which occurs when subjects type ' in $ExpComments
+$ExpComments = str_replace("'", "''", $ExpComments);
+
 // SQL - to demographics table
 $sql = "INSERT INTO `Demo-test` (uid, MturkFourNum ,`D-MAAB-Response`, age , sex, musicTrain_yr, musicTrain_min , education , ExpComments ,`D-startTime`, `D-finishedTime`, `D-inattention`) VALUES ('$uid', '$MturkToken', '$MAAB_Response', '$age', '$sex', '$musicTrain_yr', '$musicTrain_min' , '$education', '$ExpComments', '$startTime', '$finishedTime', '$inattention')";
 

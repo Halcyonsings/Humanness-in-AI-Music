@@ -84,6 +84,8 @@ setInterval(function () {
     }
 }, 10);
 
+// start trial information
+$(document).ready(function () { $('#currinfo').html("&nbsp(1/" + playList.length + ")") }); // &nbsp to add space
 
 function nextStep() {
     // Get answers and 
@@ -125,14 +127,16 @@ function nextStep() {
                 // $("#user_object").attr("value", user_json);
 
                 // form submission
-                $("form").attr("action", "db/b_listening_phase.php")
-                $("form").attr("method", "POST")
-                $("form").submit()
+                $("form").attr("action", "db/b_listening_phase.php");
+                $("form").attr("method", "POST");
+                $("form").submit();
             } else {
                 currentTrial++;
                 Spectrum.load(playList[currentTrial - 1]);
                 MEMC.shuffle();
                 songTime = 0;
+
+                $('#currinfo').html("&nbsp(" + currentTrial + "/" + playList.length + ")"); // update current trial info
                 // $('.WaitMusic').toggle(1800).hide();
                 $('.ButtonSet').hide().delay(2000).show(300);
 

@@ -78,7 +78,7 @@ $user_json = $_SESSION['userObj'];
                 <section class="col-12" id="instruction-section">
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-8">
-                            <div class="form-t1">Listening Session</div>
+                            <div class="form-t1">Listening Session<span id="currinfo"><span></div>
                             <article class="intro-article" data-step="1" data-intro="First, read the notice" data-position="left">
                                 Please read the notice before listening to the clips:</p>
                                 <ol>

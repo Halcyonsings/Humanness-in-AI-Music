@@ -24,7 +24,7 @@ $totalCorrect = $_POST["totalCorrect"];
 $inattention = $_POST["inattentionP1"];
 $HCAllData = $_POST["HCAllData"];
 
-$sql = "INSERT INTO HC_test (uid, `HC-didPass`, `HC-totalCorrect`,`HC-startTime`, `HC-finishedTime` , `HC-inattention`, `HC-All-Data`) VALUES ('$uid', '$didPass', '$totalCorrect', '$startTime', '$finishedTime', '$inattention', '$HCAllData')";
+$sql = "INSERT INTO HC_test (uid, `HC-totalCorrect`,`HC-startTime`, `HC-finishedTime` , `HC-inattention`, `HC-All-Data`) VALUES ('$uid', '$totalCorrect', '$startTime', '$finishedTime', '$inattention', '$HCAllData')";
 
 // SQL - updating the data of status table 
 $sql_udate_status = "UPDATE `user-status_test` SET q1_HC = '1' WHERE uid = '$uid'";

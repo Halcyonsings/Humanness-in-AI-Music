@@ -4,7 +4,7 @@ $userId = $_SESSION['uid'];
 // $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/avoidJump.php";
+// include "db/avoidJump.php";
 
 ?>
 
@@ -41,6 +41,12 @@ include "db/avoidJump.php";
         var results_json = JSON.stringify(results);
         var uid = '<?php echo $userId;?>';
         
+        if (headphoneCheckData.totalCorrect < 5) {
+            window.onbeforeunload = null;
+            window.location.reload();
+            // console.log(headphoneCheckData.totalCorrect);
+        }
+        else {  
         window.onbeforeunload = null;
         $("#user_id").attr("value", uid);
         // console.log("end");
@@ -48,6 +54,9 @@ include "db/avoidJump.php";
         // console.log(didPass);
         $("#total_Correct").attr("value", headphoneCheckData.totalCorrect);
         // console.log(results.totalCorrect);
+        // console.log("else:"+headphoneCheckData.totalCorrect);
+        // console.log("else:"+headphoneCheckData.totalCorrect<5);
+
         $("#inattention_P1").attr("value", inattention);
         // console.log(inattention);
         $("#HC_All_Data").attr("value", results_json);
@@ -56,6 +65,7 @@ include "db/avoidJump.php";
         $("form").attr("method", "POST")
         $("form").submit()
         // window.location = "2_listening_phase.html"
+        }  
     });
 </script>
 
