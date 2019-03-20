@@ -86,15 +86,15 @@ MEMC.render = function (divToRender) {
     // Make our select more functional with Jquery UI 
     // Add click listener
     this.cards = $(".question-card");
-    this.cards.find("select").selectmenu({
-        classes: {
-            "ui-selectmenu-button": " question-menu",
-        },
-        width: '80%'
-    });
-    this.cards.click(function () {
-        $(this).find("select").selectmenu("open");
-    });
+    //     this.cards.find("select").selectmenu({
+    //         classes: {
+    //             "ui-selectmenu-button": " question-menu",
+    //         },
+    //         width: '80%'
+    //     });
+    //     this.cards.click(function () {
+    //         $(this).find("select").selectmenu("open");
+    //     });
 
 }
 
@@ -119,20 +119,21 @@ MEMC.renderEmptyCards = function (divId, numQuestion, numQuesPerRow = 5) {
         $memcContainer.append($memcRow);
 
         for (let j = 1; j <= numQuesPerRow; j++) {
-
+            // autocomplete "off" to delete the last answer
             let quesCard = `<div class="col-12 col-sm">` +
                 `<div class="row btn-info align-items-center question-card" id="question-card-${i * 5 + j}">` +
                 ` <div class="col-12">` +
                 `<h5></h5>` +
                 `</div>` +
                 `<div class="col-12 d-flex justify-content-center">` +
-                `<select>` +
-                `<option name="test2" selected="selected">1 / Not at all</option>` +
-                `<option name="test2">2 / Somewhat</option>` +
-                `<option name="test1">3 / Moderately</option>` +
-                `<option name="test1">4 / Quite a lot</option>` +
-                `<option name="test1">5 / Very much</option>` +
-                `</select>` +
+                `<div class="MEMCLabel">1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5</div>` +
+                `<group class="inline-radio MEMCbutton">` +
+                `<input type="radio" value="1" id="fisrtOP-${i * 5 + j}" name="amplitude-${i * 5 + j}" autocomplete="off" checked="checked"/>&nbsp` +
+                `<input type="radio" value="2" id="secondOP-${i * 5 + j}" name="amplitude-${i * 5 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="3" id="thirdOP-${i * 5 + j}" name="amplitude-${i * 5 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="4" id="fourthOP-${i * 5 + j}" name="amplitude-${i * 5 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="5" id="fifthOP-${i * 5 + j}" name="amplitude-${i * 5 + j}" autocomplete="off"/>` +
+                `</group>` +
                 `</div>` +
                 `</div>` +
                 `</div>`;
@@ -140,7 +141,9 @@ MEMC.renderEmptyCards = function (divId, numQuestion, numQuesPerRow = 5) {
             counter += 1;
             if (counter === numQuestion) break;
         }
+
     }
+
 }
 
 
@@ -161,7 +164,7 @@ MEMC.renderQuestions = function (containerId, questionIds, isRandom = true) {
     //   Render the text to each container one by one.
     ids.forEach(function (id, index) {
         $cards.eq(index).find("h5").text(`${index + 1}. ${MEMC[id]}`);
-        $cards.eq(index).find("select").attr("id", `question-${id}`);
+        $cards.eq(index).find("group").attr("id", `question-${id}`);
     });
 }
 
@@ -198,8 +201,8 @@ MEMC.getAnswers = function (phase = "all") {
 
     // Collect answers
     let answers = {};
-    targetContainer.find('select').each(function (index) {
-        answers[$(this).attr("id")] = $(this).val();
+    targetContainer.find('group').each(function (index) {
+        answers[$(this).attr("id")] = $(this).children("input:checked").val();
     });
     return answers
 }
@@ -223,6 +226,8 @@ MEMC.toggle = function () {
         this.phase = "phase2";
         this.phase1Container.hide();
         this.phase2Container.show();
+        // $('input[name="amplitude-1"]').first().prop('checked', true);
+        // $('#firstOP-1').prop('checked', 'checked');
     } else {
         this.phase = "phase1";
         this.phase1Container.show();
@@ -242,9 +247,8 @@ MEMC.toggle = function () {
  * @return {null}
  */
 MEMC.clear = function () {
-    this.cards.find("select").each(function (index) {
-        $(this)[0].selectedIndex = 0;
-        $(this).selectmenu("refresh");
+    this.cards.find('group').each(function (index) {
+        $(this).children('input[type="radio"]').first().prop('checked', true);
     });
 }
 
@@ -265,6 +269,7 @@ MEMC.clear = function () {
 
 
 
+
 /* hide the questionires first */
 $('#MEMCscale').hide();
 $('#memc').hide();
@@ -281,7 +286,9 @@ $('#btn-play').on('click', function () {
     $('html, body').animate({
         scrollTop: $('#memc').offset().top - 300
     }, 'slow');
-
+    // $('#firstOP-1').prop('checked', 'checked');
+    // document.getElementById("firstOP-1").checked = true;
+    $('input[name="amplitude-1"]').first().prop('checked', true); // forced to check the first item
 });
 
 

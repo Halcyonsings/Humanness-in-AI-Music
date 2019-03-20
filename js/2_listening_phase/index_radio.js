@@ -104,15 +104,22 @@ function nextStep() {
     let phaseAnswers = MEMC.getAnswers(phase);
     temp = phaseAnswers
 
-    // Check answers, submit the answers and jump to next page. 
+    // Check answers, submit the answers and jump to next page.
+    // Phase 1 check
     if (phase === "phase1" && Object.values(phaseAnswers).every((val, i, arr) => val === arr[0])) {
         // If the the answers contain null, alert the user.
-        alert("Please do not report the same value of number for all answers..");
+        alert("Please do not report the same value of number for all answers.");
 
+    }
+    // Phase 2 check
+    else if (Object.values(phaseAnswers).includes(undefined)) {
+        // If the the answers contain null, alert the user.
+        alert("Please finish questions: \n" + getAllIndexes(Object.values(phaseAnswers), undefined).map(e => e + 1).join(", "));
     }
     else {
 
         MEMC.toggle();
+
         if (phase === "phase1")
             return false;
         else {

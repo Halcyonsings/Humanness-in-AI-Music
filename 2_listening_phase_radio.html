@@ -1,14 +1,3 @@
-<?php
-session_start();
-$userId = $_SESSION['uid'];
-$user_json = $_SESSION['userObj'];
-// avoid jump
-// include "db/avoidJump.php";
-
-?>
-
-
-
 <!doctype html>
 <html>
 
@@ -52,9 +41,9 @@ $user_json = $_SESSION['userObj'];
     <link rel="stylesheet" href="css/main_modules.css">
 
     <link rel="stylesheet" href="css/2_listening_phase/style.css">
-    <link rel="stylesheet" href="css/2_listening_phase/memc.css">
+    <link rel="stylesheet" href="css/2_listening_phase/memc_radio.css">
     <!-- <link rel="stylesheet" href="css/2_listening_phase/loader.css"> -->
-    
+
     <!-- Add IntroJs styles -->
     <link href="css/introjs.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -79,12 +68,14 @@ $user_json = $_SESSION['userObj'];
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-8">
                             <div class="form-t1">Listening Session<span id="currinfo"><span></div>
-                            <article class="intro-article" data-step="1" data-intro="First, read the notice" data-position="left">
+                            <article class="intro-article" data-step="1" data-intro="First, read the notice"
+                                data-position="left">
                                 Please read the notice before listening to the clips:</p>
                                 <ol>
                                     <li><span class="highlight">Please wear headphones when listening.</span></li>
                                     <li>You will listen to 8 different clips. Thirty seconds after clicking the "play"
-                                        button, a questionnaire will appear below. Twenty-six items should be answered.</li>
+                                        button, a questionnaire will appear below. Twenty-six items should be answered.
+                                    </li>
                                     <li>You will be able to listen to a single piece of music several times.</li>
                                     <li>In the questionnaire, please rate each piece of the music clip on the following
                                         dimensions (feelings or musical features) on a scale ranging from 1 (not at
@@ -148,7 +139,7 @@ $user_json = $_SESSION['userObj'];
                         <input type="hidden" name="allRT" id="all_RT">
                         <input type="hidden" name="inattentionP2" id="inattention_P2">
                         <div class="clearfix">
-                            <button type="button" id="next" class="g-btn MEMCbutton" onclick="nextStep()">
+                            <button type="button" id="next" class="g-btn" onclick="nextStep()">
                                 <span>Next Page<span>
                             </button>
                         </div>
@@ -163,9 +154,9 @@ $user_json = $_SESSION['userObj'];
 
     <!-- Custom JS -->
     <script type="text/javascript" src="js/globalsetting.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/memc.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/memc_radio.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/music.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/index.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/index_radio.js"></script>
     <script>
         // Avoid closing window
         window.onbeforeunload = function () { return "糟糕！別走！" };
@@ -176,6 +167,7 @@ $user_json = $_SESSION['userObj'];
         $(document).ready(function () {
             introJs().start();
         });
+
 
     </script>
 </body>
