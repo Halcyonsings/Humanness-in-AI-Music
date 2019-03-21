@@ -1,3 +1,13 @@
+<?php
+session_start();
+$userId = $_SESSION['uid'];
+$user_json = $_SESSION['userObj'];
+// avoid jump
+// include "db/avoidJump.php";
+
+?>
+
+
 <!doctype html>
 <html>
 
@@ -127,7 +137,9 @@
                     </div>
                 </section>
                 <div id="intro3" class="intro-article" data-step="3" data-intro="Questionnaire will show up here">
-                    Questionnaire</div>
+                    Meaning of items: <br/>
+                    1 / Not at all； 2 / Somewhat; 3 / Moderately; 4 / Quite a lot; 5 / Very much 
+                </div>
 
                 <!--         The section for MEMC             -->
                 <section class="col-12" id="memc">

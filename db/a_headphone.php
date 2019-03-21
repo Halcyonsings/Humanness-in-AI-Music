@@ -32,7 +32,7 @@ $conn->query($sql_udate_status);
 
 
 // close and heading to next page
-$path = "../2_listening_phase.php";
+$path = "../2_listening_phase_radio.php";
 
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);

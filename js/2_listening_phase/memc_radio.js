@@ -40,9 +40,10 @@ let MEMC = {
     // Add by experimenters
     "24": "Familiar",
     "25": "Awkward",
+    "26": "Select 2 here",
     // Special questions
-    "26": "What is your overall preference of the excerpt (from 1 to 5)? You like it _____.",
-    "27": "Do you think the excerpts compose by Mozart (from 1 to 5)? ",
+    "27": "What is your overall preference of the excerpt (from 1 to 5)? You like it _____.",
+    "28": "Do you think the excerpts compose by Mozart (from 1 to 5)? ",
 }
 
 
@@ -50,11 +51,11 @@ let MEMC = {
 MEMC.phase = "phase1"; // Phase1 for question 1-25, phase 2 for question 26, 27.
 
 // Phase 1 question IDs.
-MEMC.phase1Ids = Array(25).fill().map((i, v) => v + 1); // 1-25
+MEMC.phase1Ids = Array(26).fill().map((i, v) => v + 1); // 1-25
 // MEMC.phase1Ids = [1, 2, 3, 4, 5];
 
 // Phase 2 question IDs.
-MEMC.phase2Ids = [26]; //In condition 2 and 3, this should be "= [26, 27]"
+MEMC.phase2Ids = [27]; //In condition 2 and 3, this should be "= [26, 27]"
 
 
 /**
@@ -69,14 +70,14 @@ MEMC.render = function (divToRender) {
     // Render phase-1 container with the 1-25 questions
     let $phase1Container = $(`<div class="question-container" id="phase1"></div>`);
     $memc.append($phase1Container);
-    this.renderEmptyCards("phase1", MEMC.phase1Ids.length);
+    this.renderEmptyCards("phase1", MEMC.phase1Ids.length, pn = 1);
     this.renderQuestions("phase1", MEMC.phase1Ids);
     this.phase1Container = $phase1Container;
 
     // Render the phase-2 container with the 26, 27 question
     let $phase2Container = $(`<div class="question-container" id="phase2"></div>`);
     $memc.append($phase2Container);
-    this.renderEmptyCards("phase2", MEMC.phase2Ids.length);
+    this.renderEmptyCards("phase2", MEMC.phase2Ids.length, pn = 2);
     this.renderQuestions("phase2", MEMC.phase2Ids);
     this.phase2Container = $phase2Container;
     this.phase2Container.hide();
@@ -106,8 +107,9 @@ MEMC.render = function (divToRender) {
  * @param {int} numQuesPerRow - The number of questions per row.
  * @return {null}
  */
-MEMC.renderEmptyCards = function (divId, numQuestion, numQuesPerRow = 5) {
-
+MEMC.renderEmptyCards = function (divId, numQuestion, pn) { // pn = Phase Number
+    // alert(pn);
+    numQuesPerRow = 5;
     let $memcContainer = $(`#${divId}`); // The questionnaire container
     let numRow = Math.ceil(numQuestion / numQuesPerRow); // The number of row to render
     let counter = 0;
@@ -128,11 +130,11 @@ MEMC.renderEmptyCards = function (divId, numQuestion, numQuesPerRow = 5) {
                 `<div class="col-12 d-flex justify-content-center">` +
                 `<div class="MEMCLabel">1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5</div>` +
                 `<group class="inline-radio MEMCbutton">` +
-                `<input type="radio" value="1" id="fisrtOP-${i * 5 + j}" name="amplitude-${i * 5 + j}" autocomplete="off" checked="checked"/>&nbsp` +
-                `<input type="radio" value="2" id="secondOP-${i * 5 + j}" name="amplitude-${i * 5 + j}" autocomplete="off"/>&nbsp` +
-                `<input type="radio" value="3" id="thirdOP-${i * 5 + j}" name="amplitude-${i * 5 + j}" autocomplete="off"/>&nbsp` +
-                `<input type="radio" value="4" id="fourthOP-${i * 5 + j}" name="amplitude-${i * 5 + j}" autocomplete="off"/>&nbsp` +
-                `<input type="radio" value="5" id="fifthOP-${i * 5 + j}" name="amplitude-${i * 5 + j}" autocomplete="off"/>` +
+                `<input type="radio" value="1" id="fisrtOP-${i * 5 + j}" name="amplitude-${pn}-${i * 5 + j}" autocomplete="off" checked="checked"/>&nbsp` +
+                `<input type="radio" value="2" id="secondOP-${i * 5 + j}" name="amplitude-${pn}-${i * 5 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="3" id="thirdOP-${i * 5 + j}" name="amplitude-${pn}-${i * 5 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="4" id="fourthOP-${i * 5 + j}" name="amplitude-${pn}-${i * 5 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="5" id="fifthOP-${i * 5 + j}" name="amplitude-${pn}-${i * 5 + j}" autocomplete="off"/>` +
                 `</group>` +
                 `</div>` +
                 `</div>` +
@@ -288,7 +290,7 @@ $('#btn-play').on('click', function () {
     }, 'slow');
     // $('#firstOP-1').prop('checked', 'checked');
     // document.getElementById("firstOP-1").checked = true;
-    $('input[name="amplitude-1"]').first().prop('checked', true); // forced to check the first item
+    // $('input[name="amplitude-1"]').first().prop('checked', true); // forced to check the first item
 });
 
 
