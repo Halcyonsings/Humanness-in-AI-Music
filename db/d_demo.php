@@ -34,14 +34,14 @@ $inattention = $_POST["inattentionP4"];
 $ExpComments = str_replace("'", "''", $ExpComments);
 
 // SQL - to demographics table
-$sql = "INSERT INTO `Demo-test` (uid, MturkFourNum ,`D-MAAB-Response`, age , sex, musicTrain_yr, musicTrain_min , education , ExpComments ,`D-startTime`, `D-finishedTime`, `D-inattention`) VALUES ('$uid', '$MturkToken', '$MAAB_Response', '$age', '$sex', '$musicTrain_yr', '$musicTrain_min' , '$education', '$ExpComments', '$startTime', '$finishedTime', '$inattention')";
+$sql = "INSERT INTO `C1_Demo` (uid, MturkFourNum ,`D-MAAB-Response`, age , sex, musicTrain_yr, musicTrain_min , education , ExpComments ,`D-startTime`, `D-finishedTime`, `D-inattention`) VALUES ('$uid', '$MturkToken', '$MAAB_Response', '$age', '$sex', '$musicTrain_yr', '$musicTrain_min' , '$education', '$ExpComments', '$startTime', '$finishedTime', '$inattention')";
 
 // SQL - updating finishing time
-$sql_udate_time = "UPDATE `user-profile_test` SET  `time-end` = '$finishTime' WHERE uid = '$uid'";
+$sql_udate_time = "UPDATE `C1_user-profile` SET  `time-end` = '$finishedTime' WHERE uid = '$uid'";
 $conn->query($sql_udate_time);
 
 // SQL - updating the data of status table 
-$sql_udate_status = "UPDATE `user-status_test` SET q4_Demo = '1' WHERE uid = '$uid'";
+$sql_udate_status = "UPDATE `C1_user-status` SET q4_Demo = '1' WHERE uid = '$uid'";
 $conn->query($sql_udate_status);
 
 // close and heading to next page

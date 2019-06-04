@@ -286,8 +286,8 @@ $('#music-section').show();
 
 /* show the scale after click the MP3 file */
 $('#btn-play').on('click', function () {
-    $('#memc').delay(20000).show(300);
-    $('#MEMCscale').delay(20000).show(300).scrollTop(0);
+    $('#memc').delay(2000).show(300);
+    $('#MEMCscale').delay(2000).show(300).scrollTop(0);
     $('html, body').animate({
         scrollTop: $('#memc').offset().top - 300
     }, 'slow');

@@ -26,10 +26,10 @@ if ($conn->connect_error) {
 $conn->set_charset("utf8");//set the charset
 
 // Insert profile data
-$sql = "INSERT INTO `user-profile_test` (uid, ip, browser, `time-start`, userObject, `inattention-P0`) VALUES ('$uid', '$ip', '$browser', '$start_time', '$user_object','$inattention')";
+$sql = "INSERT INTO `C1_user-profile` (uid, ip, browser, `time-start`, userObject, `inattention-P0`) VALUES ('$uid', '$ip', '$browser', '$start_time', '$user_object','$inattention')";
 
 // initiating status table
-$sql_status_init = "INSERT INTO `user-status_test` (uid) VALUES ('$uid')";
+$sql_status_init = "INSERT INTO `C1_user-status` (uid) VALUES ('$uid')";
 $conn->query($sql_status_init);
 
 // close and heading to next page

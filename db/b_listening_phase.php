@@ -25,10 +25,10 @@ $allRT = $_POST["allRT"];
 $inattention = $_POST["inattentionP2"];
 
 
-$sql = "INSERT INTO Listening_test (uid, `L-playTime`, `L-allAnswers`,`L-allRT`,`L-startTime`, `L-finishedTime` , `L-inattention`) VALUES ('$uid', '$playTime','$allAnswers', '$allRT', '$startTime', '$finishedTime', '$inattention')";
+$sql = "INSERT INTO C1_Listening (uid, `L-playTime`, `L-allAnswers`,`L-allRT`,`L-startTime`, `L-finishedTime` , `L-inattention`) VALUES ('$uid', '$playTime','$allAnswers', '$allRT', '$startTime', '$finishedTime', '$inattention')";
 
 // SQL - updating the data of status table 
-$sql_udate_status = "UPDATE `user-status_test` SET q2_L = '1' WHERE uid = '$uid'";
+$sql_udate_status = "UPDATE `C1_user-status` SET q2_L = '1' WHERE uid = '$uid'";
 $conn->query($sql_udate_status);
 
 // close and heading to next page
