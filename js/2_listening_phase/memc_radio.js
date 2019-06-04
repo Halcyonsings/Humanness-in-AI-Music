@@ -40,6 +40,7 @@ let MEMC = {
     // Add by experimenters
     "24": "Familiar",
     "25": "Awkward",
+    // Catch trial
     "26": "Select 2 here",
     // Special questions
     "27": "What is your overall preference of the excerpt (from 1 to 5)? You like it _____.",
@@ -109,7 +110,7 @@ MEMC.render = function (divToRender) {
  */
 MEMC.renderEmptyCards = function (divId, numQuestion, pn) { // pn = Phase Number
     // alert(pn);
-    numQuesPerRow = 5;
+    numQuesPerRow = 4;
     let $memcContainer = $(`#${divId}`); // The questionnaire container
     let numRow = Math.ceil(numQuestion / numQuesPerRow); // The number of row to render
     let counter = 0;
@@ -122,19 +123,19 @@ MEMC.renderEmptyCards = function (divId, numQuestion, pn) { // pn = Phase Number
 
         for (let j = 1; j <= numQuesPerRow; j++) {
             // autocomplete "off" to delete the last answer
-            let quesCard = `<div class="col-12 col-sm">` +
-                `<div class="row btn-info align-items-center question-card" id="question-card-${i * 5 + j}">` +
+            let quesCard = `<div class="col-12 MEMCCard col-sm-3">` + // col-sm-3: set the quetion card 25% width
+                `<div class="row btn-info align-items-center question-card" id="question-card-${i * 4 + j}">` +
                 ` <div class="col-12">` +
                 `<h5></h5>` +
                 `</div>` +
                 `<div class="col-12 d-flex justify-content-center">` +
                 `<div class="MEMCLabel">1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5</div>` +
                 `<group class="inline-radio MEMCbutton">` +
-                `<input type="radio" value="1" id="fisrtOP-${i * 5 + j}" name="amplitude-${pn}-${i * 5 + j}" autocomplete="off" checked="checked"/>&nbsp` +
-                `<input type="radio" value="2" id="secondOP-${i * 5 + j}" name="amplitude-${pn}-${i * 5 + j}" autocomplete="off"/>&nbsp` +
-                `<input type="radio" value="3" id="thirdOP-${i * 5 + j}" name="amplitude-${pn}-${i * 5 + j}" autocomplete="off"/>&nbsp` +
-                `<input type="radio" value="4" id="fourthOP-${i * 5 + j}" name="amplitude-${pn}-${i * 5 + j}" autocomplete="off"/>&nbsp` +
-                `<input type="radio" value="5" id="fifthOP-${i * 5 + j}" name="amplitude-${pn}-${i * 5 + j}" autocomplete="off"/>` +
+                `<input type="radio" value="1" id="fisrtOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off" checked="checked"/>&nbsp` +
+                `<input type="radio" value="2" id="secondOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="3" id="thirdOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="4" id="fourthOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="5" id="fifthOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>` +
                 `</group>` +
                 `</div>` +
                 `</div>` +
@@ -226,12 +227,14 @@ MEMC.toggle = function () {
 
     if (this.phase === "phase1") {
         this.phase = "phase2";
+        // adjust the card height/ width for phase 2
+        $(".MEMCCard").removeClass("col-sm-3");
         this.phase1Container.hide();
         this.phase2Container.show();
-        // $('input[name="amplitude-1"]').first().prop('checked', true);
-        // $('#firstOP-1').prop('checked', 'checked');
     } else {
         this.phase = "phase1";
+        // set the quetion card of phase1 25% width
+        $(".MEMCCard").addClass("col-sm-3");
         this.phase1Container.show();
         this.phase2Container.hide();
     }
@@ -283,8 +286,8 @@ $('#music-section').show();
 
 /* show the scale after click the MP3 file */
 $('#btn-play').on('click', function () {
-    $('#memc').delay(3000).show(300);
-    $('#MEMCscale').delay(3000).show(300).scrollTop(0);
+    $('#memc').delay(20000).show(300);
+    $('#MEMCscale').delay(20000).show(300).scrollTop(0);
     $('html, body').animate({
         scrollTop: $('#memc').offset().top - 300
     }, 'slow');

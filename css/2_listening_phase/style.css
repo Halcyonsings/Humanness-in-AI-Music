@@ -96,3 +96,7 @@ section {
 #audio-spectrum {
     margin-top: 20px;
 }
+
+.disabled-wave {
+    pointer-events: none;
+}

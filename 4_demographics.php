@@ -170,7 +170,7 @@ $user_json = $_SESSION['userObj'];
                     </div>
                 </div>
                 <div class="row item-container">
-                    <div class="col-md-4 formLabel">Years of Musical<br> Training</div>
+                    <div class="col-md-4 formLabel">Yr. of Musical<br> Training</div>
                     <div class="col-md-8" id="Training_range">
                         <input type="text" class="form-control" name="training_yr" id="TrainingInput1" placeholder="Training Years (e.g., 4)">
                         <small id="TrainingHelp" class="form-text text-muted">Please fill in a number</small>
@@ -180,7 +180,7 @@ $user_json = $_SESSION['userObj'];
                     <div class="col-md-4 formLabel">Practicing<br>on Music</div>
                     <div class="col-md-8" id="Training_range">
                         <input type="text" class="form-control" name="training_min" id="TrainingInput2" placeholder="Practicing Minutes (e.g., 60)">
-                        <small id="TrainingHelp" class="form-text text-muted">Please fill in a number that you practice
+                        <small id="TrainingHelp" class="form-text text-muted">Please fill in the minutes that you practice
                             music per day</small>
                     </div>
                 </div>

@@ -5,6 +5,9 @@
 
 .question-container {
     margin-bottom: 15%;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 
@@ -61,4 +64,9 @@
 
 .MEMCbutton{
     margin-top: 10%;
+}
+
+/* Empty Card */
+#question-card-27 #question-card-28{
+    display: none;
 }

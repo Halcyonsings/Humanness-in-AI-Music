@@ -1,13 +1,3 @@
-<?php
-session_start();
-$userId = $_SESSION['uid'];
-$user_json = $_SESSION['userObj'];
-// avoid jump
-// include "db/avoidJump.php";
-
-?>
-
-
 <!doctype html>
 <html>
 
@@ -83,13 +73,15 @@ $user_json = $_SESSION['userObj'];
                                 Please read the notice before listening to the clips:</p>
                                 <ol>
                                     <li><span class="highlight">Please wear headphones when listening.</span></li>
-                                    <li>You will listen to 8 different clips. Thirty seconds after clicking the "play"
-                                        button, a questionnaire will appear below. Twenty-six items should be answered.
-                                    </li>
-                                    <li>You will be able to listen to a single piece of music several times.</li>
-                                    <li>In the questionnaire, please rate each piece of the music clip on the following
-                                        dimensions (feelings or musical features) on a scale ranging from 1 (not at
-                                        all) to 5 (very much).</li>
+                                    <li>In this section, you will listen to 8 different clips.
+                                        A questionnaire will appear below after the music displays for 20 second. </li>
+                                    <li>The single piece of music will be unskippable and <span class="highlight">only
+                                            played
+                                            once</span>, so please listen carefully.</li>
+                                    <li>In the questionnaire, you will have to answer 27 items. Please rate each piece
+                                        of the music clip on the following dimensions (feelings or musical features)
+                                        on a scale ranging from 1 (not at all) to 5 (very much). Please do not report
+                                        the same value of number for all answers.</li>
 
                                 </ol>
                             </article>
@@ -104,8 +96,11 @@ $user_json = $_SESSION['userObj'];
                     <!-- Create a div where the audio waves will be shown -->
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6">
-                            <div id="audio-spectrum" class="InsertNote" data-step="4" data-position="left"
-                                data-intro="Drag the bar to adjust time."></div>
+                            <!-- avoid subjects realtime adjust soundwave -->
+                            <div class="disabled-wave">
+                                <div id="audio-spectrum" class="InsertNote" data-step="4" data-position="left"
+                                    data-intro="Drag the bar to adjust time."></div>
+                            </div>
                         </div>
                     </div>
                     <!-- Set the loader            
@@ -124,10 +119,10 @@ $user_json = $_SESSION['userObj'];
                                 <button id="btn-play" class="MusicButtonDesign" disabled="disabled" data-step="2"
                                     data-intro="Click here to play the music" data-position="left"><i
                                         class="material-icons">play_arrow</i>Play</button>
-                                <button id="btn-pause" class="MusicButtonDesign" disabled="disabled"><i
+                                <!-- <button id="btn-pause" class="MusicButtonDesign" disabled="disabled"><i
                                         class="material-icons">pause</i>Pause</button>
                                 <button id="btn-Restart" class="MusicButtonDesign" disabled="disabled"><i
-                                        class="material-icons">replay</i>Restart</button>
+                                        class="material-icons">replay</i>Restart</button> -->
                                 <button class="ClockDesign">
                                     <i class="fa fa-clock-o"></i>
                                     <div id="TimeInformation"></div>
@@ -137,27 +132,33 @@ $user_json = $_SESSION['userObj'];
                     </div>
                 </section>
                 <div id="intro3" class="intro-article" data-step="3" data-intro="Questionnaire will show up here">
-                    Meaning of items: <br/>
-                    1 / Not at all； 2 / Somewhat; 3 / Moderately; 4 / Quite a lot; 5 / Very much 
+                    The 5-point Scale: <br />
+                    1 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    2 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    3 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    4 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    5<br />
+                    Not at all &nbsp&nbsp Somewhat &nbsp&nbsp Moderately &nbsp&nbsp Quite a lot &nbsp&nbsp Very much
                 </div>
 
                 <!--         The section for MEMC             -->
                 <section class="col-12" id="memc">
-
-                    <form id="MEMCscale">
-                        <input type="hidden" name="uid" id="user_id">
-                        <input type="hidden" name="playTime" id="play_Time">
-                        <input type="hidden" name="allAnswers" id="all_Answers">
-                        <input type="hidden" name="allRT" id="all_RT">
-                        <input type="hidden" name="inattentionP2" id="inattention_P2">
-                        <div class="clearfix">
-                            <button type="button" id="next" class="g-btn" onclick="nextStep()">
-                                <span>Next Page<span>
-                            </button>
-                        </div>
-
-                    </form>
+                    <!--  Question cards will appear here  -->
                 </section>
+                <form id="MEMCscale">
+                    <input type="hidden" name="uid" id="user_id">
+                    <input type="hidden" name="playTime" id="play_Time">
+                    <input type="hidden" name="allAnswers" id="all_Answers">
+                    <input type="hidden" name="allRT" id="all_RT">
+                    <input type="hidden" name="inattentionP2" id="inattention_P2">
+                    <div class="clearfix">
+                        <button type="button" id="next" class="g-btn" onclick="nextStep()">
+                            <span>Next Page<span>
+                        </button>
+                    </div>
+
+                </form>
+
 
             </div>
         </div>

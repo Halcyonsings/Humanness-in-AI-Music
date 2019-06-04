@@ -34,24 +34,24 @@ buttons.play.addEventListener("click", function () {
     buttons.play.disabled = true;
 }, false);
 
-// Handle Pause button
-buttons.pause.addEventListener("click", function () {
-    Spectrum.pause();
+// // Handle Pause button
+// buttons.pause.addEventListener("click", function () {
+//     Spectrum.pause();
 
-    // Enable/Disable respectively buttons
-    buttons.pause.disabled = true;
-    buttons.play.disabled = false;
-}, false);
+//     // Enable/Disable respectively buttons
+//     buttons.pause.disabled = true;
+//     buttons.play.disabled = false;
+// }, false);
 
 
-// Handle Restart button
-buttons.Restart.addEventListener("click", function () {
-    Spectrum.stop();
-    // Enable/Disable respectively buttons
-    buttons.pause.disabled = true;
-    buttons.play.disabled = false;
-    buttons.Restart.disabled = true;
-}, false);
+// // Handle Restart button
+// buttons.Restart.addEventListener("click", function () {
+//     Spectrum.stop();
+//     // Enable/Disable respectively buttons
+//     buttons.pause.disabled = true;
+//     buttons.play.disabled = false;
+//     buttons.Restart.disabled = true;
+// }, false);
 
 
 // Add a listener to enable the play button once it's ready
@@ -72,8 +72,8 @@ window.addEventListener("resize", function () {
     Spectrum.seekTo(currentProgress);
 
     // Enable/Disable respectively buttons
-    buttons.pause.disabled = true;
-    buttons.play.disabled = false;
+    buttons.pause.disabled = false;
+    buttons.play.disabled = true;
     buttons.Restart.disabled = false;
 }, false);
 
