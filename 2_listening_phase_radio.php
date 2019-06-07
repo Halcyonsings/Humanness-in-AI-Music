@@ -1,3 +1,12 @@
+<?php
+session_start();
+$userId = $_SESSION['uid'];
+$user_json = $_SESSION['userObj'];
+// avoid jump
+// include "db/avoidJump.php";
+
+?>
+
 <!doctype html>
 <html>
 
@@ -115,7 +124,7 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6">
                             <div class="row justify-content-between ButtonSet">
-                                <!-- Before being turned on by JS, the default value of button is set to disabled -->
+                                <!-- The button is disabled until that the clips is successfully load -->
                                 <button id="btn-play" class="MusicButtonDesign" disabled="disabled" data-step="2"
                                     data-intro="Click here to play the music" data-position="left"><i
                                         class="material-icons">play_arrow</i>Play</button>

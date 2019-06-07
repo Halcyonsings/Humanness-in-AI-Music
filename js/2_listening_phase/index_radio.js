@@ -34,10 +34,11 @@ $.ajax({
 
         // ===== stratified sampling =====
         let BHC = shuffle([1, 2]).slice(0, 1);
-        let BBC = shuffle([3, 4]).slice(0, 1);
-        let MPC = shuffle([5, 6]).slice(0, 1);
-        let MSY = shuffle([7, 8]).slice(0, 1);
-        sampledIDs = BHC.concat(BBC).concat(MPC).concat(MSY);
+        // let BBC = shuffle([3, 4]).slice(0, 1);
+        // let MPC = shuffle([5, 6]).slice(0, 1);
+        // let MSY = shuffle([7, 8]).slice(0, 1);
+        sampledIDs = BHC
+        // .concat(BBC).concat(MPC).concat(MSY);
 
         // ===== All random selcet =====
         // let sampledIDs = shuffle([1, 2, 3, 4, 5, 6, 7, 8]).slice(0, 1); // set trial numbers

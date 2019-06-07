@@ -1,3 +1,12 @@
+<?php
+session_start();
+$userId = $_SESSION['uid'];
+$user_json = $_SESSION['userObj'];
+// avoid jump
+// include "db/avoidJump.php";
+
+?>
+
 <!doctype html>
 <html>
 

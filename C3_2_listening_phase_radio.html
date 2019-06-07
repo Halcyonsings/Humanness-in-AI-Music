@@ -92,7 +92,7 @@
 
                 <!--       The section for music and button group             -->
                 <section class="col-12" id="music-section">
-
+                    <div class="form-t1">This music piece is composed by <span id="curr-author"></span></div>
                     <!-- Create a div where the audio waves will be shown -->
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6">
@@ -115,7 +115,7 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6">
                             <div class="row justify-content-between ButtonSet">
-                                <!-- Before being turned on by JS, the default value of button is set to disabled -->
+                                <!-- The button is disabled until that the clips is successfully load -->
                                 <button id="btn-play" class="MusicButtonDesign" disabled="disabled" data-step="2"
                                     data-intro="Click here to play the music" data-position="left"><i
                                         class="material-icons">play_arrow</i>Play</button>
@@ -169,7 +169,7 @@
     <script type="text/javascript" src="js/globalsetting.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/memc_radio.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/music.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/index_radio.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/C3_index_radio.js"></script>
     <script>
         // Avoid closing window
         window.onbeforeunload = function () { return "糟糕！別走！" };

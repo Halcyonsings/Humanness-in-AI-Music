@@ -38,8 +38,7 @@ $.ajax({
         // let MPC = shuffle([5, 6]).slice(0, 1);
         // let MSY = shuffle([7, 8]).slice(0, 1);
         sampledIDs = BHC
-        // .concat(BBC);
-        // .concat(MPC).concat(MSY);
+        // .concat(BBC).concat(MPC).concat(MSY);
 
         // ===== All random selcet =====
         // let sampledIDs = shuffle([1, 2, 3, 4, 5, 6, 7, 8]).slice(0, 1); // set trial numbers
@@ -54,12 +53,14 @@ $.ajax({
         // If control music is needed
         // playList = sampledMusics.concat(controlMusic).map(item => item.music_file);
 
-        // If control music is nit needed
-        playList = sampledMusics.map(item => item.music_file);
-
         // playList = sampledMusics;
-        playList = shuffle(playList);
+        sampledMusics = shuffle(sampledMusics);
         // console.log("Play list", playList);
+
+        // If control music is not needed
+        playList = sampledMusics.map(item => item.music_file);
+        // ********** Condition 3: author information **********
+        authorList = sampledMusics.map(item => item.author);
 
         // Play the first song
         Spectrum.load(playList[currentTrial - 1]);
@@ -88,6 +89,8 @@ setInterval(function () {
 
 // start furst trial information
 $(document).ready(function () { $('#currinfo').html("&nbsp(1/" + playList.length + ")") }); // &nbsp to add space
+// ********** Condition 3: author information **********
+$(document).ready(function () { $('#curr-author').html(authorList[currentTrial - 1]) });
 
 var trialRT = {};
 currTrail_start = 0;
@@ -104,15 +107,22 @@ function nextStep() {
     let phaseAnswers = MEMC.getAnswers(phase);
     temp = phaseAnswers
 
-    // Check answers, submit the answers and jump to next page. 
+    // Check answers, submit the answers and jump to next page.
+    // Phase 1 check
     if (phase === "phase1" && Object.values(phaseAnswers).every((val, i, arr) => val === arr[0])) {
         // If the the answers contain null, alert the user.
-        alert("Please do not report the same value of number for all answers..");
+        alert("Please do not report the same value of number for all answers.");
 
+    }
+    // Phase 2 check
+    else if (Object.values(phaseAnswers).includes(undefined)) {
+        // If the the answers contain null, alert the user.
+        alert("Please finish questions: \n" + getAllIndexes(Object.values(phaseAnswers), undefined).map(e => e + 1).join(", "));
     }
     else {
 
         MEMC.toggle();
+
         if (phase === "phase1")
             return false;
         else {
@@ -146,7 +156,7 @@ function nextStep() {
                 // $("#user_object").attr("value", user_json);
 
                 // form submission
-                $("form").attr("action", "db/b_listening_phase.php");
+                $("form").attr("action", "db/C3_b_listening_phase.php");
                 $("form").attr("method", "POST");
                 $("form").submit();
             } else {
@@ -156,6 +166,9 @@ function nextStep() {
                 songTime = 0;
                 currTrail_start = performance.now()
                 $('#currinfo').html("&nbsp(" + currentTrial + "/" + playList.length + ")"); // update current trial info
+                // ********** Condition 3: author information **********
+                $(document).ready(function () { $('#curr-author').html(authorList[currentTrial - 1]) });
+
                 // $('.WaitMusic').toggle(1800).hide();
                 $('.ButtonSet').hide().delay(2000).show(300);
 
