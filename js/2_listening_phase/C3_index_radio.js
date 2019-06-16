@@ -34,16 +34,16 @@ $.ajax({
 
         // ===== stratified sampling =====
         let BHC = shuffle([1, 2]).slice(0, 1);
-        // let BBC = shuffle([3, 4]).slice(0, 1);
-        // let MPC = shuffle([5, 6]).slice(0, 1);
-        // let MSY = shuffle([7, 8]).slice(0, 1);
-        sampledIDs = BHC
-        // .concat(BBC).concat(MPC).concat(MSY);
+        let BBC = shuffle([3, 4]).slice(0, 1);
+        let MPC = shuffle([5, 6]).slice(0, 1);
+        let MSY = shuffle([7, 8]).slice(0, 1);
+        sampledIDs = BHC.concat(BBC).concat(MPC).concat(MSY);
 
         // ===== All random selcet =====
         // let sampledIDs = shuffle([1, 2, 3, 4, 5, 6, 7, 8]).slice(0, 1); // set trial numbers
 
         let sampledMusics = musicItems.filter(item => sampledIDs.includes(+item.pairs));
+        // console.log(sampledMusics);
 
         // If control music is needed
         // let controlMusic = musicItems[shuffle([16, 17])[0]];
@@ -55,12 +55,15 @@ $.ajax({
 
         // playList = sampledMusics;
         sampledMusics = shuffle(sampledMusics);
-        // console.log("Play list", playList);
+        // console.log(sampledMusics);
 
         // If control music is not needed
         playList = sampledMusics.map(item => item.music_file);
+        // console.log("Play list", playList);
+
         // ********** Condition 3: author information **********
         authorList = sampledMusics.map(item => item.author);
+        // console.log("Author list", authorList);
 
         // Play the first song
         Spectrum.load(playList[currentTrial - 1]);

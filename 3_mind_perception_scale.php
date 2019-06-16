@@ -44,8 +44,9 @@ $user_json = $_SESSION['userObj'];
             <div class="form-t1">Survey Check List</div>
             <article class="intro-article">
                 <div class="a">
-                    The purpose of this questionnaire is to assess your setting during the experiment, including five
-                    questions.
+                The purpose of this questionnaire is to know your setting and condition during the experiment.
+                 Please answer the following eight questions. <span class="highlight"> The amount of your compensation
+                 for participation in our experiment does NOT depend on your response to the questions. </span>
                     <!-- "&nbsp;" creates space in HTML5 -->
                 </div>
             </article>
@@ -70,8 +71,7 @@ $user_json = $_SESSION['userObj'];
             <div class="Attention_check_area">
                 <div class="Attention_check_descrp">2. Did you wear headphones while listening to the sounds in this
                     experiment (in the page "Headphone Test" and "Listening Session")? Please
-                    answer honestly. <span class="highlight">Your payment does NOT depend on your response to this
-                        question.</span></div>
+                    answer honestly. </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC2" value="Yes">Yes
                     <BR>
@@ -83,9 +83,7 @@ $user_json = $_SESSION['userObj'];
                 <div class="Attention_check_descrp">3. Subjects participate in this experiment in many different places.
                     Please
                     tell
-                    us about the place where you completed this experiment. Please answer honestly. <span class="highlight">Your
-                        payment
-                        does NOT depend on your response to this question.</span></div>
+                    us about the place where you completed this experiment. Please answer honestly. </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC3" value="very noisy">I worked on this experiment in
                     a very
@@ -115,7 +113,7 @@ $user_json = $_SESSION['userObj'];
                     browsers,
                     and internet connection speeds. Please tell us whether you had difficulty loading the sounds.
                     Please answer
-                    honestly. <span class="highlight">Your payment does NOT depend on your response to this question.</span></div>
+                    honestly.</div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC4" value="all">There were problems loading all of the
                     sounds
@@ -133,7 +131,7 @@ $user_json = $_SESSION['userObj'];
             <hr>
             <div class="Attention_check_area">
                 <div class="Attention_check_descrp">5. How carefully did you complete this survey? Please answer
-                    honestly. <span class="highlight">Your payment does NOT depend on your response to this question.</span></div>
+                    honestly.</div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC5" value="Not at all">Not at all carefully
                     <BR>
@@ -145,8 +143,48 @@ $user_json = $_SESSION['userObj'];
                     <BR>
                     <input type="radio" class="AC_option" name="AC5" value="Very">Very carefully
                 </div>
-                <!-- part1 finishing -->
-                <form>
+            </div>
+            <hr>
+            <div class="Attention_check_area">
+                <div class="Attention_check_descrp">6. Did you smoke tobacco (e.g., a puff of cigarette, cigar, pipe, etc) 
+                    in the <span class="highlight"> past one hour</span>? Please answer honestly.</div>
+                <div class="AC_res_block">
+                    <input type="radio" class="AC_option" name="AC6" value="Yes">Yes
+                    <BR>
+                    <input type="radio" class="AC_option" name="AC6" value="No">No
+                </div>
+            </div>
+            <hr>
+            <div class="Attention_check_area">
+                <div class="Attention_check_descrp">7. Did you consume alcohol in the <span class="highlight"> past 12 hours</span>? Please answer honestly. 
+                </div>
+                <div class="AC_res_block">
+                    <input type="radio" class="AC_option" name="AC7" value="Yes">Yes
+                    <BR>
+                    <input type="radio" class="AC_option" name="AC7" value="No">No
+                </div>
+            </div>
+            <hr>
+            <div class="Attention_check_area">
+                <div class="Attention_check_descrp">8. What is your overall attitude toward modern technology?</span></div>
+                <div class="AC_res_block">
+                    <input type="radio" class="AC_option" name="AC8" value="1">Extremely negative
+                    <BR>
+                    <input type="radio" class="AC_option" name="AC8" value="2">Moderately negative
+                    <BR>
+                    <input type="radio" class="AC_option" name="AC8" value="3">Slightly negative
+                    <BR>
+                    <input type="radio" class="AC_option" name="AC8" value="4">Neurtral 
+                    <BR>
+                    <input type="radio" class="AC_option" name="AC8" value="5">Slightly positive
+                    <BR>
+                    <input type="radio" class="AC_option" name="AC8" value="6">Moderately positive
+                    <BR>
+                    <input type="radio" class="AC_option" name="AC8" value="7">Extremely positive
+                </div>
+            </div>
+            <!-- part1 finishing -->
+            <form>
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="NextToMP_btn g-btn">Next Step</div>
@@ -154,8 +192,8 @@ $user_json = $_SESSION['userObj'];
                     </div>
                     <input type="hidden" id="AC_Response" name="ACResponse">
                     <input type="hidden" name="inattentionP3" id="inattention_P3">
-                </form>
-            </div>
+            </form>
+            
         </div>
 
         <!-- ================= Mind Perception Scale =================    -->
@@ -190,7 +228,7 @@ $user_json = $_SESSION['userObj'];
         //submit the form
         $(".NextToMP_btn").click(function () {
             // verifying
-            var checking = checkRadios(5); //the number should equal to the last item
+            var checking = checkRadios(8); //the number should equal to the last item
             if (checking == "finished") {
                 // recording
                 AC_Response = {
@@ -199,7 +237,9 @@ $user_json = $_SESSION['userObj'];
                     AC3: $('input[name=AC3]:checked').val(),
                     AC4: $('input[name=AC4]:checked').val(),
                     AC5: $('input[name=AC5]:checked').val(),
-
+                    AC6: $('input[name=AC6]:checked').val(),
+                    AC7: $('input[name=AC7]:checked').val(),
+                    AC8: $('input[name=AC8]:checked').val(),
                 }
 
                 window.onbeforeunload = null;

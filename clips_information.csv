@@ -1,19 +1,49 @@
-clips_id,pairs,author,music_file
-1,1,AI,music/AIBHCII.mp3
-2,1,human,music/HBHC7II.mp3
-3,2,AI,music/AIBHCIII.mp3
-4,2,human,music/HBHC1III.mp3
-5,3,AI,music/AIBBCI.mp3
-6,3,human,music/HBBC5I.mp3
-7,4,AI,music/AIBBCII.mp3
-8,4,human,music/HBBC5II.mp3
-9,5,AI,music/AIMPCII.mp3
-10,5,human,music/HMPC8II.mp3
-11,6,AI,music/AIMPCIII.mp3
-12,6,human,music/HMPC25III.mp3
-13,7,AI,music/AIMSII.mp3
-14,7,human,music/HMS41II.mp3
-15,8,AI,music/AIMSIV.mp3
-16,8,human,music/HMS10I.mp3
-17,-1,control,music/HumanControl1.mp3
-18,-1,control,music/HumanControl2.mp3
+clips_id,author,music_file,original_name
+1,AI,music/AIBBCI1.mp3,Cope - BC Mov.1 (m.24-32).mp3
+2,AI,music/AIBBCI2.mp3,Cope - BC Mov.1 (m.32-48).mp3
+3,AI,music/AIBBCII.mp3,Cope - BC Mov.2 (m.1-20).mp3
+4,AI,music/AIBBCIII.mp3,Cope - BC Mov.3 (m.1-14).mp3
+5,AI,music/AIBHCI.mp3,Cope - HC Mov.1 (m.1-13).mp3
+6,AI,music/AIBHCII.mp3,Cope - HC Mov.2 (m.17-23).mp3
+7,AI,music/AIBHCIII1.mp3,Cope - HC Mov.3 (m.1-17).mp3
+8,AI,music/AIBHCIII2.mp3,Cope - HC Mov.3 (m.137-152).mp3
+9,AI,music/AIBHI4.mp3,Cope - Invention 4 (m.25-46).mp3
+10,AI,music/AIBHI5.mp3,Cope - Invention 5 (m.1-18).mp3
+11,AI,music/AIBHI7.mp3,Cope - Invention 7 (m.17-23).mp3
+12,AI,music/AIBHI10.mp3,Cope - Invention 10 (m.1-15).mp3
+13,AI,music/AIMSI.mp3,Cope - Symphony Mov.1 (m.65-80).mp3
+14,AI,music/AIMSII.mp3,Cope - Symphony Mov.2 (m.128-136).mp3
+15,AI,music/AIMSIII.mp3,Cope - Symphony Mov.3 (m.73-104).mp3
+16,AI,music/AIMSIV.mp3,Cope - Symphony Mov.4 (m.215-232).mp3
+17,AI,music/AIMPCI1.mp3,Cope - Piano Concerto Mvt.1 (m.71-86).mp3
+18,AI,music/AIMPCI2.mp3,Cope - Piano Concerto Mvt.1 (m.111-126).mp3
+19,AI,music/AIMPCII.mp3,Cope - Piano Concerto Mvt.2 (m.89-106).mp3
+20,AI,music/AIMPCIII.mp3,Cope - Piano Concerto Mvt.3 (m.54-72).mp3
+21,AI,music/AIMPS1I.mp3,Cope - PS1 Mov.1 (m.77-96).mp3
+22,AI,music/AIMPS1II.mp3,Cope - PS1 Mov.2 (m.1-10).mp3
+23,AI,music/AIMPS2II.mp3,Cope - PS2 Mov.2 (m.61-72).mp3
+24,AI,music/AIMPS3I.mp3,Cope - PS3 Mov.1 (m.69-80).mp3
+25,human,music/HBBC5I.mp3,"Bach - Brandenburg Concerto No.5, Mvt.1 (m.1-19).mp3"
+26,human,music/HBBC5II.mp3,"Bach - Brandenburg Concerto No.5, Mvt.2 (m.20-24).mp3"
+27,human,music/HBBC5III1.mp3,"Bach - Brandenburg Concerto No.5, Mvt.3 (m.79-106).mp3"
+28,human,music/HBBC5III2.mp3,"Bach - Brandenburg Concerto No.5, Mvt.3 (m.233-261).mp3"
+29,human,music/HBHC1I.mp3,"Bach - Harpsichord Concerto No.1, Mvt.1 (m.1-12).mp3"
+30,human,music/HBHC1II.mp3,"Bach - Harpsichord Concerto No.1, Mvt.2 (m.13-22).mp3"
+31,human,music/HBHC1III1.mp3,"Bach - Harpsichord Concerto No.1, Mvt.3 (m.41-62).mp3"
+32,human,music/HBHC1III2.mp3,"Bach - Harpsichord Concerto No.1, Mvt.3 (m.187-213).mp3"
+33,human,music/HBHI3.mp3,Bach - Invention No.3 (m.1-38).mp3
+34,human,music/HBHI7.mp3,Bach - Invention No.7 (m.1-13).mp3
+35,human,music/HBHI8.mp3,Bach - Invention No.8 (m.1-25).mp3
+36,human,music/HBHI14.mp3,Bach - Invention No.14 (m.1-7).mp3
+37,human,music/HMS41I.mp3,"Mozart - Symphony No.41, Mvt.1 (m.81-100).mp3"
+38,human,music/HMS41II.mp3,"Mozart - Symphony No.41, Mvt.2 (m.32-39).mp3"
+39,human,music/HMS41III.mp3,"Mozart - Symphony No.41, Mvt.3 (m.1-16).mp3"
+40,human,music/HMS41IV.mp3,"Mozart - Symphony No.41, Mvt.4 (m.36-73).mp3"
+41,human,music/HMPC21I.mp3,"Mozart - Piano Concerto No.21, Mvt.1 (m.91-107).mp3"
+42,human,music/HMPC21II.mp3,"Mozart - Piano Concerto No.21, Mvt.2 (m.44-55).mp3"
+43,human,music/HMPC21III1.mp3,"Mozart - Piano Concerto No.21, Mvt.3 (m.118-161).mp3"
+44,human,music/HMPC21III2.mp3,"Mozart - Piano Concerto No.21, Mvt.3 (m.178-213).mp3"
+45,human,music/HMPS11I.mp3,"Mozart - Piano Sonata No.11, Mvt.1 (m.81-90).mp3"
+46,human,music/HMPS16I.mp3,"Mozart - Piano Sonata No.16, Mvt.1 (m.42-57).mp3"
+47,human,music/HMPS16II1.mp3,"Mozart - Piano Sonata No.16, Mvt.2 (m.1-9).mp3"
+48,human,music/HMPS16II2.mp3,"Mozart - Piano Sonata No.16, Mvt.2 (m.33-42).mp3"

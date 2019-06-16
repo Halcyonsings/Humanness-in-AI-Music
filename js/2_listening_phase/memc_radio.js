@@ -229,11 +229,13 @@ MEMC.toggle = function () {
         this.phase = "phase2";
         // adjust the card height/ width for phase 2
         $(".MEMCCard").removeClass("col-sm-3");
+        $(".MEMCCard").addClass("col-sm-6");
         this.phase1Container.hide();
         this.phase2Container.show();
     } else {
         this.phase = "phase1";
         // set the quetion card of phase1 25% width
+        $(".MEMCCard").removeClass("col-sm-6");
         $(".MEMCCard").addClass("col-sm-3");
         this.phase1Container.show();
         this.phase2Container.hide();
@@ -286,8 +288,8 @@ $('#music-section').show();
 
 /* show the scale after click the MP3 file */
 $('#btn-play').on('click', function () {
-    $('#memc').delay(2000).show(300);
-    $('#MEMCscale').delay(2000).show(300).scrollTop(0);
+    $('#memc').delay(20000).show(300);
+    $('#MEMCscale').delay(20000).show(300).scrollTop(0);
     $('html, body').animate({
         scrollTop: $('#memc').offset().top - 300
     }, 'slow');

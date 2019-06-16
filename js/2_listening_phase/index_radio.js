@@ -3,6 +3,11 @@
  * @fileoverview - 使用music.js跟memc.js初始化的問卷跟音樂物件以執行問卷功能的script
  */
 
+function random_item(items) {
+
+    return items[Math.floor(Math.random() * items.length)];
+
+}
 
 
 
@@ -32,18 +37,61 @@ $.ajax({
         // Ramdon sample two numbers in range 1 to 8, and get the musics which pair id is in the sampled IDs
         // Sample the control music.
 
-        // ===== stratified sampling =====
-        let BHC = shuffle([1, 2]).slice(0, 1);
-        // let BBC = shuffle([3, 4]).slice(0, 1);
-        // let MPC = shuffle([5, 6]).slice(0, 1);
-        // let MSY = shuffle([7, 8]).slice(0, 1);
-        sampledIDs = BHC
-        // .concat(BBC).concat(MPC).concat(MSY);
-
         // ===== All random selcet =====
-        // let sampledIDs = shuffle([1, 2, 3, 4, 5, 6, 7, 8]).slice(0, 1); // set trial numbers
+        // let sampledIDs = shuffle([1~48]).slice(0, 12); // set trial numbers
 
-        let sampledMusics = musicItems.filter(item => sampledIDs.includes(+item.pairs));
+        // ===== Stratified Pair Sampling =====
+        AIBBCfast = shuffle([1, 2, 4]).slice(0, 1);
+        HBBCfast = shuffle([25, 27, 28]).slice(0, 1);
+        BBCslowpair = [3, 26];
+        BBCfastpair = AIBBCfast.concat(HBBCfast);
+        BBCpair = random_item([BBCslowpair, BBCfastpair, BBCfastpair, BBCfastpair]);
+        // console.log("BBC Pair", BBCpair);
+
+        AIBHCfast = shuffle([5, 7, 8]).slice(0, 1);
+        HBHCfast = shuffle([29, 31, 32]).slice(0, 1);
+        BHCslowpair = [6, 30];
+        BHCfastpair = AIBHCfast.concat(HBHCfast);
+        BHCpair = random_item([BHCslowpair, BHCfastpair, BHCfastpair, BHCfastpair]);
+        // console.log("BHC Pair", BHCpair);
+
+        AIBHImajor = shuffle([10, 12]).slice(0, 1);
+        HBHImajor = shuffle([33, 35]).slice(0, 1); // BMV774 = Invention 3; BMV779 = Invention 8
+        BHImajorpair = AIBHImajor.concat(HBHImajor)
+        AIBHIminor = shuffle([9, 11]).slice(0, 1);
+        HBHIminor = shuffle([34, 36]).slice(0, 1); // BMV778 = Invention 7; BMV784 = Invention 13
+        BHIminorpair = AIBHIminor.concat(HBHIminor);
+        BHIpair = random_item([BHImajorpair, BHIminorpair]);
+        // console.log("BHIpair", BHIpair);
+
+        MSMovOne = [13, 37];
+        MSMovTwo = [14, 38];
+        MSMovThree = [15, 39];
+        MSMovFour = [16, 40];
+        MSpair = random_item([MSMovOne, MSMovTwo, MSMovThree, MSMovFour]);
+        // console.log("MSpair", MSpair);
+
+        AIMPCfast = shuffle([17, 18, 20]).slice(0, 1);
+        HMPCfast = shuffle([41, 43, 44]).slice(0, 1);
+        MPCslowpair = [19, 42];
+        MPCfastpair = AIMPCfast.concat(HMPCfast);
+        MPCpair = random_item([MPCslowpair, MPCfastpair, MPCfastpair, MPCfastpair]);
+        // console.log("MPC Pair", MPCpair);
+
+        AIMPSfast = shuffle([21, 24]).slice(0, 1);
+        HMPSfast = shuffle([45, 46]).slice(0, 1);
+        MPSfastpair = AIMPSfast.concat(HMPSfast);
+        MPSslowmajorpair = [23, 47];
+        MPSslowminorpair = [22, 48];
+        MPSpair = random_item([MPSfastpair, MPSfastpair, MPSslowmajorpair, MPSslowminorpair]);
+        // console.log("MPS Pair", MPSpair);
+
+        sampledIDs = BBCpair.concat(BHCpair).concat(BHIpair).concat(MSpair).concat(MPCpair).concat(MPSpair)
+
+
+
+        // ===== Stratified Pairs Sampling =====
+        let sampledMusics = musicItems.filter(item => sampledIDs.includes(+item.clips_id));
 
         // If control music is needed
         // let controlMusic = musicItems[shuffle([16, 17])[0]];

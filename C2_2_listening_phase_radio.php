@@ -7,6 +7,7 @@ $user_json = $_SESSION['userObj'];
 
 ?>
 
+
 <!doctype html>
 <html>
 
@@ -85,12 +86,15 @@ $user_json = $_SESSION['userObj'];
                                     <li>In this section, you will listen to 8 different clips.
                                         A questionnaire will appear below after the music displays for 20 second. </li>
                                     <li>The single piece of music will be unskippable and <span class="highlight">only
-                                            played
-                                            once</span>, so please listen carefully.</li>
-                                    <li>In the questionnaire, you will have to answer 27 items. Please rate each piece
+                                            played once</span>, so please listen carefully.</li>
+                                    <li>In the questionnaire, you will have to answer 28 items. Please rate each piece
                                         of the music clip on the following dimensions (feelings or musical features)
                                         on a scale ranging from 1 (not at all) to 5 (very much). Please do not report
                                         the same value of number for all answers.</li>
+                                    <li>The excerpts are made by either artificial intelligence(AI) or humans. At the
+                                        page 2 of the questionnaire, please choose 3 if you agree that the excerpt is
+                                        made by humans and choose 5 if you agree that the excerpt is made by AI.
+                                    </li>
 
                                 </ol>
                             </article>
@@ -176,9 +180,9 @@ $user_json = $_SESSION['userObj'];
 
     <!-- Custom JS -->
     <script type="text/javascript" src="js/globalsetting.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/memc_radio.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/C2_memc_radio.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/music.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/index_radio.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/C2_index_radio.js"></script>
     <script>
         // Avoid closing window
         window.onbeforeunload = function () { return "糟糕！別走！" };
