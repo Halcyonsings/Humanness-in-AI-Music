@@ -43,8 +43,8 @@ let MEMC = {
     // Catch trial
     "26": "Select 2 here",
     // Special questions
-    "27": "What is your overall preference of the excerpt (from 1 to 5)? You like it _____.",
-    "28": "Do the excerpts compose by AI (3=No /5=Yes)? ",
+    "27": "What is your overall preference of the clip (from 1 to 5)? You like it _____.",
+    "28": "Do the clip be composed by AI (3=No /5=Yes)? ",
 }
 
 

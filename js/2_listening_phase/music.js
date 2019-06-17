@@ -119,4 +119,3 @@ Spectrum.on('seek', function () {
     $('#TimeInformation').text(formatTime(Spectrum.getCurrentTime()) + " / " + formatTime(Spectrum.getDuration()));
 });
 
-

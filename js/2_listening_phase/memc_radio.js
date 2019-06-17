@@ -43,7 +43,7 @@ let MEMC = {
     // Catch trial
     "26": "Select 2 here",
     // Special questions
-    "27": "What is your overall preference of the excerpt (from 1 to 5)? You like it _____.",
+    "27": "What is your overall preference of the clip (from 1 to 5)? You like it _____.",
     "28": "Do you think the excerpts compose by Mozart (from 1 to 5)? ",
 }
 
@@ -222,6 +222,7 @@ MEMC.getCurrentPhase = function () {
 
 /**
  * Toggle the memc phase1 and phase2
+ * Able or Disable Button 
  */
 MEMC.toggle = function () {
 
@@ -237,12 +238,26 @@ MEMC.toggle = function () {
         // set the quetion card of phase1 25% width
         $(".MEMCCard").removeClass("col-sm-6");
         $(".MEMCCard").addClass("col-sm-3");
+        $('#btn-play').removeClass("once-button");
         this.phase1Container.show();
         this.phase2Container.hide();
     }
     return this.phase
 }
 
+
+/* show the scale after click the MP3 file */
+$('#btn-play').on('click', function () {
+    $('#memc').delay(20000).show(300);
+    $('#MEMCscale').delay(20000).show(300).scrollTop(0);
+    $('#btn-play').addClass("once-button");
+    $('html, body').animate({
+        scrollTop: $('#memc').offset().top - 300
+    }, 'slow');
+    // $('#firstOP-1').prop('checked', 'checked');
+    // document.getElementById("firstOP-1").checked = true;
+    // $('input[name="amplitude-1"]').first().prop('checked', true); // forced to check the first item
+});
 
 
 
@@ -284,21 +299,6 @@ $('#music-section').show();
 
 // $('.WaitMusic').hide();
 // $('.WaitMusic').delay(3000).hide();
-
-
-/* show the scale after click the MP3 file */
-$('#btn-play').on('click', function () {
-    $('#memc').delay(20000).show(300);
-    $('#MEMCscale').delay(20000).show(300).scrollTop(0);
-    $('html, body').animate({
-        scrollTop: $('#memc').offset().top - 300
-    }, 'slow');
-    // $('#firstOP-1').prop('checked', 'checked');
-    // document.getElementById("firstOP-1").checked = true;
-    // $('input[name="amplitude-1"]').first().prop('checked', true); // forced to check the first item
-});
-
-
 
 
 //Preventing send the data repeatedly

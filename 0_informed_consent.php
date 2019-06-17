@@ -21,8 +21,10 @@ function get_client_ip() {
 $ip = get_client_ip();
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- TODO: Add google track    -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -34,46 +36,84 @@ $ip = get_client_ip();
         gtag('config', 'UA-115062914-1'); -->
     <!-- </script> -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- original size sr=etting, see the HTML5 book's page 247 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- original size sr=etting, see the HTML5 book's page 247 -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- bootstrap4 CSS&JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <!-- social optimizing -->
     <!-- my css -->
     <link rel="stylesheet" type="text/css" href="css/main_modules.css">
     <link rel="stylesheet" type="text/css" href="css/0_consent/consent_style.css">
-    
-    <script type="text/javascript" src="js/globalsetting.js"></script> 
-    
+
+    <script type="text/javascript" src="js/globalsetting.js"></script>
+
     <title>NTU Music Study</title>
 </head>
+
 <body>
     <div id="bg-img"></div>
     <div class="main_block card">
         <div class="container instruction">
             <div class="title">Informed Consent Form</div>
             <hr>
-            <p>Thank you for participating in our experiment. First of all, the requirements to participate in this research are listed below:</p>
+            <p>Thank you for participating in our experiment. The requirements to participate in this research are
+                listed below:</p>
             <ol>
-                <li>Make sure your computer has a stable website connection. <span class="highlight">Do not participate in this experiment with a smartphone.</span> </li>
-                <li>You shoud have the ability of fluency in English reading.</li>
-                <li>Please wear headphones during the experiment.</li>  
-                <li><span class="highlight">Do not participate this experiment with IE (Internet Explorer) browser.</span> </li>  
+                <li>Make sure your computer has a stable website connection. </li>
+                <li><span class="highlight">Do not participate
+                        in this experiment with a smartphone.</span> </li>
+                <li>You should be fluent in English reading.</li>
+                <li>Please wear headphones during the experiment.</li>
+                <li><span class="highlight">Do not participate this experiment with IE (Internet Explorer)
+                        browser.</span> </li>
             </ol>
             <p>If you fulfill the requirements, please read the following information：</p>
-            <p>This study is conducted by Modeling & Informatics Lab (MIL) at Department of Psychology, National Taiwan University. This experiment aims to delve more into the mechanism of musical emotion.</p>
-            <p><b>Procedure</b>:  In the first session, we will examine whether participants are wearing headphones or not. You will then listen to some music pieces as you simultaneously fill in a questionnaire. After the listening session, you will be given two other questionnaires. It will take about <span class="highlight"> 40 minutes </span> to complete all the tasks. Please concentrate on the instructions and questions on the screen. Do not open other tabs during the experiment.
-            <p><b>Benefit</b>: You will receive <span class="highlight"> $3.0 </span> if you successfully complete all the tasks in the experiment.  </p>
-            <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However, no one can access the data except for researchers listed below. If you want to retrieve your data, please send an e-mail to the researchers (r05227104@ntu.edu.tw). In addition, the results of the experiments will not be used for any commercial purposes. </p>
-            <p><b>Other ethical issues</b>: (1) This research is self-financed. (2) The security of the experiment is guaranteed by Research Ethics Office of National Taiwan University(NTU). You can contact the office if you have further questions (E-mail: nturec@ntu.edu.tw). (3) There is no potential risk in this study. However, you have the right to decline to answer any or all questions and you may terminate your involvement at any time if you choose. </p>
+            <p>This study is conducted by Modeling & Informatics Lab (MIL) at Department of Psychology, National Taiwan
+                University. This experiment aims to look into the mechanism of musical emotion.</p>
+            <p><b>Procedure</b>: In the first session, we will examine whether participants are wearing headphones or
+                not. You will then listen to some music pieces as you simultaneously fill in a questionnaire. After the
+                listening session, you will be given two other questionnaires.</p>
+            <p><b>Duration</b>:
+                It will take about <span class="highlight"> 40 minutes </span> to complete all the tasks. Please
+                concentrate on the
+                instructions and questions on the screen. Do not open other tabs during the experiment.</p>
+            <p><b>Benefit</b>: You will receive <span class="highlight"> $3.0 </span> if you successfully
+                complete
+                all the tasks in the experiment. </p>
+            <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However,
+                no
+                one can access the data except for researchers listed below. <br> If you want to retrieve your data,
+                Please e-mail to the researchers (r05227104@ntu.edu.tw). In addition, the results of the
+                experiments will not be used for any commercial purposes. </p>
+            <p><b>Other ethical issues</b>: (1) This research is self-financed. (2) The security of the
+                experiment
+                is guaranteed by Research Ethics Office of National Taiwan University (NTU). You can contact the
+                office if you have further questions (E-mail: nturec@ntu.edu.tw). (3) There is no potential risk
+                in
+                this study. However, you have the right to decline to answer any or all questions and you may
+                terminate your involvement at any time if you choose. </p>
             <br>
-            <p class="devInfo"><b>Principal Investigators</b>：<br>Tsung-Ren Huang, Assistant Professor, Department of Psychology, National Taiwan University;<br>Chen-Ying Huang, Professor, Department of Economics, National Taiwan University</p>
-            <p class="devInfo"><b>Developer & Researcher</b>：<br>Zih-Hsiang Wang, graduate student, Department of Psychology, National Taiwan University </p>
+            <p class="devInfo"><b>Principal Investigators</b>：<br>Tsung-Ren Huang, Assistant Professor,
+                Department
+                of Psychology, National Taiwan University<br>Chen-Ying Huang, Professor, Department of
+                Economics,
+                National Taiwan University</p>
+            <p class="devInfo"><b>Developer & Researcher</b>：<br>Zih-Hsiang Wang, graduate student, Department
+                of
+                Psychology, National Taiwan University </p>
         </div>
         <!-- form part -->
         <form>
@@ -95,13 +135,13 @@ $ip = get_client_ip();
     <script type="text/javascript">
         // Avoid closing window
         window.onbeforeunload = function () { return "糟糕！別走！" };
-        
-        
+
+
         var uid = uuidGenerator();
         // console.log(typeof uid);
         // var uid = uid.replaceAll('-','').substring(0,16);  
         // [20181208] js does not have a function "replaceAll"
-        var uid = uid.split("-").join("").substring(0,16);
+        var uid = uid.split("-").join("").substring(0, 16);
         console.log(uid);
         // TODO: Add whole JSON [20181208] temptive do not use these code
         // // user object
@@ -115,7 +155,7 @@ $ip = get_client_ip();
         var time = new Date();
         var time_info = time.toDateString() + "/" + time.toTimeString();
         // $('.testing').text("測試ID: " + uid);     // [20181208] success
-        $('#go_to_consent_btn').click(function(){
+        $('#go_to_consent_btn').click(function () {
             window.onbeforeunload = null;
             $("#user_id").attr("value", uid);
             $("#user_ip").attr("value", user_ip);
@@ -123,12 +163,13 @@ $ip = get_client_ip();
             $("#user_start_time").attr("value", time_info);
             $("#inattention_P0").attr("value", inattention);
             // $("#user_object").attr("value", user_json);
-            
+
             // form submission
-            $("form").attr("action","db/exp_init.php")
-                $("form").attr("method","POST")
-                $("form").submit()
+            $("form").attr("action", "db/exp_init.php")
+            $("form").attr("method", "POST")
+            $("form").submit()
         })
     </script>
 </body>
+
 </html>

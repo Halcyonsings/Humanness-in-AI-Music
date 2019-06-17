@@ -7,7 +7,6 @@ $user_json = $_SESSION['userObj'];
 
 ?>
 
-
 <!doctype html>
 <html>
 
@@ -83,7 +82,7 @@ $user_json = $_SESSION['userObj'];
                                 Please read the notice before listening to the clips:</p>
                                 <ol>
                                     <li><span class="highlight">Please wear headphones when listening.</span></li>
-                                    <li>In this section, you will listen to 8 different clips.
+                                    <li>In this section, you will listen to 12 different clips.
                                         A questionnaire will appear below after the music displays for 20 second. </li>
                                     <li>The single piece of music will be unskippable and <span class="highlight">only
                                             played once</span>, so please listen carefully.</li>

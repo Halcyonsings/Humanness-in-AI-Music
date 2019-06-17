@@ -1,13 +1,3 @@
-<?php
-session_start();
-$userId = $_SESSION['uid'];
-$user_json = $_SESSION['userObj'];
-// avoid jump
-// include "db/avoidJump.php";
-
-?>
-
-
 <!doctype html>
 <html>
 
@@ -84,14 +74,14 @@ $user_json = $_SESSION['userObj'];
                                 <ol>
                                     <li><span class="highlight">Please wear headphones when listening.</span></li>
                                     <li>In this section, you will listen to 12 different clips.
-                                        A questionnaire will appear below after the music displays for 20 second. </li>
-                                    <li>The single piece of music will be unskippable and <span class="highlight">only
-                                            played
-                                            once</span>, so please listen carefully.</li>
-                                    <li>In the questionnaire, you will have to answer 27 items. Please rate each piece
-                                        of the music clip on the following dimensions (feelings or musical features)
-                                        on a scale ranging from 1 (not at all) to 5 (very much). Please do not report
-                                        the same value of number for all answers.</li>
+                                        A questionnaire will appear below after the music being played for 20 seconds.
+                                    </li>
+                                    <li>You cannot skip any clips of music. Each music clip will be <span
+                                            class="highlight"> played once and only
+                                            once.</span> So please listen carefully.</li>
+                                    <li>In the questionnaire, you will have to answer 27 items. Please rate each music
+                                        clip on the following dimensions (feelings or musical features)
+                                        on a scale ranging from 1 (not at all) to 5 (very much). </li>
 
                                 </ol>
                             </article>
@@ -108,8 +98,7 @@ $user_json = $_SESSION['userObj'];
                         <div class="col-12 col-sm-6">
                             <!-- avoid subjects realtime adjust soundwave -->
                             <div class="disabled-wave">
-                                <div id="audio-spectrum" class="InsertNote" data-step="4" data-position="left"
-                                    data-intro="Drag the bar to adjust time."></div>
+                                <div id="audio-spectrum" class="InsertNote"></div>
                             </div>
                         </div>
                     </div>

@@ -69,8 +69,8 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">2. Did you wear headphones while listening to the clips 
-                    in the "Listening Session"? Please
+                <div class="Attention_check_descrp">2. Did you wear headphones while listening to the sounds in this
+                    experiment (in the page "Headphone Test" and "Listening Session")? Please
                     answer honestly. </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC2" value="Yes">Yes
@@ -248,7 +248,7 @@ $user_json = $_SESSION['userObj'];
                 $("#AC_Response").attr("value", JSON.stringify(AC_Response));
                 $("#inattention_P3").attr("value", inattention);
                 // form submission
-                $("form").attr("action", "db/c_mind_perception_scale.php");
+                $("form").attr("action", "db/C2_c_mind_perception_scale.php");
                 $("form").attr("method", "POST");
                 $("form").submit();
 

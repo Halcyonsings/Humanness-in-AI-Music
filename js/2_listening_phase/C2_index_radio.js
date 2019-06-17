@@ -3,7 +3,11 @@
  * @fileoverview - 使用music.js跟memc.js初始化的問卷跟音樂物件以執行問卷功能的script
  */
 
+function random_item(items) {
 
+    return items[Math.floor(Math.random() * items.length)];
+
+}
 
 
 // The umber of questions to render and the current page

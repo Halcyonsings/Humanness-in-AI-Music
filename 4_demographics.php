@@ -69,7 +69,8 @@ $user_json = $_SESSION['userObj'];
             <div class="form-t1">Musical Ability, Attitude, and Beliefs Survey</div>
             <article class="intro-article">
                 <div class="a">
-                The purpose of this questionnaire is to understand (1) humans' perception of musical ability (2) attitude toward music (3) beliefs and expectations on music. These may influence an individual's response to music.
+                The purpose of this questionnaire is to understand (1) your perception of musical ability (2) attitude toward music (3) beliefs and expectations on music.
+                 These may influence your response to music.
                     <!-- "&nbsp;" creates space in HTML5 -->
                 </div>
                 <div class="a">
@@ -170,7 +171,7 @@ $user_json = $_SESSION['userObj'];
                     </div>
                 </div>
                 <div class="row item-container">
-                    <div class="col-md-4 formLabel">Yr. of Musical<br> Training</div>
+                    <div class="col-md-4 formLabel">Years of Musical<br> Training</div>
                     <div class="col-md-8" id="Training_range">
                         <input type="text" class="form-control" name="training_yr" id="TrainingInput1" placeholder="Training Years (e.g., 4)">
                         <small id="TrainingHelp" class="form-text text-muted">Please fill in a number</small>
@@ -186,12 +187,12 @@ $user_json = $_SESSION['userObj'];
                 </div>
                 <div class="row item-container">
                     <div class="col-4 formLabel">
-                        <label for="eduInput">Education level</label>
+                        <label for="eduInput">Education Level</label>
                     </div>
                     <div class="col-8" id="edu">
                         <select name="education" form="demoForm" class="form-control custom-select" id="eduInput">
                             <option selected>--Please Select--</option>
-                            <option>Under junior high school</option>
+                            <option>Junior high school or under</option>
                             <option>Senior high school</option>
                             <option>Bachelor degree</option>
                             <option>Graduate school</option>
