@@ -1,9 +1,12 @@
 //detect idle time
 var idleTime = 0;
-var inattention = 0
+var inattention = 0;
+var idleInterval;
+
 $(document).ready(function () {
     //Increment the idle time counter every minute.
-    var idleInterval = setInterval(timerIncrement, 60000); // 60 sec
+    idleInterval = setInterval(timerIncrement, 60000); // 60 sec
+    // console.log("what is your function?", idleInterval)
 
     //Zero the idle timer on mouse movement.
     $(this).mousemove(function (e) {
@@ -14,11 +17,57 @@ $(document).ready(function () {
 
 function timerIncrement() {
     idleTime = idleTime + 1;
-    if (idleTime > 5) { // 5 minutes
-        alert('There have been no response for 5 miniutes. We hope that you will come back and focus on the experiment.');
+    console.log(idleTime);
+    if (idleTime > 4) { // about 5 minutes
+        alert("There has been no response for 5 miniutes. You will automatically exit the experiment.");
         inattention = inattention + 1;  //record inatteional subjects
+        console.log("Times", inattention)
+        // drop the subject if he idle too many times. 
+        if (inattention > 0) {
+            window.onbeforeunload = null;
+            window.location = "https://www.mturk.com/"
+        }
     }
 }
+
+
+// Page Visibility API
+var offview = 0
+var vis = (function () {
+    var stateKey, eventKey, keys = {
+        hidden: "visibilitychange",
+        webkitHidden: "webkitvisibilitychange",
+        mozHidden: "mozvisibilitychange",
+        msHidden: "msvisibilitychange"
+    };
+    for (stateKey in keys) {
+        if (stateKey in document) {
+            eventKey = keys[stateKey];
+            break;
+        }
+    }
+    return function (c) {
+        if (c) document.addEventListener(eventKey, c);
+        return !document[stateKey];
+    }
+})();
+
+// Excute when the window change, cannot excute well on IOS
+document.addEventListener("visibilitychange", function () {
+    // console.log(document.hidden);
+    if (document.hidden == true) {
+        offview = offview + 1;
+        console.log("Distracted", offview);
+        alert("Because you open other tabs or minimize the window, you will automatically exit the experiment.");
+        if (offview > 0) {
+            window.onbeforeunload = null;
+            window.location = "https://www.mturk.com/"
+        }
+    }
+});
+
+
+
 
 function shuffle(array) {
     var rand, index = -1,

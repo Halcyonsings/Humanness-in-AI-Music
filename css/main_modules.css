@@ -236,3 +236,6 @@ div.a {
     font-weight: bold;
     color: #33A6B8;
 }
+
+/* solve Safari Bootstrap conflict */
+.row:before, .row:after {display: none !important;}

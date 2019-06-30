@@ -13,20 +13,20 @@
 // Define question text
 let MEMC = {
     // Musical Emotion
-    "1": "Filled with wonder, amazed",
-    "2": "Moved, touched",
-    "3": "Enchanted, in awe",
-    "4": "Inspired, enthusiastic",
-    "5": "Energetic, lively",
-    "6": "Joyful, wanting to dance",
-    "7": "Powerful, strong",
-    "8": "Full of tender, warmhearted",
-    "9": "Relaxed, peaceful",
-    "10": "Melancholic, sad",
-    "11": "Nostalgic, sentimental",
-    "12": "Indifferent, bored",
-    "13": "Tense, uneasy",
-    "14": "Agitated, aggressive",
+    "1": "Filled with wonder, Amazed",
+    "2": "Moved, Touched",
+    "3": "Enchanted,    In awe",
+    "4": "Inspired, Enthusiastic",
+    "5": "Energetic, Lively",
+    "6": "Joyful, Wanting to dance",
+    "7": "Powerful, Strong",
+    "8": "Full of tender, Warmhearted",
+    "9": "Relaxed, Peaceful",
+    "10": "Melancholic, Sad",
+    "11": "Nostalgic, Sentimental",
+    "12": "Indifferent, Bored",
+    "13": "Tense,    Uneasy",
+    "14": "Agitated, Aggressive",
     // Musical Cognition
     "15": "Structured",
     "16": "Orderly",
@@ -41,7 +41,7 @@ let MEMC = {
     "24": "Familiar",
     "25": "Awkward",
     // Catch trial
-    "26": "Select 2 here",
+    "26": "Select 2 here.",
     // Special questions
     "27": "What is your overall preference of the clip (from 1 to 5)? You like it _____.",
     "28": "Do you think the excerpts compose by Mozart (from 1 to 5)? ",

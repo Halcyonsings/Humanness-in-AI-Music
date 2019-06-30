@@ -1,10 +1,24 @@
 // checking all radio in the page
+function checkNotice(itemAmout) {
+    // check the 'data-item-check'
+    var counter = 0;
+    for (var ci = 1; ci <= itemAmout; ci++) {
+        if ($('input[name=ICnotice' + ci + ']:checked').val() == undefined) {
+            alert('Please check the boxes.');
+            counter++;
+            break
+        }
+    }
+    if (counter == 0) { return "finished" }
+}
+
+// checking all radio in the page
 function checkRadios(itemAmout) {
     // check the 'data-item-check'
     var counter = 0;
     for (var ci = 1; ci <= itemAmout; ci++) {
         if ($('input[name=AC' + ci + ']:checked').val() == undefined) {
-            alert('Question' + ci + ' is not answered.');
+            alert('Question ' + ci + ' is not answered.');
             counter++;
             break
         }
@@ -18,7 +32,7 @@ function checkRange(itemAmout) {
     for (var ci = 1; ci <= itemAmout; ci++) {
         // checkMsg = "item" + ci + "_on";
         if ($('input[name=item' + ci + ']').attr("data-check") != "on") {
-            alert('Question' + ci + ' is not answered.');
+            alert('Question ' + ci + ' is not answered.');
             counter++;
             break
         }
@@ -31,7 +45,7 @@ function checkRange(itemAmout) {
 validateDemo = {
     "age": function () {
         if (isNaN(parseInt($("input[name='age']").val()))) {
-            alert("Please enter your age (number).");
+            alert("Please enter your age.");
         } else {
             return "finished"
         }
@@ -39,14 +53,14 @@ validateDemo = {
     },
     "sex": function () {
         if ($("input[name='sex']:checked").val() == undefined) {
-            alert("Please response your gender.");
+            alert("Please select your gender.");
         } else {
             return "finished"
         }
     },
     "training_yr": function () {
         if (isNaN(parseInt($("input[name='training_yr']").val()))) {
-            alert("Please enter your training years (number).");
+            alert("Please enter your training years.");
         } else {
             return "finished"
         }
@@ -54,7 +68,7 @@ validateDemo = {
     },
     "training_min": function () {
         if (isNaN(parseInt($("input[name='training_min']").val()))) {
-            alert("Please enter your practicing minutes (number).");
+            alert("Please enter your practicing minutes.");
         } else {
             return "finished"
         }
@@ -62,7 +76,7 @@ validateDemo = {
     },
     "edu": function () {
         if ($("select[name='education']").val() == "--Please Select--") {
-            alert("Please your education level.");
+            alert("Please select your education level.");
         } else {
             return "finished"
         }

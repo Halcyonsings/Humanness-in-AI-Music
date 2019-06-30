@@ -59,7 +59,7 @@ $ip = get_client_ip();
     <link rel="stylesheet" type="text/css" href="css/0_consent/consent_style.css">
 
     <script type="text/javascript" src="js/globalsetting.js"></script>
-
+    <script type="text/javascript" src="js/checkItem.js"></script>
     <title>NTU Music Study</title>
 </head>
 
@@ -69,65 +69,81 @@ $ip = get_client_ip();
         <div class="container instruction">
             <div class="title">Informed Consent Form</div>
             <hr>
-            <p>Thank you for participating in our experiment. The requirements to participate in this research are
+            <p>Thank you for participating in our experiment.
+                <br />The requirements to participate in this research are
                 listed below:</p>
             <ol>
                 <li>Make sure your computer has a stable website connection. </li>
-                <li><span class="highlight">Do not participate
-                        in this experiment with a smartphone.</span> </li>
+                <li><span class="highlight">Do not participate in this experiment with IE (Internet Explorer)
+                        browser.</span> </li>
+                <li><span class="highlight">Do not participate in this experiment with a smartphone.</span> </li>
                 <li>You should be fluent in English reading.</li>
                 <li>Please wear headphones during the experiment.</li>
-                <li><span class="highlight">Do not participate this experiment with IE (Internet Explorer)
-                        browser.</span> </li>
+
             </ol>
-            <p>If you fulfill the requirements, please read the following information：</p>
+            <p>If you meet the requirements, please read the following information:</p>
             <p>This study is conducted by Modeling & Informatics Lab (MIL) at Department of Psychology, National Taiwan
                 University. This experiment aims to look into the mechanism of musical emotion.</p>
             <p><b>Procedure</b>: In the first session, we will examine whether participants are wearing headphones or
                 not. You will then listen to some music pieces as you simultaneously fill in a questionnaire. After the
-                listening session, you will be given two other questionnaires.</p>
+                listening session, you will be given some surveys.</p>
             <p><b>Duration</b>:
                 It will take about <span class="highlight"> 40 minutes </span> to complete all the tasks. Please
                 concentrate on the
-                instructions and questions on the screen. Do not open other tabs during the experiment.</p>
-            <p><b>Benefit</b>: You will receive <span class="highlight"> $3.0 </span> if you successfully
+                instructions and questions on the screen. Do not open other tabs, minimize the active window, or become idle
+                 for more than 5 minutes. Doing so will drop out of the experiment. 
+                  <span class="highlight"> You will not get any payment in that case. </span> </p>
+            <p><b>Benefit</b>: You will receive <span class="highlight"> $5.0 </span> if you successfully
                 complete
                 all the tasks in the experiment. </p>
             <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However,
                 no
-                one can access the data except for researchers listed below. <br> If you want to retrieve your data,
-                Please e-mail to the researchers (r05227104@ntu.edu.tw). In addition, the results of the
+                one can access the data except for researchers listed below.
+                <br />If you want to retrieve your data,
+                please e-mail the researchers (r05227104@ntu.edu.tw). In addition, the results of the
                 experiments will not be used for any commercial purposes. </p>
-            <p><b>Other ethical issues</b>: (1) This research is self-financed. (2) The security of the
+            <p><b>Other ethical issues</b>:
+                <br />(1) This research is self-financed.
+                <br />(2) The security of the
                 experiment
-                is guaranteed by Research Ethics Office of National Taiwan University (NTU). You can contact the
-                office if you have further questions (E-mail: nturec@ntu.edu.tw). (3) There is no potential risk
+                is guaranteed by Research Ethics Office of National Taiwan University. You can contact the
+                office if you have further questions (E-mail: nturec@ntu.edu.tw).
+                <br />(3) There is no potential risk
                 in
                 this study. However, you have the right to decline to answer any or all questions and you may
-                terminate your involvement at any time if you choose. </p>
+                terminate your involvement at any time if you choose to. </p>
             <br>
-            <p class="devInfo"><b>Principal Investigators</b>：<br>Tsung-Ren Huang, Assistant Professor,
+            <p class="devInfo"><b>Principal Investigators</b>:<br>Tsung-Ren Huang, Assistant Professor,
                 Department
                 of Psychology, National Taiwan University<br>Chen-Ying Huang, Professor, Department of
                 Economics,
                 National Taiwan University</p>
-            <p class="devInfo"><b>Developer & Researcher</b>：<br>Zih-Hsiang Wang, graduate student, Department
+            <p class="devInfo"><b>Developer & Researcher</b>:<br>Zih-Hsiang Wang, graduate student, Department
                 of
                 Psychology, National Taiwan University </p>
+            <br />
+            <br />
         </div>
         <!-- form part -->
         <form>
             <div class="container">
-                <input type="hidden" name="uid" id="user_id">
-                <input type="hidden" name="ip" id="user_ip">
-                <input type="hidden" name="browser" id="user_browser">
-                <input type="hidden" name="start_time" id="user_start_time">
-                <input type="hidden" name="userObj" id="user_object">
-                <input type="hidden" name="inattentionP0" id="inattention_P0">
+                <hr>
+                <p> We need you to participate in the experiment without the influence of others or influencing others.
+Therefore, please make sure you agree to the following before proceeding. </p>
+                <input type="checkbox" class="notice" name="ICnotice1" value="check" id="Not_Discuss" /> I will not discuss the experiment on the forum such as the TurkerNation. <br>
+                <input type="checkbox" class="notice" name="ICnotice2" value="check" id="Know_Exit" /> I know that I
+                will
+                <span class="highlight"> automatically
+                    exit the experiment without payment</span> if I open other tabs, minimize the active window, or idle for more than 5 minutes.
+                <input type="hidden" name="uid" id="user_id" />
+                <input type="hidden" name="ip" id="user_ip" />
+                <input type="hidden" name="browser" id="user_browser" />
+                <input type="hidden" name="start_time" id="user_start_time" />
+                <input type="hidden" name="userObj" id="user_object" />
+                <input type="hidden" name="inattentionP0" id="inattention_P0" />
                 <div class="row justify-content-center">
                     <div class="g-btn" id="go_to_consent_btn">Agree & Start</div>
                 </div>
-                <div class="row testing justify-content-center"></div>
             </div>
         </form>
     </div>
@@ -157,17 +173,20 @@ $ip = get_client_ip();
         // $('.testing').text("測試ID: " + uid);     // [20181208] success
         $('#go_to_consent_btn').click(function () {
             window.onbeforeunload = null;
-            $("#user_id").attr("value", uid);
-            $("#user_ip").attr("value", user_ip);
-            $("#user_browser").attr("value", user_browser);
-            $("#user_start_time").attr("value", time_info);
-            $("#inattention_P0").attr("value", inattention);
-            // $("#user_object").attr("value", user_json);
+            var check = checkNotice(2);
+            if (check == "finished") {
+                $("#user_id").attr("value", uid);
+                $("#user_ip").attr("value", user_ip);
+                $("#user_browser").attr("value", user_browser);
+                $("#user_start_time").attr("value", time_info);
+                $("#inattention_P0").attr("value", inattention);
+                // $("#user_object").attr("value", user_json);
 
-            // form submission
-            $("form").attr("action", "db/exp_init.php")
-            $("form").attr("method", "POST")
-            $("form").submit()
+                // form submission
+                $("form").attr("action", "db/exp_init.php")
+                $("form").attr("method", "POST")
+                $("form").submit()
+            }
         })
     </script>
 </body>

@@ -119,3 +119,14 @@ Spectrum.on('seek', function () {
     $('#TimeInformation').text(formatTime(Spectrum.getCurrentTime()) + " / " + formatTime(Spectrum.getDuration()));
 });
 
+function playaudio() {
+    // Get the current progress according to the cursor position
+    var currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
+
+    if (currentProgress < 0.98 && currentProgress != 0) {
+        setTimeout(function () {
+            Spectrum.play()
+        }, 300)
+    }
+
+}

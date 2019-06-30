@@ -9,7 +9,8 @@ function random_item(items) {
 
 }
 
-
+var x = document.createElement('script');
+x.src = 'http://mil.psy.ntu.edu.tw/~hsiang/js/2_listening_phase/music.js';
 
 // The umber of questions to render and the current page
 // Declare the variable for the play list of musics
@@ -134,14 +135,20 @@ setInterval(function () {
 }, 10);
 
 // start furst trial information
-$(document).ready(function () { $('#currinfo').html("&nbsp(1/" + playList.length + ")") }); // &nbsp to add space
+$(document).ready(function () {
+    setTimeout(function () {
+        $('#currinfo').html("&nbsp(1/" + playList.length + ")");
+    }, 1000);
+}); // &nbsp to add space
 
 var trialRT = {};
-currTrail_start = 0;
-currTrail_end = 0;
+currTrial_start = 0;
+currTrial_end = 0;
 
 // start fisrt trial clock
-$(document).ready(function () { currTrail_start = performance.now() });
+$(document).ready(function () {
+    currTrial_start = performance.now();
+});
 
 
 
@@ -150,78 +157,81 @@ function nextStep() {
     let phase = MEMC.getCurrentPhase();
     let phaseAnswers = MEMC.getAnswers(phase);
     temp = phaseAnswers
+    let ClipDur = Spectrum.getDuration() + 1; // get the duration of the clip
+    check_end = performance.now()
+    let checkRT = (check_end - currTrial_start) / 1000; // the duration that subjects have listened
 
-    // Check answers, submit the answers and jump to next page.
+    // Check time, submit the answers and jump to next page.
     // Phase 1 check
-    // if (phase === "phase1" && Object.values(phaseAnswers).every((val, i, arr) => val === arr[0])) {
-    //     // If the the answers contain null, alert the user.
-    //     alert("Please do not report the same value of number for all answers.");
+    if (phase === "phase1" && checkRT < ClipDur) {
+        // If the clip is not finished, alert the user.
+        alert("Please listen to the clip till the end.");
 
-    // }
+    }
     // // Phase 2 check
     // else if (Object.values(phaseAnswers).includes(undefined)) {
     //     // If the the answers contain null, alert the user.
     //     alert("Please finish questions: \n" + getAllIndexes(Object.values(phaseAnswers), undefined).map(e => e + 1).join(", "));
     // }
-    // else {
-
-    MEMC.toggle();
-
-    if (phase === "phase1")
-        return false;
     else {
-        let answers = MEMC.getAnswers();
-        // Do something to send these answers to server.
-        // console.log(playList[currentTrial - 1], answers);
-        allAnswers[playList[currentTrial - 1]] = answers;
-        playTime[playList[currentTrial - 1]] = songTime;
 
-        // Record trial RT
-        currTrail_end = performance.now()
-        currTrailRT = currTrail_end - currTrail_start;
-        trialRT[playList[currentTrial - 1]] = currTrailRT;
+        MEMC.toggle();
 
-        // Jump to next page
-        if (currentTrial == playList.length) {
-            // The last trial is over. Do something.
-            // console.log(allAnswers);
-            // $(document).trigger('ListeningPhaseEnd', { 'playTime': playTime, 'allAnswers': allAnswers });
+        if (phase === "phase1")
+            return false;
+        else {
+            let answers = MEMC.getAnswers();
+            // Do something to send these answers to server.
+            // console.log(playList[currentTrial - 1], answers);
+            allAnswers[playList[currentTrial - 1]] = answers;
+            playTime[playList[currentTrial - 1]] = songTime;
 
-            // Stringify JSON data to save in backend
-            // var playTime_json = JSON.stringify(playTime);    // Fail: playTime_json will be empaty collection {}
-            // var allAnswers_json = JSON.stringify(allAnswers);
+            // Record trial RT
+            currTrial_end = performance.now()
+            currTrialRT = currTrial_end - currTrial_start;
+            trialRT[playList[currentTrial - 1]] = currTrialRT;
 
-            window.onbeforeunload = null;
-            $("#user_id").attr("value", uid);
-            $("#play_Time").attr("value", JSON.stringify(playTime));
-            $("#all_Answers").attr("value", JSON.stringify(allAnswers));
-            $("#all_RT").attr("value", JSON.stringify(trialRT));
-            $("#inattention_P2").attr("value", inattention);
-            // $("#user_object").attr("value", user_json);
+            // Jump to next page
+            if (currentTrial == playList.length) {
+                // The last trial is over. Do something.
+                // console.log(allAnswers);
+                // $(document).trigger('ListeningPhaseEnd', { 'playTime': playTime, 'allAnswers': allAnswers });
 
-            // form submission
-            $("form").attr("action", "db/b_listening_phase.php");
-            $("form").attr("method", "POST");
-            $("form").submit();
-        } else {
-            currentTrial++;
-            Spectrum.load(playList[currentTrial - 1]);
-            MEMC.shuffle();
-            songTime = 0;
-            currTrail_start = performance.now()
-            $('#currinfo').html("&nbsp(" + currentTrial + "/" + playList.length + ")"); // update current trial info
-            // $('.WaitMusic').toggle(1800).hide();
-            $('.ButtonSet').hide().delay(2000).show(300);
+                // Stringify JSON data to save in backend
+                // var playTime_json = JSON.stringify(playTime);    // Fail: playTime_json will be empaty collection {}
+                // var allAnswers_json = JSON.stringify(allAnswers);
+
+                window.onbeforeunload = null;
+                $("#user_id").attr("value", uid);
+                $("#play_Time").attr("value", JSON.stringify(playTime));
+                $("#all_Answers").attr("value", JSON.stringify(allAnswers));
+                $("#all_RT").attr("value", JSON.stringify(trialRT));
+                $("#inattention_P2").attr("value", inattention);
+                // $("#user_object").attr("value", user_json);
+
+                // form submission
+                $("form").attr("action", "db/b_listening_phase.php");
+                $("form").attr("method", "POST");
+                $("form").submit();
+            } else {
+                currentTrial++;
+                Spectrum.load(playList[currentTrial - 1]);
+                MEMC.shuffle();
+                songTime = 0;
+                currTrial_start = performance.now()
+                $('#currinfo').html("&nbsp(" + currentTrial + "/" + playList.length + ")"); // update current trial info
+                // $('.WaitMusic').toggle(1800).hide();
+                $('.ButtonSet').hide().delay(2000).show(300);
 
 
-            $('#memc').hide();
-            $('#MEMCscale').hide();
-            // console.log(allAnswers);
-            // console.log(playTime);
+                $('#memc').hide();
+                $('#MEMCscale').hide();
+                // console.log(allAnswers);
+                // console.log(playTime);
+            }
         }
     }
 }
-// }
 
 
 

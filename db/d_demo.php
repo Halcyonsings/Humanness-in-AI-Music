@@ -20,7 +20,6 @@ $finishedTime = date("Y-m-d H:i:s");
 // echo $startTime;
 
 // receiving variables
-$MturkToken = $_POST['MturkToken'];
 $age = $_POST["age"];
 $sex = $_POST["sex"];
 $musicTrain_yr = $_POST["training_yr"];
@@ -34,7 +33,7 @@ $inattention = $_POST["inattentionP4"];
 $ExpComments = str_replace("'", "''", $ExpComments);
 
 // SQL - to demographics table
-$sql = "INSERT INTO `C1_Demo` (uid, MturkFourNum ,`D-MAAB-Response`, age , sex, musicTrain_yr, musicTrain_min , education , ExpComments ,`D-startTime`, `D-finishedTime`, `D-inattention`) VALUES ('$uid', '$MturkToken', '$MAAB_Response', '$age', '$sex', '$musicTrain_yr', '$musicTrain_min' , '$education', '$ExpComments', '$startTime', '$finishedTime', '$inattention')";
+$sql = "INSERT INTO `C1_Demo` (uid,`D-MAAB-Response`, age , sex, musicTrain_yr, musicTrain_min , education , ExpComments ,`D-startTime`, `D-finishedTime`, `D-inattention`) VALUES ('$uid', '$MAAB_Response', '$age', '$sex', '$musicTrain_yr', '$musicTrain_min' , '$education', '$ExpComments', '$startTime', '$finishedTime', '$inattention')";
 
 // SQL - updating finishing time
 $sql_udate_time = "UPDATE `C1_user-profile` SET  `time-end` = '$finishedTime' WHERE uid = '$uid'";
@@ -45,7 +44,7 @@ $sql_udate_status = "UPDATE `C1_user-status` SET q4_Demo = '1' WHERE uid = '$uid
 $conn->query($sql_udate_status);
 
 // close and heading to next page
-$path = "/~hsiang/index.html";
+$path = "/~hsiang/5_final.php";
 
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);

@@ -38,7 +38,7 @@ $user_json = $_SESSION['userObj'];
     <!--     <script src="jspsych.js"></script> -->
     <!--     <script src="http://parsleyjs.org/dist/parsley.min.js"></script> -->
     <script type="text/javascript" src="js/globalsetting.js"></script>
-    <script type="text/javascript" src="js/intro.js"></script>
+    <!-- <script type="text/javascript" src="js/intro.js"></script> -->
 
     <!-- Add icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -189,9 +189,14 @@ $user_json = $_SESSION['userObj'];
         var uid = '<?php echo $userId;?>';
 
 
-        $(document).ready(function () {
-            introJs().start();
-        });
+        // $(document).ready(function () {
+        //     var musicintro = introJs()
+        //     // musicintro.start();
+
+        //     musicintro.onexit(function () {
+        //         alert("Hi");
+        //     });
+        // });
 
 
     </script>
