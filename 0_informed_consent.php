@@ -89,9 +89,14 @@ $ip = get_client_ip();
                 listening session, you will be given some surveys.</p>
             <p><b>Duration</b>:
                 It will take about <span class="highlight"> 40 minutes </span> to complete all the tasks. Please
-                concentrate on the
-                instructions and questions on the screen. Do not open other tabs, minimize the active window, or become idle
-                 for more than 5 minutes. Doing so will drop out of the experiment. 
+                concentrate on the instructions and questions on the screen. Do not: </p>
+            <ol>
+                <li>open other tabs
+                <li>minimize the active window
+                <li>click the green button of the active window in Mac/ OS
+                <li>become idle for more than 5 minutes
+            </ol>         
+                <p>In doing so, you will drop out of the experiment. 
                   <span class="highlight"> You will not get any payment in that case. </span> </p>
             <p><b>Benefit</b>: You will receive <span class="highlight"> $5.0 </span> if you successfully
                 complete
@@ -102,7 +107,7 @@ $ip = get_client_ip();
                 <br />If you want to retrieve your data,
                 please e-mail the researchers (r05227104@ntu.edu.tw). In addition, the results of the
                 experiments will not be used for any commercial purposes. </p>
-            <p><b>Other ethical issues</b>:
+            <p><b>Other Ethical Issues</b>:
                 <br />(1) This research is self-financed.
                 <br />(2) The security of the
                 experiment
@@ -110,7 +115,7 @@ $ip = get_client_ip();
                 office if you have further questions (E-mail: nturec@ntu.edu.tw).
                 <br />(3) There is no potential risk
                 in
-                this study. However, you have the right to decline to answer any or all questions and you may
+                this study. However, you have the right to decline to answer any or all questions. You may
                 terminate your involvement at any time if you choose to. </p>
             <br>
             <p class="devInfo"><b>Principal Investigators</b>:<br>Tsung-Ren Huang, Assistant Professor,
@@ -130,11 +135,12 @@ $ip = get_client_ip();
                 <hr>
                 <p> We need you to participate in the experiment without the influence of others or influencing others.
 Therefore, please make sure you agree to the following before proceeding. </p>
-                <input type="checkbox" class="notice" name="ICnotice1" value="check" id="Not_Discuss" /> I will not discuss the experiment on the forum such as the TurkerNation. <br>
+                <input type="checkbox" class="notice" name="ICnotice1" value="check" id="Not_Discuss" /> I will not discuss the experiment on the forum such as TurkerNation. <br>
                 <input type="checkbox" class="notice" name="ICnotice2" value="check" id="Know_Exit" /> I know that I
                 will
                 <span class="highlight"> automatically
-                    exit the experiment without payment</span> if I open other tabs, minimize the active window, or idle for more than 5 minutes.
+                    exit the experiment without payment</span> if I open other tabs, minimize the active window, click
+                the green button of the active window in Mac/ OS, or become idle for more than 5 minutes.
                 <input type="hidden" name="uid" id="user_id" />
                 <input type="hidden" name="ip" id="user_ip" />
                 <input type="hidden" name="browser" id="user_browser" />
@@ -164,6 +170,7 @@ Therefore, please make sure you agree to the following before proceeding. </p>
         // var user = init_exp(uid);
         // // console.log(user.opinion.part1.)
         // var user_json = JSON.stringify(user);
+        
 
         // user device
         var user_ip = '<?php echo $ip;?>';

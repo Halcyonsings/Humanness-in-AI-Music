@@ -8,6 +8,7 @@ $user_json = $_SESSION['userObj'];
 
 
 ?>
+
 <!doctype html>
 <html>
 
@@ -38,7 +39,6 @@ $user_json = $_SESSION['userObj'];
     <script src="http://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
     <!--     <script src="jspsych.js"></script> -->
     <!--     <script src="http://parsleyjs.org/dist/parsley.min.js"></script> -->
-    <script type="text/javascript" src="js/globalsetting.js"></script>
     <script type="text/javascript" src="js/intro.js"></script>
 
     <!-- Add icon library -->
@@ -59,6 +59,7 @@ $user_json = $_SESSION['userObj'];
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 
+<!-- to fix music stop when adjusting the screen -->
 
 <body onresize="playaudio()">
 
@@ -159,6 +160,7 @@ $user_json = $_SESSION['userObj'];
                     <input type="hidden" name="playTime" id="play_Time">
                     <input type="hidden" name="allAnswers" id="all_Answers">
                     <input type="hidden" name="allRT" id="all_RT">
+                    <input type="hidden" name="hurrySubject" id="hurry_subject">
                     <input type="hidden" name="inattentionP2" id="inattention_P2">
                     <div class="clearfix">
                         <button type="button" id="next" class="g-btn" onclick="nextStep()">

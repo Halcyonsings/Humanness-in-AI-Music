@@ -13,20 +13,20 @@
 // Define question text
 let MEMC = {
     // Musical Emotion
-    "1": "Filled with wonder, amazed",
-    "2": "Moved, touched",
-    "3": "Enchanted, in awe",
-    "4": "Inspired, enthusiastic",
-    "5": "Energetic, lively",
-    "6": "Joyful, wanting to dance",
-    "7": "Powerful, strong",
-    "8": "Full of tender, warmhearted",
-    "9": "Relaxed, peaceful",
-    "10": "Melancholic, sad",
-    "11": "Nostalgic, sentimental",
-    "12": "Indifferent, bored",
-    "13": "Tense, uneasy",
-    "14": "Agitated, aggressive",
+    "1": "Filled with wonder, Amazed",
+    "2": "Moved, Touched",
+    "3": "Enchanted,    In awe",
+    "4": "Inspired, Enthusiastic",
+    "5": "Energetic, Lively",
+    "6": "Joyful, Wanting to dance",
+    "7": "Powerful, Strong",
+    "8": "Full of tender, Warmhearted",
+    "9": "Relaxed, Peaceful",
+    "10": "Melancholic, Sad",
+    "11": "Nostalgic, Sentimental",
+    "12": "Indifferent, Bored",
+    "13": "Tense,    Uneasy",
+    "14": "Agitated, Aggressive",
     // Musical Cognition
     "15": "Structured",
     "16": "Orderly",
@@ -41,10 +41,10 @@ let MEMC = {
     "24": "Familiar",
     "25": "Awkward",
     // Catch trial
-    "26": "Select 2 here",
+    "26": "Select 2 here.",
     // Special questions
     "27": "What is your overall preference of the clip (from 1 to 5)? You like it _____.",
-    "28": "Do the clip be composed by AI (3=No /5=Yes)? ",
+    "28": "Does the clip composed by the AI? (1 = Humans, 5 = AI) ",
 }
 
 
@@ -72,14 +72,14 @@ MEMC.render = function (divToRender) {
     let $phase1Container = $(`<div class="question-container" id="phase1"></div>`);
     $memc.append($phase1Container);
     this.renderEmptyCards("phase1", MEMC.phase1Ids.length, pn = 1);
-    this.renderQuestions("phase1", MEMC.phase1Ids);
+    this.renderQuestions("phase1", MEMC.phase1Ids, isRandom = true);
     this.phase1Container = $phase1Container;
 
     // Render the phase-2 container with the 26, 27 question
     let $phase2Container = $(`<div class="question-container" id="phase2"></div>`);
     $memc.append($phase2Container);
     this.renderEmptyCards("phase2", MEMC.phase2Ids.length, pn = 2);
-    this.renderQuestions("phase2", MEMC.phase2Ids);
+    this.renderQuestions("phase2", MEMC.phase2Ids, isRandom = false);
     this.phase2Container = $phase2Container;
     this.phase2Container.hide();
 
@@ -155,7 +155,7 @@ MEMC.renderEmptyCards = function (divId, numQuestion, pn) { // pn = Phase Number
  * @param {boolean} isRandom - whether to randomly render
  * @return {null}
  */
-MEMC.renderQuestions = function (containerId, questionIds, isRandom = true) {
+MEMC.renderQuestions = function (containerId, questionIds, isRandom) {
 
     let $memcContainer = $(`#${containerId}`); // The questionnaire container
     let $cards = $memcContainer.find(".question-card");
@@ -222,6 +222,7 @@ MEMC.getCurrentPhase = function () {
 
 /**
  * Toggle the memc phase1 and phase2
+ * Able or Disable Button 
  */
 MEMC.toggle = function () {
 
@@ -230,6 +231,10 @@ MEMC.toggle = function () {
         // adjust the card height/ width for phase 2
         $(".MEMCCard").removeClass("col-sm-3");
         $(".MEMCCard").addClass("col-sm-6");
+
+        $(".MEMCLabel").html("1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp5");
+        // $(".TuringLabel").show();
+        $("#secondOP-2, #thirdOP-2, #fourthOP-2").addClass("hidebutton");
         this.phase1Container.hide();
         this.phase2Container.show();
     } else {
@@ -237,12 +242,30 @@ MEMC.toggle = function () {
         // set the quetion card of phase1 25% width
         $(".MEMCCard").removeClass("col-sm-6");
         $(".MEMCCard").addClass("col-sm-3");
+        $('#btn-play').removeClass("once-button");
+
+        // $(".TuringLabel").show();
+        $(".MEMCLabel").html("1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5");
+        $("#secondOP-2, #thirdOP-2, #fourthOP-2").removeClass("hidebutton");
         this.phase1Container.show();
         this.phase2Container.hide();
     }
     return this.phase
 }
 
+
+/* show the scale after click the MP3 file */
+$('#btn-play').on('click', function () {
+    $('#memc').delay(20000).show(300);
+    $('#MEMCscale').delay(20000).show(300).scrollTop(0);
+    $('#btn-play').addClass("once-button");
+    $('html, body').animate({
+        scrollTop: $('#memc').offset().top - 300
+    }, 'slow');
+    // $('#firstOP-1').prop('checked', 'checked');
+    // document.getElementById("firstOP-1").checked = true;
+    // $('input[name="amplitude-1"]').first().prop('checked', true); // forced to check the first item
+});
 
 
 
@@ -284,21 +307,6 @@ $('#music-section').show();
 
 // $('.WaitMusic').hide();
 // $('.WaitMusic').delay(3000).hide();
-
-
-/* show the scale after click the MP3 file */
-$('#btn-play').on('click', function () {
-    $('#memc').delay(20000).show(300);
-    $('#MEMCscale').delay(20000).show(300).scrollTop(0);
-    $('html, body').animate({
-        scrollTop: $('#memc').offset().top - 300
-    }, 'slow');
-    // $('#firstOP-1').prop('checked', 'checked');
-    // document.getElementById("firstOP-1").checked = true;
-    // $('input[name="amplitude-1"]').first().prop('checked', true); // forced to check the first item
-});
-
-
 
 
 //Preventing send the data repeatedly

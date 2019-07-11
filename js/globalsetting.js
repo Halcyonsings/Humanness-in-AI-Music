@@ -4,6 +4,11 @@ var inattention = 0;
 var idleInterval;
 
 $(document).ready(function () {
+    // disable the key "back to last page"
+    // the drop out subjects cannot come back to experiment
+    window.history.forward(1);
+
+
     //Increment the idle time counter every minute.
     idleInterval = setInterval(timerIncrement, 60000); // 60 sec
     // console.log("what is your function?", idleInterval)
@@ -11,6 +16,7 @@ $(document).ready(function () {
     //Zero the idle timer on mouse movement.
     $(this).mousemove(function (e) {
         idleTime = 0;
+        // console.log("reset", idleTime);
     });
 
 });

@@ -151,6 +151,7 @@ $(document).ready(function () {
 });
 
 
+var hurrysubject = 0;
 
 function nextStep() {
     // Get answers and 
@@ -166,7 +167,8 @@ function nextStep() {
     if (phase === "phase1" && checkRT < ClipDur) {
         // If the clip is not finished, alert the user.
         alert("Please listen to the clip till the end.");
-
+        hurrysubject = hurrysubject + 1;
+        console.log("do not want to do", hurrysubject)
     }
     // // Phase 2 check
     // else if (Object.values(phaseAnswers).includes(undefined)) {
@@ -206,6 +208,7 @@ function nextStep() {
                 $("#play_Time").attr("value", JSON.stringify(playTime));
                 $("#all_Answers").attr("value", JSON.stringify(allAnswers));
                 $("#all_RT").attr("value", JSON.stringify(trialRT));
+                $("#hurry_subject").attr("value", hurrysubject);
                 $("#inattention_P2").attr("value", inattention);
                 // $("#user_object").attr("value", user_json);
 

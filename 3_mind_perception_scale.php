@@ -185,7 +185,7 @@ $user_json = $_SESSION['userObj'];
                     <BR>
                     <input type="radio" class="AC_option" name="AC8" value="3">Slightly negative
                     <BR>
-                    <input type="radio" class="AC_option" name="AC8" value="4">Neurtral
+                    <input type="radio" class="AC_option" name="AC8" value="4">Neutral
                     <BR>
                     <input type="radio" class="AC_option" name="AC8" value="5">Slightly positive
                     <BR>

@@ -2,8 +2,10 @@
 session_start();
 $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
+
 // avoid jump
 // include "db/avoidJump.php";
+
 
 ?>
 
@@ -37,8 +39,7 @@ $user_json = $_SESSION['userObj'];
     <script src="http://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
     <!--     <script src="jspsych.js"></script> -->
     <!--     <script src="http://parsleyjs.org/dist/parsley.min.js"></script> -->
-    <script type="text/javascript" src="js/globalsetting.js"></script>
-    <!-- <script type="text/javascript" src="js/intro.js"></script> -->
+    <script type="text/javascript" src="js/intro.js"></script>
 
     <!-- Add icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -56,10 +57,16 @@ $user_json = $_SESSION['userObj'];
     <!-- Add IntroJs styles -->
     <link href="css/introjs.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hidebutton {
+            visibility: hidden;
+        }
+    </style>
 </head>
 
+<!-- to fix music stop when adjusting the screen -->
 
-<body>
+<body onresize="playaudio()">
 
     <header class="jumbotron">
         <div class="container">
@@ -81,19 +88,21 @@ $user_json = $_SESSION['userObj'];
                                 data-position="left">
                                 Please read the notice before listening to the clips:</p>
                                 <ol>
-                                    <li><span class="highlight">Please wear headphones when listening.</span></li>
+                                    <li>Please<span class="highlight"> wear headphones</span> when listening.</li>
                                     <li>In this section, you will listen to 12 different clips.
-                                        A questionnaire will appear below after the music displays for 20 second. </li>
-                                    <li>The single piece of music will be unskippable and <span class="highlight">only
-                                            played once</span>, so please listen carefully.</li>
-                                    <li>In the questionnaire, you will have to answer 28 items. Please rate each piece
-                                        of the music clip on the following dimensions (feelings or musical features)
-                                        on a scale ranging from 1 (not at all) to 5 (very much). Please do not report
-                                        the same value of number for all answers.</li>
-                                    <li>The excerpts are made by either artificial intelligence(AI) or humans. At the
-                                        page 2 of the questionnaire, please choose 3 if you agree that the excerpt is
-                                        made by humans and choose 5 if you agree that the excerpt is made by AI.
+                                        A questionnaire will appear below after the music being played for 20 seconds.
                                     </li>
+                                    <li>You cannot skip any music clips. Each music clip will be <span
+                                            class="highlight"> played once and only
+                                            once.</span> So please listen carefully.</li>
+                                    <li>In the questionnaire, you will have to answer 27 items. Please rate each music
+                                        clip according to feelings or musical features on a scale ranging from 1 (not at
+                                        all) to 5 (very much). </li>
+                                    <li>The excerpts are made by either artificial intelligence(AI) or humans. At the
+                                        second page of the questionnaire, please choose 1 if you think that the excerpt
+                                        is
+                                        made by humans and choose 5 if you think that the excerpt is made by AI.</li>
+
 
                                 </ol>
                             </article>
@@ -110,8 +119,7 @@ $user_json = $_SESSION['userObj'];
                         <div class="col-12 col-sm-6">
                             <!-- avoid subjects realtime adjust soundwave -->
                             <div class="disabled-wave">
-                                <div id="audio-spectrum" class="InsertNote" data-step="4" data-position="left"
-                                    data-intro="Drag the bar to adjust time."></div>
+                                <div id="audio-spectrum" class="InsertNote"></div>
                             </div>
                         </div>
                     </div>
@@ -127,7 +135,7 @@ $user_json = $_SESSION['userObj'];
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6">
                             <div class="row justify-content-between ButtonSet">
-                                <!-- Before being turned on by JS, the default value of button is set to disabled -->
+                                <!-- The button is disabled until that the clips is successfully load -->
                                 <button id="btn-play" class="MusicButtonDesign" disabled="disabled" data-step="2"
                                     data-intro="Click here to play the music" data-position="left"><i
                                         class="material-icons">play_arrow</i>Play</button>
@@ -162,6 +170,7 @@ $user_json = $_SESSION['userObj'];
                     <input type="hidden" name="playTime" id="play_Time">
                     <input type="hidden" name="allAnswers" id="all_Answers">
                     <input type="hidden" name="allRT" id="all_RT">
+                    <input type="hidden" name="hurrySubject" id="hurry_subject">
                     <input type="hidden" name="inattentionP2" id="inattention_P2">
                     <div class="clearfix">
                         <button type="button" id="next" class="g-btn" onclick="nextStep()">
@@ -189,14 +198,38 @@ $user_json = $_SESSION['userObj'];
         var uid = '<?php echo $userId;?>';
 
 
-        // $(document).ready(function () {
-        //     var musicintro = introJs()
-        //     // musicintro.start();
+        $(document).ready(function () {
 
-        //     musicintro.onexit(function () {
-        //         alert("Hi");
-        //     });
-        // });
+            var musicintro = introJs()
+            musicintro.start();
+
+            $('#btn-play').addClass("once-button");
+            // $(".TuringLabel").hide();
+
+            musicintro.onexit(function () {
+                // alert("Hi");
+                $('#btn-play').removeClass("once-button");
+            });
+
+            // musicintro.onbeforeexit(function() {
+            //     // alert("Hi");
+            //     console.log("on before exit")
+
+            //     // returning false means don't exit the intro
+            //     return false;
+            // });
+        });
+
+
+        // Disable Enter Key On Play Button
+        $("#btn-play, #next").keypress(function (e) {
+            //Enter key
+            if (e.which == 13) {
+                return false;
+            }
+        });
+
+
 
 
     </script>
