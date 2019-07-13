@@ -247,17 +247,17 @@ MEMC.toggle = function () {
 
 
 /* show the scale after click the MP3 file */
-$('#btn-play').on('click', function () {
-    $('#memc').delay(20000).show(300);
-    $('#MEMCscale').delay(20000).show(300).scrollTop(0);
-    $('#btn-play').addClass("once-button");
-    $('html, body').animate({
-        scrollTop: $('#memc').offset().top - 300
-    }, 'slow');
-    // $('#firstOP-1').prop('checked', 'checked');
-    // document.getElementById("firstOP-1").checked = true;
-    // $('input[name="amplitude-1"]').first().prop('checked', true); // forced to check the first item
-});
+// $('#btn-play').on('click', function () {
+//     $('#memc').delay(20000).show(300);
+//     $('#MEMCscale').delay(20000).show(300).scrollTop(0);
+//     $('#btn-play').addClass("once-button");
+//     $('html, body').animate({
+//         scrollTop: $('#memc').offset().top - 300
+//     }, 'slow');
+//     // $('#firstOP-1').prop('checked', 'checked');
+//     // document.getElementById("firstOP-1").checked = true;
+//     // $('input[name="amplitude-1"]').first().prop('checked', true); // forced to check the first item
+// });
 
 
 

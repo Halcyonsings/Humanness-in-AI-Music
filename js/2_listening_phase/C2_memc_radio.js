@@ -44,7 +44,7 @@ let MEMC = {
     "26": "Select 2 here.",
     // Special questions
     "27": "What is your overall preference of the clip (from 1 to 5)? You like it _____.",
-    "28": "Does the clip composed by the AI? (1 = Humans, 5 = AI) ",
+    "28": "In my judgment, this clip is composed by ____. ",
 }
 
 
@@ -129,9 +129,9 @@ MEMC.renderEmptyCards = function (divId, numQuestion, pn) { // pn = Phase Number
                 `<h5></h5>` +
                 `</div>` +
                 `<div class="col-12 d-flex justify-content-center">` +
-                `<div class="MEMCLabel">1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5</div>` +
+                `<div class="MEMCLabel" id=label-${pn}-${i * 4 + j}>1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5</div>` +
                 `<group class="inline-radio MEMCbutton">` +
-                `<input type="radio" value="1" id="fisrtOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off" checked="checked"/>&nbsp` +
+                `<input type="radio" value="1" id="fisrtOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
                 `<input type="radio" value="2" id="secondOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
                 `<input type="radio" value="3" id="thirdOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
                 `<input type="radio" value="4" id="fourthOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
@@ -180,7 +180,7 @@ MEMC.renderQuestions = function (containerId, questionIds, isRandom) {
  */
 MEMC.shuffle = function () {
     // Re-render the questions
-    this.renderQuestions("phase1", MEMC.phase1Ids);
+    this.renderQuestions("phase1", MEMC.phase1Ids, isRandom = true);
     // clear the selections.
     this.clear();
 }
@@ -231,8 +231,9 @@ MEMC.toggle = function () {
         // adjust the card height/ width for phase 2
         $(".MEMCCard").removeClass("col-sm-3");
         $(".MEMCCard").addClass("col-sm-6");
-
-        $(".MEMCLabel").html("1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp5");
+        // customized label
+        $("#label-2-2").html("Human&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAI");
+        $("#label-2-1").html("1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5");
         // $(".TuringLabel").show();
         $("#secondOP-2, #thirdOP-2, #fourthOP-2").addClass("hidebutton");
         this.phase1Container.hide();

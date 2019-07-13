@@ -165,7 +165,7 @@ function nextStep() {
 
     // Check time, submit the answers and jump to next page.
     // Phase 1 check
-    if (phase === "phase1" && checkRT < ClipDur) { //&& checkRT < ClipDur
+    if (phase === "phase1" && checkRT < ClipDur) {
         // If the clip is not finished, alert the user.
         alert("Please listen to the clip till the end.");
         hurrysubject = hurrysubject + 1;
@@ -173,12 +173,12 @@ function nextStep() {
     }
     // Phase 2 check
     // else if (phase === "phase2" && ["2", "3", "4"].includes(phaseAnswers["question-28"])) {
-    // if (phaseAnswers["question-28"] != "3") 
-    // alert("Please answered the question.");
-    //   else { break; }
-    // || phaseAnswers["question-28"] != "5"
-    //// If the the answers contain null, alert the user.
-    //alert("Please finish questions: \n" + getAllIndexes(Object.values(phaseAnswers), undefined).map(e => e + 1).join(", "));
+    // if (phaseAnswers["question-28"] == "3") {
+    //     alert("Please answered the question.");
+    //     //   else { break; }
+    //     // || phaseAnswers["question-28"] != "5"
+    //     //// If the the answers contain null, alert the user.
+    //     //alert("Please finish questions: \n" + getAllIndexes(Object.values(phaseAnswers), undefined).map(e => e + 1).join(", "));
     // }
     else {
 

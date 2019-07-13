@@ -8,6 +8,7 @@ $user_json = $_SESSION['userObj'];
 
 
 ?>
+
 <!doctype html>
 <html>
 
@@ -32,7 +33,13 @@ $user_json = $_SESSION['userObj'];
     <link rel="stylesheet" href="css/MP_range_bar.css" rel="stylesheet" />
 
     <style type="text/css">
+        .AC_res_block {
+            line-height: 24px;
+        }
 
+        .Attention_check_descrp {
+            margin-bottom: 10px
+        }
     </style>
 </head>
 <title>NTU Music Study</title>
@@ -44,9 +51,10 @@ $user_json = $_SESSION['userObj'];
             <div class="form-t1">Survey Check List</div>
             <article class="intro-article">
                 <div class="a">
-                The purpose of this questionnaire is to know your setting and condition during the experiment.
-                 Please answer the following eight questions. <span class="highlight"> The amount of your compensation
-                 for participation in our experiment does NOT depend on your response to the questions. </span>
+                    The purpose of this questionnaire is to know your setting and condition during the experiment.
+                    Please answer the following eight questions. <span class="highlight"> The amount of your
+                        compensation
+                        for participation in our experiment does NOT depend on your response to the questions. </span>
                     <!-- "&nbsp;" creates space in HTML5 -->
                 </div>
             </article>
@@ -69,8 +77,8 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">2. Did you wear headphones while listening to the sounds in this
-                    experiment (in the page "Headphone Test" and "Listening Session")? Please
+                <div class="Attention_check_descrp">2. Did you wear headphones while listening to the clips
+                    in the listening session? Please
                     answer honestly. </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC2" value="Yes">Yes
@@ -103,7 +111,7 @@ $user_json = $_SESSION['userObj'];
                     <input type="radio" class="AC_option" name="AC3" value="very quiet">I worked on this experiment in
                     a very
                     quiet
-                    place.
+                    place
                 </div>
             </div>
             <hr>
@@ -146,7 +154,8 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">6. Did you smoke tobacco (e.g., a puff of cigarette, cigar, pipe, etc) 
+                <div class="Attention_check_descrp">6. Did you smoke tobacco (e.g., a puff of cigarette, cigar, pipe,
+                    etc)
                     in the <span class="highlight"> past one hour</span>? Please answer honestly.</div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC6" value="Yes">Yes
@@ -156,7 +165,8 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">7. Did you consume alcohol in the <span class="highlight"> past 12 hours</span>? Please answer honestly. 
+                <div class="Attention_check_descrp">7. Did you consume alcohol in the <span class="highlight"> past 12
+                        hours</span>? Please answer honestly.
                 </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC7" value="Yes">Yes
@@ -166,7 +176,8 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">8. What is your overall attitude toward modern technology?</span></div>
+                <div class="Attention_check_descrp">8. What is your overall attitude toward modern technology?</span>
+                </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC8" value="1">Extremely negative
                     <BR>
@@ -174,7 +185,7 @@ $user_json = $_SESSION['userObj'];
                     <BR>
                     <input type="radio" class="AC_option" name="AC8" value="3">Slightly negative
                     <BR>
-                    <input type="radio" class="AC_option" name="AC8" value="4">Neurtral 
+                    <input type="radio" class="AC_option" name="AC8" value="4">Neutral
                     <BR>
                     <input type="radio" class="AC_option" name="AC8" value="5">Slightly positive
                     <BR>
@@ -185,15 +196,15 @@ $user_json = $_SESSION['userObj'];
             </div>
             <!-- part1 finishing -->
             <form>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="NextToMP_btn g-btn">Next Step</div>
-                        </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="NextToMP_btn g-btn">Next Step</div>
                     </div>
-                    <input type="hidden" id="AC_Response" name="ACResponse">
-                    <input type="hidden" name="inattentionP3" id="inattention_P3">
+                </div>
+                <input type="hidden" id="AC_Response" name="ACResponse">
+                <input type="hidden" name="inattentionP3" id="inattention_P3">
             </form>
-            
+
         </div>
 
         <!-- ================= Mind Perception Scale =================    -->

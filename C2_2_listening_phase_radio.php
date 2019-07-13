@@ -95,13 +95,11 @@ $user_json = $_SESSION['userObj'];
                                     <li>You cannot skip any music clips. Each music clip will be <span
                                             class="highlight"> played once and only
                                             once.</span> So please listen carefully.</li>
-                                    <li>In the questionnaire, you will have to answer 27 items. Please rate each music
+                                    <li>In the questionnaire, you will have to answer 28 items. Please rate each music
                                         clip according to feelings or musical features on a scale ranging from 1 (not at
                                         all) to 5 (very much). </li>
-                                    <li>The excerpts are made by either artificial intelligence(AI) or humans. At the
-                                        second page of the questionnaire, please choose 1 if you think that the excerpt
-                                        is
-                                        made by humans and choose 5 if you think that the excerpt is made by AI.</li>
+                                    <li>Each excerpt is composed by human or artificial intelligence (AI). At the second
+                                         stage of the questionnaire, please indicate whether it is by human or AI in your judgment.</li>
 
 
                                 </ol>

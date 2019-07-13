@@ -145,11 +145,16 @@ var trialRT = {};
 currTrial_start = 0;
 currTrial_end = 0;
 
-// start fisrt trial clock
-$(document).ready(function () {
-    currTrial_start = performance.now();
-});
+temp = 0
 
+// start fisrt trial clock
+function DelayMEMC() {
+    $('#btn-play').addClass("once-button");
+    let ClipDur = (Spectrum.getDuration() - 1) * 1000; // get the duration of the clip
+    temp = ClipDur
+    $('#memc').delay(ClipDur).show(300);
+    $('#MEMCscale').delay(ClipDur).show(300);
+}
 
 var hurrysubject = 0;
 
@@ -157,24 +162,25 @@ function nextStep() {
     // Get answers and 
     let phase = MEMC.getCurrentPhase();
     let phaseAnswers = MEMC.getAnswers(phase);
-    temp = phaseAnswers
-    let ClipDur = Spectrum.getDuration() + 1; // get the duration of the clip
-    check_end = performance.now()
-    let checkRT = (check_end - currTrial_start) / 1000; // the duration that subjects have listened
+    // temp = phaseAnswers
+    // let ClipDur = Spectrum.getDuration() + 1; // get the duration of the clip
+    // check_end = performance.now()
+    // let checkRT = (check_end - currTrial_start) / 1000; // the duration that subjects have listened
 
     // Check time, submit the answers and jump to next page.
     // Phase 1 check
-    if (phase === "phase1" && checkRT < ClipDur) {
-        // If the clip is not finished, alert the user.
-        alert("Please listen to the clip till the end.");
-        hurrysubject = hurrysubject + 1;
-        console.log("do not want to do", hurrysubject)
-    }
-    // // Phase 2 check
-    // else if (Object.values(phaseAnswers).includes(undefined)) {
-    //     // If the the answers contain null, alert the user.
-    //     alert("Please finish questions: \n" + getAllIndexes(Object.values(phaseAnswers), undefined).map(e => e + 1).join(", "));
+    // if (phase === "phase1") { //  && checkRT < ClipDur
+    //     // If the clip is not finished, alert the user.
+    //     alert("Please listen to the clip till the end.");
+    //     hurrysubject = hurrysubject + 1;
+    //     console.log("do not want to do", hurrysubject)
     // }
+    // Phase 2 check
+    if (Object.values(phaseAnswers).includes(undefined)) {
+        //     // If the the answers contain null, alert the user.
+        //     alert("Please finish questions: \n" + getAllIndexes(Object.values(phaseAnswers), undefined).map(e => e + 1).join(", "));
+        console.log("HiHi!")
+    }
     else {
 
         MEMC.toggle();
@@ -221,6 +227,7 @@ function nextStep() {
                 Spectrum.load(playList[currentTrial - 1]);
                 MEMC.shuffle();
                 songTime = 0;
+                ClipDur = 0;
                 currTrial_start = performance.now()
                 $('#currinfo').html("&nbsp(" + currentTrial + "/" + playList.length + ")"); // update current trial info
                 // $('.WaitMusic').toggle(1800).hide();

@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 $userId = $_SESSION['uid'];
@@ -9,6 +8,7 @@ $user_json = $_SESSION['userObj'];
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,11 +26,14 @@ $user_json = $_SESSION['userObj'];
 
     <!-- bootstrap4 CSS&JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
         crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
@@ -52,11 +55,9 @@ $user_json = $_SESSION['userObj'];
     </script>
     <style>
         img {
-    height: 30px;
-    margin: 10px;
-}
-
-
+            height: 30px;
+            margin: 10px;
+        }
     </style>
     <title>NTU Music Study</title>
 </head>
@@ -69,11 +70,13 @@ $user_json = $_SESSION['userObj'];
             <div class="form-t1">Musical Ability, Attitude, and Beliefs Survey</div>
             <article class="intro-article">
                 <div class="a">
-                The purpose of this questionnaire is to understand (1) humans' perception of musical ability (2) attitude toward music (3) beliefs and expectations on music. These may influence an individual's response to music.
+                    The purpose of this questionnaire is to understand (1) your perception of musical ability (2)
+                    attitude toward music (3) beliefs and expectations on music.
+                    These may influence your response to music.
                     <!-- "&nbsp;" creates space in HTML5 -->
                 </div>
                 <div class="a">
-                    <span class="highlight">Directions:</span> Please drag the bar on the scale to the position
+                    <span class="highlight">Directions:</span> Please click on the bar to the position
                     that best indicates your opinion for each question.
                 </div>
             </article>
@@ -83,8 +86,9 @@ $user_json = $_SESSION['userObj'];
                     <span class="labal_polar1">I cannot give a specific label to any musical feature</span>
                     <input class="anchor_range" type="range" name="item1" id="MAAB1" min="0" max="100" step="0.01"
                         value="50" data-check="">
-                    <span class="labal_polar2">I can recognize elements like harmonic progressions, motive
-                        transformations,
+                    <span class="labal_polar2" style="font-size:14px;">I can recognize elements like harmonic
+                        progressions, motive
+                        trans- <br />formations,
                         and formal features</span>
                 </div>
             </div>
@@ -123,8 +127,8 @@ $user_json = $_SESSION['userObj'];
                 <div class="anchor_descrp">5. The purpose of "classical" music is to:</div>
                 <div class="anchor_res_block">
                     <span class="labal_polar1">move the emotion</span>
-                    <input class="anchor_range" type="range" name="item5" id="MAA5" min="0" max="100" step="0.01" value="50"
-                        data-check="">
+                    <input class="anchor_range" type="range" name="item5" id="MAAB5" min="0" max="100" step="0.01"
+                        value="50" data-check="">
                     <span class="labal_polar2">stimulate the mind</span>
                 </div>
             </div>
@@ -138,14 +142,12 @@ $user_json = $_SESSION['userObj'];
 
         <form action="" id="demoForm">
             <div class="container-fluid demoCard">
-                <p class="form-t1 text-center">Personal  Information</p>
+                <p class="form-t1 text-center">Personal Information</p>
                 <article class="intro-article">
                     <div class="a">
                         In this last section, please fill in your personal information. Your responses to this survey
-                        will be anonymous. Please do not write any identifying information on your answer sheet. You
-                        have
-                        to answer
-                        all the questions except the last one. After submitting the form, the
+                        will be anonymous. Please do not write any identifying information on your answer sheet. After
+                        submitting the form, the
                         experiment is complete.
                     </div>
                 </article>
@@ -155,7 +157,7 @@ $user_json = $_SESSION['userObj'];
                     <div class="col-md-4 formLabel">Age</div>
                     <div class="col-md-8" id="age_range">
                         <input type="text" class="form-control" name="age" id="ageInput" placeholder="Age">
-                        <small id="ageHelp" class="form-text text-muted">Please Fill in a number</small>
+                        <small id="ageHelp" class="form-text text-muted">Please fill in a number</small>
                     </div>
                 </div>
                 <div class="row item-container">
@@ -170,28 +172,31 @@ $user_json = $_SESSION['userObj'];
                     </div>
                 </div>
                 <div class="row item-container">
-                    <div class="col-md-4 formLabel">Yr. of Musical<br> Training</div>
+                    <div class="col-md-4 formLabel">Years of Musical<br> Training</div>
                     <div class="col-md-8" id="Training_range">
-                        <input type="text" class="form-control" name="training_yr" id="TrainingInput1" placeholder="Training Years (e.g., 4)">
+                        <input type="text" class="form-control" name="training_yr" id="TrainingInput1"
+                            placeholder="Training Years (e.g., 4)">
                         <small id="TrainingHelp" class="form-text text-muted">Please fill in a number</small>
                     </div>
                 </div>
                 <div class="row item-container">
                     <div class="col-md-4 formLabel">Practicing<br>on Music</div>
                     <div class="col-md-8" id="Training_range">
-                        <input type="text" class="form-control" name="training_min" id="TrainingInput2" placeholder="Practicing Minutes (e.g., 60)">
-                        <small id="TrainingHelp" class="form-text text-muted">Please fill in the minutes that you practice
+                        <input type="text" class="form-control" name="training_min" id="TrainingInput2"
+                            placeholder="Practicing Minutes (e.g., 60)">
+                        <small id="TrainingHelp" class="form-text text-muted">Please fill in the minutes that you
+                            practice
                             music per day</small>
                     </div>
                 </div>
                 <div class="row item-container">
                     <div class="col-4 formLabel">
-                        <label for="eduInput">Education level</label>
+                        <label for="eduInput">Education Level</label>
                     </div>
                     <div class="col-8" id="edu">
                         <select name="education" form="demoForm" class="form-control custom-select" id="eduInput">
                             <option selected>--Please Select--</option>
-                            <option>Under junior high school</option>
+                            <option>Junior high school or under</option>
                             <option>Senior high school</option>
                             <option>Bachelor degree</option>
                             <option>Graduate school</option>
@@ -211,37 +216,11 @@ $user_json = $_SESSION['userObj'];
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="g-btn NextToFinal_btn">Next Page</div>
-                </div>
-            </div>
-
-            <div class="container-fluid endingCard">
-                <p class="form-t1 text-center">The End</p>
-                <article class="intro-article">
-                    <div class="a">The experiment is now complete. Thank you for participating in our experiment. To
-                        get the reward, please enter the 4-digit number below on the Amazon Mechanical Turk then
-                        return to this page and<span class="highlight"> click the submit button.</span>
-                        <br>
-                    </div>
-                </article>
-                <span class="highlight">
-                    <script type="text/javascript">document.write(Mturkcode)</script></span><br>
-                <br>
-                <br>
-                <br>
-                Modeling & Imformatics Lab<br>
-                Department of Psychology, NTU<br>
-                Address: No. 1, Sec. 4, Roosevelt Rd., Taipei 10617, Taiwan (R.O.C.)<br>
-                <a href="https://www.facebook.com/ntumilab/"><img src="asset/fb_icon.png" /></a>
-                <a href="mailto:R05227104@ntu.edu.tw?subject=NTU Music Study"><img src="asset/email_icon.png" /></a>
-                <br>
-                <div class="row justify-content-center">
-                    <div class="g-btn" id="form_submit">Submit</div>
+                    <div class="g-btn" id="form_submit">Next Page</div>
                 </div>
             </div>
             <!-- Recording -->
             <input type="hidden" name="uid" id="user_id">
-            <input type="hidden" name="MturkToken" id="Mturk_token">
             <input type="hidden" name="finishTime" id="user_finish_time">
             <input type="hidden" name="MAABResponse" id="MAAB_response">
             <input type="hidden" name="inattentionP4" id="inattention_P4">

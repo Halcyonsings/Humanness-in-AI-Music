@@ -12,7 +12,7 @@ $(document).ready(function () {
 
 
     // Anchor
-    $('input[class=anchor_range]').change(function () {
+    $('input[class=anchor_range]').click(function () {
         $(this).attr("data-check", "on");
         // console.log($(this).attr("id"));
     })
@@ -51,47 +51,27 @@ $('.NextToDemo_btn').click(function () {
     }
 });
 
-// Go to the Ending Page
-$(".NextToFinal_btn").click(function () {
-    window.onbeforeunload = null;
-    // form validating
-    var check = checkAllDemo();
-    if (check == "allFinished") {
-        // animation
-        $('.demoCard').addClass("hiding");
-        $(".endingCard").addClass("showing");
-        $('html, body').animate({
-            scrollTop: $("body").offset().top
-        }, 700);
-        setTimeout(function () {
-            $(".demoCard").hide();
-            $(".endingCard").show();
-            // $(window).scrollTop(0);
-        }, 700)
-    }
-})
-
-
 //submit the form
 $("#form_submit").click(function () {
     window.onbeforeunload = null;
 
-    // record finishing time
-    var time = new Date();
-    var time_info = time.toDateString() + "/" + time.toTimeString();
-    // data inserting
-    $("#MAAB_response").attr("value", JSON.stringify(MAAB_response));
+    var check = checkAllDemo();
+    if (check == "allFinished") {
+        // record finishing time
+        var time = new Date();
+        var time_info = time.toDateString() + "/" + time.toTimeString();
+        // data inserting
+        $("#MAAB_response").attr("value", JSON.stringify(MAAB_response));
 
-    // $("#hoverTimeRec").attr("value", hover_time_record.toString());
-    $("#user_finish_time").attr("value", time_info);
-    // $("user_id").attr("value", uid);
-    $("#inattention_P4").attr("value", inattention);
-    $("#Mturk_token").attr("value", Mturkcode);
-    // form submission
-    $("form").attr("action", "db/C2_d_demo.php");
-    $("form").attr("method", "POST");
-    $("form").submit();
-
+        // $("#hoverTimeRec").attr("value", hover_time_record.toString());
+        $("#user_finish_time").attr("value", time_info);
+        // $("user_id").attr("value", uid);
+        $("#inattention_P4").attr("value", inattention);
+        // form submission
+        $("form").attr("action", "db/C2_d_demo.php");
+        $("form").attr("method", "POST");
+        $("form").submit();
+    }
 })
 
 

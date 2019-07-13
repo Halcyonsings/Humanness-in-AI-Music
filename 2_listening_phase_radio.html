@@ -1,14 +1,3 @@
-<?php
-session_start();
-$userId = $_SESSION['uid'];
-$user_json = $_SESSION['userObj'];
-
-// avoid jump
-// include "db/avoidJump.php";
-
-
-?>
-
 <!doctype html>
 <html>
 
@@ -85,7 +74,7 @@ $user_json = $_SESSION['userObj'];
                                 <ol>
                                     <li>Please<span class="highlight"> wear headphones</span> when listening.</li>
                                     <li>In this section, you will listen to 12 different clips.
-                                        A questionnaire will appear below after the music being played for 20 seconds.
+                                        A questionnaire will appear below after the music being completely played.
                                     </li>
                                     <li>You cannot skip any music clips. Each music clip will be <span
                                             class="highlight"> played once and only
@@ -127,8 +116,8 @@ $user_json = $_SESSION['userObj'];
                             <div class="row justify-content-between ButtonSet">
                                 <!-- The button is disabled until that the clips is successfully load -->
                                 <button id="btn-play" class="MusicButtonDesign" disabled="disabled" data-step="2"
-                                    data-intro="Click here to play the music" data-position="left"><i
-                                        class="material-icons">play_arrow</i>Play</button>
+                                    data-intro="Click here to play the music" data-position="left"
+                                    onclick="DelayMEMC()"><i class="material-icons">play_arrow</i>Play</button>
                                 <!-- <button id="btn-pause" class="MusicButtonDesign" disabled="disabled"><i
                                         class="material-icons">pause</i>Pause</button>
                                 <button id="btn-Restart" class="MusicButtonDesign" disabled="disabled"><i
@@ -192,7 +181,7 @@ $user_json = $_SESSION['userObj'];
 
             var musicintro = introJs()
             musicintro.start();
-
+            // cannot play the music 
             $('#btn-play').addClass("once-button");
 
 
