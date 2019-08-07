@@ -125,14 +125,19 @@ $.ajax({
 
 /// Record playing time of an excerpt
 var playTime = {};
-var songTime = 0;
+songTime = 0;
+
 setInterval(function () {
     if (Spectrum.isPlaying() == true) {
-        //console.log("Sucessful record");
+        console.log("Sucessful record");
         songTime = (Number(songTime) + 0.01).toFixed(2); // Number() change the string into number 
         $('#TimeCount').text("Play Time" + songTime);
     }
 }, 10);
+
+
+
+
 
 // start furst trial information
 $(document).ready(function () {
@@ -151,9 +156,20 @@ temp = 0
 function DelayMEMC() {
     $('#btn-play').addClass("once-button");
     let ClipDur = (Spectrum.getDuration() - 1) * 1000; // get the duration of the clip
-    temp = ClipDur
+    // temp = ClipDur
     $('#memc').delay(ClipDur).show(300);
-    $('#MEMCscale').delay(ClipDur).show(300);
+    $('#MEMCscale').delay(ClipDur).show(300).scrollTop(0);
+    $('html, body').animate({
+        scrollTop: $('#memc').offset().top - 300
+    }, 'slow');
+    // [2019071] correct PlayTime record 
+    // Useless code
+    // let StopPlaying = Spectrum.getDuration() - 10;
+    // temp = StopPlaying
+    // if (songTime == StopPlaying) {
+    //     Spectrum.pause();
+    //     console.log("forced stop");
+    // }
 }
 
 var hurrysubject = 0;
@@ -231,7 +247,7 @@ function nextStep() {
                 currTrial_start = performance.now()
                 $('#currinfo').html("&nbsp(" + currentTrial + "/" + playList.length + ")"); // update current trial info
                 // $('.WaitMusic').toggle(1800).hide();
-                $('.ButtonSet').hide().delay(2000).show(300);
+                $('.ButtonSet').hide().delay(3000).show(300);
 
 
                 $('#memc').hide();

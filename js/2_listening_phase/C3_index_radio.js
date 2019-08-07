@@ -232,6 +232,7 @@ function nextStep() {
                 $(document).ready(function () { $('#curr-author').html(authorList[currentTrial - 1]) });
 
                 // $('.WaitMusic').toggle(1800).hide();
+                // Delay for loading music
                 $('.ButtonSet').hide().delay(2000).show(300);
 
 

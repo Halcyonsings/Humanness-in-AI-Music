@@ -132,6 +132,24 @@ $user_json = $_SESSION['userObj'];
                     <span class="labal_polar2">stimulate the mind</span>
                 </div>
             </div>
+            <div class="row item-container">
+                    <div class="col-md-4 formLabel">Years of Musical<br> Training</div>
+                    <div class="col-md-8" id="Training_range">
+                        <input type="text" class="form-control" name="training_yr" id="TrainingInput1"
+                            placeholder="Training Years (e.g., 4)">
+                        <small id="TrainingHelp" class="form-text text-muted">Please fill in a number</small>
+                    </div>
+                </div>
+                <div class="row item-container">
+                    <div class="col-md-4 formLabel">Practicing<br>on Music</div>
+                    <div class="col-md-8" id="Training_range">
+                        <input type="text" class="form-control" name="training_min" id="TrainingInput2"
+                            placeholder="Practicing Minutes (e.g., 60)">
+                        <small id="TrainingHelp" class="form-text text-muted">Please fill in the minutes that you
+                            practice
+                            music per day</small>
+                    </div>
+                </div>
             <!-- part1 finishing -->
             <div class="container">
                 <div class="row justify-content-center">
@@ -172,21 +190,10 @@ $user_json = $_SESSION['userObj'];
                     </div>
                 </div>
                 <div class="row item-container">
-                    <div class="col-md-4 formLabel">Years of Musical<br> Training</div>
-                    <div class="col-md-8" id="Training_range">
-                        <input type="text" class="form-control" name="training_yr" id="TrainingInput1"
-                            placeholder="Training Years (e.g., 4)">
-                        <small id="TrainingHelp" class="form-text text-muted">Please fill in a number</small>
-                    </div>
-                </div>
-                <div class="row item-container">
-                    <div class="col-md-4 formLabel">Practicing<br>on Music</div>
-                    <div class="col-md-8" id="Training_range">
-                        <input type="text" class="form-control" name="training_min" id="TrainingInput2"
-                            placeholder="Practicing Minutes (e.g., 60)">
-                        <small id="TrainingHelp" class="form-text text-muted">Please fill in the minutes that you
-                            practice
-                            music per day</small>
+                    <div class="col-md-4 formLabel">Zip Code</div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" name="ZipCode" id="TrainingInput">
+                        <small id="ZipHelp" class="form-text text-muted">Please fill in a number</small>
                     </div>
                 </div>
                 <div class="row item-container">
@@ -209,6 +216,22 @@ $user_json = $_SESSION['userObj'];
                         <input type="email" class="form-control" name="email" id="emailInput" placeholder="E-mail">
                     </div>
                 </div> -->
+                <div class="row item-container">
+                    <div class="col-4 formLabel">
+                        <label for="RaceInput">Race</label>
+                    </div>
+                    <div class="col-8" id="edu">
+                        <select name="race" form="demoForm" class="form-control custom-select" id="RaceInput">
+                            <option selected>--Please Select--</option>
+                            <option>White</option>
+                            <option>African-American</option>
+                            <option>American Indian or Alaskan Native</option>
+                            <option>Asian</option>
+                            <option>From multiple races</option>
+                            <option>Some other race</option>
+                        </select>
+                    </div>
+                </div>    
                 <div class="row item-container">
                     <div class="col-md-4 formLabel"> Suggestions of <br> the Experiment<br> (optional)</div>
                     <div class="col-md-8" id="ExpBox">

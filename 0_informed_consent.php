@@ -40,10 +40,7 @@ $ip = get_client_ip();
     <!-- original size sr=etting, see the HTML5 book's page 247 -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- bootstrap4 CSS&JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
         integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
         crossorigin="anonymous"></script>
@@ -66,7 +63,7 @@ $ip = get_client_ip();
 <body>
     <div id="bg-img"></div>
     <div class="main_block card">
-        <div class="container instruction">
+        <div class="container instruction" id="Detail_Card">
             <div class="title">Informed Consent Form</div>
             <hr>
             <p>Thank you for participating in our experiment.
@@ -79,7 +76,6 @@ $ip = get_client_ip();
                 <li><span class="highlight">Do not participate in this experiment with a smartphone.</span> </li>
                 <li>You should be fluent in English reading.</li>
                 <li>Please wear headphones during the experiment.</li>
-
             </ol>
             <p>If you meet the requirements, please read the following information:</p>
             <p>This study is conducted by Modeling & Informatics Lab (MIL) at Department of Psychology, National Taiwan
@@ -95,16 +91,16 @@ $ip = get_client_ip();
                 <li>minimize the active window
                 <li>click the green button of the active window in Mac/ OS
                 <li>become idle for more than 5 minutes
-            </ol>         
-                <p>In doing so, you will drop out of the experiment. 
-                  <span class="highlight"> You will not get any payment in that case. </span> </p>
+            </ol>
+            <p>In doing so, you will drop out of the experiment.
+                <span class="highlight"> You will not get any payment in that case. </span> </p>
             <p><b>Benefit</b>: You will receive <span class="highlight"> $5.0 </span> if you successfully
                 complete
                 all the tasks in the experiment. </p>
             <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However,
                 no
                 one can access the data except for researchers listed below.
-                <br />If you want to retrieve your data,
+                <br /><br />If you want to retrieve your data,
                 please e-mail the researchers (r05227104@ntu.edu.tw). In addition, the results of the
                 experiments will not be used for any commercial purposes. </p>
             <p><b>Other Ethical Issues</b>:
@@ -128,14 +124,21 @@ $ip = get_client_ip();
                 Psychology, National Taiwan University </p>
             <br />
             <br />
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="NextToCheckBox_btn g-btn">Next Page</div>
+                </div>
+            </div>
         </div>
         <!-- form part -->
-        <form>
+        <form id="Consent_Check_Card">
             <div class="container">
+                <div class="title">Informed Consent Form</div>
                 <hr>
                 <p> We need you to participate in the experiment without the influence of others or influencing others.
-Therefore, please make sure you agree to the following before proceeding. </p>
-                <input type="checkbox" class="notice" name="ICnotice1" value="check" id="Not_Discuss" /> I will not discuss the experiment on the forum such as TurkerNation. <br>
+                    Therefore, please make sure you agree to the following before proceeding. </p>
+                <input type="checkbox" class="notice" name="ICnotice1" value="check" id="Not_Discuss" /> I will not
+                discuss the experiment on the forum such as TurkerNation. <br>
                 <input type="checkbox" class="notice" name="ICnotice2" value="check" id="Know_Exit" /> I know that I
                 will
                 <span class="highlight"> automatically
@@ -158,6 +161,10 @@ Therefore, please make sure you agree to the following before proceeding. </p>
         // Avoid closing window
         window.onbeforeunload = function () { return "糟糕！別走！" };
 
+        $(document).ready(function () {
+            // Display setting
+            $("#Consent_Check_Card").css("display", "none");
+        });
 
         var uid = uuidGenerator();
         // console.log(typeof uid);
@@ -170,7 +177,7 @@ Therefore, please make sure you agree to the following before proceeding. </p>
         // var user = init_exp(uid);
         // // console.log(user.opinion.part1.)
         // var user_json = JSON.stringify(user);
-        
+
 
         // user device
         var user_ip = '<?php echo $ip;?>';
@@ -178,6 +185,22 @@ Therefore, please make sure you agree to the following before proceeding. </p>
         var time = new Date();
         var time_info = time.toDateString() + "/" + time.toTimeString();
         // $('.testing').text("測試ID: " + uid);     // [20181208] success
+
+        // Two-Page Informed Consent 
+        $(".NextToCheckBox_btn").click(function () {
+            // animation
+            $("#Detail_Card").addClass("hiding");
+            $("#Consent_Check_Card").addClass("showing");
+            $('html, body').animate({
+                scrollTop: $("body").offset().top
+            }, 700);
+            setTimeout(function () {
+                $("#Detail_Card").hide();
+                $("#Consent_Check_Card").show();
+                // $(window).scrollTop(0);
+            }, 700)
+        });
+
         $('#go_to_consent_btn').click(function () {
             window.onbeforeunload = null;
             var check = checkNotice(2);
