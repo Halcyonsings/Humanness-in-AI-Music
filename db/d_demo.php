@@ -14,26 +14,37 @@ $conn->set_charset("utf8");//set the charset
 
 // receiving variables
 $uid = $_SESSION['uid'];
-$startTime = $_SESSION['startTime'];
 $finishedTime = date("Y-m-d H:i:s");
 
 // echo $startTime;
 
 // receiving variables
-$age = $_POST["age"];
-$sex = $_POST["sex"];
+// Page 1
+$listening_hours = $_POST["listening_hours"];
+$spend_money = $_POST["spend_money"];
+$source = $_POST["source"];
+$diploma = $_POST["diploma"];
 $musicTrain_yr = $_POST["training_yr"];
 $musicTrain_min = $_POST["training_min"];
+$genre = $_POST["Genre_response"];
+
+// Page 2
+$age = $_POST["age"];
+$sex = $_POST["sex"];
+$ZipCode = $_POST["ZipCode"];
 $education = $_POST["education"];
+$race = $_POST["race"];
 $ExpComments = $_POST['ExpComments'];
-$MAAB_Response = $_POST["MAABResponse"];
 $inattention = $_POST["inattentionP4"];
 
 // Add this line to avoid insert error which occurs when subjects type ' in $ExpComments
 $ExpComments = str_replace("'", "''", $ExpComments);
 
 // SQL - to demographics table
-$sql = "INSERT INTO `C1_Demo` (uid,`D-MAAB-Response`, age , sex, musicTrain_yr, musicTrain_min , education , ExpComments ,`D-startTime`, `D-finishedTime`, `D-inattention`) VALUES ('$uid', '$MAAB_Response', '$age', '$sex', '$musicTrain_yr', '$musicTrain_min' , '$education', '$ExpComments', '$startTime', '$finishedTime', '$inattention')";
+$sql = "INSERT INTO `C1_Demo` (uid, musicListen_hr, cost, source, diploma, musicTrain_yr, musicTrain_min, genre, 
+age , sex, zipcode, education, race, ExpComments, `D-finishedTime`, `D-inattention`) VALUES
+ ('$uid', '$listening_hours', '$spend_money', '$source', '$diploma', '$musicTrain_yr', '$musicTrain_min', '$genre', 
+ '$age', '$sex', '$ZipCode', '$education', '$race','$ExpComments', '$finishedTime', '$inattention')";
 
 // SQL - updating finishing time
 $sql_udate_time = "UPDATE `C1_user-profile` SET  `time-end` = '$finishedTime' WHERE uid = '$uid'";

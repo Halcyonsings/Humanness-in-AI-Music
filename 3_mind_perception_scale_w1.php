@@ -37,7 +37,7 @@ $user_json = $_SESSION['userObj'];
 
 <body>
     <div id="bg-img"></div>
-    <section class="main_block card">
+    <section class="main_block_w1 card">
         <div class="ACCard">
             <div class="form-t1">Survey Check List</div>
             <article class="intro-article">

@@ -23,20 +23,19 @@ $(document).ready(function () {
         $(this).css('background-color', '#c56868');
     });
 })
+
+var genre_response = [];
+
 // Go to the second part
 $('.NextToDemo_btn').click(function () {
     // verifying
-    var checking = checkRange(5); //the number should equal to the last item
-    if (checking == "finished") {
+    var checkMAAB = checkAllMAAB();
+    if (checkMAAB == "allFinished") {
         // recording
-        MAAB_response = {
-            MAAB1: $('input[id=MAAB1]').val(),
-            MAAB2: $('input[id=MAAB2]').val(),
-            MAAB3: $('input[id=MAAB3]').val(),
-            MAAB4: $('input[id=MAAB4]').val(),
-            MAAB5: $('input[id=MAAB5]').val(),
+        $.each($("input[name='genre']:checked"), function () {
+            genre_response.push($(this).val());
+        });
 
-        }
         // animation
         $('.MusicSurveyCard').addClass("hiding");
         $(".demoCard").addClass("showing");
@@ -55,13 +54,13 @@ $('.NextToDemo_btn').click(function () {
 $("#form_submit").click(function () {
     window.onbeforeunload = null;
 
-    var check = checkAllDemo();
-    if (check == "allFinished") {
+    var checkDemo = checkAllDemo();
+    if (checkDemo == "allFinished") {
         // record finishing time
         var time = new Date();
         var time_info = time.toDateString() + "/" + time.toTimeString();
         // data inserting
-        $("#MAAB_response").attr("value", JSON.stringify(MAAB_response));
+        $("#Genre_response").attr("value", JSON.stringify(genre_response));
 
         // $("#hoverTimeRec").attr("value", hover_time_record.toString());
         $("#user_finish_time").attr("value", time_info);

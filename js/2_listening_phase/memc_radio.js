@@ -131,7 +131,7 @@ MEMC.renderEmptyCards = function (divId, numQuestion, pn) { // pn = Phase Number
                 `<div class="col-12 d-flex justify-content-center">` +
                 `<div class="MEMCLabel">1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5</div>` +
                 `<group class="inline-radio MEMCbutton">` +
-                `<input type="radio" value="1" id="fisrtOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off" checked="checked"/>&nbsp` +
+                `<input type="radio" value="1" id="fisrtOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
                 `<input type="radio" value="2" id="secondOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
                 `<input type="radio" value="3" id="thirdOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
                 `<input type="radio" value="4" id="fourthOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
@@ -246,31 +246,16 @@ MEMC.toggle = function () {
 }
 
 
-/* show the scale after click the MP3 file */
-// $('#btn-play').on('click', function () {
-//     $('#memc').delay(20000).show(300);
-//     $('#MEMCscale').delay(20000).show(300).scrollTop(0);
-//     $('#btn-play').addClass("once-button");
-//     $('html, body').animate({
-//         scrollTop: $('#memc').offset().top - 300
-//     }, 'slow');
-//     // $('#firstOP-1').prop('checked', 'checked');
-//     // document.getElementById("firstOP-1").checked = true;
-//     // $('input[name="amplitude-1"]').first().prop('checked', true); // forced to check the first item
-// });
-
-
-
-
 /**
  * (Axiliary function) Clear the selections.
- * Reference: The reply of Stephen James on https://stackoverflow.com/questions/6305253/jquery-ui-selectmenu-how-to-reset-dropdown-on-form-reset-button
+ * Reference ---- Select Menu: The reply of Stephen James on https://stackoverflow.com/questions/6305253/jquery-ui-selectmenu-how-to-reset-dropdown-on-form-reset-button
+ * Reference ---- Radio Button: The reply of lambacck on https://stackoverflow.com/questions/977137/how-to-reset-radiobuttons-in-jquery-so-that-none-is-checked
  * @param {null}
  * @return {null}
  */
 MEMC.clear = function () {
     this.cards.find('group').each(function (index) {
-        $(this).children('input[type="radio"]').first().prop('checked', true);
+        $(this).children('input[type="radio"]').prop('checked', false);
     });
 }
 

@@ -239,3 +239,21 @@ div.a {
 
 /* solve Safari Bootstrap conflict */
 .row:before, .row:after {display: none !important;}
+
+
+/* Blocks */
+.main_block_w1{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* horizontally center an element */
+    margin-top: -200px;   
+    width: 45%;
+}
+
+.main_block_w2{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* horizontally center an element */
+    margin-top: -200px;   
+    width: 50%;
+}

@@ -127,23 +127,16 @@ $.ajax({
 var playTime = {};
 songTime = 0;
 
-setInterval(function () {
-    if (Spectrum.isPlaying() == true) {
-        console.log("Sucessful record");
-        songTime = (Number(songTime) + 0.01).toFixed(2); // Number() change the string into number 
-        $('#TimeCount').text("Play Time" + songTime);
-    }
-}, 10);
-
-
-
-
-
 // start furst trial information
 $(document).ready(function () {
-    setTimeout(function () {
+    // $('.ButtonSet').hide();
+
+    // Show button only after music loaded
+    Spectrum.on('ready', (e) => {
+        // alert("READY")
+        // $('.ButtonSet').show(300);
         $('#currinfo').html("&nbsp(1/" + playList.length + ")");
-    }, 1000);
+    })
 }); // &nbsp to add space
 
 var trialRT = {};
@@ -155,13 +148,21 @@ temp = 0
 // start fisrt trial clock
 function DelayMEMC() {
     $('#btn-play').addClass("once-button");
-    let ClipDur = (Spectrum.getDuration() - 1) * 1000; // get the duration of the clip
+    let ClipDur = (Spectrum.getDuration()) * 1000; // get the duration of the clip
     // temp = ClipDur
     $('#memc').delay(ClipDur).show(300);
     $('#MEMCscale').delay(ClipDur).show(300).scrollTop(0);
     $('html, body').animate({
         scrollTop: $('#memc').offset().top - 300
     }, 'slow');
+
+    // Count response time after the questionnaire show
+    setTimeout(function () {
+        currTrial_start = performance.now();
+
+        $('.intro-article').hide();
+        $('#music-section').hide();
+    }, ClipDur);
     // [2019071] correct PlayTime record 
     // Useless code
     // let StopPlaying = Spectrum.getDuration() - 10;
@@ -183,6 +184,10 @@ function nextStep() {
     // check_end = performance.now()
     // let checkRT = (check_end - currTrial_start) / 1000; // the duration that subjects have listened
 
+    // Send the end time 
+    songTime = Spectrum.getCurrentTime();
+    songTime = songTime.toFixed(2);
+
     // Check time, submit the answers and jump to next page.
     // Phase 1 check
     // if (phase === "phase1") { //  && checkRT < ClipDur
@@ -193,9 +198,8 @@ function nextStep() {
     // }
     // Phase 2 check
     if (Object.values(phaseAnswers).includes(undefined)) {
-        //     // If the the answers contain null, alert the user.
-        //     alert("Please finish questions: \n" + getAllIndexes(Object.values(phaseAnswers), undefined).map(e => e + 1).join(", "));
-        console.log("HiHi!")
+        // If the the answers contain null, alert the user.
+        alert("Please finish questions: \n" + getAllIndexes(Object.values(phaseAnswers), undefined).map(e => e + 1).join(", "));
     }
     else {
 
@@ -213,6 +217,8 @@ function nextStep() {
             // Record trial RT
             currTrial_end = performance.now()
             currTrialRT = currTrial_end - currTrial_start;
+            currTrialRT = currTrialRT / 1000;
+            currTrialRT = currTrialRT.toFixed(2);
             trialRT[playList[currentTrial - 1]] = currTrialRT;
 
             // Jump to next page
@@ -244,14 +250,22 @@ function nextStep() {
                 MEMC.shuffle();
                 songTime = 0;
                 ClipDur = 0;
-                currTrial_start = performance.now()
-                $('#currinfo').html("&nbsp(" + currentTrial + "/" + playList.length + ")"); // update current trial info
+                currTrial_start = 0;
+
                 // $('.WaitMusic').toggle(1800).hide();
-                $('.ButtonSet').hide().delay(3000).show(300);
-
-
                 $('#memc').hide();
                 $('#MEMCscale').hide();
+                $('.ButtonSet').hide();
+                $('#music-section').show();
+
+                // Show button only after music loaded
+                Spectrum.on('ready', (e) => {
+                    // alert("READY")
+                    $('.ButtonSet').show(300);
+                    $('#currinfo').html("&nbsp(" + currentTrial + "/" + playList.length + ")"); // update current trial info
+                })
+
+
                 // console.log(allAnswers);
                 // console.log(playTime);
             }

@@ -1,5 +1,4 @@
 .anchor_opinion_area{
-    height: 250px;
     padding: 6px 10px;
     transition-duration: 0.2s;
 }
@@ -34,8 +33,10 @@
 
 .anchor_descrp{
     font-size: 18px;
-    text-align: center;
+    text-align: left;
     color: #787878;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 
@@ -48,32 +49,45 @@
     left: 50%;
     transform: translateX(-50%);
 }
-.labal_polar2{
-    font-size: 16px;
-    position: absolute;
-    right: 0px;
-    width: 25%;
-    text-align: left;
-    text-justify: inter-word;
+.AC_res_block {
+  line-height: 24px;
 }
 
-.labal_polar1{
-    font-size: 16px;
-    position: absolute;
-    left: 0px;
-    width: 25%;
-    text-align: right;
-    text-justify: inter-word;
+.Attention_check_descrp {
+  margin-bottom: 10px
 }
 
-.anchor_range{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40%;
-    margin-top: 5px;
+/*radio buttom align*/
+div.b {
+  text-indent: 2.5rem;
 }
 
+/*arrange radios and checkboxes in two columns*/
+.checkboxes ul,
+.checkboxes li,
+    {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.checkboxes li {
+    display: inline-block;
+    width: 45%;
+}
+
+.RadioTwoCol ul,
+.RadioTwoCol li,
+    {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.RadioTwoCol li {
+    display: inline-block;
+    width: 45%;
+}
 
 @media screen and (max-width: 600px){
     #MusicSurveyCard{

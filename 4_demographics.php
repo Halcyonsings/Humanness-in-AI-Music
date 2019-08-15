@@ -8,7 +8,6 @@ $user_json = $_SESSION['userObj'];
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,127 +43,130 @@ $user_json = $_SESSION['userObj'];
     <link rel="stylesheet" type="text/css" href="css/4_demographics/MusicSurvey_style.css">
 
     <script type="text/javascript" src="js/globalsetting.js"></script>
-    <script type="text/javascript">
-        // 4-digits number generator
-        Mturkcode = Math.floor(1000 + Math.random() * 9000);
 
-
-
-
-
-    </script>
-    <style>
-        img {
-            height: 30px;
-            margin: 10px;
-        }
-    </style>
     <title>NTU Music Study</title>
 </head>
 
 <body>
     <div id="bg-img"></div>
     <section class="main_block card">
-
-        <div class="MusicAbilityCard">
-            <div class="form-t1">Musical Ability, Attitude, and Beliefs Survey</div>
-            <article class="intro-article">
-                <div class="a">
-                    The purpose of this questionnaire is to understand (1) your perception of musical ability (2)
-                    attitude toward music (3) beliefs and expectations on music.
-                    These may influence your response to music.
-                    <!-- "&nbsp;" creates space in HTML5 -->
-                </div>
-                <div class="a">
-                    <span class="highlight">Directions:</span> Please click on the bar to the position
-                    that best indicates your opinion for each question.
-                </div>
-            </article>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">1. When I listen to a musical performance:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">I cannot give a specific label to any musical feature</span>
-                    <input class="anchor_range" type="range" name="item1" id="MAAB1" min="0" max="100" step="0.01"
-                        value="50" data-check="">
-                    <span class="labal_polar2" style="font-size:14px;">I can recognize elements like harmonic
-                        progressions, motive
-                        trans- <br />formations,
-                        and formal features</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">2. I attend concerts:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">rarely</span>
-                    <input class="anchor_range" type="range" name="item2" id="MAAB2" min="0" max="100" step="0.01"
-                        value="50" data-check="">
-                    <span class="labal_polar2">at least twice a month</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">3. I choose to listen to recorded music:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">rarely</span>
-                    <input class="anchor_range" type="range" name="item3" id="MAAB3" min="0" max="100" step="0.01"
-                        value="50" data-check="">
-                    <span class="labal_polar2">at every opportunity</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">4. The music I choose to listen to:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">is primarily of one style</span>
-                    <input class="anchor_range" type="range" name="item4" id="MAAB4" min="0" max="100" step="0.01"
-                        value="50" data-check="">
-                    <span class="labal_polar2">includes music of all popular and classical styles</span>
-                </div>
-            </div>
-            <hr>
-            <div class="anchor_opinion_area">
-                <div class="anchor_descrp">5. The purpose of "classical" music is to:</div>
-                <div class="anchor_res_block">
-                    <span class="labal_polar1">move the emotion</span>
-                    <input class="anchor_range" type="range" name="item5" id="MAAB5" min="0" max="100" step="0.01"
-                        value="50" data-check="">
-                    <span class="labal_polar2">stimulate the mind</span>
-                </div>
-            </div>
-            <div class="row item-container">
-                    <div class="col-md-4 formLabel">Years of Musical<br> Training</div>
-                    <div class="col-md-8" id="Training_range">
-                        <input type="text" class="form-control" name="training_yr" id="TrainingInput1"
-                            placeholder="Training Years (e.g., 4)">
-                        <small id="TrainingHelp" class="form-text text-muted">Please fill in a number</small>
-                    </div>
-                </div>
-                <div class="row item-container">
-                    <div class="col-md-4 formLabel">Practicing<br>on Music</div>
-                    <div class="col-md-8" id="Training_range">
-                        <input type="text" class="form-control" name="training_min" id="TrainingInput2"
-                            placeholder="Practicing Minutes (e.g., 60)">
-                        <small id="TrainingHelp" class="form-text text-muted">Please fill in the minutes that you
-                            practice
-                            music per day</small>
-                    </div>
-                </div>
-            <!-- part1 finishing -->
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="NextToDemo_btn g-btn">Next Page</div>
-                </div>
-            </div>
-        </div>
-
         <form action="" id="demoForm">
+            <div class="MusicAbilityCard">
+                <div class="form-t1">Musical Experience and Habit Survey</div>
+                <article class="intro-article">
+                    <div class="a">
+                        The purpose of this questionnaire is to understand your musical experience and listening habit.
+                        These may influence your response to music.
+                        <!-- "&nbsp;" creates space in HTML5 -->
+                    </div>
+                    <div class="a">
+                        <span class="highlight">Directions:</span> Please click on the bar to the position
+                        that best indicates your opinion for each question.
+                    </div>
+                </article>
+                <hr />
+                <div class="anchor_opinion_area">
+                    <div class="anchor_descrp">1. How many hours a week do you listen to music?</div>
+                    <input type="text" name="listening_hours" id="ListeningInput">
+                    <small id="ListeningHelp" class="form-text text-muted">Please fill in a number</small>
+                </div>
+                <hr />
+                <div class="anchor_opinion_area">
+                    <div class="anchor_descrp">2. How much do you spend on music (e.g., streaming service,
+                        tickets to concerts, etc.) every month? (in US Dollar)</div>
+                    <input type="text" name="spend_money" id="SpendingInput">
+                    <small id="SpendingHelp" class="form-text text-muted">Please fill in a number</small>
+                </div>
+                <hr />
+                <div class="anchor_opinion_area">
+                    <div class="anchor_descrp">3. What is your primary source for listening music? (check one)</div>
+                    <div class="MAAB_res_block">
+                        <ul class="RadioTwoCol">
+                            <li><input type="radio" name="source" value="Radio"> Broadcast radio<br></li>
+                            <li><input type="radio" name="source" value="CD"> CD<br></li>
+                            <li><input type="radio" name="source" value="GooglePlay"> Google Play<br></li>
+                            <li><input type="radio" name="source" value="iTunes"> iTunes<br></li>
+                            <li><input type="radio" name="source" value="Pandora"> Pandora<br></li>
+                            <li><input type="radio" name="source" value="Sirius"> Sirius<br></li>
+                            <li><input type="radio" name="source" value="Spotify"> Spotify<br></li>
+                            <li><input type="radio" name="source" value="YouTube"> YouTube<br></li>
+                            <li><input type="radio" name="source" value="Other"> Other<br></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="anchor_opinion_area">
+                    <div class="anchor_descrp">4. Do you have a formal musical training diploma?</div>
+                    <div class="MAAB_res_block">
+                        <div class="b"><input type="radio" name="diploma" value="Yes"> Yes<br></div>
+                        <div class="b"><input type="radio" name="diploma" value="No"> No<br></div>
+                    </div>
+                </div>
+                <hr />
+                <div class="anchor_opinion_area">
+                    <div class="anchor_descrp">5. How many years have you learned musical instruments?</div>
+                    <input type="text" name="training_yr" id="TrainingInput1">
+                    <small id="TrainingHelp" class="form-text text-muted">Please fill in a number</small>
+                </div>
+                <div class="anchor_opinion_area">
+                    <div class="anchor_descrp">6. How many minutes have you practiced musical instrument per day?
+                    </div>
+                    <input type="text" name="training_min" id="TrainingInput2">
+                    <small id="TrainingHelp2" class="form-text text-muted">Please fill in the minutes that you
+                        practice
+                        music per day</small>
+                </div>
+                <div class="anchor_opinion_area">
+                    <div class="anchor_descrp">7. What genres of music do you typically willing to listen to? (check
+                        all
+                        that apply)</div>
+                    <div class="MAAB_res_block">
+                        <ul class="checkboxes">
+                            <li><input type="checkbox" name="genre" id="type1" value="Alternative"> Alternative<br></li>
+                            <li><input type="checkbox" name="genre" id="type2" value="Blues"> Blues<br></li>
+                            <li><input type="checkbox" name="genre" id="type3" value="Children"> Children's<br></li>
+                            <li><input type="checkbox" name="genre" id="type4" value="Classical"> Classical/ Opera<br>
+                            </li>
+                            <li><input type="checkbox" name="genre" id="type5" value="ClassicRock"> Classic Rock<br>
+                            </li>
+                            <li><input type="checkbox" name="genre" id="type6" value="Country"> Country<br></li>
+                            <li><input type="checkbox" name="genre" id="type7" value="Dance"> Dance<br></li>
+                            <li><input type="checkbox" name="genre" id="type8" value="EasyListening"> Easy Listening<br>
+                            </li>
+                            <li><input type="checkbox" name="genre" id="type9" value="Electronic"> Electronic<br></li>
+                            <li><input type="checkbox" name="genre" id="type10" value="Folk"> Folk<br></li>
+                            <li><input type="checkbox" name="genre" id="type11" value="Gospel"> Gospel<br></li>
+                            <li><input type="checkbox" name="genre" id="type12" value="Metal"> Hard Rock/ Heavy
+                                Metal<br></li>
+                            <li><input type="checkbox" name="genre" id="type13" value="HipHop"> Hip Hop/ Rap<br></li>
+                            <li><input type="checkbox" name="genre" id="type14" value="Latin"> Latin<br></li>
+                            <li><input type="checkbox" name="genre" id="type15" value="Musical"> Musical/ Stage<br></li>
+                            <li><input type="checkbox" name="genre" id="type16" value="NewAge"> New Age<br></li>
+                            <li><input type="checkbox" name="genre" id="type17" value="Oldies"> Oldies<br></li>
+                            <li><input type="checkbox" name="genre" id="type18" value="Pop"> Pop<br></li>
+                            <li><input type="checkbox" name="genre" id="type19" value="Reggae"> Reggae<br></li>
+                            <li><input type="checkbox" name="genre" id="type20" value="RB"> R&B/ Soul<br></li>
+                            <li><input type="checkbox" name="genre" id="type21" value="Rock"> Rock<br></li>
+                            <li><input type="checkbox" name="genre" id="type22" value="World"> World<br></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- part1 finishing -->
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="NextToDemo_btn g-btn">Next Page</div>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="container-fluid demoCard">
                 <p class="form-t1 text-center">Personal Information</p>
                 <article class="intro-article">
                     <div class="a">
-                        In this last section, please fill in your personal information. Your responses to this survey
-                        will be anonymous. Please do not write any identifying information on your answer sheet. After
+                        In this last section, please fill in your personal information. Your responses to this
+                        survey
+                        will be anonymous. Please do not write any identifying information on your answer sheet.
+                        After
                         submitting the form, the
                         experiment is complete.
                     </div>
@@ -192,8 +194,9 @@ $user_json = $_SESSION['userObj'];
                 <div class="row item-container">
                     <div class="col-md-4 formLabel">Zip Code</div>
                     <div class="col-md-8">
-                        <input type="text" class="form-control" name="ZipCode" id="TrainingInput">
-                        <small id="ZipHelp" class="form-text text-muted">Please fill in a number</small>
+                        <input type="text" class="form-control" name="ZipCode" id="postcode" pattern="[0-9]{5}"
+                            title="Five digit zip code">
+                        <small id="ZipHelp" class="form-text text-muted">Please fill in a 5-digit number</small>
                     </div>
                 </div>
                 <div class="row item-container">
@@ -220,18 +223,19 @@ $user_json = $_SESSION['userObj'];
                     <div class="col-4 formLabel">
                         <label for="RaceInput">Race</label>
                     </div>
-                    <div class="col-8" id="edu">
+                    <div class="col-8" id="RaceCol">
                         <select name="race" form="demoForm" class="form-control custom-select" id="RaceInput">
                             <option selected>--Please Select--</option>
-                            <option>White</option>
                             <option>African-American</option>
                             <option>American Indian or Alaskan Native</option>
                             <option>Asian</option>
+                            <option>Spanish, Hispanic, or Latino</option>
+                            <option>White</option>
                             <option>From multiple races</option>
                             <option>Some other race</option>
                         </select>
                     </div>
-                </div>    
+                </div>
                 <div class="row item-container">
                     <div class="col-md-4 formLabel"> Suggestions of <br> the Experiment<br> (optional)</div>
                     <div class="col-md-8" id="ExpBox">
@@ -245,10 +249,10 @@ $user_json = $_SESSION['userObj'];
             <!-- Recording -->
             <input type="hidden" name="uid" id="user_id">
             <input type="hidden" name="finishTime" id="user_finish_time">
-            <input type="hidden" name="MAABResponse" id="MAAB_response">
+            <input type="hidden" name="Genre_response" id="Genre_response">
             <input type="hidden" name="inattentionP4" id="inattention_P4">
         </form>
-
+    </section>
 
 </body>
 <script type="text/javascript" src="js/checkItem.js"></script>

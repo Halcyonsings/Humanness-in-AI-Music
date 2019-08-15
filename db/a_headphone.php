@@ -14,7 +14,6 @@ $conn->set_charset("utf8");//set the charset
 
 // receiving variables
 $uid = $_SESSION['uid'];
-$startTime = $_SESSION['startTime'];
 $finishedTime = date("Y-m-d H:i:s");
 // echo $startTime;
 
@@ -24,7 +23,7 @@ $totalCorrect = $_POST["totalCorrect"];
 $inattention = $_POST["inattentionP1"];
 $HCAllData = $_POST["HCAllData"];
 
-$sql = "INSERT INTO C1_HC (uid, `HC-totalCorrect`,`HC-startTime`, `HC-finishedTime` , `HC-inattention`, `HC-All-Data`) VALUES ('$uid', '$totalCorrect', '$startTime', '$finishedTime', '$inattention', '$HCAllData')";
+$sql = "INSERT INTO C1_HC (uid, `HC-totalCorrect`, `HC-finishedTime` , `HC-inattention`, `HC-All-Data`) VALUES ('$uid', '$totalCorrect', '$finishedTime', '$inattention', '$HCAllData')";
 
 // SQL - updating the data of status table 
 $sql_udate_status = "UPDATE `C1_user-status` SET q1_HC = '1' WHERE uid = '$uid'";

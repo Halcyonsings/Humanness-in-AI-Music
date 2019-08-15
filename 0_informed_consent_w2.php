@@ -61,7 +61,7 @@ $ip = get_client_ip();
 
 <body>
     <div id="bg-img"></div>
-    <div class="main_block card">
+    <div class="main_block_w2 card">
         <div class="container instruction" id="Detail_Card">
             <div class="title">Informed Consent Form</div>
             <hr>
@@ -202,27 +202,27 @@ $ip = get_client_ip();
 
         $('#go_to_consent_btn').click(function () {
 
-        // Detect mobile phone
-        if (/iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone/i.test(navigator.userAgent)
-        || screen.availWidth < 480) {
-            alert("Please use computers to participate in this experiment. You will automatically leave the page."); 
-            window.onbeforeunload=null; 
-            window.location="https://www.mturk.com/" 
-        }
-        
-        window.onbeforeunload = null; 
-        var check = checkNotice(2); 
-        if (check == "finished") {
-            $("#user_id").attr("value", uid);
-            $("#user_ip").attr("value", user_ip);
-            $("#user_browser").attr("value", user_browser);
-            $("#user_start_time").attr("value", time_info); 
-            $("#inattention_P0").attr("value", inattention); //
-            $("#user_object").attr("value", user_json); // form submission $("form").attr("action", "db/exp_init.php" )
-            $("form").attr("method", "POST"); 
-            $("form").submit();
-            }
-        })  
-</script>
+            // Detect mobile phone
+            if (/iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone/i.test(navigator.userAgent)
+                || screen.availWidth < 480) {
+                    alert("Please use computers to participate in this experiment. You will automatically leave the page."); 
+                    window.onbeforeunload=null; 
+                    window.location="https://www.mturk.com/" 
+                }
+                    
+            window.onbeforeunload = null; 
+            var check = checkNotice(2); 
+            if (check == "finished") {
+                $("#user_id").attr("value", uid);
+                $("#user_ip").attr("value", user_ip);
+                $("#user_browser").attr("value", user_browser);
+                $("#user_start_time").attr("value", time_info); 
+                $("#inattention_P0").attr("value", inattention); //
+                $("#user_object").attr("value", user_json); // form submission $("form").attr("action", "db/exp_init.php" )
+                $("form").attr("method", "POST"); 
+                $("form").submit();
+                }
+        }) 
+            </script>
 </body> 
 </html>
