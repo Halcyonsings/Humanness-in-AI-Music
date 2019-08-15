@@ -108,7 +108,7 @@ $user_json = $_SESSION['userObj'];
                     <small id="TrainingHelp" class="form-text text-muted">Please fill in a number</small>
                 </div>
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">6. How many minutes have you practiced musical instrument per day?
+                    <div class="anchor_descrp">6. How many minutes have you practiced musical instruments per day?
                     </div>
                     <input type="text" name="training_min" id="TrainingInput2">
                     <small id="TrainingHelp2" class="form-text text-muted">Please fill in the minutes that you

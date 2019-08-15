@@ -81,13 +81,13 @@ $user_json = $_SESSION['userObj'];
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-8">
                             <div class="form-t1">Listening Session<span id="currinfo"><span></div>
-                            <article class="intro-article" data-step="1" data-intro="First, read the notice"
+                            <article id="MEMCguide" class="intro-article" data-step="1" data-intro="First, read the notice"
                                 data-position="left">
                                 Please read the notice before listening to the clips:</p>
                                 <ol>
                                     <li>Please<span class="highlight"> wear headphones</span> when listening.</li>
                                     <li>In this section, you will listen to 12 different clips.
-                                        A questionnaire will appear below after the music being completely played.
+                                        A questionnaire will appear below only after the music is completely played.
                                     </li>
                                     <li>You cannot skip any music clips. Each music clip will be <span
                                             class="highlight"> played once and only
@@ -143,6 +143,8 @@ $user_json = $_SESSION['userObj'];
                         </div>
                     </div>
                 </section>
+
+                <section id="MEMCmeaning">
                 <div id="intro3" class="intro-article" data-step="3" data-intro="Questionnaire will show up here">
                     The 5-point Scale: <br />
                     1 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -152,7 +154,7 @@ $user_json = $_SESSION['userObj'];
                     5<br />
                     Not at all &nbsp&nbsp Somewhat &nbsp&nbsp Moderately &nbsp&nbsp Quite a lot &nbsp&nbsp Very much
                 </div>
-
+                </section>
                 <!--         The section for MEMC             -->
                 <section class="col-12" id="memc">
                     <!--  Question cards will appear here  -->
@@ -194,8 +196,20 @@ $user_json = $_SESSION['userObj'];
 
             var musicintro = introJs()
             musicintro.start();
+
             // cannot play the music 
             $('#btn-play').addClass("once-button");
+
+            $('.introjs-skipbutton').hide();
+            $('.introjs-nextbutton').effect("highlight", { color: '#ffdcf7' }, 60000);
+
+
+            musicintro.onafterchange(function () {
+                if (this._introItems.length - 1 == this._currentStep || this._introItems.length == 1) {
+                    $('.introjs-skipbutton').show().effect("highlight", { color: '#ffdcf7' }, 60000);;
+                    $('.introjs-nextbutton').hide();
+                }
+            });
 
 
             musicintro.onexit(function () {

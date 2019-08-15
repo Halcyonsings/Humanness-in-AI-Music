@@ -152,6 +152,8 @@ function DelayMEMC() {
     // temp = ClipDur
     $('#memc').delay(ClipDur).show(300);
     $('#MEMCscale').delay(ClipDur).show(300).scrollTop(0);
+    $('#MEMCguide').delay(ClipDur).hide(300);
+    $('#music-section').delay(ClipDur).hide(300);
     $('html, body').animate({
         scrollTop: $('#memc').offset().top - 300
     }, 'slow');
@@ -159,9 +161,6 @@ function DelayMEMC() {
     // Count response time after the questionnaire show
     setTimeout(function () {
         currTrial_start = performance.now();
-
-        $('.intro-article').hide();
-        $('#music-section').hide();
     }, ClipDur);
     // [2019071] correct PlayTime record 
     // Useless code

@@ -89,7 +89,7 @@ validMAAB = {
     },
     "genre": function () {
         if ($("input[name='genre']:checked").val() == undefined) {
-            alert("Please select music genres you like.");
+            alert("Please select the music genres you like.");
         } else {
             return "finished"
         }

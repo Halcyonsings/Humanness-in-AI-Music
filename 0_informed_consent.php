@@ -218,7 +218,10 @@ $ip = get_client_ip();
             $("#user_browser").attr("value", user_browser);
             $("#user_start_time").attr("value", time_info); 
             $("#inattention_P0").attr("value", inattention); //
-            $("#user_object").attr("value", user_json); // form submission $("form").attr("action", "db/exp_init.php" )
+            // $("#user_object").attr("value", user_json); 
+            
+            // form submission 
+            $("form").attr("action", "db/exp_init.php" )
             $("form").attr("method", "POST"); 
             $("form").submit();
             }
