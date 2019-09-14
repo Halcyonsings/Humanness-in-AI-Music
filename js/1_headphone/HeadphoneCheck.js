@@ -140,14 +140,14 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
     // render boilerplate instruction text
     $('<div/>', {
       class: 'hc-instruction intro-article',
-      html: '<div class="a">After you hit the <b>"Play"</b> button, you will hear three sounds separated by silences. ' +
+      html: '<div class="a">After you hit the <b>"Play"</b> button, you will hear three individual sounds. ' +
         'Please  <span class="highlight"> select the sound which was the softest (or quietest)</span> (e.g., the first/ second/ third). ' +
         'The test sound will  <span class="highlight"> only be played once. </span>Please listen carefully, follow the order and answer the questions.</div>'
     }).appendTo($('#hc-container'));
     $('<div/>', {
       class: 'hc-instruction intro-article',
       html: '<div class="a">In this experiment, you will have to <span class="highlight">wear headphones.</span> ' +
-        'If you fail to pass the task (i.e., get less than 5 correct answers out of 6), you will have to retake it.</div>'
+        'If you fail two questions or more, you will have to retake it.</div>'
     }).appendTo($('#hc-container'));
     if (headphoneCheckConfig.debug) console.log(headphoneCheckData);
 
@@ -236,7 +236,7 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
     $('<div/>', {
       class: 'hc-calibration-instruction intro-article',
       html: '<div class="a">In this experiment, you will have to <span class="highlight">wear headphones</span> to participate in the task. ' +
-        'If you fail to pass the task (i.e., get less than 5 correct answers out of 6), you will have to retake the task.</div>'
+        'If you fail two questions or more, you will have to retake the task.</div>'
     }).appendTo($('#hc-container'));
     // $('<div/>', {
     //   class: 'hc-calibration-instruction intro-article',

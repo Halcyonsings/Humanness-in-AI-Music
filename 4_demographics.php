@@ -56,12 +56,6 @@ $user_json = $_SESSION['userObj'];
                 <article class="intro-article">
                     <div class="a">
                         The purpose of this questionnaire is to understand your musical experience and listening habit.
-                        These may influence your response to music.
-                        <!-- "&nbsp;" creates space in HTML5 -->
-                    </div>
-                    <div class="a">
-                        <span class="highlight">Directions:</span> Please click on the bar to the position
-                        that best indicates your opinion for each question.
                     </div>
                 </article>
                 <hr />
@@ -79,7 +73,7 @@ $user_json = $_SESSION['userObj'];
                 </div>
                 <hr />
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">3. What is your primary source for listening music? (check one)</div>
+                    <div class="anchor_descrp">3. What is your primary source of music? (check one)</div>
                     <div class="MAAB_res_block">
                         <ul class="RadioTwoCol">
                             <li><input type="radio" name="source" value="Radio"> Broadcast radio<br></li>
@@ -94,6 +88,7 @@ $user_json = $_SESSION['userObj'];
                         </ul>
                     </div>
                 </div>
+                <hr />
                 <div class="anchor_opinion_area">
                     <div class="anchor_descrp">4. Do you have a formal musical training diploma?</div>
                     <div class="MAAB_res_block">
@@ -103,10 +98,23 @@ $user_json = $_SESSION['userObj'];
                 </div>
                 <hr />
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">5. How many years have you learned musical instruments?</div>
+                    <div class="anchor_descrp">5. You identify yourself as _____.</div>
+                    <div class="MAAB_res_block">
+                        <div class="b"><input type="radio" name="identity" value="Professional Musician"> Professional Musician <br></div>
+                        <div class="b"><input type="radio" name="identity" value="Experienced Amateur"> Experienced Amateur/ Conservatory Level <br></div>
+                        <div class="b"><input type="radio" name="identity" value="Layman"> Layman/ Non-music Lover <br></div>
+                    </div>    
+                </div>
+                <hr />
+                <div class="anchor_opinion_area">
+                    <div class="anchor_descrp">6. What is your major instrument, if any?
+                    
+                    
+                    How many years have you learned musical instruments?</div>
                     <input type="text" name="training_yr" id="TrainingInput1">
                     <small id="TrainingHelp" class="form-text text-muted">Please fill in a number</small>
                 </div>
+                <hr />                
                 <div class="anchor_opinion_area">
                     <div class="anchor_descrp">6. How many minutes have you practiced musical instruments per day?
                     </div>
@@ -115,38 +123,37 @@ $user_json = $_SESSION['userObj'];
                         practice
                         music per day</small>
                 </div>
+                <!-- music genres categorize same as AllMusic 2019: https://www.allmusic.com/genres -->
                 <div class="anchor_opinion_area">
                     <div class="anchor_descrp">7. What genres of music do you typically willing to listen to? (check
                         all
                         that apply)</div>
                     <div class="MAAB_res_block">
                         <ul class="checkboxes">
-                            <li><input type="checkbox" name="genre" id="type1" value="Alternative"> Alternative<br></li>
+                            <li><input type="checkbox" name="genre" id="type1" value="Avant-Garde"> Avant-Garde<br></li>
                             <li><input type="checkbox" name="genre" id="type2" value="Blues"> Blues<br></li>
                             <li><input type="checkbox" name="genre" id="type3" value="Children"> Children's<br></li>
-                            <li><input type="checkbox" name="genre" id="type4" value="Classical"> Classical/ Opera<br>
+                            <li><input type="checkbox" name="genre" id="type4" value="Classical Opera"> Classical/ Opera<br>
                             </li>
-                            <li><input type="checkbox" name="genre" id="type5" value="ClassicRock"> Classic Rock<br>
+                            <li><input type="checkbox" name="genre" id="type5" value="Comedy Spoken"> Comedy/ Spoken<br>
                             </li>
                             <li><input type="checkbox" name="genre" id="type6" value="Country"> Country<br></li>
-                            <li><input type="checkbox" name="genre" id="type7" value="Dance"> Dance<br></li>
-                            <li><input type="checkbox" name="genre" id="type8" value="EasyListening"> Easy Listening<br>
+                            <li><input type="checkbox" name="genre" id="type7" value="EasyListening"> Easy Listening<br>
                             </li>
-                            <li><input type="checkbox" name="genre" id="type9" value="Electronic"> Electronic<br></li>
-                            <li><input type="checkbox" name="genre" id="type10" value="Folk"> Folk<br></li>
-                            <li><input type="checkbox" name="genre" id="type11" value="Gospel"> Gospel<br></li>
-                            <li><input type="checkbox" name="genre" id="type12" value="Metal"> Hard Rock/ Heavy
-                                Metal<br></li>
-                            <li><input type="checkbox" name="genre" id="type13" value="HipHop"> Hip Hop/ Rap<br></li>
-                            <li><input type="checkbox" name="genre" id="type14" value="Latin"> Latin<br></li>
-                            <li><input type="checkbox" name="genre" id="type15" value="Musical"> Musical/ Stage<br></li>
-                            <li><input type="checkbox" name="genre" id="type16" value="NewAge"> New Age<br></li>
-                            <li><input type="checkbox" name="genre" id="type17" value="Oldies"> Oldies<br></li>
-                            <li><input type="checkbox" name="genre" id="type18" value="Pop"> Pop<br></li>
-                            <li><input type="checkbox" name="genre" id="type19" value="Reggae"> Reggae<br></li>
-                            <li><input type="checkbox" name="genre" id="type20" value="RB"> R&B/ Soul<br></li>
-                            <li><input type="checkbox" name="genre" id="type21" value="Rock"> Rock<br></li>
-                            <li><input type="checkbox" name="genre" id="type22" value="World"> World<br></li>
+                            <li><input type="checkbox" name="genre" id="type8" value="Electronic"> Electronic<br></li>
+                            <li><input type="checkbox" name="genre" id="type9" value="Folk"> Folk<br></li>
+                            <li><input type="checkbox" name="genre" id="type10" value="Holiday"> Holiday<br></li>
+                            <li><input type="checkbox" name="genre" id="type11" value="International"> International<br></li>
+                            <li><input type="checkbox" name="genre" id="type12" value="Jazz"> Jazz<br></li>
+                            <li><input type="checkbox" name="genre" id="type13" value="Latin"> Latin<br></li>
+                            <li><input type="checkbox" name="genre" id="type14" value="NewAge"> New Age<br></li>
+                            <li><input type="checkbox" name="genre" id="type15" value="Pop Rock"> Pop/ Rock<br></li>
+                            <li><input type="checkbox" name="genre" id="type16" value="R&B Soul"> R&B/ Soul<br></li>
+                            <li><input type="checkbox" name="genre" id="type17" value="Rap"> Rap<br></li>
+                            <li><input type="checkbox" name="genre" id="type18" value="Reggae"> Reggae<br></li>
+                            <li><input type="checkbox" name="genre" id="type19" value="Religious"> Religious<br></li>
+                            <li><input type="checkbox" name="genre" id="type20" value="Stage Screen"> Stage/ Screen<br></li>
+                            <li><input type="checkbox" name="genre" id="type21" value="Vocal"> Vocal<br></li>
                         </ul>
                     </div>
                 </div>

@@ -43,10 +43,8 @@ $user_json = $_SESSION['userObj'];
             <article class="intro-article">
                 <div class="a">
                     The purpose of this questionnaire is to know your setting and condition during the experiment.
-                    Please answer the following eight questions. <span class="highlight"> The amount of your
-                        compensation
-                        for participation in our experiment does NOT depend on your response to the questions. </span>
-                    <!-- "&nbsp;" creates space in HTML5 -->
+                    Please answer the following eight questions. <span class="highlight"> Your answers will not affect your 
+                    received payment. Please answer honestly.</span>
                 </div>
             </article>
 
@@ -69,8 +67,7 @@ $user_json = $_SESSION['userObj'];
             <hr>
             <div class="Attention_check_area">
                 <div class="Attention_check_descrp">2. Did you wear headphones while listening to the clips
-                    in the listening session? Please
-                    answer honestly. </div>
+                    in the listening session? </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC2" value="Yes">Yes
                     <BR>
@@ -79,10 +76,7 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">3. Subjects participate in this experiment in many different places.
-                    Please
-                    tell
-                    us about the place where you completed this experiment. Please answer honestly. </div>
+                <div class="Attention_check_descrp">3. Please tell us about the place where you completed this experiment. </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC3" value="very noisy">I worked on this experiment in
                     a very
@@ -107,12 +101,8 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">4. Subjects participate in this experiment with many different
-                    devices,
-                    browsers,
-                    and internet connection speeds. Please tell us whether you had difficulty loading the sounds.
-                    Please answer
-                    honestly.</div>
+                <div class="Attention_check_descrp">4. Please tell us whether you had difficulty loading the sounds.
+                    </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC4" value="all">There were problems loading all of the
                     sounds
@@ -129,8 +119,7 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">5. How carefully did you complete this survey? Please answer
-                    honestly.</div>
+                <div class="Attention_check_descrp">5. How carefully did you complete this survey? </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC5" value="Not at all">Not at all carefully
                     <BR>
@@ -146,8 +135,7 @@ $user_json = $_SESSION['userObj'];
             <hr>
             <div class="Attention_check_area">
                 <div class="Attention_check_descrp">6. Did you smoke tobacco (e.g., a puff of cigarette, cigar, pipe,
-                    etc)
-                    in the <span class="highlight"> past one hour</span>? Please answer honestly.</div>
+                    etc)<span class="highlight"> during or right before the experiment</span>? </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC6" value="Yes">Yes
                     <BR>
@@ -157,7 +145,7 @@ $user_json = $_SESSION['userObj'];
             <hr>
             <div class="Attention_check_area">
                 <div class="Attention_check_descrp">7. Did you consume alcohol in the <span class="highlight"> past 12
-                        hours</span>? Please answer honestly.
+                        hours</span>? 
                 </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC7" value="Yes">Yes
