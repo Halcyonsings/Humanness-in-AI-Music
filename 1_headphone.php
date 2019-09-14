@@ -29,6 +29,14 @@ $userId = $_SESSION['uid'];
     <!-- <script type="text/javascript" src="js/1_headphone/TurnPage.js"></script> -->
 </head>
 <script>
+    // Detect mobile phone
+    if (/iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone/i.test(navigator.userAgent)
+        || screen.availWidth < 480) {
+            alert("Please use computers to participate in this experiment. You will automatically leave the page."); 
+            window.onbeforeunload=null; 
+            window.location="https://www.mturk.com/" 
+        }
+    
     // Avoid closing window
     window.onbeforeunload = function () { return "糟糕！別走！" };
     

@@ -93,7 +93,7 @@ $user_json = $_SESSION['userObj'];
                                             class="highlight"> played once and only
                                             once.</span> So please listen carefully.</li>
                                     <li>In the questionnaire, you will have to answer 27 items. Please rate each music
-                                        clip according to feelings or musical features on a scale ranging from 1 (not at
+                                        clip according to your feelings or musical features on a scale ranging from 1 (not at
                                         all) to 5 (very much). </li>
 
                                 </ol>
@@ -145,7 +145,7 @@ $user_json = $_SESSION['userObj'];
                 </section>
 
                 <section id="MEMCmeaning">
-                <div id="intro3" class="intro-article" data-step="3" data-intro="Questionnaire will show up here">
+                <div id="intro3" class="intro-article" data-step="3" data-intro="Questionnaire will show up here" data-position="left">
                     The 5-point Scale: <br />
                     1 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     2 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -201,12 +201,13 @@ $user_json = $_SESSION['userObj'];
             $('#btn-play').addClass("once-button");
 
             $('.introjs-skipbutton').hide();
-            $('.introjs-nextbutton').effect("highlight", { color: '#ffdcf7' }, 60000);
+            $('.introjs-prevbutton').hide();
+            $('.introjs-nextbutton').css('border', '5px solid red');
 
 
             musicintro.onafterchange(function () {
                 if (this._introItems.length - 1 == this._currentStep || this._introItems.length == 1) {
-                    $('.introjs-skipbutton').show().effect("highlight", { color: '#ffdcf7' }, 60000);;
+                    $('.introjs-skipbutton').show().css('border', '5px solid red');
                     $('.introjs-nextbutton').hide();
                 }
             });

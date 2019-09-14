@@ -69,7 +69,7 @@ $ip = get_client_ip();
                 <br />The requirements to participate in this research are
                 listed below:</p>
             <ol>
-                <li>Make sure your computer has a stable website connection. </li>
+                <li>Make sure your computer has a stable Internet connection. </li>
                 <li><span class="highlight">Do not participate in this experiment with IE (Internet Explorer)
                         browser.</span> </li>
                 <li><span class="highlight">Do not participate in this experiment with a smartphone.</span> </li>
@@ -77,8 +77,8 @@ $ip = get_client_ip();
                 <li>Please wear headphones during the experiment.</li>
             </ol>
             <p>If you meet the requirements, please read the following information:</p>
-            <p>This study is conducted by Modeling & Informatics Lab (MIL) at Department of Psychology, National Taiwan
-                University. This experiment aims to look into the mechanism of musical emotion.</p>
+            <p>This study is conducted by Modeling & Informatics Lab at Department of Psychology, National Taiwan
+                University. This experiment aims to look into the mechanism of musical perception.</p>
             <p><b>Procedure</b>: In the first session, we will examine whether participants are wearing headphones or
                 not. You will then listen to some music pieces as you simultaneously fill in a questionnaire. After the
                 listening session, you will be given some surveys.</p>
@@ -87,8 +87,7 @@ $ip = get_client_ip();
                 concentrate on the instructions and questions on the screen. Do not: </p>
             <ol>
                 <li>open other tabs
-                <li>minimize the active window
-                <li>click the green button of the active window in Mac/ OS
+                <li>minimize/ maxmize the active window during the experiment
                 <li>become idle for more than 5 minutes
             </ol>
             <p>In doing so, you will drop out of the experiment.
@@ -98,26 +97,22 @@ $ip = get_client_ip();
                 all the tasks in the experiment. </p>
             <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However,
                 no
-                one can access the data except for researchers listed below.
+                one can access the data except researchers listed below.
                 <br /><br />If you want to retrieve your data,
-                please e-mail the researchers (r05227104@ntu.edu.tw). In addition, the results of the
+                please e-mail the researchers (r05227104@ntu.edu.tw). The results of the
                 experiments will not be used for any commercial purposes. </p>
             <p><b>Other Ethical Issues</b>:
                 <br />(1) This research is self-financed.
-                <br />(2) The security of the
-                experiment
-                is guaranteed by Research Ethics Office of National Taiwan University. You can contact the
-                office if you have further questions (E-mail: nturec@ntu.edu.tw).
-                <br />(3) There is no potential risk
-                in
-                this study. However, you have the right to decline to answer any or all questions. You may
+                <br />(2) The has been approved by Research Ethics Office of National Taiwan University.
+                 You can e-mail the office if you have further questions (nturec@ntu.edu.tw).
+                <br />(3) There is no potential risk in this study. However, you have the right to decline to answer any or all questions. You may
                 terminate your involvement at any time if you choose to. </p>
             <br>
-            <p class="devInfo"><b>Principal Investigators</b>:<br>Tsung-Ren Huang, Assistant Professor,
-                Department
-                of Psychology, National Taiwan University<br>Chen-Ying Huang, Professor, Department of
-                Economics,
-                National Taiwan University</p>
+            <p class="devInfo"><b>Principal Investigators</b>:<br>
+                Tsung-Ren Huang, Assistant Professor, Department of Psychology, National Taiwan University<br>
+                Chen-Ying Huang, Professor, Department of Economics, National Taiwan University<br>
+                Wen-Ya Tan, Lecturer, Department of Music, Tunghai University
+            </p>
             <p class="devInfo"><b>Developer & Researcher</b>:<br>Zih-Hsiang Wang, graduate student, Department
                 of
                 Psychology, National Taiwan University </p>
@@ -134,15 +129,14 @@ $ip = get_client_ip();
             <div class="container">
                 <div class="title">Informed Consent Form</div>
                 <hr>
-                <p> We need you to participate in the experiment without the influence of others or influencing others.
-                    Therefore, please make sure you agree to the following before proceeding. </p>
+                <p> Please make sure you agree to the following before proceeding. </p>
                 <input type="checkbox" class="notice" name="ICnotice1" value="check" id="Not_Discuss" /> I will not
                 discuss the experiment on the forum such as TurkerNation. <br>
                 <input type="checkbox" class="notice" name="ICnotice2" value="check" id="Know_Exit" /> I know that I
                 will
                 <span class="highlight"> automatically
-                    exit the experiment without payment</span> if I open other tabs, minimize the active window, click
-                the green button of the active window in Mac/ OS, or become idle for more than 5 minutes.
+                    exit the experiment without recieving payment</span> if I open other tabs, minimize/ maxmize the active window during the experiment,
+                     or become idle for more than 5 minutes.
                 <input type="hidden" name="uid" id="user_id" />
                 <input type="hidden" name="ip" id="user_ip" />
                 <input type="hidden" name="browser" id="user_browser" />
@@ -201,14 +195,6 @@ $ip = get_client_ip();
         });
 
         $('#go_to_consent_btn').click(function () {
-
-        // Detect mobile phone
-        if (/iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone/i.test(navigator.userAgent)
-        || screen.availWidth < 480) {
-            alert("Please use computers to participate in this experiment. You will automatically leave the page."); 
-            window.onbeforeunload=null; 
-            window.location="https://www.mturk.com/" 
-        }
         
         window.onbeforeunload = null; 
         var check = checkNotice(2); 

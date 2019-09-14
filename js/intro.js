@@ -51,11 +51,11 @@
       /* Skip button label in tooltip box */
       skipLabel: 'Skip',
       /* Done button label in tooltip box */
-      doneLabel: 'Done',
+      doneLabel: 'Next',
       /* Hide previous button in the first step? Otherwise, it will be disabled button. */
-      hidePrev: false,
+      hidePrev: true,
       /* Hide next button in the last step? Otherwise, it will be disabled button. */
-      hideNext: false,
+      hideNext: true,
       /* Default tooltip box position */
       tooltipPosition: 'bottom',
       /* Next CSS class for tooltip boxes */
@@ -73,7 +73,7 @@
       /* Show tour control buttons? */
       showButtons: true,
       /* Show tour bullets? */
-      showBullets: true,
+      showBullets: false,
       /* Show tour progress? */
       showProgress: false,
       /* Scroll to highlighted element? */
