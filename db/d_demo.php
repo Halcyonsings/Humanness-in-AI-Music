@@ -27,7 +27,7 @@ $self_image = $_POST["self_image"]; // question 4
 $instrument = $_POST["instrument"]; // question 5
 $musicTrain_yr = $_POST["training_yr"]; // question 6
 $musicTrain_min = $_POST["training_min"]; // question 7
-$Music_Experience = $_POST["Music_Experience"]; // question 8
+$music_experience = $_POST["music_experience"]; // question 8
 $genre = $_POST["Genre_response"]; // question 9
 
 // Page 2
@@ -39,15 +39,15 @@ $race = $_POST["race"];
 $ExpComments = $_POST['ExpComments'];
 $inattention = $_POST["inattentionP4"];
 
-$Music_Experience = str_replace("'", "''", $Music_Experience);
+$music_experience = str_replace("'", "''", $music_experience);
 // Add this line to avoid insert error which occurs when subjects type ' in $ExpComments
 $ExpComments = str_replace("'", "''", $ExpComments);
 
 // SQL - to demographics table
-$sql = "INSERT INTO `C1_Demo` (uid, musicListen_hr, cost, source, identity, instrument, musicTrain_yr, musicTrain_min, genre, 
-age , sex, zipcode, education, race, ExpComments, `D-finishedTime`, `D-inattention`) VALUES
- ('$uid', '$listening_hours', '$spend_money', '$source', '$identity', '$instrument', '$musicTrain_yr', '$musicTrain_min', '$genre', 
- '$age', '$sex', '$ZipCode', '$education', '$race','$ExpComments', '$finishedTime', '$inattention')";
+$sql = "INSERT INTO `C1_Demo` (uid, musicListen_hr, cost, source, self_image, instrument, musicTrain_yr, musicTrain_min, music_experience,
+ genre, age , sex, zip_code, education, race, Exp_Comments, `D-finishedTime`, `D-inattention`) VALUES
+ ('$uid', '$listening_hours', '$spend_money', '$source', '$self_image', '$instrument', '$musicTrain_yr', '$musicTrain_min', 
+ '$music_experience', '$genre', '$age', '$sex', '$ZipCode', '$education', '$race','$ExpComments', '$finishedTime', '$inattention')";
 
 // SQL - updating finishing time
 $sql_udate_time = "UPDATE `C1_user-profile` SET  `time-end` = '$finishedTime' WHERE uid = '$uid'";

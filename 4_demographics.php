@@ -120,8 +120,7 @@ $user_json = $_SESSION['userObj'];
                 <hr />
                 <div class="anchor_opinion_area">
                     <div class="anchor_descrp">8. Please provide detail of your music experience (e.g., diplomas, awards, musical ensembles). </div>
-                    <textarea rows="5" name="Music_Experience" id="MusicExperience" class="MusicExperience"></textarea>
-
+                    <textarea rows="5" name="music_experience" id="MusicExperience" class="MusicExperience"></textarea>
                 </div>
                 <hr />
                 <!-- music genres categorize same as AllMusic 2019: https://www.allmusic.com/genres -->
