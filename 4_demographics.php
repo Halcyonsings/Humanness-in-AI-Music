@@ -90,42 +90,43 @@ $user_json = $_SESSION['userObj'];
                 </div>
                 <hr />
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">4. Do you have a formal musical training diploma?</div>
+                    <div class="anchor_descrp">4. You identify yourself as _____.</div>
                     <div class="MAAB_res_block">
-                        <div class="b"><input type="radio" name="diploma" value="Yes"> Yes<br></div>
-                        <div class="b"><input type="radio" name="diploma" value="No"> No<br></div>
-                    </div>
-                </div>
-                <hr />
-                <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">5. You identify yourself as _____.</div>
-                    <div class="MAAB_res_block">
-                        <div class="b"><input type="radio" name="identity" value="Professional Musician"> Professional Musician <br></div>
-                        <div class="b"><input type="radio" name="identity" value="Experienced Amateur"> Experienced Amateur/ Conservatory Level <br></div>
-                        <div class="b"><input type="radio" name="identity" value="Layman"> Layman/ Non-music Lover <br></div>
+                        <div class="b"><input type="radio" name="self_image" value="Professional Musician"> Professional Musician <br></div>
+                        <div class="b"><input type="radio" name="self_image" value="Experienced Amateur"> Experienced Amateur/ Conservatory Level <br></div>
+                        <div class="b"><input type="radio" name="self_image" value="Layman"> Layman/ Non-music Lover <br></div>
                     </div>    
                 </div>
                 <hr />
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">6. What is your major instrument, if any?
-                    
-                    
-                    How many years have you learned musical instruments?</div>
+                    <div class="anchor_descrp">5. What are your major instruments, if any?
+                    <input type="text" name="instrument" id="instrument">
+                    <small id="instrumentHelp" class="form-text text-muted">Please fill "none" if you don't have any.</small>
+                </div>
+                <div class="anchor_opinion_area">
+                    <div class="anchor_descrp">6. Please specify how many years have you played your major instruments.</div>
                     <input type="text" name="training_yr" id="TrainingInput1">
-                    <small id="TrainingHelp" class="form-text text-muted">Please fill in a number</small>
+                    <small id="TrainingHelp" class="form-text text-muted">Please fill in a number. </small>
                 </div>
                 <hr />                
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">6. How many minutes have you practiced musical instruments per day?
+                    <div class="anchor_descrp">7. Please specify how many minutes have you practiced your major instruments per day.
                     </div>
                     <input type="text" name="training_min" id="TrainingInput2">
                     <small id="TrainingHelp2" class="form-text text-muted">Please fill in the minutes that you
                         practice
                         music per day</small>
                 </div>
+                <hr />
+                <div class="anchor_opinion_area">
+                    <div class="anchor_descrp">8. Please provide detail of your music experience (e.g., diplomas, awards, musical ensembles). </div>
+                    <textarea rows="5" name="Music_Experience" id="MusicExperience" class="MusicExperience"></textarea>
+
+                </div>
+                <hr />
                 <!-- music genres categorize same as AllMusic 2019: https://www.allmusic.com/genres -->
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">7. What genres of music do you typically willing to listen to? (check
+                    <div class="anchor_descrp">9. What genres of music do you typically willing to listen to? (check
                         all
                         that apply)</div>
                     <div class="MAAB_res_block">

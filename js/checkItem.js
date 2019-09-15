@@ -41,7 +41,7 @@ function checkRange(itemAmout) {
 }
 
 validMAAB = {
-    "listening_hours": function () {
+    "listening_hours": function () { // question 1
         if (isNaN(parseInt($("input[name='listening_hours']").val()))) {
             alert("Please enter your listening hours.");
         } else {
@@ -49,7 +49,7 @@ validMAAB = {
         }
         $("input[name='listening_hours']").val()
     },
-    "spend_money": function () {
+    "spend_money": function () { // question 2
         if (isNaN(parseInt($("input[name='spend_money']").val()))) {
             alert("Please enter how much do you spend.");
         } else {
@@ -57,21 +57,28 @@ validMAAB = {
         }
         $("input[name='spend_money']").val()
     },
-    "source": function () {
+    "source": function () { // question 3
         if ($("input[name='source']:checked").val() == undefined) {
             alert("Please select your music source.");
         } else {
             return "finished"
         }
     },
-    "diploma": function () {
-        if ($("input[name='diploma']:checked").val() == undefined) {
-            alert("Please indicate whether you have a diploma or not.");
+    "identity": function () { // question 4
+        if ($("input[name='identity']:checked").val() == undefined) {
+            alert("Please indicate your identity.");
         } else {
             return "finished"
         }
     },
-    "training_yr": function () {
+    "instrument": function () { // question 5
+        if ($("input[name='instrument']:checked").val() == undefined) {
+            alert("Please indicate your major instruments.");
+        } else {
+            return "finished"
+        }
+    },
+    "training_yr": function () { // question 6
         if (isNaN(parseInt($("input[name='training_yr']").val()))) {
             alert("Please enter your training years.");
         } else {
@@ -79,7 +86,7 @@ validMAAB = {
         }
         $("input[name='training_yr']").val()
     },
-    "training_min": function () {
+    "training_min": function () { // question 7
         if (isNaN(parseInt($("input[name='training_min']").val()))) {
             alert("Please enter your practicing minutes.");
         } else {
@@ -87,7 +94,7 @@ validMAAB = {
         }
         $("input[name='training_min']").val()
     },
-    "genre": function () {
+    "genre": function () { // question 9
         if ($("input[name='genre']:checked").val() == undefined) {
             alert("Please select the music genres you like.");
         } else {
