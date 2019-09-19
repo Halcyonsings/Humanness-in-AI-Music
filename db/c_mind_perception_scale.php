@@ -1,6 +1,6 @@
 <?php
 
-if(!$_SESSION){ session_start(); } // To avoid session expiration, force loading session
+if(!isset($_SESSION)){ session_start(); } // To avoid session expiration, force loading session
 
 require_once "db_config.php";
 

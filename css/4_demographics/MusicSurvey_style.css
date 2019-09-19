@@ -89,6 +89,10 @@ div.b {
     width: 45%;
 }
 
+.MusicExperience {
+  width:  80%;
+}
+
 @media screen and (max-width: 600px){
     #MusicSurveyCard{
         width: 95%;

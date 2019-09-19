@@ -6,7 +6,8 @@ $user_json = $_SESSION['userObj'];
 // avoid jump
 // include "db/avoidJump.php";
 
-
+$MturkCode = $_SESSION["MturkToken"];
+// echo $MturkCode
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +47,7 @@ $user_json = $_SESSION['userObj'];
     <!-- <script type="text/javascript" src="js/globalsetting.js"></script> -->
     <script type="text/javascript">
         // 4-digits number generator
-        Mturkcode = Math.floor(1000 + Math.random() * 9000);
+        // Mturkcode = Math.floor(1000 + Math.random() * 9000);
 
     </script>
     <style>
@@ -61,21 +62,15 @@ $user_json = $_SESSION['userObj'];
 <body>
     <div id="bg-img"></div>
     <section class="main_block card">
-
-        <form action="" id="finalForm">
-
             <div class="container-fluid endingCard">
                 <p class="form-t1 text-center">The End</p>
                 <article class="intro-article">
                     <div class="a">The experiment is now complete. Thank you for participating in our experiment. To
                         get the reward, please enter the 4-digit number below on Amazon Mechanical Turk. You will <span class="highlight">not</span>
-                         automatically exit the experiment if you click other tabs in this page. After that, please 
-                        return and<span class="highlight"> click the submit button.</span>
-                        <br>
+                         automatically exit the experiment if you click on other tabs in this page. 
                     </div>
                 </article>
-                <span class="highlight">
-                    <script type="text/javascript">document.write(Mturkcode)</script></span><br>
+                <span class="highlight"><?php echo $MturkCode;?> </span><br>
                 <br>
                 <br>
                 <br>
@@ -85,14 +80,7 @@ $user_json = $_SESSION['userObj'];
                 <a href="https://www.facebook.com/ntumilab/"><img src="asset/fb_icon.png" /></a>
                 <a href="mailto:R05227104@ntu.edu.tw?subject=NTU Music Study"><img src="asset/email_icon.png" /></a>
                 <br>
-                <div class="row justify-content-center">
-                    <div class="g-btn" id="final_submit">Submit</div>
-                </div>
             </div>
-            <!-- Recording -->
-            <input type="hidden" name="uid" id="user_id">
-            <input type="hidden" name="MturkToken" id="Mturk_token">
-        </form>
 
 
         <script type="text/javascript">
@@ -102,19 +90,7 @@ $user_json = $_SESSION['userObj'];
             window.history.forward(1);
             });
             
-            
-            //submit the form
-            $("#final_submit").click(function () {
-                window.onbeforeunload = null;
-
-                $("#Mturk_token").attr("value", Mturkcode);
-                // form submission
-                $("form").attr("action", "db/e_final.php");
-                $("form").attr("method", "POST");
-                $("form").submit();
-
-            })
-
+        
         </script>
 </body>
 

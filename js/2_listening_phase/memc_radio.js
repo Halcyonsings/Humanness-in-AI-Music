@@ -22,7 +22,7 @@ let MEMC = {
     "7": "Powerful, Strong",
     "8": "Full of tender, Warmhearted",
     "9": "Relaxed, Peaceful",
-    "10": "Melancholic, Sad",
+    "10": "Sad, Melancholic",
     "11": "Nostalgic, Sentimental",
     "12": "Indifferent, Bored",
     "13": "Tense,    Uneasy",
@@ -110,7 +110,7 @@ MEMC.render = function (divToRender) {
  */
 MEMC.renderEmptyCards = function (divId, numQuestion, pn) { // pn = Phase Number
     // alert(pn);
-    numQuesPerRow = 4;
+    numQuesPerRow = 6;
     let $memcContainer = $(`#${divId}`); // The questionnaire container
     let numRow = Math.ceil(numQuestion / numQuesPerRow); // The number of row to render
     let counter = 0;
@@ -123,19 +123,19 @@ MEMC.renderEmptyCards = function (divId, numQuestion, pn) { // pn = Phase Number
 
         for (let j = 1; j <= numQuesPerRow; j++) {
             // autocomplete "off" to delete the last answer
-            let quesCard = `<div class="col-12 MEMCCard col-sm-3">` + // col-sm-3: set the quetion card 25% width
-                `<div class="row btn-info align-items-center question-card" id="question-card-${i * 4 + j}">` +
+            let quesCard = `<div class="col-12 MEMCCard col-sm-2">` + // col-sm-2: set the quetion card 1/6 width
+                `<div class="row btn-info align-items-center question-card" id="question-card-${i * 6 + j}">` +
                 ` <div class="col-12">` +
                 `<h5></h5>` +
                 `</div>` +
                 `<div class="col-12 d-flex justify-content-center">` +
                 `<div class="MEMCLabel">1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5</div>` +
                 `<group class="inline-radio MEMCbutton">` +
-                `<input type="radio" value="1" id="fisrtOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
-                `<input type="radio" value="2" id="secondOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
-                `<input type="radio" value="3" id="thirdOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
-                `<input type="radio" value="4" id="fourthOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>&nbsp` +
-                `<input type="radio" value="5" id="fifthOP-${i * 4 + j}" name="amplitude-${pn}-${i * 4 + j}" autocomplete="off"/>` +
+                `<input type="radio" value="1" id="fisrtOP-${i * 6 + j}" name="amplitude-${pn}-${i * 6 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="2" id="secondOP-${i * 6 + j}" name="amplitude-${pn}-${i * 6 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="3" id="thirdOP-${i * 6 + j}" name="amplitude-${pn}-${i * 6 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="4" id="fourthOP-${i * 6 + j}" name="amplitude-${pn}-${i * 6 + j}" autocomplete="off"/>&nbsp` +
+                `<input type="radio" value="5" id="fifthOP-${i * 6 + j}" name="amplitude-${pn}-${i * 6 + j}" autocomplete="off"/>` +
                 `</group>` +
                 `</div>` +
                 `</div>` +
@@ -229,7 +229,7 @@ MEMC.toggle = function () {
     if (this.phase === "phase1") {
         this.phase = "phase2";
         // adjust the card height/ width for phase 2
-        $(".MEMCCard").removeClass("col-sm-3");
+        $(".MEMCCard").removeClass("col-sm-2");
         $(".MEMCCard").addClass("col-sm-6");
         this.phase1Container.hide();
         this.phase2Container.show();
@@ -237,7 +237,7 @@ MEMC.toggle = function () {
         this.phase = "phase1";
         // set the quetion card of phase1 25% width
         $(".MEMCCard").removeClass("col-sm-6");
-        $(".MEMCCard").addClass("col-sm-3");
+        $(".MEMCCard").addClass("col-sm-2");
         $('#btn-play').removeClass("once-button");
         this.phase1Container.show();
         this.phase2Container.hide();

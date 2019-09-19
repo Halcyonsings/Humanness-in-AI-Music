@@ -1,6 +1,6 @@
 <?php
 
-if(!$_SESSION){ session_start(); } // To avoid session expiration, force loading session
+if(!isset($_SESSION)){ session_start(); } // To avoid session expiration, force loading session
 
 require_once "db_config.php";
 
@@ -16,7 +16,9 @@ $conn->set_charset("utf8");//set the charset
 $uid = $_SESSION['uid'];
 $finishedTime = date("Y-m-d H:i:s");
 
-// echo $startTime;
+// Mturk code pass through PHP
+$MturkToken = $_POST['MturkToken'];
+$_SESSION["MturkToken"] = $_POST['MturkToken'];
 
 // receiving variables
 // Page 1
@@ -45,9 +47,9 @@ $ExpComments = str_replace("'", "''", $ExpComments);
 
 // SQL - to demographics table
 $sql = "INSERT INTO `C1_Demo` (uid, musicListen_hr, cost, source, self_image, instrument, musicTrain_yr, musicTrain_min, music_experience,
- genre, age , sex, zip_code, education, race, Exp_Comments, `D-finishedTime`, `D-inattention`) VALUES
- ('$uid', '$listening_hours', '$spend_money', '$source', '$self_image', '$instrument', '$musicTrain_yr', '$musicTrain_min', 
- '$music_experience', '$genre', '$age', '$sex', '$ZipCode', '$education', '$race','$ExpComments', '$finishedTime', '$inattention')";
+ genre, age , sex, zip_code, education, race, Exp_Comments, `D-finishedTime`, `D-inattention`, MturkNum) VALUES
+ ('$uid', '$listening_hours', '$spend_money', '$source', '$self_image', '$instrument', '$musicTrain_yr', '$musicTrain_min', '$music_experience',
+  '$genre', '$age', '$sex', '$ZipCode', '$education', '$race','$ExpComments', '$finishedTime', '$inattention', '$MturkToken')";
 
 // SQL - updating finishing time
 $sql_udate_time = "UPDATE `C1_user-profile` SET  `time-end` = '$finishedTime' WHERE uid = '$uid'";

@@ -3,9 +3,14 @@
 
 */
 
+#memc{
+    width: 100%;
+    min-width: 1000px;
+}
+
 .question-container {
     margin-bottom: 15%;
-    width: 80%;
+    width: 100%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -24,7 +29,7 @@
 .question-card div[class^="col"] h5 {  /* MEMC question words */
     /*     border: 1px solid black; */
     margin-top: 10%;
-    margin-bottom: 20%; /* Add this comments to avoid plate shifting */
+    margin-bottom: 10%; /* Add this comments to avoid plate shifting */
     /*     height: 40px; */
     font-size: 130%;
     font-family: 微軟正黑體;
@@ -62,14 +67,10 @@
     /* margin-bottom: 40%; */
 }
 
-.MEMCbutton{
-    margin-top: 10%;
+.MEMCbutton{ /* Position of Radio Button */
+    margin-top: 15%;
 }
 
-/* Empty Card */
-#question-card-1 #question-card-2{
-    display: none;
-}
 
 /* .TuringLabel {
     height: 20px;

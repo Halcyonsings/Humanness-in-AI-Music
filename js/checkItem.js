@@ -16,29 +16,30 @@ function checkNotice(itemAmout) {
 function checkRadios(itemAmout) {
     // check the 'data-item-check'
     var counter = 0;
+    var unanswerQ = []
     for (var ci = 1; ci <= itemAmout; ci++) {
         if ($('input[name=AC' + ci + ']:checked').val() == undefined) {
-            alert('Question ' + ci + ' is not answered.');
             counter++;
-            break
+            unanswerQ.push(ci);
         }
     }
     if (counter == 0) { return "finished" }
+    else { alert('Question ' + unanswerQ + ' is not answered.'); } // show unanswered questions at the same time
 }
 
 // checking range item
-function checkRange(itemAmout) {
-    var counter = 0;
-    for (var ci = 1; ci <= itemAmout; ci++) {
-        // checkMsg = "item" + ci + "_on";
-        if ($('input[name=item' + ci + ']').attr("data-check") != "on") {
-            alert('Question ' + ci + ' is not answered.');
-            counter++;
-            break
-        }
-    }
-    if (counter == 0) { return "finished" }
-}
+// function checkRange(itemAmout) {
+//     var counter = 0;
+//     for (var ci = 1; ci <= itemAmout; ci++) {
+//         // checkMsg = "item" + ci + "_on";
+//         if ($('input[name=item' + ci + ']').attr("data-check") != "on") {
+//             alert('Question ' + ci + ' is not answered.');
+//             counter++;
+//             break
+//         }
+//     }
+//     if (counter == 0) { return "finished" }
+// }
 
 validMAAB = {
     "listening_hours": function () { // question 1
@@ -64,19 +65,21 @@ validMAAB = {
             return "finished"
         }
     },
-    "identity": function () { // question 4
-        if ($("input[name='identity']:checked").val() == undefined) {
+    "self_image": function () { // question 4
+        if ($("input[name='self_image']:checked").val() == undefined) {
             alert("Please indicate your identity.");
         } else {
             return "finished"
         }
     },
     "instrument": function () { // question 5
-        if ($("input[name='instrument']:checked").val() == undefined) {
+        var text_instrument = $("input[name='instrument']").val();
+        if (text_instrument == null || text_instrument == "") {
             alert("Please indicate your major instruments.");
         } else {
             return "finished"
         }
+        $("input[name='training_min']").val();
     },
     "training_yr": function () { // question 6
         if (isNaN(parseInt($("input[name='training_yr']").val()))) {
@@ -84,7 +87,7 @@ validMAAB = {
         } else {
             return "finished"
         }
-        $("input[name='training_yr']").val()
+        $("input[name='training_yr']").val();
     },
     "training_min": function () { // question 7
         if (isNaN(parseInt($("input[name='training_min']").val()))) {
@@ -92,7 +95,7 @@ validMAAB = {
         } else {
             return "finished"
         }
-        $("input[name='training_min']").val()
+        $("input[name='training_min']").val();
     },
     "genre": function () { // question 9
         if ($("input[name='genre']:checked").val() == undefined) {
@@ -166,16 +169,20 @@ validateDemo = {
 
 function checkAllMAAB() {
     var counter = 0;
+    var unanswerMAAB = []
     for (var i in validMAAB) {
         var checking = validMAAB[i]();
         if (checking == undefined) {
             counter++;
-            break;
+            unanswerMAAB.push(i);
         }
     }
     if (counter == 0) {
         return "allFinished"
-    }
+    } else {
+        alert('Question ' + unanswerMAAB + ' is not answered.');
+    } // show unanswered questions at the same time
+
 }
 
 function checkAllDemo() {

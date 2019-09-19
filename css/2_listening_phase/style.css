@@ -20,7 +20,8 @@ header {
 
 main {
     /* background-color: #fff; */
-    margin-top: -200px;
+    margin-top: -400px;
+    width: 100%;
 }
 
 /* #main-block {
@@ -37,6 +38,11 @@ main {
 section {
     /*     border: 1px solid black; */
     /*     margin-top: 30px; */
+    width: 100%;
+}
+
+.container {
+    width: 100%;
 }
 
 #instruction-section {
@@ -103,4 +109,8 @@ section {
 
 .once-button {
     pointer-events: none;
+}
+
+#next{
+    margin-top: 0px;
 }

@@ -6,7 +6,6 @@ $user_json = $_SESSION['userObj'];
 // avoid jump
 // include "db/avoidJump.php";
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +42,11 @@ $user_json = $_SESSION['userObj'];
     <link rel="stylesheet" type="text/css" href="css/4_demographics/MusicSurvey_style.css">
 
     <script type="text/javascript" src="js/globalsetting.js"></script>
+    <script type="text/javascript">
+        // 4-digits number generator
+        Mturkcode = Math.floor(1000 + Math.random() * 9000);
 
+    </script>
     <title>NTU Music Study</title>
 </head>
 
@@ -99,10 +102,11 @@ $user_json = $_SESSION['userObj'];
                 </div>
                 <hr />
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">5. What are your major instruments, if any?
+                    <div class="anchor_descrp">5. What are your major instruments, if any?</div>
                     <input type="text" name="instrument" id="instrument">
                     <small id="instrumentHelp" class="form-text text-muted">Please fill "none" if you don't have any.</small>
                 </div>
+                <hr />
                 <div class="anchor_opinion_area">
                     <div class="anchor_descrp">6. Please specify how many years have you played your major instruments.</div>
                     <input type="text" name="training_yr" id="TrainingInput1">
@@ -119,8 +123,9 @@ $user_json = $_SESSION['userObj'];
                 </div>
                 <hr />
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">8. Please provide detail of your music experience (e.g., diplomas, awards, musical ensembles). </div>
+                    <div class="anchor_descrp">8. Please provide detail of your music experience (e.g., diplomas, awards, musical ensembles). (Optional) </div>
                     <textarea rows="5" name="music_experience" id="MusicExperience" class="MusicExperience"></textarea>
+                    <small id="MusicExpHelp" class="form-text text-muted">To avoid automatically exit the experiment, <span class="highlight">do not copy the profile from other tabs or files</span></small>
                 </div>
                 <hr />
                 <!-- music genres categorize same as AllMusic 2019: https://www.allmusic.com/genres -->
@@ -203,7 +208,9 @@ $user_json = $_SESSION['userObj'];
                     <div class="col-md-8">
                         <input type="text" class="form-control" name="ZipCode" id="postcode" pattern="[0-9]{5}"
                             title="Five digit zip code">
-                        <small id="ZipHelp" class="form-text text-muted">Please fill in a 5-digit number</small>
+                        <small id="ZipHelp1" class="form-text text-muted">Please fill in a 5-digit number</small>
+                        <small id="ZipHelp2" class="form-text text-muted">To avoid automatically exit the experiment, <span class="highlight">
+                             do not search information from other tabs</span></small>
                     </div>
                 </div>
                 <div class="row item-container">
@@ -258,6 +265,7 @@ $user_json = $_SESSION['userObj'];
             <input type="hidden" name="finishTime" id="user_finish_time">
             <input type="hidden" name="Genre_response" id="Genre_response">
             <input type="hidden" name="inattentionP4" id="inattention_P4">
+            <input type="hidden" name="MturkToken" id="Mturk_token">
         </form>
     </section>
 

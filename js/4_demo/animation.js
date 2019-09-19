@@ -66,6 +66,7 @@ $("#form_submit").click(function () {
         $("#user_finish_time").attr("value", time_info);
         // $("user_id").attr("value", uid);
         $("#inattention_P4").attr("value", inattention);
+        $("#Mturk_token").attr("value", Mturkcode);
         // form submission
         $("form").attr("action", "db/d_demo.php");
         $("form").attr("method", "POST");

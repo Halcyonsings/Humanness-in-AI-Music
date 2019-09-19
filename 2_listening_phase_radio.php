@@ -6,7 +6,15 @@ $user_json = $_SESSION['userObj'];
 // avoid jump
 // include "db/avoidJump.php";
 
+// count times of loading the page 
+if (isset($_SESSION['count'])){
+    $_SESSION['count'] = $_SESSION['count'] + 1;
+} else {
+    $_SESSION['count'] = 1;
+}
 
+// "ctrl + shift + R" could not clear the session
+echo "You have looked at this page " .$_SESSION['count']." times.";
 ?>
 
 
