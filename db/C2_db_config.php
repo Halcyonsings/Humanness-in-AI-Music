@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "milab";
 $password = "Milk-k";
-$dbname = "hsiang_C2"; 
+$dbname = "hsiang_C2"; //for pilot research
 
 header("Content-Type:text/html; charset=utf-8")
 ?>

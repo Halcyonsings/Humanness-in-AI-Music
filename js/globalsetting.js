@@ -9,6 +9,10 @@ $(document).ready(function () {
     window.history.forward(1);
 
 
+    document.oncontextmenu = function () {
+        window.event.returnValue = false; // block mouse right key
+    }
+
     //Increment the idle time counter every minute.
     idleInterval = setInterval(timerIncrement, 60000); // 60 sec
     // console.log("what is your function?", idleInterval)
@@ -16,6 +20,8 @@ $(document).ready(function () {
     //Zero the idle timer on mouse movement.
     $(this).mousemove(function (e) {
         idleTime = 0;
+        clearInterval(idleInterval);
+        idleInterval = setInterval(timerIncrement, 60000); // 60 sec
         // console.log("reset", idleTime);
     });
 

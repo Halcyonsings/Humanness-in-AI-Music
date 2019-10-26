@@ -4,7 +4,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/avoidJump.php";
+include "db/avoidJump.php";
 
 
 ?>
@@ -23,9 +23,14 @@ $user_json = $_SESSION['userObj'];
     <!-- my js -->
     <script type="text/javascript" src="js/globalsetting.js"></script>
     <script type="text/javascript" src="js/checkItem.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
     <!-- <script type="text/javascript" src="js/3_mind_perception_scale/MP_content.js"></script>
     <script type="text/javascript" src="js/3_mind_perception_scale/animation_MP.js"></script> -->
     <!-- my css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="stylesheet" href="css/jspsych.css">
 

@@ -4,7 +4,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/avoidJump.php";
+include "db/avoidJump.php";
 
 $MturkCode = $_SESSION["MturkToken"];
 // echo $MturkCode
@@ -44,7 +44,6 @@ $MturkCode = $_SESSION["MturkToken"];
     <link rel="stylesheet" type="text/css" href="css/4_demographics/demographics_style.css">
     <link rel="stylesheet" type="text/css" href="css/4_demographics/MusicSurvey_style.css">
 
-    <!-- <script type="text/javascript" src="js/globalsetting.js"></script> -->
     <script type="text/javascript">
         // 4-digits number generator
         // Mturkcode = Math.floor(1000 + Math.random() * 9000);
@@ -65,9 +64,8 @@ $MturkCode = $_SESSION["MturkToken"];
             <div class="container-fluid endingCard">
                 <p class="form-t1 text-center">The End</p>
                 <article class="intro-article">
-                    <div class="a">The experiment is now complete. Thank you for participating in our experiment. To
-                        get the reward, please enter the 4-digit number below on Amazon Mechanical Turk. You will <span class="highlight">not</span>
-                         automatically exit the experiment if you click on other tabs in this page. 
+                    <div class="a">The experiment is now complete. Thank you for participating in our experiment. Please click on the Amazon Mechanical Turk tab
+                    and enter the 32-digit number below on Amazon Mechanical Turk to get the reward.
                     </div>
                 </article>
                 <span class="highlight"><?php echo $MturkCode;?> </span><br>

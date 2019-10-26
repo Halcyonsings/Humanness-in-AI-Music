@@ -68,7 +68,7 @@ $("#form_submit").click(function () {
         $("#inattention_P4").attr("value", inattention);
         $("#Mturk_token").attr("value", Mturkcode);
         // form submission
-        $("form").attr("action", "db/C2_d_demo.php");
+        $("form").attr("action", "db/C3_d_demo.php");
         $("form").attr("method", "POST");
         $("form").submit();
     }

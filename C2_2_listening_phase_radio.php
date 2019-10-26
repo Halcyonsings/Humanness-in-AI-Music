@@ -4,10 +4,20 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/avoidJump.php";
+// include "db/C2_avoidJump.php";
 
+// count times of loading the page 
+if (isset($_SESSION['count'])){
+    $_SESSION['count'] = $_SESSION['count'] + 1;
+} else {
+    $_SESSION['count'] = 1;
+}
 
+// "ctrl + shift + R" could not clear the session
+// echo "You have looked at this page " .$_SESSION['count']." times.";
 ?>
+
+
 
 <!doctype html>
 <html>
@@ -84,24 +94,22 @@ $user_json = $_SESSION['userObj'];
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-8">
                             <div class="form-t1">Listening Session<span id="currinfo"><span></div>
-                            <article class="intro-article" data-step="1" data-intro="First, read the notice"
+                            <article id="MEMCguide" class="intro-article" data-step="1" data-intro="First, read the notice"
                                 data-position="left">
                                 Please read the notice before listening to the clips:</p>
                                 <ol>
                                     <li>Please<span class="highlight"> wear headphones</span> when listening.</li>
                                     <li>In this section, you will listen to 12 different clips.
-                                        A questionnaire will appear below after the music being played for 20 seconds.
+                                        A questionnaire will appear below only after the music is completely played.
                                     </li>
                                     <li>You cannot skip any music clips. Each music clip will be <span
                                             class="highlight"> played once and only
                                             once.</span> So please listen carefully.</li>
                                     <li>In the questionnaire, you will have to answer 28 items. Please rate each music
-                                        clip according to feelings or musical features on a scale ranging from 1 (not at
+                                        clip according to your feelings or musical features on a scale ranging from 1 (not at
                                         all) to 5 (very much). </li>
                                     <li>Each excerpt is composed by human or artificial intelligence (AI). At the second
                                          stage of the questionnaire, please indicate whether it is by human or AI in your judgment.</li>
-
-
                                 </ol>
                             </article>
                         </div>
@@ -135,8 +143,8 @@ $user_json = $_SESSION['userObj'];
                             <div class="row justify-content-between ButtonSet">
                                 <!-- The button is disabled until that the clips is successfully load -->
                                 <button id="btn-play" class="MusicButtonDesign" disabled="disabled" data-step="2"
-                                    data-intro="Click here to play the music" data-position="left"><i
-                                        class="material-icons">play_arrow</i>Play</button>
+                                    data-intro="Click here to play the music" data-position="left"
+                                    onclick="DelayMEMC()"><i class="material-icons">play_arrow</i>Play</button>
                                 <!-- <button id="btn-pause" class="MusicButtonDesign" disabled="disabled"><i
                                         class="material-icons">pause</i>Pause</button>
                                 <button id="btn-Restart" class="MusicButtonDesign" disabled="disabled"><i
@@ -149,7 +157,9 @@ $user_json = $_SESSION['userObj'];
                         </div>
                     </div>
                 </section>
-                <div id="intro3" class="intro-article" data-step="3" data-intro="Questionnaire will show up here">
+
+                <section id="MEMCmeaning">
+                <div id="intro3" class="intro-article" data-step="3" data-intro="Questionnaire will show up here" data-position="left">
                     The 5-point Scale: <br />
                     1 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     2 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -158,7 +168,7 @@ $user_json = $_SESSION['userObj'];
                     5<br />
                     Not at all &nbsp&nbsp Somewhat &nbsp&nbsp Moderately &nbsp&nbsp Quite a lot &nbsp&nbsp Very much
                 </div>
-
+                </section>
                 <!--         The section for MEMC             -->
                 <section class="col-12" id="memc">
                     <!--  Question cards will appear here  -->
@@ -201,8 +211,21 @@ $user_json = $_SESSION['userObj'];
             var musicintro = introJs()
             musicintro.start();
 
+            // cannot play the music 
             $('#btn-play').addClass("once-button");
-            // $(".TuringLabel").hide();
+
+            $('.introjs-skipbutton').hide();
+            $('.introjs-prevbutton').hide();
+            $('.introjs-nextbutton').css('border', '5px solid red');
+
+
+            musicintro.onafterchange(function () {
+                if (this._introItems.length - 1 == this._currentStep || this._introItems.length == 1) {
+                    $('.introjs-skipbutton').show().css('border', '5px solid red');
+                    $('.introjs-nextbutton').hide();
+                }
+            });
+
 
             musicintro.onexit(function () {
                 // alert("Hi");

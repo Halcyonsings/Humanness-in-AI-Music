@@ -1,6 +1,6 @@
 <?php
 
-if(!$_SESSION){ session_start(); } // To avoid session expiration, force loading session
+if(!isset($_SESSION)){ session_start(); } // To avoid session expiration, force loading session
 
 require_once "C3_db_config.php";
 
@@ -14,7 +14,7 @@ $conn->set_charset("utf8");//set the charset
 
 // receiving variables
 $uid = $_SESSION['uid'];
-$startTime = $_SESSION['startTime'];
+$repeated = $_SESSION['count'];
 $finishedTime = date("Y-m-d H:i:s");
 // echo $startTime;
 
@@ -23,9 +23,9 @@ $playTime = $_POST["playTime"];
 $allAnswers = $_POST["allAnswers"];
 $allRT = $_POST["allRT"];
 $inattention = $_POST["inattentionP2"];
+$hurrySubject = $_POST["hurrySubject"];
 
-
-$sql = "INSERT INTO C3_Listening (uid, `L-playTime`, `L-allAnswers`,`L-allRT`,`L-startTime`, `L-finishedTime` , `L-inattention`) VALUES ('$uid', '$playTime','$allAnswers', '$allRT', '$startTime', '$finishedTime', '$inattention')";
+$sql = "INSERT INTO C3_Listening (uid, `L-playTime`, `L-allAnswers`,`L-allRT`, `L-finishedTime`, `L-hurrySubject`, `L-inattention`, `L-reapeatedTimes`) VALUES ('$uid', '$playTime','$allAnswers', '$allRT', '$finishedTime', '$hurrySubject', '$inattention', '$repeated')";
 
 // SQL - updating the data of status table 
 $sql_udate_status = "UPDATE `C3_user-status` SET q2_L = '1' WHERE uid = '$uid'";

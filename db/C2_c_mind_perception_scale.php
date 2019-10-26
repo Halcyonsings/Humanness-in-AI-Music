@@ -1,6 +1,6 @@
 <?php
 
-if(!$_SESSION){ session_start(); } // To avoid session expiration, force loading session
+if(!isset($_SESSION)){ session_start(); } // To avoid session expiration, force loading session
 
 require_once "C2_db_config.php";
 
@@ -14,7 +14,6 @@ $conn->set_charset("utf8");//set the charset
 
 // receiving variables
 $uid = $_SESSION['uid'];
-$startTime = $_SESSION['startTime'];
 $finishedTime = date("Y-m-d H:i:s");
 // echo $startTime;
 
@@ -26,7 +25,7 @@ $inattention = $_POST["inattentionP3"];
 
 
 
-$sql = "INSERT INTO C2_MP (uid, `AC-Response`,`MP-Response`, `MP-RT` ,`AC-startTime`, `MP-finishedTime`, `ACMP-inattetion`) VALUES ('$uid', '$AC_Response', '$MP_Response', '$MP_ResponseTime', '$startTime', '$finishedTime', '$inattention')";
+$sql = "INSERT INTO C2_MP (uid, `AC-Response`,`MP-Response`, `MP-RT`, `MP-finishedTime`, `ACMP-inattetion`) VALUES ('$uid', '$AC_Response', '$MP_Response', '$MP_ResponseTime', '$finishedTime', '$inattention')";
 
 
 // SQL - updating the data of status table 

@@ -44,7 +44,7 @@ let MEMC = {
     "26": "Select 2 here.",
     // Special questions
     "27": "What is your overall preference of the clip (from 1 to 5)? You like it _____.",
-    "28": "Do you think the excerpts compose by Mozart (from 1 to 5)? ",
+    "28": "In my judgment, this clip is composed by ____. ",
 }
 
 
@@ -52,11 +52,11 @@ let MEMC = {
 MEMC.phase = "phase1"; // Phase1 for question 1-26, phase 2 for question 27, 28.
 
 // Phase 1 question IDs.
-MEMC.phase1Ids = Array(26).fill().map((i, v) => v + 1); // 1-26
+MEMC.phase1Ids = Array(26).fill().map((i, v) => v + 1); // 1-25
 // MEMC.phase1Ids = [1, 2, 3, 4, 5];
 
 // Phase 2 question IDs.
-MEMC.phase2Ids = [27]; //In condition 2 and 3, this should be "= [27, 28]"
+MEMC.phase2Ids = [27, 28]; //In condition 2 and 3, this should be "= [27, 28]"
 
 
 /**
@@ -68,18 +68,18 @@ MEMC.render = function (divToRender) {
     let $memc = $(`#${divToRender}`);
     this.memc = $memc;
 
-    // Render phase-1 container with the 1-25 questions
+    // Render phase-1 container with the 1-26 questions
     let $phase1Container = $(`<div class="question-container" id="phase1"></div>`);
     $memc.append($phase1Container);
     this.renderEmptyCards("phase1", MEMC.phase1Ids.length, pn = 1);
-    this.renderQuestions("phase1", MEMC.phase1Ids);
+    this.renderQuestions("phase1", MEMC.phase1Ids, isRandom = true);
     this.phase1Container = $phase1Container;
 
-    // Render the phase-2 container with the 26, 27 question
+    // Render the phase-2 container with the 27, 28 question
     let $phase2Container = $(`<div class="question-container" id="phase2"></div>`);
     $memc.append($phase2Container);
     this.renderEmptyCards("phase2", MEMC.phase2Ids.length, pn = 2);
-    this.renderQuestions("phase2", MEMC.phase2Ids);
+    this.renderQuestions("phase2", MEMC.phase2Ids, isRandom = false);
     this.phase2Container = $phase2Container;
     this.phase2Container.hide();
 
@@ -129,7 +129,7 @@ MEMC.renderEmptyCards = function (divId, numQuestion, pn) { // pn = Phase Number
                 `<h5></h5>` +
                 `</div>` +
                 `<div class="col-12 d-flex justify-content-center">` +
-                `<div class="MEMCLabel">1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5</div>` +
+                `<div class="MEMCLabel" id=label-${pn}-${i * 6 + j}>1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5</div>` +
                 `<group class="inline-radio MEMCbutton">` +
                 `<input type="radio" value="1" id="fisrtOP-${i * 6 + j}" name="amplitude-${pn}-${i * 6 + j}" autocomplete="off"/>&nbsp` +
                 `<input type="radio" value="2" id="secondOP-${i * 6 + j}" name="amplitude-${pn}-${i * 6 + j}" autocomplete="off"/>&nbsp` +
@@ -155,7 +155,7 @@ MEMC.renderEmptyCards = function (divId, numQuestion, pn) { // pn = Phase Number
  * @param {boolean} isRandom - whether to randomly render
  * @return {null}
  */
-MEMC.renderQuestions = function (containerId, questionIds, isRandom = true) {
+MEMC.renderQuestions = function (containerId, questionIds, isRandom) {
 
     let $memcContainer = $(`#${containerId}`); // The questionnaire container
     let $cards = $memcContainer.find(".question-card");
@@ -180,7 +180,7 @@ MEMC.renderQuestions = function (containerId, questionIds, isRandom = true) {
  */
 MEMC.shuffle = function () {
     // Re-render the questions
-    this.renderQuestions("phase1", MEMC.phase1Ids);
+    this.renderQuestions("phase1", MEMC.phase1Ids, isRandom = true);
     // clear the selections.
     this.clear();
 }
@@ -231,6 +231,12 @@ MEMC.toggle = function () {
         // adjust the card height/ width for phase 2
         $(".MEMCCard").removeClass("col-sm-2");
         $(".MEMCCard").addClass("col-sm-6");
+
+        // customized label
+        $("#label-2-2").html("Human&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAI");
+        $("#label-2-1").html("1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5");
+        // $(".TuringLabel").show();
+        $("#secondOP-2, #thirdOP-2, #fourthOP-2").addClass("hidebutton");
         this.phase1Container.hide();
         this.phase2Container.show();
     } else {
@@ -239,6 +245,10 @@ MEMC.toggle = function () {
         $(".MEMCCard").removeClass("col-sm-6");
         $(".MEMCCard").addClass("col-sm-2");
         $('#btn-play').removeClass("once-button");
+
+        // $(".TuringLabel").show();
+        $(".MEMCLabel").html("1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5");
+        $("#secondOP-2, #thirdOP-2, #fourthOP-2").removeClass("hidebutton");
         this.phase1Container.show();
         this.phase2Container.hide();
     }

@@ -90,7 +90,7 @@ $ip = get_client_ip();
                 <li>minimize/ maxmize the active window during the experiment
                 <li>become idle for more than 5 minutes
             </ol>
-            <p>In doing so, you will drop out of the experiment.
+            <p>In doing so, we will drop you out of the experiment.
                 <span class="highlight"> You will not get any payment in that case. </span> </p>
             <p><b>Benefit</b>: You will receive <span class="highlight"> $5.0 </span> if you successfully
                 complete
@@ -103,7 +103,7 @@ $ip = get_client_ip();
                 experiments will not be used for any commercial purposes. </p>
             <p><b>Other Ethical Issues</b>:
                 <br />(1) This research is self-financed.
-                <br />(2) The has been approved by Research Ethics Office of National Taiwan University.
+                <br />(2) This study has been approved by Research Ethics Office of National Taiwan University.
                  You can e-mail the office if you have further questions (nturec@ntu.edu.tw).
                 <br />(3) There is no potential risk in this study. However, you have the right to decline to answer any or all questions. You may
                 terminate your involvement at any time if you choose to. </p>

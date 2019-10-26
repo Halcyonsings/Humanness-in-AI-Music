@@ -4,8 +4,21 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/avoidJump.php";
+include "db/avoidJump.php";
 
+// Assign a MD5 code from PHP
+$csvfile = "md5 Mturk Code.csv";
+$file_handle = fopen($csvfile, "r");
+$line_of_text = array();
+
+while (!feof($file_handle) ) {
+    $line_of_text[] = fgetcsv($file_handle, 1024);
+}
+fclose($file_handle);
+
+// Random Row
+$random_row = array_rand($line_of_text);
+// echo $line_of_text[$random_row][0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,10 +54,10 @@ $user_json = $_SESSION['userObj'];
     <link rel="stylesheet" type="text/css" href="css/4_demographics/demographics_style.css">
     <link rel="stylesheet" type="text/css" href="css/4_demographics/MusicSurvey_style.css">
 
-    <script type="text/javascript" src="js/globalsetting.js"></script>
     <script type="text/javascript">
-        // 4-digits number generator
-        Mturkcode = Math.floor(1000 + Math.random() * 9000);
+
+        Mturkcode = <?php echo json_encode($line_of_text[$random_row][0]);?>;
+        // alert(Mturkcode);
 
     </script>
     <title>NTU Music Study</title>
@@ -93,11 +106,12 @@ $user_json = $_SESSION['userObj'];
                 </div>
                 <hr />
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">4. You identify yourself as _____.</div>
+                    <div class="anchor_descrp">4. Please indicate your level of experience with music performance.</div>
                     <div class="MAAB_res_block">
                         <div class="b"><input type="radio" name="self_image" value="Professional Musician"> Professional Musician <br></div>
-                        <div class="b"><input type="radio" name="self_image" value="Experienced Amateur"> Experienced Amateur/ Conservatory Level <br></div>
-                        <div class="b"><input type="radio" name="self_image" value="Layman"> Layman/ Non-music Lover <br></div>
+                        <div class="b"><input type="radio" name="self_image" value="Conservatory Level"> Conservatory Level <br></div>
+                        <div class="b"><input type="radio" name="self_image" value="Childhood"> Childhood <br></div>
+                        <div class="b"><input type="radio" name="self_image" value="None"> None <br></div>
                     </div>    
                 </div>
                 <hr />
@@ -125,7 +139,6 @@ $user_json = $_SESSION['userObj'];
                 <div class="anchor_opinion_area">
                     <div class="anchor_descrp">8. Please provide detail of your music experience (e.g., diplomas, awards, musical ensembles). (Optional) </div>
                     <textarea rows="5" name="music_experience" id="MusicExperience" class="MusicExperience"></textarea>
-                    <small id="MusicExpHelp" class="form-text text-muted">To avoid automatically exit the experiment, <span class="highlight">do not copy the profile from other tabs or files</span></small>
                 </div>
                 <hr />
                 <!-- music genres categorize same as AllMusic 2019: https://www.allmusic.com/genres -->
@@ -209,8 +222,6 @@ $user_json = $_SESSION['userObj'];
                         <input type="text" class="form-control" name="ZipCode" id="postcode" pattern="[0-9]{5}"
                             title="Five digit zip code">
                         <small id="ZipHelp1" class="form-text text-muted">Please fill in a 5-digit number</small>
-                        <small id="ZipHelp2" class="form-text text-muted">To avoid automatically exit the experiment, <span class="highlight">
-                             do not search information from other tabs</span></small>
                     </div>
                 </div>
                 <div class="row item-container">
@@ -272,5 +283,52 @@ $user_json = $_SESSION['userObj'];
 </body>
 <script type="text/javascript" src="js/checkItem.js"></script>
 <script type="text/javascript" src="js/4_demo/animation.js"></script>
+<script>
+// "globalsetting.js" without automatically dropping subjects
+//detect idle time
+var idleTime = 0;
+var inattention = 0;
+var idleInterval;
 
+$(document).ready(function () {
+    // disable the key "back to last page"
+    // the drop out subjects cannot come back to experiment
+    window.history.forward(1);
+
+
+    document.oncontextmenu = function () {
+        window.event.returnValue = false; // block mouse right key
+    }
+
+    //Increment the idle time counter every minute.
+    idleInterval = setInterval(timerIncrement, 60000); // 60 sec
+    // console.log("what is your function?", idleInterval)
+
+    //Zero the idle timer on mouse movement.
+    $(this).mousemove(function (e) {
+        idleTime = 0;
+        clearInterval(idleInterval);
+        idleInterval = setInterval(timerIncrement, 60000); // 60 sec
+        // console.log("reset", idleTime);
+    });
+
+});
+
+function timerIncrement() {
+    idleTime = idleTime + 1;
+    console.log(idleTime);
+    if (idleTime > 4) { // about 5 minutes
+        alert("There has been no response for 5 miniutes. You will automatically exit the experiment.");
+        inattention = inattention + 1;  //record inatteional subjects
+        console.log("Times", inattention)
+        // drop the subject if he idle too many times. 
+        if (inattention > 0) {
+            window.onbeforeunload = null;
+            window.location = "https://www.mturk.com/"
+        }
+    }
+}
+
+
+</script>
 </html>

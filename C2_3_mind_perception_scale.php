@@ -4,7 +4,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/avoidJump.php";
+include "db/C2_avoidJump.php";
 
 
 ?>
@@ -23,24 +23,20 @@ $user_json = $_SESSION['userObj'];
     <!-- my js -->
     <script type="text/javascript" src="js/globalsetting.js"></script>
     <script type="text/javascript" src="js/checkItem.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
     <!-- <script type="text/javascript" src="js/3_mind_perception_scale/MP_content.js"></script>
     <script type="text/javascript" src="js/3_mind_perception_scale/animation_MP.js"></script> -->
     <!-- my css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="stylesheet" href="css/jspsych.css">
 
     <link rel="stylesheet" type="text/css" href="css/main_modules.css">
-    <link rel="stylesheet" href="css/MP_range_bar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/3_mind_perception_scale/MP_AC.css" rel="stylesheet" />
 
-    <style type="text/css">
-        .AC_res_block {
-            line-height: 24px;
-        }
-
-        .Attention_check_descrp {
-            margin-bottom: 10px
-        }
-    </style>
 </head>
 <title>NTU Music Study</title>
 
@@ -52,10 +48,8 @@ $user_json = $_SESSION['userObj'];
             <article class="intro-article">
                 <div class="a">
                     The purpose of this questionnaire is to know your setting and condition during the experiment.
-                    Please answer the following eight questions. <span class="highlight"> The amount of your
-                        compensation
-                        for participation in our experiment does NOT depend on your response to the questions. </span>
-                    <!-- "&nbsp;" creates space in HTML5 -->
+                    Please answer the following eight questions. <span class="highlight"> Your answers will not affect your 
+                    received payment. Please answer honestly.</span>
                 </div>
             </article>
 
@@ -78,8 +72,7 @@ $user_json = $_SESSION['userObj'];
             <hr>
             <div class="Attention_check_area">
                 <div class="Attention_check_descrp">2. Did you wear headphones while listening to the clips
-                    in the listening session? Please
-                    answer honestly. </div>
+                    in the listening session? </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC2" value="Yes">Yes
                     <BR>
@@ -88,10 +81,7 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">3. Subjects participate in this experiment in many different places.
-                    Please
-                    tell
-                    us about the place where you completed this experiment. Please answer honestly. </div>
+                <div class="Attention_check_descrp">3. Please tell us about the place where you completed this experiment. </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC3" value="very noisy">I worked on this experiment in
                     a very
@@ -116,12 +106,8 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">4. Subjects participate in this experiment with many different
-                    devices,
-                    browsers,
-                    and internet connection speeds. Please tell us whether you had difficulty loading the sounds.
-                    Please answer
-                    honestly.</div>
+                <div class="Attention_check_descrp">4. Please tell us whether you had difficulty loading the sounds.
+                    </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC4" value="all">There were problems loading all of the
                     sounds
@@ -138,8 +124,7 @@ $user_json = $_SESSION['userObj'];
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">5. How carefully did you complete this survey? Please answer
-                    honestly.</div>
+                <div class="Attention_check_descrp">5. How carefully did you complete this survey? </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC5" value="Not at all">Not at all carefully
                     <BR>
@@ -155,8 +140,7 @@ $user_json = $_SESSION['userObj'];
             <hr>
             <div class="Attention_check_area">
                 <div class="Attention_check_descrp">6. Did you smoke tobacco (e.g., a puff of cigarette, cigar, pipe,
-                    etc)
-                    in the <span class="highlight"> past one hour</span>? Please answer honestly.</div>
+                    etc)<span class="highlight"> during or right before the experiment</span>? </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC6" value="Yes">Yes
                     <BR>
@@ -166,7 +150,7 @@ $user_json = $_SESSION['userObj'];
             <hr>
             <div class="Attention_check_area">
                 <div class="Attention_check_descrp">7. Did you consume alcohol in the <span class="highlight"> past 12
-                        hours</span>? Please answer honestly.
+                        hours</span>? 
                 </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC7" value="Yes">Yes

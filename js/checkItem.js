@@ -24,7 +24,7 @@ function checkRadios(itemAmout) {
         }
     }
     if (counter == 0) { return "finished" }
-    else { alert('Question ' + unanswerQ + ' is not answered.'); } // show unanswered questions at the same time
+    else { alert('Please answer Question ' + unanswerQ + '.'); } // show unanswered questions at the same time
 }
 
 // checking range item
@@ -42,64 +42,64 @@ function checkRadios(itemAmout) {
 // }
 
 validMAAB = {
-    "listening_hours": function () { // question 1
+    "1": function () { // question 1:listening_hours
         if (isNaN(parseInt($("input[name='listening_hours']").val()))) {
-            alert("Please enter your listening hours.");
+            console.log("Please enter your listening hours.");
         } else {
             return "finished"
         }
         $("input[name='listening_hours']").val()
     },
-    "spend_money": function () { // question 2
+    "2": function () { // question 2:spend_money
         if (isNaN(parseInt($("input[name='spend_money']").val()))) {
-            alert("Please enter how much do you spend.");
+            console.log("Please enter how much do you spend.");
         } else {
             return "finished"
         }
         $("input[name='spend_money']").val()
     },
-    "source": function () { // question 3
+    "3": function () { // question 3:source
         if ($("input[name='source']:checked").val() == undefined) {
-            alert("Please select your music source.");
+            console.log("Please select your music source.");
         } else {
             return "finished"
         }
     },
-    "self_image": function () { // question 4
+    "4": function () { // question 4:self_image
         if ($("input[name='self_image']:checked").val() == undefined) {
-            alert("Please indicate your identity.");
+            console.log("Please indicate your identity.");
         } else {
             return "finished"
         }
     },
-    "instrument": function () { // question 5
+    "5": function () { // question 5:instrument
         var text_instrument = $("input[name='instrument']").val();
         if (text_instrument == null || text_instrument == "") {
-            alert("Please indicate your major instruments.");
+            console.log("Please indicate your major instruments.");
         } else {
             return "finished"
         }
         $("input[name='training_min']").val();
     },
-    "training_yr": function () { // question 6
+    "6": function () { // question 6:training_yr
         if (isNaN(parseInt($("input[name='training_yr']").val()))) {
-            alert("Please enter your training years.");
+            console.log("Please enter your training years.");
         } else {
             return "finished"
         }
         $("input[name='training_yr']").val();
     },
-    "training_min": function () { // question 7
+    "7": function () { // question 7:training_min
         if (isNaN(parseInt($("input[name='training_min']").val()))) {
-            alert("Please enter your practicing minutes.");
+            console.log("Please enter your practicing minutes.");
         } else {
             return "finished"
         }
         $("input[name='training_min']").val();
     },
-    "genre": function () { // question 9
+    "9": function () { // question 9:genre
         if ($("input[name='genre']:checked").val() == undefined) {
-            alert("Please select the music genres you like.");
+            console.log("Please select the music genres you like.");
         } else {
             return "finished"
         }
@@ -180,7 +180,7 @@ function checkAllMAAB() {
     if (counter == 0) {
         return "allFinished"
     } else {
-        alert('Question ' + unanswerMAAB + ' is not answered.');
+        alert('Please answer Question ' + unanswerMAAB + '.');
     } // show unanswered questions at the same time
 
 }

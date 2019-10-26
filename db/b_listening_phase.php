@@ -25,7 +25,7 @@ $allRT = $_POST["allRT"];
 $inattention = $_POST["inattentionP2"];
 $hurrySubject = $_POST["hurrySubject"];
 
-$sql = "INSERT INTO C1_Listening (uid, `L-playTime`, `L-allAnswers`,`L-allRT`, `L-finishedTime`, `L-hurrySubject`, `L-inattention`, 'L-reapeatedTimes') VALUES ('$uid', '$playTime','$allAnswers', '$allRT', '$finishedTime', '$hurrySubject', '$inattention', '$repeated')";
+$sql = "INSERT INTO C1_Listening (uid, `L-playTime`, `L-allAnswers`,`L-allRT`, `L-finishedTime`, `L-hurrySubject`, `L-inattention`, `L-reapeatedTimes`) VALUES ('$uid', '$playTime','$allAnswers', '$allRT', '$finishedTime', '$hurrySubject', '$inattention', '$repeated')";
 
 // SQL - updating the data of status table 
 $sql_udate_status = "UPDATE `C1_user-status` SET q2_L = '1' WHERE uid = '$uid'";
