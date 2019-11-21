@@ -237,6 +237,12 @@ div.a {
     color: #33A6B8;
 }
 
+.warning{
+    /* font-size: 20px; */
+    font-weight: bold;
+    color: #db2d43;
+}
+
 /* solve Safari Bootstrap conflict */
 .row:before, .row:after {display: none !important;}
 

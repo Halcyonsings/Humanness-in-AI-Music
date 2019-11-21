@@ -1,4 +1,11 @@
 <?php
+// server should keep session data for AT LEAST 1 hour
+ini_set('session.gc_maxlifetime', 3600);
+
+// each client should remember their session id for EXACTLY 1 hour
+session_set_cookie_params(3600);
+
+
 session_start();
 $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
@@ -71,6 +78,10 @@ if (isset($_SESSION['count'])){
         .hidebutton {
             visibility: hidden;
         }
+
+        li{
+            padding-top: 10px;
+        }
     </style>
 </head>
 
@@ -108,7 +119,7 @@ if (isset($_SESSION['count'])){
                                     <li>In the questionnaire, you will have to answer 28 items. Please rate each music
                                         clip according to your feelings or musical features on a scale ranging from 1 (not at
                                         all) to 5 (very much). </li>
-                                    <li>Each excerpt is composed by human or artificial intelligence (AI). At the second
+                                    <li>Each excerpt is composed by <span class="highlight"> human or artificial intelligence (AI)</span>. At the second
                                          stage of the questionnaire, please indicate whether it is by human or AI in your judgment.</li>
                                 </ol>
                             </article>
@@ -230,6 +241,7 @@ if (isset($_SESSION['count'])){
             musicintro.onexit(function () {
                 // alert("Hi");
                 $('#btn-play').removeClass("once-button");
+                $('#MEMCguide').hide(300);
             });
 
             // musicintro.onbeforeexit(function() {

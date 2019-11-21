@@ -1,4 +1,11 @@
 <?php
+// server should keep session data for AT LEAST 1 hour
+ini_set('session.gc_maxlifetime', 3600);
+
+// each client should remember their session id for EXACTLY 1 hour
+session_set_cookie_params(3600);
+
+
 session_start();
 $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
@@ -65,10 +72,14 @@ $MturkCode = $_SESSION["MturkToken"];
                 <p class="form-t1 text-center">The End</p>
                 <article class="intro-article">
                     <div class="a">The experiment is now complete. Thank you for participating in our experiment. Please click on the Amazon Mechanical Turk tab
-                    and enter the 32-digit number below on Amazon Mechanical Turk to get the reward.
+                    and enter the 4-digit number below on Amazon Mechanical Turk to get the reward.
                     </div>
                 </article>
                 <span class="highlight"><?php echo $MturkCode;?> </span><br>
+                <br>
+                <article class="intro-article">
+                    <div class="a"> <span class="highlight">Do not share the code on forums or social media. </span> Mturk IDs which are not recorded in our database might not get the reward.
+                </article>
                 <br>
                 <br>
                 <br>

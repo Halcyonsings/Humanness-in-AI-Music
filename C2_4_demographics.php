@@ -1,4 +1,11 @@
 <?php
+// server should keep session data for AT LEAST 1 hour
+ini_set('session.gc_maxlifetime', 3600);
+
+// each client should remember their session id for EXACTLY 1 hour
+session_set_cookie_params(3600);
+
+
 session_start();
 $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
@@ -7,7 +14,7 @@ $user_json = $_SESSION['userObj'];
 // include "db/C2_avoidJump.php";
 
 // Assign a MD5 code from PHP
-$csvfile = "md5 Mturk Code.csv";
+$csvfile = "4digit Mturk Code.csv";
 $file_handle = fopen($csvfile, "r");
 $line_of_text = array();
 
@@ -148,30 +155,29 @@ $random_row = array_rand($line_of_text);
                         that apply)</div>
                     <div class="MAAB_res_block">
                         <ul class="checkboxes">
-                            <li><input type="checkbox" name="genre" id="type1" value="Avant-Garde"> Avant-Garde<br></li>
-                            <li><input type="checkbox" name="genre" id="type2" value="Blues"> Blues<br></li>
-                            <li><input type="checkbox" name="genre" id="type3" value="Children"> Children's<br></li>
-                            <li><input type="checkbox" name="genre" id="type4" value="Classical Opera"> Classical/ Opera<br>
+                            <li title="E.g., John Zorn, Steve Reich, Brian Eno"><input type="checkbox" name="genre" id="type1" value="Avant-Garde"> Avant-Garde<br></li>
+                            <li title="E.g., B.B. King, John Lee Hooker, Bessie Smith"><input type="checkbox" name="genre" id="type2" value="Blues"> Blues<br></li>
+                            <li title="E.g., Raffi, They Might Be Giants, Dan Zanes"><input type="checkbox" name="genre" id="type3" value="Children"> Children's<br></li>
+                            <li title="E.g., Yo-Yo Ma, Glenn Gould, Philip Glass, John Adams"><input type="checkbox" name="genre" id="type4" value="Classical Opera"> Classical/ Opera<br>
                             </li>
-                            <li><input type="checkbox" name="genre" id="type5" value="Comedy Spoken"> Comedy/ Spoken<br>
+                            <li title="E.g., Weird Al, David Cross, Spinal Tap, George Carlin"><input type="checkbox" name="genre" id="type5" value="Comedy Spoken"> Comedy/ Spoken<br>
                             </li>
-                            <li><input type="checkbox" name="genre" id="type6" value="Country"> Country<br></li>
-                            <li><input type="checkbox" name="genre" id="type7" value="EasyListening"> Easy Listening<br>
-                            </li>
-                            <li><input type="checkbox" name="genre" id="type8" value="Electronic"> Electronic<br></li>
-                            <li><input type="checkbox" name="genre" id="type9" value="Folk"> Folk<br></li>
-                            <li><input type="checkbox" name="genre" id="type10" value="Holiday"> Holiday<br></li>
-                            <li><input type="checkbox" name="genre" id="type11" value="International"> International<br></li>
-                            <li><input type="checkbox" name="genre" id="type12" value="Jazz"> Jazz<br></li>
-                            <li><input type="checkbox" name="genre" id="type13" value="Latin"> Latin<br></li>
-                            <li><input type="checkbox" name="genre" id="type14" value="NewAge"> New Age<br></li>
-                            <li><input type="checkbox" name="genre" id="type15" value="Pop Rock"> Pop/ Rock<br></li>
-                            <li><input type="checkbox" name="genre" id="type16" value="R&B Soul"> R&B/ Soul<br></li>
-                            <li><input type="checkbox" name="genre" id="type17" value="Rap"> Rap<br></li>
-                            <li><input type="checkbox" name="genre" id="type18" value="Reggae"> Reggae<br></li>
-                            <li><input type="checkbox" name="genre" id="type19" value="Religious"> Religious<br></li>
-                            <li><input type="checkbox" name="genre" id="type20" value="Stage Screen"> Stage/ Screen<br></li>
-                            <li><input type="checkbox" name="genre" id="type21" value="Vocal"> Vocal<br></li>
+                            <li title="E.g., Taylor Swift, Johnny Cash, Steve Earle"><input type="checkbox" name="genre" id="type6" value="Country"> Country<br></li>
+                            <li title="E.g., Esquivel, Ray Conniff, Henry Mancini"><input type="checkbox" name="genre" id="type7" value="EasyListening"> Easy Listening<br></li>
+                            <li title="E.g., Moby, Kraftwerk, Daft Punk, Girl Talk"><input type="checkbox" name="genre" id="type8" value="Electronic"> Electronic<br></li>
+                            <li title="E.g., Bob Dylan, Allison Krauss, Fairport Convention"><input type="checkbox" name="genre" id="type9" value="Folk"> Folk<br></li>
+                            <li title="E.g., Trans-Siberian Orchestra, Mannheim Steamroller"><input type="checkbox" name="genre" id="type10" value="Holiday"> Holiday<br></li>
+                            <li title="E.g., The Pogues, Fela, Serge Gainsbourg"><input type="checkbox" name="genre" id="type11" value="International"> International<br></li>
+                            <li title="E.g., John Coltrane, Ella Fitzgerald, Miles Davis"><input type="checkbox" name="genre" id="type12" value="Jazz"> Jazz<br></li>
+                            <li title="E.g., Shakira, Willie Colon, Pitbull, Los Lobos"><input type="checkbox" name="genre" id="type13" value="Latin"> Latin<br></li>
+                            <li title="E.g., Enya, George Winston, Dead Can Dance"><input type="checkbox" name="genre" id="type14" value="NewAge"> New Age<br></li>
+                            <li title="E.g., U2, The White Stripes, Lady Gaga, Chuck Berry"><input type="checkbox" name="genre" id="type15" value="Pop Rock"> Pop/ Rock<br></li>
+                            <li title="E.g., Alicia Keys, Marvin Gaye, Drake, The Drifters"><input type="checkbox" name="genre" id="type16" value="R&B Soul"> R&B/ Soul<br></li>
+                            <li title="E.g., Public Enemy, Eminem, De La Soul, The Roots"><input type="checkbox" name="genre" id="type17" value="Rap"> Rap<br></li>
+                            <li title="E.g., Bob Marley, Black Uhuru, UB40, Shaggy"><input type="checkbox" name="genre" id="type18" value="Reggae"> Reggae<br></li>
+                            <li title="E.g., Mahalia Jackson, dc Talk, Amy Grant, Kirk Franklin"><input type="checkbox" name="genre" id="type19" value="Religious"> Religious<br></li>
+                            <li title="E.g., Danny Elfman, John Williams, Nino Rota, Eminem"><input type="checkbox" name="genre" id="type20" value="Stage Screen"> Stage/ Screen<br></li>
+                            <li title="E.g., Norah Jones, Frank Sinatra, Michael Buble"><input type="checkbox" name="genre" id="type21" value="Vocal"> Vocal<br></li>
                         </ul>
                     </div>
                 </div>
@@ -222,6 +228,14 @@ $random_row = array_rand($line_of_text);
                         <input type="text" class="form-control" name="ZipCode" id="postcode" pattern="[0-9]{5}"
                             title="Five digit zip code">
                         <small id="ZipHelp1" class="form-text text-muted">Please fill in a 5-digit number</small>
+                    </div>
+                </div>
+                <div class="row item-container">
+                    <div class="col-md-4 formLabel">Mturk Worker ID</div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" name="MturkWorkerID" id="MturkWorkerID">
+                        <small id="MturkHelp" class="form-text text-muted">Please enter correctly. Otherwise, 
+                        <span class="highlight">you might not receive reward.</small></span>
                     </div>
                 </div>
                 <div class="row item-container">

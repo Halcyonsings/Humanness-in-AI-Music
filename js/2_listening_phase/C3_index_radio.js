@@ -54,7 +54,7 @@ $.ajax({
         BHCslowpair = [6, 30];
         BHCMovThreeminor = [7, 32];
         BHCMovThreemajor = [8, 31];
-        // BHCpair = random_item([BHCMovOne, BHCslowpair, BHCMovThreeminor, BHCMovThreemajor]);
+        BHCpair = random_item([BHCMovOne, BHCslowpair, BHCMovThreeminor, BHCMovThreemajor]);
         // console.log("BHC Pair", BHCpair);
 
         AIBHImajor = shuffle([10, 12]).slice(0, 1);
@@ -63,21 +63,21 @@ $.ajax({
         AIBHIminor = shuffle([9, 11]).slice(0, 1);
         HBHIminor = shuffle([34, 36]).slice(0, 1); // BMV778 = Invention 7; BMV784 = Invention 13
         BHIminorpair = AIBHIminor.concat(HBHIminor);
-        // BHIpair = random_item([BHImajorpair, BHIminorpair]);
+        BHIpair = random_item([BHImajorpair, BHIminorpair]);
         // console.log("BHIpair", BHIpair);
 
         MSMovOne = [13, 37];
         MSMovTwo = [14, 38];
         MSMovThree = [15, 39];
         MSMovFour = [16, 40];
-        // MSpair = random_item([MSMovOne, MSMovTwo, MSMovThree, MSMovFour]);
+        MSpair = random_item([MSMovOne, MSMovTwo, MSMovThree, MSMovFour]);
         // console.log("MSpair", MSpair);
 
         AIMPCfast = shuffle([17, 18, 20]).slice(0, 1);
         HMPCfast = shuffle([41, 43, 44]).slice(0, 1);
         MPCslowpair = [19, 42];
         MPCfastpair = AIMPCfast.concat(HMPCfast);
-        // MPCpair = random_item([MPCslowpair, MPCfastpair, MPCfastpair, MPCfastpair]);
+        MPCpair = random_item([MPCslowpair, MPCfastpair, MPCfastpair, MPCfastpair]);
         // console.log("MPC Pair", MPCpair);
 
         AIMPSfast = shuffle([21, 24]).slice(0, 1);
@@ -85,11 +85,10 @@ $.ajax({
         MPSfastpair = AIMPSfast.concat(HMPSfast);
         MPSslowmajorpair = [23, 47];
         MPSslowminorpair = [22, 48];
-        // MPSpair = random_item([MPSfastpair, MPSfastpair, MPSslowmajorpair, MPSslowminorpair]);
+        MPSpair = random_item([MPSfastpair, MPSfastpair, MPSslowmajorpair, MPSslowminorpair]);
         // console.log("MPS Pair", MPSpair);
 
-        sampledIDs = BBCpair
-        // .concat(BHCpair).concat(BHIpair).concat(MSpair).concat(MPCpair).concat(MPSpair)
+        sampledIDs = BBCpair.concat(BHCpair).concat(BHIpair).concat(MSpair).concat(MPCpair).concat(MPSpair)
 
 
 
@@ -159,7 +158,7 @@ function DelayMEMC() {
     // temp = ClipDur
     $('#memc').delay(ClipDur).show(300);
     $('#MEMCscale').delay(ClipDur).show(300).scrollTop(0);
-    $('#MEMCguide').delay(ClipDur).hide(300);
+    // $('#MEMCguide').delay(ClipDur).hide(300);
     $('#music-section').delay(ClipDur).hide(300);
     $('html, body').animate({
         scrollTop: $('#memc').offset().top - 300

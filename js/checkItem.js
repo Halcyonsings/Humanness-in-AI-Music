@@ -141,6 +141,15 @@ validateDemo = {
             return "finished"
         }
     },
+    "MturkWorkerID": function () {
+        var text_workerID = $("input[name='MturkWorkerID'").val();
+        if (text_workerID == null || text_workerID == "") {
+            alert("Please indicate your Mturk Worker ID.");
+        } else {
+            return "finished"
+        }
+        $("input[name='MturkWorkerID']").val();
+    },
     "edu": function () {
         if ($("select[name='education']").val() == "--Please Select--") {
             alert("Please select your education level.");

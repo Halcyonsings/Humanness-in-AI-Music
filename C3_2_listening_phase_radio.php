@@ -67,6 +67,15 @@ if (isset($_SESSION['count'])){
     <!-- Add IntroJs styles -->
     <link href="css/introjs.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hidebutton {
+            visibility: hidden;
+        }
+
+        li{
+            padding-top: 10px;
+        }
+    </style>
 </head>
 
 <!-- to fix music stop when adjusting the screen -->
@@ -100,10 +109,10 @@ if (isset($_SESSION['count'])){
                                     <li>You cannot skip any music clips. Each music clip will be <span
                                             class="highlight"> played once and only
                                             once.</span> So please listen carefully.</li>
-                                    <li>In the questionnaire, you will have to answer 27 items. Please rate each music
+                                    <li>In the questionnaire, you will have to answer 28 items. Please rate each music
                                         clip according to your feelings or musical features on a scale ranging from 1 (not at
                                         all) to 5 (very much). </li>
-                                    <li>Each excerpt is composed by human or artificial intelligence (AI). The
+                                    <li>Each excerpt is composed <span class="highlight">by human or artificial intelligence (AI)</span>. The
                                         information of the composer is shown above the soundwave.</li>
                                 </ol>
                             </article>
@@ -192,7 +201,7 @@ if (isset($_SESSION['count'])){
 
     <!-- Custom JS -->
     <script type="text/javascript" src="js/globalsetting.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/memc_radio.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/C3_memc_radio.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/music.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/C3_index_radio.js"></script>
     <script>
@@ -228,6 +237,7 @@ if (isset($_SESSION['count'])){
             musicintro.onexit(function () {
                 // alert("Hi");
                 $('#btn-play').removeClass("once-button");
+                $('#MEMCguide').hide(300);
                 // Condition 3: Information of Author
                 $('#curr-author').html(authorList[currentTrial - 1]);
             });

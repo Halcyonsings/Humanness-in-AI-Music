@@ -84,14 +84,14 @@ $ip = get_client_ip();
                 listening session, you will be given some surveys.</p>
             <p><b>Duration</b>:
                 It will take about <span class="highlight"> 40 minutes </span> to complete all the tasks. Please
-                concentrate on the instructions and questions on the screen. Do not: </p>
+                concentrate on the instructions and questions on the screen. <span class="warning">Do not: </p></span>
             <ol>
-                <li>open other tabs
-                <li>minimize/ maxmize the active window during the experiment
-                <li>become idle for more than 5 minutes
+                <span class="warning"><li>open other tabs</span> 
+                <span class="warning"><li>minimize/ maxmize the active window during the experiment</span> 
+                <span class="warning"><li>become idle for more than 5 minutes</span> 
             </ol>
             <p>In doing so, we will drop you out of the experiment.
-                <span class="highlight"> You will not get any payment in that case. </span> </p>
+                <span class="warning"> You will not get any payment in that case. </span> </p>
             <p><b>Benefit</b>: You will receive <span class="highlight"> $5.0 </span> if you successfully
                 complete
                 all the tasks in the experiment. </p>
@@ -134,7 +134,7 @@ $ip = get_client_ip();
                 discuss the experiment on the forum such as TurkerNation. <br>
                 <input type="checkbox" class="notice" name="ICnotice2" value="check" id="Know_Exit" /> I know that I
                 will
-                <span class="highlight"> automatically
+                <span class="warning"> automatically
                     exit the experiment without recieving payment</span> if I open other tabs, minimize/ maxmize the active window during the experiment,
                      or become idle for more than 5 minutes.
                 <input type="hidden" name="uid" id="user_id" />

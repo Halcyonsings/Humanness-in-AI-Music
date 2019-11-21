@@ -1,4 +1,10 @@
 <?php
+// server should keep session data for AT LEAST 1 hour
+ini_set('session.gc_maxlifetime', 3600);
+
+// each client should remember their session id for EXACTLY 1 hour
+session_set_cookie_params(3600);
+
 session_start();
 $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
@@ -67,6 +73,12 @@ if (isset($_SESSION['count'])){
     <!-- Add IntroJs styles -->
     <link href="css/introjs.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+    li{
+         padding-top: 10px;
+        }
+    </style>
 </head>
 
 <!-- to fix music stop when adjusting the screen -->
@@ -224,6 +236,7 @@ if (isset($_SESSION['count'])){
             musicintro.onexit(function () {
                 // alert("Hi");
                 $('#btn-play').removeClass("once-button");
+                $('#MEMCguide').hide(300);
             });
 
             // musicintro.onbeforeexit(function() {

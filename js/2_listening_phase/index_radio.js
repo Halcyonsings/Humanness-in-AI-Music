@@ -153,7 +153,7 @@ function DelayMEMC() {
     // temp = ClipDur
     $('#memc').delay(ClipDur).show(300);
     $('#MEMCscale').delay(ClipDur).show(300).scrollTop(0);
-    $('#MEMCguide').delay(ClipDur).hide(300);
+    // $('#MEMCguide').delay(ClipDur).hide(300);
     $('#music-section').delay(ClipDur).hide(300);
     $('html, body').animate({
         scrollTop: $('#memc').offset().top - 300
