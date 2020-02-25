@@ -14,25 +14,24 @@ $conn->set_charset("utf8");//set the charset
 
 // receiving variables
 $uid = $_SESSION['uid'];
-$repeated = $_SESSION['count'];
 $finishedTime = date("Y-m-d H:i:s");
 // echo $startTime;
 
 // receiving variables
-$playTime = $_POST["playTime"];
-$allAnswers = $_POST["allAnswers"];
-$allRT = $_POST["allRT"];
-$inattention = $_POST["inattentionP2"];
-$hurrySubject = $_POST["hurrySubject"];
+$didPass = $_POST["didPass"];
+$totalCorrect = $_POST["totalCorrect"];
+$inattention = $_POST["inattentionP1"];
+$HCAllData = $_POST["HCAllData"];
 
-$sql = "INSERT INTO C1_Listening (uid, `L-playTime`, `L-allAnswers`,`L-allRT`, `L-finishedTime`, `L-hurrySubject`, `L-inattention`, `L-reapeatedTimes`) VALUES ('$uid', '$playTime','$allAnswers', '$allRT', '$finishedTime', '$hurrySubject', '$inattention', '$repeated')";
+$sql = "INSERT INTO E1_HC (uid, `HC-totalCorrect`, `HC-finishedTime` , `HC-inattention`, `HC-All-Data`) VALUES ('$uid', '$totalCorrect', '$finishedTime', '$inattention', '$HCAllData')";
 
 // SQL - updating the data of status table 
-$sql_udate_status = "UPDATE `C1_user-status` SET q2_L = '1' WHERE uid = '$uid'";
+$sql_udate_status = "UPDATE `E1_user-status` SET q1_HC = '1' WHERE uid = '$uid'";
 $conn->query($sql_udate_status);
 
+
 // close and heading to next page
-$path = "/~hsiang/3_mind_perception_scale.php";
+$path = "../E1_2_listening_phase_radio.php";
 
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);

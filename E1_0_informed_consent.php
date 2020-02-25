@@ -80,18 +80,18 @@ $ip = get_client_ip();
             <p>This study is conducted by Modeling & Informatics Lab at Department of Psychology, National Taiwan
                 University. This experiment aims to look into the mechanism of musical perception.</p>
             <p><b>Procedure</b>: In the first session, we will examine whether participants are wearing headphones or
-                not. You will then listen to some music pieces as you simultaneously fill in a questionnaire. Each piece is composed either by human or AI. 
-                After the listening session, you will be given some surveys.</p>
+                not. You will then listen to some music pieces as you simultaneously fill in a questionnaire. After the
+                listening session, you will be given some surveys.</p>
             <p><b>Duration</b>:
                 It will take about <span class="highlight"> 40 minutes </span> to complete all the tasks. Please
-                concentrate on the instructions and questions on the screen. <span class="warning">Do not: </p></span> 
+                concentrate on the instructions and questions on the screen. <span class="warning">Do not: </p></span>
             <ol>
                 <span class="warning"><li>open other tabs</span> 
-                <span class="warning"><li>minimize/ maxmize the active window during the experiment</span> 
+                <span class="warning"><li>minimize/ maximize the active window during the experiment</span> 
                 <span class="warning"><li>become idle for more than 5 minutes</span> 
             </ol>
             <p>In doing so, we will drop you out of the experiment.
-                <span class="highlight"> You will not get any payment in that case. </span> </p>
+                <span class="warning"> You will not get any payment in that case. </span> </p>
             <p><b>Benefit</b>: You will receive <span class="highlight"> $5.0 </span> if you successfully
                 complete
                 all the tasks in the experiment. </p>
@@ -135,10 +135,8 @@ $ip = get_client_ip();
                 <input type="checkbox" class="notice" name="ICnotice2" value="check" id="Know_Exit" /> I know that I
                 will
                 <span class="warning"> automatically
-                    exit the experiment without recieving payment</span> if I open other tabs, minimize/ maxmize the active window during the experiment,
-                     or become idle for more than 5 minutes.<br>
-                <input type="checkbox" class="notice" name="ICnotice3" value="check" id="Not_Discuss" /> The survey will only show up after the music files are completed download. 
-                I know that  <span class="highlight">the experiment might be frozen and not process to the next section because of unstable website connection. </span> <br>      
+                    exit the experiment without receiving payment</span> if I open other tabs, minimize/ maximize the active window during the experiment,
+                     or become idle for more than 5 minutes.
                 <input type="hidden" name="uid" id="user_id" />
                 <input type="hidden" name="ip" id="user_ip" />
                 <input type="hidden" name="browser" id="user_browser" />
@@ -199,7 +197,7 @@ $ip = get_client_ip();
         $('#go_to_consent_btn').click(function () {
         
         window.onbeforeunload = null; 
-        var check = checkNotice(3); 
+        var check = checkNotice(2); 
         if (check == "finished") {
             $("#user_id").attr("value", uid);
             $("#user_ip").attr("value", user_ip);
@@ -209,7 +207,7 @@ $ip = get_client_ip();
             // $("#user_object").attr("value", user_json); 
             
             // form submission 
-            $("form").attr("action", "db/C3_exp_init.php" )
+            $("form").attr("action", "db/exp_init.php" )
             $("form").attr("method", "POST"); 
             $("form").submit();
             }

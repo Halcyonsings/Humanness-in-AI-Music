@@ -10,7 +10,7 @@ $userId = $_SESSION['uid'];
 // $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/C3_avoidJump.php"; close because it will alert reload
+// include "db/avoidJump.php"; close because it will alert reload
 
 ?>
 
@@ -75,7 +75,7 @@ $userId = $_SESSION['uid'];
         // console.log(inattention);
         $("#HC_All_Data").attr("value", results_json);
         // form submission
-        $("form").attr("action", "db/C3_a_headphone.php")
+        $("form").attr("action", "db/a_headphone.php")
         $("form").attr("method", "POST")
         $("form").submit()
         // window.location = "2_listening_phase.html"

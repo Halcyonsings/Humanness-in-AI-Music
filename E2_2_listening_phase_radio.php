@@ -10,7 +10,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/C3_avoidJump.php";
+include "db/avoidJump.php";
 
 // count times of loading the page 
 if (isset($_SESSION['count'])){
@@ -73,13 +73,10 @@ if (isset($_SESSION['count'])){
     <!-- Add IntroJs styles -->
     <link href="css/introjs.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .hidebutton {
-            visibility: hidden;
-        }
 
-        li{
-            padding-top: 10px;
+    <style>
+    li{
+         padding-top: 10px;
         }
     </style>
 </head>
@@ -103,10 +100,10 @@ if (isset($_SESSION['count'])){
                 <section class="col-12" id="instruction-section">
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-8">
-                            <div class="form-t1">Listening Session<span id="currinfo"></span></div>
+                            <div class="form-t1">Listening Session<span id="currinfo"><span></div>
                             <article id="MEMCguide" class="intro-article" data-step="1" data-intro="First, read the notice"
                                 data-position="left">
-                                Please read the notice before listening to the clips:
+                                Please read the notice before listening to the clips:</p>
                                 <ol>
                                     <li>Please<span class="highlight"> wear headphones</span> when listening.</li>
                                     <li>In this section, you will listen to 12 different clips.
@@ -115,11 +112,10 @@ if (isset($_SESSION['count'])){
                                     <li>You cannot skip any music clips. Each music clip will be <span
                                             class="highlight"> played once and only
                                             once.</span> So please listen carefully.</li>
-                                    <li>In the questionnaire, you will have to answer 28 items. Please rate each music
+                                    <li>In the questionnaire, you will have to answer 27 items. Please rate each music
                                         clip according to your feelings or musical features on a scale ranging from 1 (not at
                                         all) to 5 (very much). </li>
-                                    <li>Each excerpt is composed <span class="highlight">by human or artificial intelligence (AI)</span>. The
-                                        information of the composer is shown above the soundwave.</li>
+
                                 </ol>
                             </article>
                         </div>
@@ -129,8 +125,7 @@ if (isset($_SESSION['count'])){
 
                 <!--       The section for music and button group             -->
                 <section class="col-12" id="music-section">
-                    <!-- AI or Human information show here -->
-                    <div class="form-t1"><span id="curr-author"></span> Composer</div>
+
                     <!-- Create a div where the audio waves will be shown -->
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6">
@@ -207,9 +202,9 @@ if (isset($_SESSION['count'])){
 
     <!-- Custom JS -->
     <script type="text/javascript" src="js/globalsetting.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/C3_memc_radio.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/memc_radio.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/music.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/C3_index_radio.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/index_radio.js"></script>
     <script>
         // Avoid closing window
         window.onbeforeunload = function () { return "糟糕！別走！" };
@@ -224,8 +219,6 @@ if (isset($_SESSION['count'])){
 
             // cannot play the music 
             $('#btn-play').addClass("once-button");
-            // Condition 3: Information of Author
-            $('#curr-author').html("Human or AI");
 
             $('.introjs-skipbutton').hide();
             $('.introjs-prevbutton').hide();
@@ -244,8 +237,6 @@ if (isset($_SESSION['count'])){
                 // alert("Hi");
                 $('#btn-play').removeClass("once-button");
                 $('#MEMCguide').hide(300);
-                // Condition 3: Information of Author
-                $('#curr-author').html(authorList[currentTrial - 1]);
             });
 
             // musicintro.onbeforeexit(function() {

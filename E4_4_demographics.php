@@ -5,24 +5,26 @@ ini_set('session.gc_maxlifetime', 3600);
 // each client should remember their session id for EXACTLY 1 hour
 session_set_cookie_params(3600);
 
-
 session_start();
 $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/C2_avoidJump.php";
+include "db/avoidJump.php";
 
-// Assign a SHA1 code from PHP
-$code = exec("head -n1 /home/hsiang/public_html/sha1_Mturk_Code.txt");
+// Assign a MD5 code from PHP
+$csvfile = "md5 Mturk Code.csv";
+$file_handle = fopen($csvfile, "r");
+$line_of_text = array();
 
-if($code){
-    // print($code);
-    exec('sed -ie "1d" /home/hsiang/public_html/sha1_Mturk_Code.txt');
-}   else{
-    print("N/A");
+while (!feof($file_handle) ) {
+    $line_of_text[] = fgetcsv($file_handle, 1024);
 }
+fclose($file_handle);
 
+// Random Row
+$random_row = array_rand($line_of_text);
+// echo $line_of_text[$random_row][0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +62,7 @@ if($code){
 
     <script type="text/javascript">
 
-        Mturkcode = <?php echo json_encode($code);?>;
+        Mturkcode = <?php echo json_encode($line_of_text[$random_row][0]);?>;
         // alert(Mturkcode);
 
     </script>
@@ -228,14 +230,6 @@ if($code){
                     </div>
                 </div>
                 <div class="row item-container">
-                    <div class="col-md-4 formLabel">Mturk Worker ID</div>
-                    <div class="col-md-8">
-                        <input type="text" class="form-control" name="MturkWorkerID" id="MturkWorkerID">
-                        <small id="MturkHelp" class="form-text text-muted">Please enter correctly. Otherwise, 
-                        <span class="highlight">you might not receive reward.</small></span>
-                    </div>
-                </div>
-                <div class="row item-container">
                     <div class="col-4 formLabel">
                         <label for="eduInput">Education Level</label>
                     </div>
@@ -293,7 +287,7 @@ if($code){
 
 </body>
 <script type="text/javascript" src="js/checkItem.js"></script>
-<script type="text/javascript" src="js/4_demo/C2_animation.js"></script>
+<script type="text/javascript" src="js/4_demo/animation.js"></script>
 <script>
 // "globalsetting.js" without automatically dropping subjects
 //detect idle time

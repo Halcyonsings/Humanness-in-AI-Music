@@ -36,6 +36,7 @@ $genre = $_POST["Genre_response"]; // question 9
 $age = $_POST["age"];
 $sex = $_POST["sex"];
 $ZipCode = $_POST["ZipCode"];
+$MturkWorkerID = $_POST["MturkWorkerID"];
 $education = $_POST["education"];
 $race = $_POST["race"];
 $ExpComments = $_POST['ExpComments'];
@@ -47,9 +48,9 @@ $ExpComments = str_replace("'", "''", $ExpComments);
 
 // SQL - to demographics table
 $sql = "INSERT INTO `C3_Demo` (uid, musicListen_hr, cost, source, self_image, instrument, musicTrain_yr, musicTrain_min, music_experience,
- genre, age , sex, zip_code, education, race, Exp_Comments, `D-finishedTime`, `D-inattention`, MturkNum) VALUES
+ genre, age , sex, zip_code, MturkWorkerID, education, race, Exp_Comments, `D-finishedTime`, `D-inattention`, MturkNum) VALUES
  ('$uid', '$listening_hours', '$spend_money', '$source', '$self_image', '$instrument', '$musicTrain_yr', '$musicTrain_min', '$music_experience',
-  '$genre', '$age', '$sex', '$ZipCode', '$education', '$race','$ExpComments', '$finishedTime', '$inattention', '$MturkToken')";
+  '$genre', '$age', '$sex', '$ZipCode', '$MturkWorkerID', '$education', '$race','$ExpComments', '$finishedTime', '$inattention', '$MturkToken')";
 
 // SQL - updating finishing time
 $sql_udate_time = "UPDATE `C3_user-profile` SET  `time-end` = '$finishedTime' WHERE uid = '$uid'";

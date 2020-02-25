@@ -11,7 +11,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/C2_avoidJump.php";
+include "db/C2_avoidJump.php";
 
 // count times of loading the page 
 if (isset($_SESSION['count'])){

@@ -8,6 +8,12 @@ include "db/C3_avoidJump.php";
 
 $MturkCode = $_SESSION["MturkToken"];
 // echo $MturkCode
+
+// for ($i=5487;$i<9487;$i++){
+//     // echo sha1($i)."<br />\n"; 
+//     echo hash('tiger192,3', $i)."<br />\n";
+//      }
+ 
 ?>
 
 <!DOCTYPE html>
@@ -65,10 +71,14 @@ $MturkCode = $_SESSION["MturkToken"];
                 <p class="form-t1 text-center">The End</p>
                 <article class="intro-article">
                     <div class="a">The experiment is now complete. Thank you for participating in our experiment. Please click on the Amazon Mechanical Turk tab
-                    and enter the 32-digit number below on Amazon Mechanical Turk to get the reward.
+                    and enter the 48-digit number below on Amazon Mechanical Turk to get the reward.
                     </div>
                 </article>
                 <span class="highlight"><?php echo $MturkCode;?> </span><br>
+                <br>
+                <article class="intro-article">
+                    <div class="a"> <span class="highlight">Do not share the code on forums or social media. </span> Mturk IDs which are not recorded in our database might not get the reward.
+                </article>
                 <br>
                 <br>
                 <br>

@@ -233,7 +233,7 @@ MEMC.toggle = function () {
         $(".MEMCCard").addClass("col-sm-6");
 
         // customized label
-        $("#label-2-2").html("&nbspH&nbsp&nbsp&nbsp&nbsp&nbspAI&nbsp&nbsp&nbspDo not remember").css("width", "85px");;
+        $("#label-2-2").html("&nbspH&nbsp&nbsp&nbsp&nbsp&nbspAI&nbsp&nbsp&nbspForget").css("width", "85px");;
         $("#label-2-1").html("1&nbsp&nbsp2&nbsp&nbsp3&nbsp&nbsp4&nbsp&nbsp5");
         // $(".TuringLabel").show();
         $("#secondOP-2, #fourthOP-2").addClass("hidebutton");

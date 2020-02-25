@@ -72,7 +72,7 @@ $MturkCode = $_SESSION["MturkToken"];
                 <p class="form-t1 text-center">The End</p>
                 <article class="intro-article">
                     <div class="a">The experiment is now complete. Thank you for participating in our experiment. Please click on the Amazon Mechanical Turk tab
-                    and enter the 4-digit number below on Amazon Mechanical Turk to get the reward.
+                    and enter the 40-digit number below on Amazon Mechanical Turk to get the reward.
                     </div>
                 </article>
                 <span class="highlight"><?php echo $MturkCode;?> </span><br>

@@ -109,11 +109,9 @@ $.ajax({
 
         // If control music is not needed
         playList = sampledMusics.map(item => item.music_file);
-        console.log("Play list", playList);
 
         // ********** Condition 3: author information **********
         authorList = sampledMusics.map(item => item.author);
-        console.log("Author list", authorList);
 
         // Play the first song
         Spectrum.load(playList[currentTrial - 1]);
