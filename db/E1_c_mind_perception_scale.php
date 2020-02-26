@@ -2,7 +2,7 @@
 
 if(!isset($_SESSION)){ session_start(); } // To avoid session expiration, force loading session
 
-require_once "db_config.php";
+require_once "E1_db_config.php";
 
 // db connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -25,15 +25,15 @@ $inattention = $_POST["inattentionP3"];
 
 
 
-$sql = "INSERT INTO C1_MP (uid, `AC-Response`,`MP-Response`, `MP-RT`, `MP-finishedTime`, `ACMP-inattetion`) VALUES ('$uid', '$AC_Response', '$MP_Response', '$MP_ResponseTime', '$finishedTime', '$inattention')";
+$sql = "INSERT INTO E1_MP (uid, `AC-Response`,`MP-Response`, `MP-RT`, `MP-finishedTime`, `ACMP-inattetion`) VALUES ('$uid', '$AC_Response', '$MP_Response', '$MP_ResponseTime', '$finishedTime', '$inattention')";
 
 
 // SQL - updating the data of status table 
-$sql_udate_status = "UPDATE `C1_user-status` SET q3_ACMP = '1' WHERE uid = '$uid'";
+$sql_udate_status = "UPDATE `E1_user-status` SET q3_ACMP = '1' WHERE uid = '$uid'";
 $conn->query($sql_udate_status);
 
 // close and heading to next page
-$path = "/~hsiang/4_demographics.php";
+$path = "/~hsiang/E1_4_demographics.php";
 
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);

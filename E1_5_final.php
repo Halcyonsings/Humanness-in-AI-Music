@@ -10,7 +10,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/avoidJump.php";
+include "db/E1_avoidJump.php";
 
 $MturkCode = $_SESSION["MturkToken"];
 // echo $MturkCode

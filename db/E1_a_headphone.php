@@ -2,7 +2,7 @@
 
 if(!isset($_SESSION)){ session_start(); } // To avoid session expiration, force loading session
 
-require_once "db_config.php";
+require_once "E1_db_config.php";
 
 // db connection
 $conn = new mysqli($servername, $username, $password, $dbname);

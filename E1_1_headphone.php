@@ -29,7 +29,7 @@ $userId = $_SESSION['uid'];
     <link rel="stylesheet" type="text/css" href="css/main_modules.css">
     <link rel="stylesheet" type="text/css" href="css/1_headphone/HeadphoneCheckStyle.css">
 
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/globalsetting.js"></script>
     <script type="text/javascript" src="js/1_headphone/HeadphoneCheck.js"></script>
     <!-- <script type="text/javascript" src="js/1_headphone/TurnPage.js"></script> -->
@@ -75,7 +75,7 @@ $userId = $_SESSION['uid'];
         // console.log(inattention);
         $("#HC_All_Data").attr("value", results_json);
         // form submission
-        $("form").attr("action", "db/a_headphone.php")
+        $("form").attr("action", "db/E1_a_headphone.php")
         $("form").attr("method", "POST")
         $("form").submit()
         // window.location = "2_listening_phase.html"

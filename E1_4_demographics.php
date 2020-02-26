@@ -10,7 +10,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/avoidJump.php";
+include "db/E1_avoidJump.php";
 
 // Assign a MD5 code from PHP
 $csvfile = "md5 Mturk Code.csv";
@@ -287,7 +287,7 @@ $random_row = array_rand($line_of_text);
 
 </body>
 <script type="text/javascript" src="js/checkItem.js"></script>
-<script type="text/javascript" src="js/4_demo/animation.js"></script>
+<script type="text/javascript" src="js/4_demo/E1_animation.js"></script>
 <script>
 // "globalsetting.js" without automatically dropping subjects
 //detect idle time
@@ -323,8 +323,8 @@ function timerIncrement() {
     idleTime = idleTime + 1;
     console.log(idleTime);
     if (idleTime > 4) { // about 5 minutes
-        alert("There has been no response for 5 miniutes. You will automatically exit the experiment.");
-        inattention = inattention + 1;  //record inatteional subjects
+        alert("There has been no response for 5 minutes. You will automatically exit the experiment.");
+        inattention = inattention + 1;  //record inattentional subjects
         console.log("Times", inattention)
         // drop the subject if he idle too many times. 
         if (inattention > 0) {

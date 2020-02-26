@@ -31,7 +31,7 @@ function timerIncrement() {
     idleTime = idleTime + 1;
     console.log(idleTime);
     if (idleTime > 4) { // about 5 minutes
-        alert("There has been no response for 5 miniutes. You will automatically exit the experiment.");
+        alert("There has been no response for 5 minutes. You will automatically exit the experiment.");
         inattention = inattention + 1;  //record inatteional subjects
         console.log("Times", inattention)
         // drop the subject if he idle too many times. 

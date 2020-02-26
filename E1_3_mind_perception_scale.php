@@ -10,7 +10,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/avoidJump.php";
+// include "db/E1_avoidJump.php";
 
 
 ?>
@@ -20,7 +20,7 @@ include "db/avoidJump.php";
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <!-- Notice: jQuery-UI should put behind jQuery -->
     <!-- slide bar need jqueryUI -->
@@ -249,7 +249,7 @@ include "db/avoidJump.php";
                 $("#AC_Response").attr("value", JSON.stringify(AC_Response));
                 $("#inattention_P3").attr("value", inattention);
                 // form submission
-                $("form").attr("action", "db/E3_c_mind_perception_scale.php");
+                $("form").attr("action", "db/E1_c_mind_perception_scale.php");
                 $("form").attr("method", "POST");
                 $("form").submit();
 

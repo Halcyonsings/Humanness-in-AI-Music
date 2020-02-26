@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include "db_config.php";
+include "E1_db_config.php";
 
 // variables in session
 $_SESSION["uid"] = $_POST["uid"];
