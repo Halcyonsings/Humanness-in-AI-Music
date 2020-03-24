@@ -10,7 +10,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/C3_avoidJump.php";
+include "db/E3_avoidJump.php";
 
 // Assign a tiger192_3 code from PHP
 $code = exec("head -n1 /home/hsiang/public_html/tiger192_3_Mturk_Code.txt");
@@ -291,7 +291,7 @@ if($code){
 
 </body>
 <script type="text/javascript" src="js/checkItem.js"></script>
-<script type="text/javascript" src="js/4_demo/C3_animation.js"></script>
+<script type="text/javascript" src="js/4_demo/E3_animation.js"></script>
 <script>
 // "globalsetting.js" without automatically dropping subjects
 //detect idle time

@@ -37,7 +37,7 @@ function timerIncrement() {
         // drop the subject if he idle too many times. 
         if (inattention > 0) {
             window.onbeforeunload = null;
-            window.location = "https://www.mturk.com/"
+            window.location = "https://www.google.com/"
         }
     }
 }
@@ -73,7 +73,7 @@ document.addEventListener("visibilitychange", function () {
         alert("Because you open other tabs or minimize the window, you will automatically exit the experiment.");
         if (offview > 0) {
             window.onbeforeunload = null;
-            window.location = "https://www.mturk.com/"
+            window.location = "https://www.google.com/"
         }
     }
 });
@@ -106,3 +106,30 @@ function uuidGenerator() {
         return v.toString(16);
     });
 }
+
+// prevent double clicks in the whole website
+// $(document).ready(function(){
+//     $("*").click(function( ){
+//         $("*").click(false);
+//         setTimeout(function () {
+//             $("*").click(true);
+//             console.log("Prevent Double Clicks");
+//         }, 1000);
+//     });   
+//   });
+
+$(document).ready(function(){
+    $("*").dblclick(false);
+});
+
+// $(document).ready(function(){
+//     $("*").click(false);
+// });
+
+// $(document).ready(function(){
+//     $("*").click(function () {
+//     $(this).prop('disabled', true);
+//     //LOGIC
+//     setTimeout(function () { $(this).prop('disabled', false); }, 100);
+// });
+// });

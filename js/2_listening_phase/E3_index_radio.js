@@ -10,7 +10,7 @@ function random_item(items) {
 }
 
 var x = document.createElement('script');
-x.src = 'https://mil.psy.ntu.edu.tw/~hsiang/js/2_listening_phase/music.js';
+x.src = 'http://mil.psy.ntu.edu.tw/~hsiang/js/2_listening_phase/music.js';
 
 // The umber of questions to render and the current page
 // Declare the variable for the play list of musics
@@ -103,12 +103,15 @@ $.ajax({
         // If control music is needed
         // playList = sampledMusics.concat(controlMusic).map(item => item.music_file);
 
-        // If control music is nit needed
+        // playList = sampledMusics;
+        sampledMusics = shuffle(sampledMusics);
+        // console.log(sampledMusics);
+
+        // If control music is not needed
         playList = sampledMusics.map(item => item.music_file);
 
-        // playList = sampledMusics;
-        playList = shuffle(playList);
-        // console.log("Play list", playList);
+        // ********** Condition 3: author information **********
+        authorList = sampledMusics.map(item => item.author);
 
         // Play the first song
         Spectrum.load(playList[currentTrial - 1]);
@@ -243,7 +246,7 @@ function nextStep() {
                 // $("#user_object").attr("value", user_json);
 
                 // form submission
-                $("form").attr("action", "db/E1_b_listening_phase.php");
+                $("form").attr("action", "db/E3_b_listening_phase.php");
                 $("form").attr("method", "POST");
                 $("form").submit();
             } else {
@@ -264,6 +267,11 @@ function nextStep() {
                 Spectrum.on('ready', (e) => {
                     // alert("READY")
                     $('.ButtonSet').show(300);
+
+                    // ********** Condition 3: author information **********
+                    $(document).ready(function () { $('#curr-author').html(authorList[currentTrial - 1]) });
+
+
                     $('#currinfo').html("&nbsp(" + currentTrial + "/" + playList.length + ")"); // update current trial info
                 })
 

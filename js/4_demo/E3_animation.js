@@ -58,7 +58,7 @@ $("#form_submit").click(function () {
     if (checkDemo == "allFinished") {
         // avoid sending messages repeatedly 
         // $('#form_submit').addClass("once-button");
-        $("#form_submit").attr('disabled', true);
+        $(this).attr('disabled', true);
         console.log('disabled');
         
         // record finishing time
@@ -73,7 +73,7 @@ $("#form_submit").click(function () {
         $("#inattention_P4").attr("value", inattention);
         $("#Mturk_token").attr("value", Mturkcode);
         // form submission
-        $("form").attr("action", "db/E1_d_demo.php");
+        $("form").attr("action", "db/E3_d_demo.php");
         $("form").attr("method", "POST");
         $("form").submit();
     }

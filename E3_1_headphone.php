@@ -17,7 +17,7 @@ $userId = $_SESSION['uid'];
 // $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/avoidJump.php"; close because it will alert reload
+// include "db/C3_avoidJump.php"; close because it will alert reload
 
 ?>
 
@@ -36,7 +36,7 @@ $userId = $_SESSION['uid'];
     <link rel="stylesheet" type="text/css" href="css/main_modules.css">
     <link rel="stylesheet" type="text/css" href="css/1_headphone/HeadphoneCheckStyle.css">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/globalsetting.js"></script>
     <script type="text/javascript" src="js/1_headphone/HeadphoneCheck.js"></script>
     <!-- <script type="text/javascript" src="js/1_headphone/TurnPage.js"></script> -->
@@ -47,7 +47,7 @@ $userId = $_SESSION['uid'];
         || screen.availWidth < 480) {
             alert("Please use computers to participate in this experiment. You will automatically leave the page."); 
             window.onbeforeunload=null; 
-            window.location="https://www.google.com/" 
+            window.location="https://www.mturk.com/" 
         }
     
     // Avoid closing window
@@ -65,6 +65,7 @@ $userId = $_SESSION['uid'];
         if (headphoneCheckData.totalCorrect < 5) {
             window.onbeforeunload = null;
             window.location.reload();
+            alert("You only answer"+ headphoneCheckData.totalCorrect + "correctly. Please redo the text.");
             // console.log(headphoneCheckData.totalCorrect);
         }
         else {  
@@ -82,7 +83,7 @@ $userId = $_SESSION['uid'];
         // console.log(inattention);
         $("#HC_All_Data").attr("value", results_json);
         // form submission
-        $("form").attr("action", "db/E1_a_headphone.php")
+        $("form").attr("action", "db/C3_a_headphone.php")
         $("form").attr("method", "POST")
         $("form").submit()
         // window.location = "2_listening_phase.html"

@@ -111,7 +111,7 @@ var validatePostCode = function (postCode) {
     return parsePostCode.test(postCode);
 };
 
-// check the item in demographical form
+// check the item in demographic form
 // maybe object is better
 validateDemo = {
     "age": function () {
@@ -134,22 +134,23 @@ validateDemo = {
         //     alert("Please select your zip code.");
         // }
         // else 
-        if (validatePostCode(document.getElementById("postcode").value) == false) {
-            alert("Please fill in a 5-digit number.");
+        // if (validatePostCode(document.getElementById("postcode").value) == false) {
+        if (isNaN(parseInt($("input[name='spend_money']").val()))) {
+            alert("Please fill in the zip code.");
         }
         else {
             return "finished"
         }
     },
-    "MturkWorkerID": function () {
-        var text_workerID = $("input[name='MturkWorkerID'").val();
-        if (text_workerID == null || text_workerID == "") {
-            alert("Please indicate your Mturk Worker ID.");
-        } else {
-            return "finished"
-        }
-        $("input[name='MturkWorkerID']").val();
-    },
+    // "MturkWorkerID": function () {
+    //     var text_workerID = $("input[name='MturkWorkerID'").val();
+    //     if (text_workerID == null || text_workerID == "") {
+    //         alert("Please indicate your Mturk Worker ID.");
+    //     } else {
+    //         return "finished"
+    //     }
+    //     $("input[name='MturkWorkerID']").val();
+    // },
     "edu": function () {
         if ($("select[name='education']").val() == "--Please Select--") {
             alert("Please select your education level.");

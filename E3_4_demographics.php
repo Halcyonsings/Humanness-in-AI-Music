@@ -17,7 +17,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/E1_avoidJump.php";
+include "db/E3_avoidJump.php";
 
 // Assign a MD5 code from PHP
 $csvfile = "md5 Mturk Code.csv";
@@ -280,7 +280,7 @@ $random_row = array_rand($line_of_text);
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="g-btn" id="form_submit">Next Page</div>
+                    <input type="submit"  class="g-btn" id="form_submit" value="Next Page">
                 </div>
             </div>
             <!-- Recording -->
@@ -294,7 +294,7 @@ $random_row = array_rand($line_of_text);
 
 </body>
 <script type="text/javascript" src="js/checkItem.js"></script>
-<script type="text/javascript" src="js/4_demo/E1_animation.js"></script>
+<script type="text/javascript" src="js/4_demo/E3_animation.js"></script>
 <script>
 // "globalsetting.js" without automatically dropping subjects
 //detect idle time

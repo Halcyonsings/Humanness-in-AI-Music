@@ -1,23 +1,16 @@
 <?php
-# Session lifetime of 3 hours
-ini_set('session.gc_maxlifetime', 10800);
+// server should keep session data for AT LEAST 1 hour
+ini_set('session.gc_maxlifetime', 3600);
 
-# Enable session garbage collection with a 1% chance of
-# running on each session_start()
-ini_set('session.gc_probability', 1);
-ini_set('session.gc_divisor', 100);
-
-session_save_path("/home/hsiang/public_html/sessions");
-
-// each client should remember their session id for EXACTLY 3 hour
-session_set_cookie_params(10800);
+// each client should remember their session id for EXACTLY 1 hour
+session_set_cookie_params(3600);
 
 session_start();
 $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/E1_avoidJump.php";
+// include "db/avoidJump.php";
 
 
 ?>
@@ -233,19 +226,11 @@ include "db/E1_avoidJump.php";
         // Avoid closing window
         window.onbeforeunload = function () { return "糟糕！別走！" };
 
-        // var btnclicks = 0 
         //submit the form
         $(".NextToMP_btn").click(function () {
-            // if ((e = e || window.event).done) return;
-            // if (btnclicks > 1) return;
-            
             // verifying
             var checking = checkRadios(8); //the number should equal to the last item
-            if (checking == "finished") {          
-                // btnclicks += 1
-                // e.done = true;
-                // $(".NextToMP_btn").prop('disabled', true);
-
+            if (checking == "finished") {
                 // recording
                 AC_Response = {
                     AC1: $('input[name=AC1]:checked').val(), // Radio buttons need "checked". 
@@ -264,16 +249,13 @@ include "db/E1_avoidJump.php";
                 $("#AC_Response").attr("value", JSON.stringify(AC_Response));
                 $("#inattention_P3").attr("value", inattention);
                 // form submission
-                $("form").attr("action", "db/E1_c_mind_perception_scale.php");
+                $("form").attr("action", "db/c_mind_perception_scale.php");
                 $("form").attr("method", "POST");
                 $("form").submit();
 
             }
         })
 
-        // $(".NextToMP_btn").dblclick(function(e){ 
-        //         e.preventDefault();
-        // })
     </script>
 
 
