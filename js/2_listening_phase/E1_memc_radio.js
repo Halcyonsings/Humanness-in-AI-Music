@@ -20,7 +20,7 @@ let MEMC = {
     "5": "Energetic, Lively",
     "6": "Joyful, Wanting to dance",
     "7": "Powerful, Strong",
-    "8": "Full of tender, Warmhearted",
+    "8": "Full of tenderness, Warmhearted",
     "9": "Relaxed, Peaceful",
     "10": "Sad, Melancholic",
     "11": "Nostalgic, Sentimental",

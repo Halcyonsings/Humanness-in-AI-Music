@@ -113,7 +113,7 @@ if (isset($_SESSION['count'])){
                                 Please read the notice before listening to the clips:</p>
                                 <ol>
                                     <li>Please<span class="highlight"> wear headphones</span> when listening.</li>
-                                    <li>In this section, you will listen to 12 different clips.
+                                    <li>In this session, you will listen to 12 different clips.
                                         A questionnaire will appear below only after the music is completely played.
                                     </li>
                                     <li>You cannot skip any music clips. Each music clip will be <span

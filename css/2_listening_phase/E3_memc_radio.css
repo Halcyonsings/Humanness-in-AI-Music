@@ -1,0 +1,80 @@
+/* 
+    The style sheet for music components.
+
+*/
+
+#memc{
+    width: 100%;
+    min-width: 1000px;
+}
+
+.question-container {
+    margin-bottom: 15%;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.question-card {
+    min-height: 150px !important;
+    max-width: 300px;
+    margin: 5px auto;
+    min-height: 80px;
+    border-radius: 25px;
+    cursor: pointer;
+    padding-bottom: 5px;
+    /*     border: 1px solid #0000ff; */
+}
+
+.question-card div[class^="col"] h5 {  /* MEMC question words */
+    /*     border: 1px solid black; */
+    margin-top: 10%;
+    margin-bottom: 10%; /* Add this comments to avoid plate shifting */
+    /*     height: 40px; */
+    font-size: 130%;
+    font-family: 微軟正黑體;
+    font-weight: 500;
+    height: 45px;
+}
+
+.little {
+    font-size: 105%;
+}
+
+.ui-widget {
+    font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+    font-size: 100%;
+}
+
+.ui-selectmenu-button {
+    height: 27px;
+    padding: 0px;
+    padding-top: 4px;
+    padding-left: 5%;
+}
+
+.ui-selectmenu-text {
+    margin: 0 auto;
+}
+
+#intro3{
+    width:100%;
+    text-align: center;
+}
+
+.MEMCLabel{
+    position: absolute;
+    /* margin-bottom: 40%; */
+}
+
+.MEMCbutton{ /* Position of Radio Button */
+    margin-top: 15%;
+}
+
+
+/* .TuringLabel {
+    height: 20px;
+    left: 25%;
+    transform: translateX(-50%);
+} */

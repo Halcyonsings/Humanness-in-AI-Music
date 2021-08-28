@@ -71,6 +71,7 @@ $Email = $_GET["Email"];
                 listed below:</p>
             <ol>
                 <li>Make sure your computer has a stable Internet connection. </li>
+                <li>Process the experiment at a quiet place. </li>
                 <li><span class="highlight">Do not participate in this experiment with IE (Internet Explorer)
                         browser.</span> </li>
                 <li><span class="highlight">Do not participate in this experiment with a smartphone.</span> </li>
@@ -79,10 +80,12 @@ $Email = $_GET["Email"];
             </ol>
             <p>If you meet the requirements, please read the following information:</p>
             <p>This study is conducted by Modeling & Informatics Lab at the Department of Psychology, National Taiwan
-                University. This experiment aims to look into the mechanism of musical perception.</p>
+                University. This experiment aims to look into the mechanism of musical perception. We would like
+                to know what factors influence our music preference.</p>
             <p><b>Procedure</b>: At first, we will examine whether participants are wearing headphones or
-                not. You will then listen to some music clips. After that, you will fill in a questionnaire. 
-                Finally, you will be given some surveys.</p>
+                not, and participants need to set the computer volume to about 25% of its maximum.  
+                You will then listen to some music clips. After that, you will fill in a questionnaire about musical emotion and cognition. 
+                Finally, you will be given some surveys(e.g., technology preference, demographics survey).</p>
             <p><b>Duration</b>:
                 It will take about <span class="highlight"> 40 minutes </span> to complete all the tasks. Please
                 concentrate on the instructions and questions on the screen. <br/>
@@ -99,7 +102,7 @@ $Email = $_GET["Email"];
             <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However,
                 no one can access the data except the researchers listed below.
                 <br /><br />If you want to retrieve your data,
-                please e-mail the researchers (r05227104@ntu.edu.tw). The results of the
+                please e-mail the researchers (b08207070@ntu.edu.tw). The results of the
                 experiments will not be used for any commercial purposes. </p>
             <p><b>Other Ethical Issues</b>:
                 <br />(1) This research is self-financed.
@@ -109,11 +112,11 @@ $Email = $_GET["Email"];
                 terminate your involvement at any time. </p>
             <br>
             <p class="devInfo"><b>Principal Investigators</b>:<br>
-                Tsung-Ren Huang, Assistant Professor, Department of Psychology, National Taiwan University<br>
+                Tsung-Ren Huang, Associate Professor, Department of Psychology, National Taiwan University<br>
                 Chen-Ying Huang, Professor, Department of Economics, National Taiwan University<br>
                 Wen-Ya Tan, Lecturer, Department of Music, Tunghai University
             </p>
-            <p class="devInfo"><b>Developer & Researcher</b>:<br>Zih-Hsiang Wang, graduate student, Department
+            <p class="devInfo"><b>Developer & Researcher</b>:<br>Yue-An Liao, undergraduate student, Department
                 of
                 Psychology, National Taiwan University </p>
             <br />

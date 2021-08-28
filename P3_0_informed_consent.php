@@ -19,7 +19,6 @@ function get_client_ip() {
     return $ipaddress;
 };
 $ip = get_client_ip();
-$Email = $_GET["Email"];
 ?>
 
 <!DOCTYPE html>
@@ -78,26 +77,27 @@ $Email = $_GET["Email"];
                 <li>Please wear headphones during the experiment.</li>
             </ol>
             <p>If you meet the requirements, please read the following information:</p>
-            <p>This study is conducted by Modeling & Informatics Lab at the Department of Psychology, National Taiwan
+            <p>This study is conducted by Modeling & Informatics Lab at Department of Psychology, National Taiwan
                 University. This experiment aims to look into the mechanism of musical perception.</p>
-            <p><b>Procedure</b>: At first, we will examine whether participants are wearing headphones or
-                not. You will then listen to some music clips. After that, you will fill in a questionnaire. 
-                Finally, you will be given some surveys.</p>
+            <p><b>Procedure</b>: In the first session, we will examine whether participants are wearing headphones or
+                not. You will then listen to some music pieces as you simultaneously fill in a questionnaire. Each piece is composed either by human or AI. 
+                After the listening session, you will be given some surveys.</p>
             <p><b>Duration</b>:
                 It will take about <span class="highlight"> 40 minutes </span> to complete all the tasks. Please
-                concentrate on the instructions and questions on the screen. <br/>
-                <span class="warning">Do not: </p></span>
+                concentrate on the instructions and questions on the screen. <span class="warning">Do not: </p></span> 
             <ol>
                 <span class="warning"><li>open other tabs</span> 
-                <span class="warning"><li>minimize/ maximize the active window during the experiment</span> 
+                <span class="warning"><li>minimize/ maxmize the active window during the experiment</span> 
                 <span class="warning"><li>become idle for more than 5 minutes</span> 
             </ol>
             <p>In doing so, we will drop you out of the experiment.
-            <!-- <span class="highlight"> You will not get any payment in that case. </span> </p> -->
-            <p><b>Benefit</b>: You will receive a <span class="highlight"> $5.0 Amazon Gift Card </span> through E-mail if you successfully
-                complete all the tasks in the experiment. We will donate the money to Education Through Music (https://etmonline.org/) if you do not leave your E-mail address. </p>
+                <span class="highlight"> You will not get any payment in that case. </span> </p>
+            <p><b>Benefit</b>: You will receive <span class="highlight"> $5.0 </span> if you successfully
+                complete
+                all the tasks in the experiment. </p>
             <p><b>Privacy</b>: We will collect and store your responses of the experiment permanently. However,
-                no one can access the data except the researchers listed below.
+                no
+                one can access the data except researchers listed below.
                 <br /><br />If you want to retrieve your data,
                 please e-mail the researchers (r05227104@ntu.edu.tw). The results of the
                 experiments will not be used for any commercial purposes. </p>
@@ -106,10 +106,10 @@ $Email = $_GET["Email"];
                 <br />(2) This study has been approved by Research Ethics Office of National Taiwan University.
                  You can e-mail the office if you have further questions (nturec@ntu.edu.tw).
                 <br />(3) There is no potential risk in this study. However, you have the right to decline to answer any or all questions. You may
-                terminate your involvement at any time. </p>
+                terminate your involvement at any time if you choose to. </p>
             <br>
             <p class="devInfo"><b>Principal Investigators</b>:<br>
-                Tsung-Ren Huang, Assistant Professor, Department of Psychology, National Taiwan University<br>
+                Tsung-Ren Huang, Associate Professor, Department of Psychology, National Taiwan University<br>
                 Chen-Ying Huang, Professor, Department of Economics, National Taiwan University<br>
                 Wen-Ya Tan, Lecturer, Department of Music, Tunghai University
             </p>
@@ -130,16 +130,17 @@ $Email = $_GET["Email"];
                 <div class="title">Informed Consent Form</div>
                 <hr>
                 <p> Please make sure you agree to the following before proceeding. </p>
-                <!-- <input type="checkbox" class="notice" name="ICnotice1" value="check" id="Not_Discuss" /> I will not -->
-                <!-- discuss the experiment on the forum such as TurkerNation. <br> -->
-                <input type="checkbox" class="notice" name="ICnotice1" value="check" id="Know_Exit" /> I know that I
+                <input type="checkbox" class="notice" name="ICnotice1" value="check" id="Not_Discuss" /> I will not
+                discuss the experiment on the forum such as TurkerNation. <br>
+                <input type="checkbox" class="notice" name="ICnotice2" value="check" id="Know_Exit" /> I know that I
                 will
                 <span class="warning"> automatically
-                    exit the experiment</span> if I open other tabs, minimize/ maximize the active window during the experiment,
-                     or become idle for more than 5 minutes.
+                    exit the experiment without recieving payment</span> if I open other tabs, minimize/ maxmize the active window during the experiment,
+                     or become idle for more than 5 minutes.<br>
+                <input type="checkbox" class="notice" name="ICnotice3" value="check" id="Not_Discuss" /> The survey will only show up after the music files are downloaded completely. 
+                <span class="highlight"> Therefore, having a stable connection is important. </span> <br>      
                 <input type="hidden" name="uid" id="user_id" />
                 <input type="hidden" name="ip" id="user_ip" />
-                <input type="hidden" name="Email" id="e_mail" />
                 <input type="hidden" name="browser" id="user_browser" />
                 <input type="hidden" name="start_time" id="user_start_time" />
                 <input type="hidden" name="userObj" id="user_object" />
@@ -175,7 +176,6 @@ $Email = $_GET["Email"];
 
         // user device
         var user_ip = '<?php echo $ip;?>';
-        var email = '<?php echo $Email;?>';
         var user_browser = navigator.userAgent;
         var time = new Date();
         var time_info = time.toDateString() + "/" + time.toTimeString();
@@ -199,19 +199,17 @@ $Email = $_GET["Email"];
         $('#go_to_consent_btn').click(function () {
         
         window.onbeforeunload = null; 
-        var check = checkNotice(1); 
+        var check = checkNotice(3); 
         if (check == "finished") {
-            $("#go_to_consent_btn").prop('disabled', true);
             $("#user_id").attr("value", uid);
             $("#user_ip").attr("value", user_ip);
-            $("#e_mail").attr("value", email);
             $("#user_browser").attr("value", user_browser);
             $("#user_start_time").attr("value", time_info); 
             $("#inattention_P0").attr("value", inattention); //
             // $("#user_object").attr("value", user_json); 
             
             // form submission 
-            $("form").attr("action", "db/E1_exp_init.php" )
+            $("form").attr("action", "db/P3_exp_init.php" )
             $("form").attr("method", "POST"); 
             $("form").submit();
             }

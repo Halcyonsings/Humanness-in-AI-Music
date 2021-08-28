@@ -1,33 +1,27 @@
 <?php
-# Session lifetime of 3 hours
-ini_set('session.gc_maxlifetime', 10800);
+// server should keep session data for AT LEAST 1 hour
+ini_set('session.gc_maxlifetime', 3600);
 
-# Enable session garbage collection with a 1% chance of
-# running on each session_start()
-ini_set('session.gc_probability', 1);
-ini_set('session.gc_divisor', 100);
-
-session_save_path("/home/hsiang/public_html/sessions");
-
-// each client should remember their session id for EXACTLY 3 hour
-session_set_cookie_params(10800);
+// each client should remember their session id for EXACTLY 1 hour
+session_set_cookie_params(3600);
 
 session_start();
 $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/E1_avoidJump.php";
+include "db/N3_avoidJump.php";
 
 // Assign a tiger192_3 code from PHP
-$code = exec("head -n1 /home/hsiang/public_html/tiger192_3_Mturk_Code.txt");
+$code = exec("head -n1 /home/hsiang/public_html/tiger192_4_Mturk_Code.txt");
 
 if($code){
     // print($code);
-    exec('sed -ie "1d" /home/hsiang/public_html/tiger192_3_Mturk_Code.txt');
+    exec('sed -ie "1d" /home/hsiang/public_html/tiger192_4_Mturk_Code.txt');
 }   else{
     print("N/A");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +59,7 @@ if($code){
 
     <script type="text/javascript">
 
-        Mturkcode = <?php echo json_encode($line_of_text[$random_row][0]);?>;
+        Mturkcode = <?php echo json_encode($code);?>;
         // alert(Mturkcode);
 
     </script>
@@ -127,38 +121,32 @@ if($code){
                 <div class="anchor_opinion_area">
                     <div class="anchor_descrp">5. What are your major instruments, if any?</div>
                     <input type="text" name="instrument" id="instrument">
-                    <small id="instrumentHelp" class="form-text text-muted">Please fill in "NA" if you don't have any.</small>
+                    <small id="instrumentHelp" class="form-text text-muted">Please fill "none" if you don't have any.</small>
                 </div>
                 <hr />
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">6. Please specify how many years you have played your major instruments.</div>
+                    <div class="anchor_descrp">6. Please specify how many years have you played your major instruments.</div>
                     <input type="text" name="training_yr" id="TrainingInput1">
                     <small id="TrainingHelp" class="form-text text-muted">Please fill in a number. </small>
                 </div>
                 <hr />                
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">7. Please specify how many minutes you have practiced your major instruments per day.
+                    <div class="anchor_descrp">7. Please specify how many minutes have you practiced your major instruments per day.
                     </div>
                     <input type="text" name="training_min" id="TrainingInput2">
                     <small id="TrainingHelp2" class="form-text text-muted">Please fill in the minutes that you
                         practice
-                        music per day.</small>
+                        music per day</small>
                 </div>
                 <hr />
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">8. Whom did you study with for your major instruments? 
-                    </div>
-                    <input type="text" name="advisors" id="TrainingInput3">
-                    <small id="TrainingHelp3" class="form-text text-muted">Please enter your major teachers' name. Please enter "NA" if you don't have any.</small>
-                </div>
-                <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">9. Please provide detail of your music experience (e.g., diplomas, awards, musical ensembles). (Optional) </div>
+                    <div class="anchor_descrp">8. Please provide detail of your music experience (e.g., diplomas, awards, musical ensembles). (Optional) </div>
                     <textarea rows="5" name="music_experience" id="MusicExperience" class="MusicExperience"></textarea>
                 </div>
                 <hr />
                 <!-- music genres categorize same as AllMusic 2019: https://www.allmusic.com/genres -->
                 <div class="anchor_opinion_area">
-                    <div class="anchor_descrp">10. What genres of music do you typically listen to? (check
+                    <div class="anchor_descrp">9. What genres of music do you typically willing to listen to? (check
                         all
                         that apply)</div>
                     <div class="MAAB_res_block">
@@ -235,7 +223,14 @@ if($code){
                     <div class="col-md-8">
                         <input type="text" class="form-control" name="ZipCode" id="postcode" pattern="[0-9]{5}"
                             title="Five digit zip code">
-                        <small id="ZipHelp1" class="form-text text-muted">Please fill in a number</small>
+                        <small id="ZipHelp1" class="form-text text-muted">Please fill in a 5-digit number</small>
+                    </div>
+                </div>
+                <div class="row item-container">
+                    <div class="col-md-4 formLabel">MTurk Worker ID</div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" name="MturkWorkerID" id="MturkWorkerID">
+                        <small id="MturkHelp" class="form-text text-muted">You can click other tabs in this page and will not automactically exit.</small></span>
                     </div>
                 </div>
                 <div class="row item-container">
@@ -252,6 +247,12 @@ if($code){
                         </select>
                     </div>
                 </div>
+                <!-- <div class="row item-container">
+                    <div class="col-md-4 formLabel">E-mail</div>
+                    <div class="col-md-8" id="age_range">
+                        <input type="email" class="form-control" name="email" id="emailInput" placeholder="E-mail">
+                    </div>
+                </div> -->
                 <div class="row item-container">
                     <div class="col-4 formLabel">
                         <label for="RaceInput">Race</label>
@@ -259,27 +260,18 @@ if($code){
                     <div class="col-8" id="RaceCol">
                         <select name="race" form="demoForm" class="form-control custom-select" id="RaceInput">
                             <option selected>--Please Select--</option>
-                            <option>African/ Black</option>
+                            <option>African-American</option>
+                            <option>American Indian or Alaskan Native</option>
                             <option>Asian</option>
-                            <option>Caucasian/ White</option>
-                            <option>Indian</option>
-                            <option>Latino</option>
-                            <option>Middle Eastern</option>
+                            <option>Spanish, Hispanic, or Latino</option>
+                            <option>White</option>
                             <option>From multiple races</option>
                             <option>Some other race</option>
                         </select>
                     </div>
                 </div>
                 <div class="row item-container">
-                    <div class="col-md-4 formLabel">E-mail<br/> (optional)</div>
-                    <div class="col-md-8">
-                        <input type="email" class="form-control" name="email" id="emailInput" placeholder="E-mail">
-                        <small id="ZipHelp1" class="form-text text-muted">We will send a $5 gift card to the E-mail. <br/>
-                        We will donate the money to Education Through Music if this column is empty.</small>
-                    </div>
-                </div>
-                <div class="row item-container">
-                    <div class="col-md-4 formLabel"> Suggestions of <br/> the Experiment<br/> (optional)</div>
+                    <div class="col-md-4 formLabel"> Suggestions of <br> the Experiment<br> (optional)</div>
                     <div class="col-md-8" id="ExpBox">
                         <textarea rows="5" name="ExpComments" id="ExpComments" class="ExpComments"></textarea>
                     </div>
@@ -298,8 +290,8 @@ if($code){
     </section>
 
 </body>
-<script type="text/javascript" src="js/checkItem_musician.js"></script>
-<script type="text/javascript" src="js/4_demo/E1_animation.js"></script>
+<script type="text/javascript" src="js/checkItem.js"></script>
+<script type="text/javascript" src="js/4_demo/N3_animation.js"></script>
 <script>
 // "globalsetting.js" without automatically dropping subjects
 //detect idle time
@@ -335,13 +327,13 @@ function timerIncrement() {
     idleTime = idleTime + 1;
     console.log(idleTime);
     if (idleTime > 4) { // about 5 minutes
-        alert("There has been no response for 5 minutes. You will automatically exit the experiment.");
-        inattention = inattention + 1;  //record inattentional subjects
+        alert("There has been no response for 5 miniutes. You will automatically exit the experiment.");
+        inattention = inattention + 1;  //record inatteional subjects
         console.log("Times", inattention)
         // drop the subject if he idle too many times. 
         if (inattention > 0) {
             window.onbeforeunload = null;
-            window.location = "https://www.google.com/"
+            window.location = "https://www.mturk.com/"
         }
     }
 }

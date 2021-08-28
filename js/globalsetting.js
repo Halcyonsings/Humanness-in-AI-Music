@@ -65,18 +65,67 @@ var vis = (function () {
 })();
 
 // Excute when the window change, cannot excute well on IOS
-document.addEventListener("visibilitychange", function () {
+$(document).ready(function () {document.addEventListener("visibilitychange", function () {
     // console.log(document.hidden);
-    if (document.hidden == true) {
+    // if (document.hidden == true) {
+    if (document.visibilityState === 'hidden') {    
         offview = offview + 1;
-        console.log("Distracted", offview);
-        alert("Because you open other tabs or minimize the window, you will automatically exit the experiment.");
-        if (offview > 0) {
+        console.log("This massage can not be seen.", offview);
+        // alert("Because you open other tabs or minimize the window, you will automatically exit the experiment.");
+    }
+    if (document.visibilityState === 'visible' && offview == 1) {
             window.onbeforeunload = null;
-            window.location = "https://www.google.com/"
+            var yes = confirm("Because you open other tabs or minimize the window, you will automatically exit the experiment.");
+
+            if (yes) {
+                confirm('You will be directed to Google.');
+                setTimeout(function (){
+                    // Something you want delayed.
+                    window.location = "https://www.google.com/"
+                    },1500); 
+            } else {
+                confirm('You will be directed to Google.');
+                setTimeout(function (){
+                    // Something you want delayed.
+                    window.location = "https://www.google.com/"
+                    }, 1500); 
+            }
+            
+            
+            // alert("Because you open other tabs or minimize the window, you will automatically exit the experiment.");
+            // setTimeout(function (){
+            //     // Something you want delayed.
+            //     window.location = "https://www.google.com/"
+            //   }, 3000); 
+            // console.log("Hi");
         }
     }
-});
+);
+})
+
+// function userCheated() {
+//     // The user cheated by leaving this window (e.g opening another window)
+//     // Do something
+//     window.onbeforeunload = null;
+//     var yes = confirm("Because you open other tabs or minimize the window, you will automatically exit the experiment.");
+
+//     if (yes) {
+//         confirm('You will direct to Google');
+//         setTimeout(function (){
+//             // Something you want delayed.
+//             window.location = "https://www.google.com/"
+//             }, 500); 
+//     } else {
+//         confirm('You will direct to Google');
+//         setTimeout(function (){
+//             // Something you want delayed.
+//             window.location = "https://www.google.com/"
+//             }, 500); 
+//     }
+// }
+
+// $(document).ready(function () {$(window).onblur(userCheated)});
+
 
 
 

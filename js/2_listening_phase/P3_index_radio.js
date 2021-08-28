@@ -10,7 +10,7 @@ function random_item(items) {
 }
 
 var x = document.createElement('script');
-x.src = 'https://mil.psy.ntu.edu.tw/~hsiang/js/2_listening_phase/music.js';
+x.src = 'http://mil.psy.ntu.edu.tw/~hsiang/js/2_listening_phase/music.js';
 
 // The umber of questions to render and the current page
 // Declare the variable for the play list of musics
@@ -25,7 +25,7 @@ MEMC.render("memc");
 // Get the music list(a csv file) from server, save to our play list, and then play the first song
 $.ajax({
 
-    url: "clips_information.csv",
+    url: "positive_EDE_clips_information.csv",
     dataType: "text",
 
 })
@@ -233,10 +233,12 @@ function nextStep() {
                 // Stringify JSON data to save in backend
                 // var playTime_json = JSON.stringify(playTime);    // Fail: playTime_json will be empaty collection {}
                 // var allAnswers_json = JSON.stringify(allAnswers);
+                
+                // Hide question when finished
+                $('#MEMCscale').hide();
+                $('#memc').hide();
 
                 window.onbeforeunload = null;
-
-                $("#next").prop('disabled', true);
                 $("#user_id").attr("value", uid);
                 $("#play_Time").attr("value", JSON.stringify(playTime));
                 $("#all_Answers").attr("value", JSON.stringify(allAnswers));
@@ -246,7 +248,7 @@ function nextStep() {
                 // $("#user_object").attr("value", user_json);
 
                 // form submission
-                $("form").attr("action", "db/E3_b_listening_phase.php");
+                $("form").attr("action", "db/P3_b_listening_phase.php");
                 $("form").attr("method", "POST");
                 $("form").submit();
             } else {
@@ -258,18 +260,19 @@ function nextStep() {
                 currTrial_start = 0;
 
                 // $('.WaitMusic').toggle(1800).hide();
+                $('#curr-author').html("Please wait for loading music");
                 $('#memc').hide();
                 $('#MEMCscale').hide();
                 $('.ButtonSet').hide();
                 $('#music-section').show();
-
+                
                 // Show button only after music loaded
                 Spectrum.on('ready', (e) => {
                     // alert("READY")
                     $('.ButtonSet').show(300);
 
                     // ********** Condition 3: author information **********
-                    $(document).ready(function () { $('#curr-author').html(authorList[currentTrial - 1]) });
+                    $(document).ready(function () { $('#curr-author').html(authorList[currentTrial - 1]).show() });
 
 
                     $('#currinfo').html("&nbsp(" + currentTrial + "/" + playList.length + ")"); // update current trial info

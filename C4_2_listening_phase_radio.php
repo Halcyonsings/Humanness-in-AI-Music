@@ -1,16 +1,23 @@
 <?php
-// server should keep session data for AT LEAST 1 hour
-ini_set('session.gc_maxlifetime', 3600);
+# Session lifetime of 3 hours
+ini_set('session.gc_maxlifetime', 10800);
 
-// each client should remember their session id for EXACTLY 1 hour
-session_set_cookie_params(3600);
+# Enable session garbage collection with a 1% chance of
+# running on each session_start()
+ini_set('session.gc_probability', 1);
+ini_set('session.gc_divisor', 100);
+
+session_save_path("/home/hsiang/public_html/sessions");
+
+// each client should remember their session id for EXACTLY 3 hour
+session_set_cookie_params(10800);
 
 session_start();
 $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/C3_avoidJump.php";
+// include "db/C4_avoidJump.php";
 
 // count times of loading the page 
 if (isset($_SESSION['count'])){
@@ -52,7 +59,7 @@ if (isset($_SESSION['count'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script>
 
     <!-- Wavesurfer JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
     <!--     <script src="jspsych.js"></script> -->
     <!--     <script src="http://parsleyjs.org/dist/parsley.min.js"></script> -->
     <script type="text/javascript" src="js/intro.js"></script>
@@ -207,9 +214,9 @@ if (isset($_SESSION['count'])){
 
     <!-- Custom JS -->
     <script type="text/javascript" src="js/globalsetting.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/C3_memc_radio.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/C4_memc_radio.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/music.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/C3_index_radio.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/C4_index_radio.js"></script>
     <script>
         // Avoid closing window
         window.onbeforeunload = function () { return "糟糕！別走！" };

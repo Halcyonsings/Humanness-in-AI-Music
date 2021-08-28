@@ -10,7 +10,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/avoidJump.php";
+include "db/E3_avoidJump.php";
 
 
 ?>
@@ -249,7 +249,7 @@ $user_json = $_SESSION['userObj'];
                 $("#AC_Response").attr("value", JSON.stringify(AC_Response));
                 $("#inattention_P3").attr("value", inattention);
                 // form submission
-                $("form").attr("action", "db/c_mind_perception_scale.php");
+                $("form").attr("action", "db/E3_c_mind_perception_scale.php");
                 $("form").attr("method", "POST");
                 $("form").submit();
 

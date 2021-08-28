@@ -1,23 +1,16 @@
 <?php
-# Session lifetime of 3 hours
-ini_set('session.gc_maxlifetime', 10800);
+// server should keep session data for AT LEAST 1 hour
+ini_set('session.gc_maxlifetime', 3600);
 
-# Enable session garbage collection with a 1% chance of
-# running on each session_start()
-ini_set('session.gc_probability', 1);
-ini_set('session.gc_divisor', 100);
-
-session_save_path("/home/hsiang/public_html/sessions");
-
-// each client should remember their session id for EXACTLY 3 hour
-session_set_cookie_params(10800);
+// each client should remember their session id for EXACTLY 1 hour
+session_set_cookie_params(3600);
 
 session_start();
 $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/E1_avoidJump.php";
+include "db/N3_avoidJump.php";
 
 
 ?>
@@ -28,7 +21,7 @@ include "db/E1_avoidJump.php";
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="js/jquery.min.js"></script>
+    <!-- <script src="js/jquery.min.js"></script> -->
     <!-- Notice: jQuery-UI should put behind jQuery -->
     <!-- slide bar need jqueryUI -->
     <script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
@@ -61,7 +54,8 @@ include "db/E1_avoidJump.php";
             <article class="intro-article">
                 <div class="a">
                     The purpose of this questionnaire is to know your setting and condition during the experiment.
-                    Please answer the following eight questions. <span class="highlight"> Please answer honestly.</span>
+                    Please answer the following eight questions. <span class="highlight"> Your answers will not affect your 
+                    received payment. Please answer honestly.</span>
                 </div>
             </article>
 
@@ -172,7 +166,7 @@ include "db/E1_avoidJump.php";
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">8. What is your overall attitude toward modern technology?</span>
+                <div class="Attention_check_descrp">8. What is your overall attitude toward modern technology?
                 </div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC8" value="1">Extremely negative
@@ -188,6 +182,18 @@ include "db/E1_avoidJump.php";
                     <input type="radio" class="AC_option" name="AC8" value="6">Moderately positive
                     <BR>
                     <input type="radio" class="AC_option" name="AC8" value="7">Extremely positive
+                </div>
+            </div>
+            <hr>
+            <div class="Attention_check_area">
+                <div class="Attention_check_descrp">9. What is the authors' research hypothesis?</div>
+                <div class="AC_res_block">
+                    <input type="radio" class="AC_option" name="AC9" value="AIPositive">The authors hypothesize that human composers are worse than AI composers.
+                    <BR>
+                    <input type="radio" class="AC_option" name="AC9" value="AINegative">The authors hypothesize that human composers are better than AI composers.
+                    <BR>
+                    <input type="radio" class="AC_option" name="AC9" value="Neutral">The authors hypothesize that human composers and AI composers are equally good.
+                </div>
                 </div>
             </div>
             <!-- part1 finishing -->
@@ -232,19 +238,11 @@ include "db/E1_avoidJump.php";
         // Avoid closing window
         window.onbeforeunload = function () { return "糟糕！別走！" };
 
-        // var btnclicks = 0 
         //submit the form
         $(".NextToMP_btn").click(function () {
-            // if ((e = e || window.event).done) return;
-            // if (btnclicks > 1) return;
-            
             // verifying
-            var checking = checkRadios(8); //the number should equal to the last item
-            if (checking == "finished") {          
-                // btnclicks += 1
-                // e.done = true;
-                // $(".NextToMP_btn").prop('disabled', true);
-
+            var checking = checkRadios(9); //the number should equal to the last item
+            if (checking == "finished") {
                 // recording
                 AC_Response = {
                     AC1: $('input[name=AC1]:checked').val(), // Radio buttons need "checked". 
@@ -255,6 +253,7 @@ include "db/E1_avoidJump.php";
                     AC6: $('input[name=AC6]:checked').val(),
                     AC7: $('input[name=AC7]:checked').val(),
                     AC8: $('input[name=AC8]:checked').val(),
+                    AC9: $('input[name=AC9]:checked').val(),
                 }
 
                 window.onbeforeunload = null;
@@ -263,16 +262,13 @@ include "db/E1_avoidJump.php";
                 $("#AC_Response").attr("value", JSON.stringify(AC_Response));
                 $("#inattention_P3").attr("value", inattention);
                 // form submission
-                $("form").attr("action", "db/E1_c_mind_perception_scale.php");
+                $("form").attr("action", "db/N3_c_mind_perception_scale.php");
                 $("form").attr("method", "POST");
                 $("form").submit();
 
             }
         })
 
-        // $(".NextToMP_btn").dblclick(function(e){ 
-        //         e.preventDefault();
-        // })
     </script>
 
 

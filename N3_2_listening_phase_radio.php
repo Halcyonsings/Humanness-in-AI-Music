@@ -10,7 +10,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/C3_avoidJump.php";
+include "db/N3_avoidJump.php";
 
 // count times of loading the page 
 if (isset($_SESSION['count'])){
@@ -81,6 +81,13 @@ if (isset($_SESSION['count'])){
         li{
             padding-top: 10px;
         }
+        #EDE-frame{
+            width: 60%;
+            line-height: 24px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%); /* horizontally center an element */
+        }
     </style>
 </head>
 
@@ -130,7 +137,11 @@ if (isset($_SESSION['count'])){
                 <!--       The section for music and button group             -->
                 <section class="col-12" id="music-section">
                     <!-- AI or Human information show here -->
-                    <div class="form-t1"><span id="curr-author"></span> Composer</div>
+                    <div class="form-t1" id="EDE-frame"><span id="curr-author"></span></div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <!-- Create a div where the audio waves will be shown -->
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6">
@@ -207,9 +218,9 @@ if (isset($_SESSION['count'])){
 
     <!-- Custom JS -->
     <script type="text/javascript" src="js/globalsetting.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/C3_memc_radio.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/N3_memc_radio.js?v=21Aug09.2"></script>
     <script type="text/javascript" src="./js/2_listening_phase/music.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/C3_index_radio.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/N3_index_radio.js?v=21Aug09.2"></script>
     <script>
         // Avoid closing window
         window.onbeforeunload = function () { return "糟糕！別走！" };

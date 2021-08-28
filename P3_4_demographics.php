@@ -1,37 +1,27 @@
 <?php
-# Session lifetime of 3 hours
-ini_set('session.gc_maxlifetime', 10800);
+// server should keep session data for AT LEAST 1 hour
+ini_set('session.gc_maxlifetime', 3600);
 
-# Enable session garbage collection with a 1% chance of
-# running on each session_start()
-ini_set('session.gc_probability', 1);
-ini_set('session.gc_divisor', 100);
-
-session_save_path("/home/hsiang/public_html/sessions");
-
-// each client should remember their session id for EXACTLY 3 hour
-session_set_cookie_params(10800);
+// each client should remember their session id for EXACTLY 1 hour
+session_set_cookie_params(3600);
 
 session_start();
 $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/E3_avoidJump.php";
+include "db/P3_avoidJump.php";
 
-// Assign a MD5 code from PHP
-$csvfile = "md5 Mturk Code.csv";
-$file_handle = fopen($csvfile, "r");
-$line_of_text = array();
+// Assign a tiger192_3 code from PHP
+$code = exec("head -n1 /home/hsiang/public_html/tiger192_4_Mturk_Code.txt");
 
-while (!feof($file_handle) ) {
-    $line_of_text[] = fgetcsv($file_handle, 1024);
+if($code){
+    // print($code);
+    exec('sed -ie "1d" /home/hsiang/public_html/tiger192_4_Mturk_Code.txt');
+}   else{
+    print("N/A");
 }
-fclose($file_handle);
 
-// Random Row
-$random_row = array_rand($line_of_text);
-// echo $line_of_text[$random_row][0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +59,7 @@ $random_row = array_rand($line_of_text);
 
     <script type="text/javascript">
 
-        Mturkcode = <?php echo json_encode($line_of_text[$random_row][0]);?>;
+        Mturkcode = <?php echo json_encode($code);?>;
         // alert(Mturkcode);
 
     </script>
@@ -233,7 +223,14 @@ $random_row = array_rand($line_of_text);
                     <div class="col-md-8">
                         <input type="text" class="form-control" name="ZipCode" id="postcode" pattern="[0-9]{5}"
                             title="Five digit zip code">
-                        <small id="ZipHelp1" class="form-text text-muted">Please fill in a number</small>
+                        <small id="ZipHelp1" class="form-text text-muted">Please fill in a 5-digit number</small>
+                    </div>
+                </div>
+                <div class="row item-container">
+                    <div class="col-md-4 formLabel">MTurk Worker ID</div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" name="MturkWorkerID" id="MturkWorkerID">
+                        <small id="MturkHelp" class="form-text text-muted">You can click other tabs in this page and will not automactically exit.</small></span>
                     </div>
                 </div>
                 <div class="row item-container">
@@ -280,7 +277,7 @@ $random_row = array_rand($line_of_text);
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <input type="submit"  class="g-btn" id="form_submit" value="Next Page">
+                    <div class="g-btn" id="form_submit">Next Page</div>
                 </div>
             </div>
             <!-- Recording -->
@@ -294,7 +291,7 @@ $random_row = array_rand($line_of_text);
 
 </body>
 <script type="text/javascript" src="js/checkItem.js"></script>
-<script type="text/javascript" src="js/4_demo/E3_animation.js"></script>
+<script type="text/javascript" src="js/4_demo/P3_animation.js"></script>
 <script>
 // "globalsetting.js" without automatically dropping subjects
 //detect idle time
@@ -330,13 +327,13 @@ function timerIncrement() {
     idleTime = idleTime + 1;
     console.log(idleTime);
     if (idleTime > 4) { // about 5 minutes
-        alert("There has been no response for 5 minutes. You will automatically exit the experiment.");
-        inattention = inattention + 1;  //record inattentional subjects
+        alert("There has been no response for 5 miniutes. You will automatically exit the experiment.");
+        inattention = inattention + 1;  //record inatteional subjects
         console.log("Times", inattention)
         // drop the subject if he idle too many times. 
         if (inattention > 0) {
             window.onbeforeunload = null;
-            window.location = "https://www.google.com/"
+            window.location = "https://www.mturk.com/"
         }
     }
 }

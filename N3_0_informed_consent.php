@@ -109,7 +109,7 @@ $ip = get_client_ip();
                 terminate your involvement at any time if you choose to. </p>
             <br>
             <p class="devInfo"><b>Principal Investigators</b>:<br>
-                Tsung-Ren Huang, Assistant Professor, Department of Psychology, National Taiwan University<br>
+                Tsung-Ren Huang, Associate Professor, Department of Psychology, National Taiwan University<br>
                 Chen-Ying Huang, Professor, Department of Economics, National Taiwan University<br>
                 Wen-Ya Tan, Lecturer, Department of Music, Tunghai University
             </p>
@@ -137,8 +137,8 @@ $ip = get_client_ip();
                 <span class="warning"> automatically
                     exit the experiment without recieving payment</span> if I open other tabs, minimize/ maxmize the active window during the experiment,
                      or become idle for more than 5 minutes.<br>
-                <input type="checkbox" class="notice" name="ICnotice3" value="check" id="Not_Discuss" /> The survey will only show up after the music files are completed download. 
-                I know that  <span class="highlight">the experiment might be frozen and not process to the next section because of unstable website connection. </span> <br>      
+                <input type="checkbox" class="notice" name="ICnotice3" value="check" id="Not_Discuss" /> The survey will only show up after the music files are downloaded completely. 
+                <span class="highlight"> Therefore, having a stable connection is important. </span>  <br>      
                 <input type="hidden" name="uid" id="user_id" />
                 <input type="hidden" name="ip" id="user_ip" />
                 <input type="hidden" name="browser" id="user_browser" />
@@ -209,7 +209,7 @@ $ip = get_client_ip();
             // $("#user_object").attr("value", user_json); 
             
             // form submission 
-            $("form").attr("action", "db/C3_exp_init.php" )
+            $("form").attr("action", "db/N3_exp_init.php" )
             $("form").attr("method", "POST"); 
             $("form").submit();
             }

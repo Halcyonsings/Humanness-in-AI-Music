@@ -10,7 +10,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/E3_avoidJump.php";
+include "db/P3_avoidJump.php";
 
 // Assign a tiger192_3 code from PHP
 $code = exec("head -n1 /home/hsiang/public_html/tiger192_3_Mturk_Code.txt");

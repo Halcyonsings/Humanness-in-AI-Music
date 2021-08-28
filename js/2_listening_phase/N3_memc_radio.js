@@ -13,33 +13,33 @@
 // Define question text
 let MEMC = {
     // Musical Emotion
-    "1": "\nFilled with wonder, Amazed",
-    "2": "\nMoved, Touched",
-    "3": "\nEnchanted,    In awe",
-    "4": "\nInspired, Enthusiastic",
-    "5": "\nEnergetic, Lively",
-    "6": "\nJoyful, Wanting to dance",
-    "7": "\nPowerful, Strong",
-    "8": "\nFull of tender, Warmhearted",
-    "9": "\nRelaxed, Peaceful",
-    "10": "\nSad, Melancholic",
-    "11": "\nNostalgic, Sentimental",
-    "12": "\nIndifferent, Bored",
-    "13": "\nTense,    Uneasy",
-    "14": "\nAgitated, Aggressive",
+    "1": "Filled with wonder, Amazed",
+    "2": "Moved, Touched",
+    "3": "Enchanted,    In awe",
+    "4": "Inspired, Enthusiastic",
+    "5": "Energetic, Lively",
+    "6": "Joyful, Wanting to dance",
+    "7": "Powerful, Strong",
+    "8": "Full of tender, Warmhearted",
+    "9": "Relaxed, Peaceful",
+    "10": "Sad, Melancholic",
+    "11": "Nostalgic, Sentimental",
+    "12": "Indifferent, Bored",
+    "13": "Tense,    Uneasy",
+    "14": "Agitated, Aggressive",
     // Musical Cognition
-    "15": "\nStructured",
-    "16": "\nOrderly",
-    "17": "\nBalanced",
-    "18": "\nArtistic",
-    "19": "\nClear",
-    "20": "\nComplex",
-    "21": "\nOrnate",
-    "22": "\nSubtle",
-    "23": "\nDelicate",
+    "15": "Structured",
+    "16": "Orderly",
+    "17": "Balanced",
+    "18": "Artistic",
+    "19": "Clear",
+    "20": "Complex",
+    "21": "Ornate",
+    "22": "Subtle",
+    "23": "Delicate",
     // Add by experimenters
-    "24": "\nFamiliar",
-    "25": "\nAwkward",
+    "24": "Familiar",
+    "25": "Awkward",
     // Catch trial
     "26": "Select 2 here.",
     // Special questions
@@ -166,7 +166,7 @@ MEMC.renderQuestions = function (containerId, questionIds, isRandom) {
 
     //   Render the text to each container one by one.
     ids.forEach(function (id, index) {
-        $cards.eq(index).find("h5").html(`${index + 1}.<br/>${MEMC[id]}`);
+        $cards.eq(index).find("h5").text(`${index + 1}. ${MEMC[id]}`);
         $cards.eq(index).find("group").attr("id", `question-${id}`);
     });
 }

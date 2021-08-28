@@ -1,23 +1,16 @@
 <?php
-# Session lifetime of 3 hours
-ini_set('session.gc_maxlifetime', 10800);
+// server should keep session data for AT LEAST 1 hour
+ini_set('session.gc_maxlifetime', 3600);
 
-# Enable session garbage collection with a 1% chance of
-# running on each session_start()
-ini_set('session.gc_probability', 1);
-ini_set('session.gc_divisor', 100);
-
-session_save_path("/home/hsiang/public_html/sessions");
-
-// each client should remember their session id for EXACTLY 3 hour
-session_set_cookie_params(10800);
+// each client should remember their session id for EXACTLY 1 hour
+session_set_cookie_params(3600);
 
 session_start();
 $userId = $_SESSION['uid'];
 // $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/avoidJump.php"; close because it will alert reload
+// include "db/P3_avoidJump.php"; close because it will alert reload
 
 ?>
 
@@ -36,7 +29,7 @@ $userId = $_SESSION['uid'];
     <link rel="stylesheet" type="text/css" href="css/main_modules.css">
     <link rel="stylesheet" type="text/css" href="css/1_headphone/HeadphoneCheckStyle.css">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/globalsetting.js"></script>
     <script type="text/javascript" src="js/1_headphone/HeadphoneCheck.js"></script>
     <!-- <script type="text/javascript" src="js/1_headphone/TurnPage.js"></script> -->
@@ -47,7 +40,7 @@ $userId = $_SESSION['uid'];
         || screen.availWidth < 480) {
             alert("Please use computers to participate in this experiment. You will automatically leave the page."); 
             window.onbeforeunload=null; 
-            window.location="https://www.google.com/" 
+            window.location="https://www.mturk.com/" 
         }
     
     // Avoid closing window
@@ -65,7 +58,6 @@ $userId = $_SESSION['uid'];
         if (headphoneCheckData.totalCorrect < 5) {
             window.onbeforeunload = null;
             window.location.reload();
-            alert("You only answer "+ headphoneCheckData.totalCorrect + " correctly. Please redo the test.");
             // console.log(headphoneCheckData.totalCorrect);
         }
         else {  
@@ -83,7 +75,7 @@ $userId = $_SESSION['uid'];
         // console.log(inattention);
         $("#HC_All_Data").attr("value", results_json);
         // form submission
-        $("form").attr("action", "db/E1_a_headphone.php")
+        $("form").attr("action", "db/P3_a_headphone.php")
         $("form").attr("method", "POST")
         $("form").submit()
         // window.location = "2_listening_phase.html"

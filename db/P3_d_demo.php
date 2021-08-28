@@ -2,7 +2,7 @@
 
 if(!isset($_SESSION)){ session_start(); } // To avoid session expiration, force loading session
 
-require_once "E1_db_config.php";
+require_once "P3_db_config.php";
 
 // db connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -17,8 +17,8 @@ $uid = $_SESSION['uid'];
 $finishedTime = date("Y-m-d H:i:s");
 
 // Mturk code pass through PHP
-// $MturkToken = $_POST['MturkToken'];
-// $_SESSION["MturkToken"] = $_POST['MturkToken'];
+$MturkToken = $_POST['MturkToken'];
+$_SESSION["MturkToken"] = $_POST['MturkToken'];
 
 // receiving variables
 // Page 1
@@ -29,17 +29,16 @@ $self_image = $_POST["self_image"]; // question 4
 $instrument = $_POST["instrument"]; // question 5
 $musicTrain_yr = $_POST["training_yr"]; // question 6
 $musicTrain_min = $_POST["training_min"]; // question 7
-$advisors = $_POST["advisors"]; // question 8
-$music_experience = $_POST["music_experience"]; // question 9
-$genre = $_POST["Genre_response"]; // question 10
+$music_experience = $_POST["music_experience"]; // question 8
+$genre = $_POST["Genre_response"]; // question 9
 
 // Page 2
 $age = $_POST["age"];
 $sex = $_POST["sex"];
 $ZipCode = $_POST["ZipCode"];
+$MturkWorkerID = $_POST["MturkWorkerID"];
 $education = $_POST["education"];
 $race = $_POST["race"];
-$email = $_POST["email"];
 $ExpComments = $_POST['ExpComments'];
 $inattention = $_POST["inattentionP4"];
 
@@ -48,21 +47,21 @@ $music_experience = str_replace("'", "''", $music_experience);
 $ExpComments = str_replace("'", "''", $ExpComments);
 
 // SQL - to demographics table
-$sql = "INSERT INTO `E1_Demo` (uid, musicListen_hr, cost, source, self_image, instrument, musicTrain_yr, musicTrain_min, advisors, music_experience,
- genre, age , sex, zip_code, education, race, email,  Exp_Comments, `D-finishedTime`, `D-inattention`, MturkNum) VALUES
- ('$uid', '$listening_hours', '$spend_money', '$source', '$self_image', '$instrument', '$musicTrain_yr', '$musicTrain_min', '$advisors','$music_experience',
-  '$genre', '$age', '$sex', '$ZipCode', '$education', '$race', '$email', '$ExpComments', '$finishedTime', '$inattention', '$MturkToken')";
+$sql = "INSERT INTO `P3_Demo` (uid, musicListen_hr, cost, source, self_image, instrument, musicTrain_yr, musicTrain_min, music_experience,
+ genre, age , sex, zip_code, MturkWorkerID, education, race, Exp_Comments, `D-finishedTime`, `D-inattention`, MturkNum) VALUES
+ ('$uid', '$listening_hours', '$spend_money', '$source', '$self_image', '$instrument', '$musicTrain_yr', '$musicTrain_min', '$music_experience',
+  '$genre', '$age', '$sex', '$ZipCode', '$MturkWorkerID', '$education', '$race','$ExpComments', '$finishedTime', '$inattention', '$MturkToken')";
 
 // SQL - updating finishing time
-$sql_udate_time = "UPDATE `E1_user-profile` SET  `time-end` = '$finishedTime' WHERE uid = '$uid'";
+$sql_udate_time = "UPDATE `P3_user-profile` SET  `time-end` = '$finishedTime' WHERE uid = '$uid'";
 $conn->query($sql_udate_time);
 
 // SQL - updating the data of status table 
-$sql_udate_status = "UPDATE `E1_user-status` SET q4_Demo = '1' WHERE uid = '$uid'";
+$sql_udate_status = "UPDATE `P3_user-status` SET q4_Demo = '1' WHERE uid = '$uid'";
 $conn->query($sql_udate_status);
 
 // close and heading to next page
-$path = "/~hsiang/E1_5_final.php";
+$path = "/~hsiang/P3_5_final.php";
 
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);

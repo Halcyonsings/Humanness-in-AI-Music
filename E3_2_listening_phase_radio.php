@@ -17,7 +17,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-include "db/C3_avoidJump.php";
+// include "db/E3_avoidJump.php";
 
 // count times of loading the page 
 if (isset($_SESSION['count'])){
@@ -59,7 +59,7 @@ if (isset($_SESSION['count'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script>
 
     <!-- Wavesurfer JS -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
     <!--     <script src="jspsych.js"></script> -->
     <!--     <script src="http://parsleyjs.org/dist/parsley.min.js"></script> -->
     <script type="text/javascript" src="js/intro.js"></script>
@@ -74,7 +74,7 @@ if (isset($_SESSION['count'])){
     <link rel="stylesheet" href="css/main_modules.css">
 
     <link rel="stylesheet" href="css/2_listening_phase/style.css">
-    <link rel="stylesheet" href="css/2_listening_phase/memc_radio.css">
+    <link rel="stylesheet" href="css/2_listening_phase/E3_memc_radio.css">
     <!-- <link rel="stylesheet" href="css/2_listening_phase/loader.css"> -->
 
     <!-- Add IntroJs styles -->
@@ -214,9 +214,9 @@ if (isset($_SESSION['count'])){
 
     <!-- Custom JS -->
     <script type="text/javascript" src="js/globalsetting.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/C3_memc_radio.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/E3_memc_radio.js"></script>
     <script type="text/javascript" src="./js/2_listening_phase/music.js"></script>
-    <script type="text/javascript" src="./js/2_listening_phase/C3_index_radio.js"></script>
+    <script type="text/javascript" src="./js/2_listening_phase/E3_index_radio.js"></script>
     <script>
         // Avoid closing window
         window.onbeforeunload = function () { return "糟糕！別走！" };

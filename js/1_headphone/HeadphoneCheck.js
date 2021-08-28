@@ -99,14 +99,21 @@ Contact Ray Gonzalez raygon@mit.edu or Kevin J. P. Woods kwoods@mit.edu
     if (jsonPath === undefined) {
       var data = {
         "stimuli": [
-          { "id": 1, "src": "https://hpc.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_ISO.wav", "correct": "2" },
-          { "id": 2, "src": "https://hpc.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_IOS.wav", "correct": "3" },
-          { "id": 3, "src": "https://hpc.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_SOI.wav", "correct": "1" },
-          { "id": 4, "src": "https://hpc.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_SIO.wav", "correct": "1" },
-          { "id": 5, "src": "https://hpc.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_OSI.wav", "correct": "2" },
-          { "id": 6, "src": "https://hpc.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_OIS.wav", "correct": "3" }
+          { "id": 1, "src": "http://hpc.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_ISO.wav?RandomSeed=" + Math.random().toString(
+            36), "correct": "2" },
+          { "id": 2, "src": "http://hpc.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_IOS.wav?RandomSeed=" + Math.random().toString(
+            36), "correct": "3" },
+          { "id": 3, "src": "http://hpc.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_SOI.wav?RandomSeed=" + Math.random().toString(
+            36), "correct": "1" },
+          { "id": 4, "src": "http://hpc.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_SIO.wav?RandomSeed=" + Math.random().toString(
+            36), "correct": "1" },
+          { "id": 5, "src": "http://hpc.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_OSI.wav?RandomSeed=" + Math.random().toString(
+            36), "correct": "2" },
+          { "id": 6, "src": "http://hpc.psy.ntu.edu.tw/~hsiang/asset/antiphase_HC_OIS.wav?RandomSeed=" + Math.random().toString(
+            36), "correct": "3" }
         ],
-        "calibration": { "src": "https://hpc.psy.ntu.edu.tw/~hsiang/asset/noise_calib_stim.wav" }
+        "calibration": { "src": "http://hpc.psy.ntu.edu.tw/~hsiang/asset/noise_calib_stim.wav?RandomSeed=" + Math.random().toString(
+          36)}
       };
       var status = 'loadedDefault';
       var error;
