@@ -87,6 +87,10 @@ if (isset($_SESSION['count'])){
             position: absolute;
             left: 50%;
             transform: translateX(-50%); /* horizontally center an element */
+            padding-bottom: 20px 
+        }
+        #audio-spectrum{
+            padding-top: 30px
         }
     </style>
 </head>
@@ -127,6 +131,9 @@ if (isset($_SESSION['count'])){
                                         all) to 5 (very much). </li>
                                     <li>Each excerpt is composed <span class="highlight">by human or artificial intelligence (AI)</span>. The
                                         information of the composer is shown above the soundwave.</li>
+                                    <li>To remind you about our hypothesis, 
+                                        each human composers' excerpt will show up with a like icon <img src="asset/like.png" />,
+                                        whereas each AI composers' excerpt will show up with a dislike icon <img src="asset/dislike.png" />.    
                                 </ol>
                             </article>
                         </div>

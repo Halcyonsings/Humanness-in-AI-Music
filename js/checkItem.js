@@ -135,22 +135,22 @@ validateDemo = {
         // }
         // else 
         // if (validatePostCode(document.getElementById("postcode").value) == false) {
-        if (isNaN(parseInt($("input[name='spend_money']").val()))) {
+        if (isNaN(parseInt($("input[name='ZipCode']").val()))) {
             alert("Please fill in the zip code.");
         }
         else {
             return "finished"
         }
     },
-    // "MturkWorkerID": function () {
-    //     var text_workerID = $("input[name='MturkWorkerID'").val();
-    //     if (text_workerID == null || text_workerID == "") {
-    //         alert("Please indicate your Mturk Worker ID.");
-    //     } else {
-    //         return "finished"
-    //     }
-    //     $("input[name='MturkWorkerID']").val();
-    // },
+    "MturkWorkerID": function () {
+        var text_workerID = $("input[name='MturkWorkerID'").val();
+        if (text_workerID == null || text_workerID == "") {
+            alert("Please indicate your Mturk Worker ID.");
+        } else {
+            return "finished"
+        }
+        $("input[name='MturkWorkerID']").val();
+    },
     "edu": function () {
         if ($("select[name='education']").val() == "--Please Select--") {
             alert("Please select your education level.");
