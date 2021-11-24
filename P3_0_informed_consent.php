@@ -120,6 +120,46 @@ $ip = get_client_ip();
             <br />
             <div class="container">
                 <div class="row justify-content-center">
+                    <div class="NextToManipulationBox_btn g-btn">Next Page</div>
+                </div>
+            </div>
+        </div>
+        <div class="container instruction" id="Hypothesis_Check_Card">
+            <div class="title">Informed Consent Form</div>
+            <hr>
+            <p> Here is a small test about the information of previous page. You need to complete it to proceed to next page.</p>
+            <BR>
+            <div class="Manipulation_check_area">
+                <div class="short_test_descrp">1. What is the expected duration of the research?</div>
+                <input type="radio" name="filler_1" value="10mins">10 minutes
+                <BR>
+                <input type="radio" name="filler_1" value="40mins">40 minutes
+                <BR>
+                <input type="radio" name="filler_1" value="90mins">one and a half hours
+            </div>
+            <span id="Remainder_Duration"></span>
+            <hr>
+            <div class="Manipulation_check_area">
+                <div class="short_test_descrp">2. What is the authors' research hypothesis?</div>
+                <input type="radio" name="Manipulation_Check" value="AIPositive">The authors hypothesize that human composers are worse than AI composers.
+                <BR>
+                <input type="radio" name="Manipulation_Check" value="AINegative">The authors hypothesize that human composers are better than AI composers.
+                <BR>
+                <input type="radio" name="Manipulation_Check" value="Neutral">The authors hypothesize that human composers and AI composers are equally good.
+            </div>
+            <span id="Remainder_Manipulation"></span>
+            <hr>
+            <div class="Manipulation_check_area">
+                <div class="short_test_descrp">3. Which of the following are areas mentioned previously which AI surpass human?</div>
+                <input type="radio" name="AI_example" value="personal assistant">personal assistant
+                <BR>
+                <input type="radio" name="AI_example" value="game-playing & music-composing">game-playing & music-composing
+                <BR>
+                <input type="radio" name="AI_example" value="self-driving & diagnosing disease">self-driving & diagnosing disease
+            </div>
+            <span id="Remainder_Example"></span>
+            <div class="container">
+                <div class="row justify-content-center">
                     <div class="NextToCheckBox_btn g-btn">Next Page</div>
                 </div>
             </div>
@@ -145,6 +185,7 @@ $ip = get_client_ip();
                 <input type="hidden" name="start_time" id="user_start_time" />
                 <input type="hidden" name="userObj" id="user_object" />
                 <input type="hidden" name="inattentionP0" id="inattention_P0" />
+                <input type="hidden" name="ForgetHypothesis" id="forget_hypothesis" />
                 <div class="row justify-content-center">
                     <div class="g-btn" id="go_to_consent_btn">Agree & Start</div>
                 </div>
@@ -158,6 +199,7 @@ $ip = get_client_ip();
 
         $(document).ready(function () {
             // Display setting
+            $("#Hypothesis_Check_Card").css("display", "none");
             $("#Consent_Check_Card").css("display", "none");
         });
 
@@ -181,19 +223,47 @@ $ip = get_client_ip();
         var time_info = time.toDateString() + "/" + time.toTimeString();
         // $('.testing').text("測試ID: " + uid); // [20181208] success
 
-        // Two-Page Informed Consent
-        $(".NextToCheckBox_btn").click(function () {
+        // Three-Page Informed Consent
+        $(".NextToManipulationBox_btn").click(function () {
             // animation
             $("#Detail_Card").addClass("hiding");
-            $("#Consent_Check_Card").addClass("showing");
+            $("#Hypothesis_Check_Card").addClass("showing");
             $('html, body').animate({
                 scrollTop: $("body").offset().top
             }, 700);
             setTimeout(function () {
                 $("#Detail_Card").hide();
+                $("#Hypothesis_Check_Card").show();
+                // $(window).scrollTop(0);
+            }, 700)
+        });
+
+        // Second Page
+        $(".NextToCheckBox_btn").click(function () {
+            if ($("input[name='filler_1']:checked").val() !== "40mins"){ // First Question
+                $("#Remainder_Duration").html("<br><span class='highlight'> The duration of the experiment is 40 minutes. Please select the correct item.</span>");
+            } else if ($("input[name='Manipulation_Check']:checked").val() !== "AIPositive"){
+                $("#Remainder_Duration").html("");
+                $("#Remainder_Manipulation").html("<br><span class='highlight'> We hypothesize that human composers are worse than AI composers because AI has surpassed humans in some areas. Please select the correct item.</span>");
+                var forget_hypothesis = 0;
+                forget_hypothesis = forget_hypothesis + 1
+            } else if ($("input[name='AI_example']:checked").val() !== "game-playing & music-composing"){
+                $("#Remainder_Duration").html("");
+                $("#Remainder_Manipulation").html("");
+                $("#Remainder_Example").html("<br><span class='highlight'> In game-playing, AI player AlphaGo towers over humans players; in music-composing, AI composer AIVA has created music for films. Please select the correct item.</span>");
+            } else {
+            // animation
+            $("#Hypothesis_Check_Card").addClass("hiding");
+            $("#Consent_Check_Card").addClass("showing");
+            $('html, body').animate({
+                scrollTop: $("body").offset().top
+            }, 700);
+            setTimeout(function () {
+                $("#Hypothesis_Check_Card").hide();
                 $("#Consent_Check_Card").show();
                 // $(window).scrollTop(0);
             }, 700)
+            }
         });
 
         $('#go_to_consent_btn').click(function () {
@@ -205,8 +275,9 @@ $ip = get_client_ip();
             $("#user_ip").attr("value", user_ip);
             $("#user_browser").attr("value", user_browser);
             $("#user_start_time").attr("value", time_info); 
-            $("#inattention_P0").attr("value", inattention); //
+            $("#inattention_P0").attr("value", inattention); 
             // $("#user_object").attr("value", user_json); 
+            $("#forget_hypothesis").attr("value", ForgetHypothesis);
             
             // form submission 
             $("form").attr("action", "db/P3_exp_init.php" )
@@ -214,6 +285,8 @@ $ip = get_client_ip();
             $("form").submit();
             }
         })  
+
+        
 </script>
 </body> 
 </html>

@@ -1,49 +1,49 @@
 clips_id,author,music_file,original_name
-1,"AI Composer  <img src=""asset/like.png"" />",music/AIBBCI1.mp3,Cope - BC Mov.1 (m.24-32).mp3
-2,"AI Composer  <img src=""asset/like.png"" />",music/AIBBCI2.mp3,Cope - BC Mov.1 (m.32-48).mp3
-3,"AI Composer  <img src=""asset/like.png"" />",music/AIBBCII.mp3,Cope - BC Mov.2 (m.1-20).mp3
-4,"AI Composer  <img src=""asset/like.png"" />",music/AIBBCIII.mp3,Cope - BC Mov.3 (m.1-14).mp3
-5,"AI Composer  <img src=""asset/like.png"" />",music/AIBHCI.mp3,Cope - HC Mov.1 (m.1-13).mp3
-6,"AI Composer  <img src=""asset/like.png"" />",music/AIBHCII.mp3,Cope - HC Mov.2 (m.17-23).mp3
-7,"AI Composer  <img src=""asset/like.png"" />",music/AIBHCIII1.mp3,Cope - HC Mov.3 (m.1-17).mp3
-8,"AI Composer  <img src=""asset/like.png"" />",music/AIBHCIII2.mp3,Cope - HC Mov.3 (m.137-152).mp3
-9,"AI Composer  <img src=""asset/like.png"" />",music/AIBHI4.mp3,Cope - Invention 4 (m.25-46).mp3
-10,"AI Composer  <img src=""asset/like.png"" />",music/AIBHI5.mp3,Cope - Invention 5 (m.1-18).mp3
-11,"AI Composer  <img src=""asset/like.png"" />",music/AIBHI7.mp3,Cope - Invention 7 (m.17-23).mp3
-12,"AI Composer  <img src=""asset/like.png"" />",music/AIBHI10.mp3,Cope - Invention 10 (m.1-15).mp3
-13,"AI Composer  <img src=""asset/like.png"" />",music/AIMSI.mp3,Cope - Symphony Mov.1 (m.65-80).mp3
-14,"AI Composer  <img src=""asset/like.png"" />",music/AIMSII.mp3,Cope - Symphony Mov.2 (m.128-136).mp3
-15,"AI Composer  <img src=""asset/like.png"" />",music/AIMSIII.mp3,Cope - Symphony Mov.3 (m.73-104).mp3
-16,"AI Composer  <img src=""asset/like.png"" />",music/AIMSIV.mp3,Cope - Symphony Mov.4 (m.215-232).mp3
-17,"AI Composer  <img src=""asset/like.png"" />",music/AIMPCI1.mp3,Cope - Piano Concerto Mvt.1 (m.71-86).mp3
-18,"AI Composer  <img src=""asset/like.png"" />",music/AIMPCI2.mp3,Cope - Piano Concerto Mvt.1 (m.111-126).mp3
-19,"AI Composer  <img src=""asset/like.png"" />",music/AIMPCII.mp3,Cope - Piano Concerto Mvt.2 (m.89-106).mp3
-20,"AI Composer  <img src=""asset/like.png"" />",music/AIMPCIII.mp3,Cope - Piano Concerto Mvt.3 (m.54-72).mp3
-21,"AI Composer  <img src=""asset/like.png"" />",music/AIMPS1I.mp3,Cope - PS1 Mov.1 (m.77-96).mp3
-22,"AI Composer  <img src=""asset/like.png"" />",music/AIMPS1II.mp3,Cope - PS1 Mov.2 (m.1-10).mp3
-23,"AI Composer  <img src=""asset/like.png"" />",music/AIMPS2II.mp3,Cope - PS2 Mov.2 (m.61-72).mp3
-24,"AI Composer  <img src=""asset/like.png"" />",music/AIMPS3I.mp3,Cope - PS3 Mov.1 (m.69-80).mp3
-25,"Human Composer <img src=""asset/dislike.png"" />",music/HBBC5I.mp3,"Bach - Brandenburg Concerto No.5, Mvt.1 (m.1-19).mp3"
-26,"Human Composer <img src=""asset/dislike.png"" />",music/HBBC5II.mp3,"Bach - Brandenburg Concerto No.5, Mvt.2 (m.20-24).mp3"
-27,"Human Composer <img src=""asset/dislike.png"" />",music/HBBC5III1.mp3,"Bach - Brandenburg Concerto No.5, Mvt.3 (m.79-106).mp3"
-28,"Human Composer <img src=""asset/dislike.png"" />",music/HBBC5III2.mp3,"Bach - Brandenburg Concerto No.5, Mvt.3 (m.233-261).mp3"
-29,"Human Composer <img src=""asset/dislike.png"" />",music/HBHC1I.mp3,"Bach - Harpsichord Concerto No.1, Mvt.1 (m.1-12).mp3"
-30,"Human Composer <img src=""asset/dislike.png"" />",music/HBHC1II.mp3,"Bach - Harpsichord Concerto No.1, Mvt.2 (m.13-22).mp3"
-31,"Human Composer <img src=""asset/dislike.png"" />",music/HBHC1III1.mp3,"Bach - Harpsichord Concerto No.1, Mvt.3 (m.41-62).mp3"
-32,"Human Composer <img src=""asset/dislike.png"" />",music/HBHC1III2.mp3,"Bach - Harpsichord Concerto No.1, Mvt.3 (m.187-213).mp3"
-33,"Human Composer <img src=""asset/dislike.png"" />",music/HBHI3.mp3,Bach - Invention No.3 (m.1-38).mp3
-34,"Human Composer <img src=""asset/dislike.png"" />",music/HBHI7.mp3,Bach - Invention No.7 (m.1-13).mp3
-35,"Human Composer <img src=""asset/dislike.png"" />",music/HBHI8.mp3,Bach - Invention No.8 (m.1-25).mp3
-36,"Human Composer <img src=""asset/dislike.png"" />",music/HBHI13.mp3,Bach - Invention No.13 (m.1-13).mp3
-37,"Human Composer <img src=""asset/dislike.png"" />",music/HMS41I.mp3,"Mozart - Symphony No.41, Mvt.1 (m.81-100).mp3"
-38,"Human Composer <img src=""asset/dislike.png"" />",music/HMS41II.mp3,"Mozart - Symphony No.41, Mvt.2 (m.32-39).mp3"
-39,"Human Composer <img src=""asset/dislike.png"" />",music/HMS41III.mp3,"Mozart - Symphony No.41, Mvt.3 (m.1-16).mp3"
-40,"Human Composer <img src=""asset/dislike.png"" />",music/HMS41IV.mp3,"Mozart - Symphony No.41, Mvt.4 (m.36-73).mp3"
-41,"Human Composer <img src=""asset/dislike.png"" />",music/HMPC21I.mp3,"Mozart - Piano Concerto No.21, Mvt.1 (m.91-107).mp3"
-42,"Human Composer <img src=""asset/dislike.png"" />",music/HMPC21II.mp3,"Mozart - Piano Concerto No.21, Mvt.2 (m.44-55).mp3"
-43,"Human Composer <img src=""asset/dislike.png"" />",music/HMPC21III1.mp3,"Mozart - Piano Concerto No.21, Mvt.3 (m.118-161).mp3"
-44,"Human Composer <img src=""asset/dislike.png"" />",music/HMPC21III2.mp3,"Mozart - Piano Concerto No.21, Mvt.3 (m.178-213).mp3"
-45,"Human Composer <img src=""asset/dislike.png"" />",music/HMPS11I.mp3,"Mozart - Piano Sonata No.11, Mvt.1 (m.81-90).mp3"
-46,"Human Composer <img src=""asset/dislike.png"" />",music/HMPS16I.mp3,"Mozart - Piano Sonata No.16, Mvt.1 (m.42-57).mp3"
-47,"Human Composer <img src=""asset/dislike.png"" />",music/HMPS16II1.mp3,"Mozart - Piano Sonata No.16, Mvt.2 (m.1-9).mp3"
-48,"Human Composer <img src=""asset/dislike.png"" />",music/HMPS16II2.mp3,"Mozart - Piano Sonata No.16, Mvt.2 (m.33-42).mp3"
+1,AI Composer,music/AIBBCI1.mp3,Cope - BC Mov.1 (m.24-32).mp3
+2,AI Composer,music/AIBBCI2.mp3,Cope - BC Mov.1 (m.32-48).mp3
+3,AI Composer,music/AIBBCII.mp3,Cope - BC Mov.2 (m.1-20).mp3
+4,AI Composer,music/AIBBCIII.mp3,Cope - BC Mov.3 (m.1-14).mp3
+5,AI Composer,music/AIBHCI.mp3,Cope - HC Mov.1 (m.1-13).mp3
+6,AI Composer,music/AIBHCII.mp3,Cope - HC Mov.2 (m.17-23).mp3
+7,AI Composer,music/AIBHCIII1.mp3,Cope - HC Mov.3 (m.1-17).mp3
+8,AI Composer,music/AIBHCIII2.mp3,Cope - HC Mov.3 (m.137-152).mp3
+9,AI Composer,music/AIBHI4.mp3,Cope - Invention 4 (m.25-46).mp3
+10,AI Composer,music/AIBHI5.mp3,Cope - Invention 5 (m.1-18).mp3
+11,AI Composer,music/AIBHI7.mp3,Cope - Invention 7 (m.17-23).mp3
+12,AI Composer,music/AIBHI10.mp3,Cope - Invention 10 (m.1-15).mp3
+13,AI Composer,music/AIMSI.mp3,Cope - Symphony Mov.1 (m.65-80).mp3
+14,AI Composer,music/AIMSII.mp3,Cope - Symphony Mov.2 (m.128-136).mp3
+15,AI Composer,music/AIMSIII.mp3,Cope - Symphony Mov.3 (m.73-104).mp3
+16,AI Composer,music/AIMSIV.mp3,Cope - Symphony Mov.4 (m.215-232).mp3
+17,AI Composer,music/AIMPCI1.mp3,Cope - Piano Concerto Mvt.1 (m.71-86).mp3
+18,AI Composer,music/AIMPCI2.mp3,Cope - Piano Concerto Mvt.1 (m.111-126).mp3
+19,AI Composer,music/AIMPCII.mp3,Cope - Piano Concerto Mvt.2 (m.89-106).mp3
+20,AI Composer,music/AIMPCIII.mp3,Cope - Piano Concerto Mvt.3 (m.54-72).mp3
+21,AI Composer,music/AIMPS1I.mp3,Cope - PS1 Mov.1 (m.77-96).mp3
+22,AI Composer,music/AIMPS1II.mp3,Cope - PS1 Mov.2 (m.1-10).mp3
+23,AI Composer,music/AIMPS2II.mp3,Cope - PS2 Mov.2 (m.61-72).mp3
+24,AI Composer,music/AIMPS3I.mp3,Cope - PS3 Mov.1 (m.69-80).mp3
+25,Human Composer,music/HBBC5I.mp3,"Bach - Brandenburg Concerto No.5, Mvt.1 (m.1-19).mp3"
+26,Human Composer,music/HBBC5II.mp3,"Bach - Brandenburg Concerto No.5, Mvt.2 (m.20-24).mp3"
+27,Human Composer,music/HBBC5III1.mp3,"Bach - Brandenburg Concerto No.5, Mvt.3 (m.79-106).mp3"
+28,Human Composer,music/HBBC5III2.mp3,"Bach - Brandenburg Concerto No.5, Mvt.3 (m.233-261).mp3"
+29,Human Composer,music/HBHC1I.mp3,"Bach - Harpsichord Concerto No.1, Mvt.1 (m.1-12).mp3"
+30,Human Composer,music/HBHC1II.mp3,"Bach - Harpsichord Concerto No.1, Mvt.2 (m.13-22).mp3"
+31,Human Composer,music/HBHC1III1.mp3,"Bach - Harpsichord Concerto No.1, Mvt.3 (m.41-62).mp3"
+32,Human Composer,music/HBHC1III2.mp3,"Bach - Harpsichord Concerto No.1, Mvt.3 (m.187-213).mp3"
+33,Human Composer,music/HBHI3.mp3,Bach - Invention No.3 (m.1-38).mp3
+34,Human Composer,music/HBHI7.mp3,Bach - Invention No.7 (m.1-13).mp3
+35,Human Composer,music/HBHI8.mp3,Bach - Invention No.8 (m.1-25).mp3
+36,Human Composer,music/HBHI13.mp3,Bach - Invention No.13 (m.1-13).mp3
+37,Human Composer,music/HMS41I.mp3,"Mozart - Symphony No.41, Mvt.1 (m.81-100).mp3"
+38,Human Composer,music/HMS41II.mp3,"Mozart - Symphony No.41, Mvt.2 (m.32-39).mp3"
+39,Human Composer,music/HMS41III.mp3,"Mozart - Symphony No.41, Mvt.3 (m.1-16).mp3"
+40,Human Composer,music/HMS41IV.mp3,"Mozart - Symphony No.41, Mvt.4 (m.36-73).mp3"
+41,Human Composer,music/HMPC21I.mp3,"Mozart - Piano Concerto No.21, Mvt.1 (m.91-107).mp3"
+42,Human Composer,music/HMPC21II.mp3,"Mozart - Piano Concerto No.21, Mvt.2 (m.44-55).mp3"
+43,Human Composer,music/HMPC21III1.mp3,"Mozart - Piano Concerto No.21, Mvt.3 (m.118-161).mp3"
+44,Human Composer,music/HMPC21III2.mp3,"Mozart - Piano Concerto No.21, Mvt.3 (m.178-213).mp3"
+45,Human Composer,music/HMPS11I.mp3,"Mozart - Piano Sonata No.11, Mvt.1 (m.81-90).mp3"
+46,Human Composer,music/HMPS16I.mp3,"Mozart - Piano Sonata No.16, Mvt.1 (m.42-57).mp3"
+47,Human Composer,music/HMPS16II1.mp3,"Mozart - Piano Sonata No.16, Mvt.2 (m.1-9).mp3"
+48,Human Composer,music/HMPS16II2.mp3,"Mozart - Piano Sonata No.16, Mvt.2 (m.33-42).mp3"

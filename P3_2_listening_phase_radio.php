@@ -10,7 +10,7 @@ $userId = $_SESSION['uid'];
 $user_json = $_SESSION['userObj'];
 
 // avoid jump
-// include "db/P3_avoidJump.php";
+include "db/P3_avoidJump.php";
 
 // count times of loading the page 
 if (isset($_SESSION['count'])){
@@ -81,21 +81,21 @@ if (isset($_SESSION['count'])){
         li{
             padding-top: 10px;
         }
-        #EDE-frame{
+        /* #EDE-frame{
             width: 60%;
             line-height: 24px;
             position: absolute;
             left: 50%;
             transform: translateX(-50%); /* horizontally center an element */
             padding-bottom: 20px 
-        }
-        #audio-spectrum{
+        /* } 
+        /* #audio-spectrum{ 
             padding-top: 30px
         }
         img {
             height: 30px;
-            /* margin: 10px; */
-        }
+            /* margin: 10px; 
+        }  */
     </style>
 </head>
 
@@ -135,9 +135,9 @@ if (isset($_SESSION['count'])){
                                         all) to 5 (very much). </li>
                                     <li>Each excerpt is composed <span class="highlight">by human or artificial intelligence (AI)</span>. The
                                         information of the composer is shown above the soundwave.</li>
-                                    <li>To remind you about our hypothesis, 
+                                    <!-- <li>To remind you about our hypothesis, 
                                         each human composers' excerpt will show up with a dislike icon <img src="asset/dislike.png" />,
-                                        whereas each AI composers' excerpt will show up with a like icon <img src="asset/like.png" />.
+                                        whereas each AI composers' excerpt will show up with a like icon <img src="asset/like.png" />. -->
                                 </ol>
                             </article>
                         </div>

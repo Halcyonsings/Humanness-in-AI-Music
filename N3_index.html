@@ -63,8 +63,8 @@
                 <div id="about_title" class="title">About This Task</div>
             </div>
             <article id="about_article"> This experiment aims to study music composed by humans or artificial intelligence (AI).
-                <br> We hypothesize that human composers are better than AI composers. 
-                <br> In listening session, each human composers' excerpt will show up with a like icon <img src="asset/like.png" />,
+                <br> <span class="highlight"> We hypothesize that human composers are better than AI composers.  </span>
+                <br> In the listening session, each human composers' excerpt will show up with a like icon <img src="asset/like.png" />,
                 <br> whereas each AI composers' excerpt will show up with a dislike icon <img src="asset/dislike.png" />.
             </article>
             <div class="g-btn" id="go_to_check_btn">Next Page</div>
@@ -146,7 +146,7 @@
         //
         $("#go_to_exp_btn").click(function () {
           if ($("input[name='Manipulation_Check']:checked").val() !== "AINegative") {
-            alert("We hypothesize that human composers are better than AI composers. Please select again.");
+            alert("We hypothesize that human composers are better than AI composers. Please try again.");
         } else {
             location.href = 'http://hpc.psy.ntu.edu.tw/~hsiang/N3_0_informed_consent.php'
         }
