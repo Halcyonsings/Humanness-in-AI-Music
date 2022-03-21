@@ -244,9 +244,9 @@ $ip = get_client_ip();
             // if ($("input[name='filler_1']:checked").val() !== "40mins"){ // First Question
                 // $("#Remainder_Duration").html("<br><span class='highlight'> The duration of the experiment is 40 minutes. Please select the correct item.</span>");
             // } else 
-            if ($("input[name='Manipulation_Check']:checked").val() !== "AINegative"){
+            if ($("input[name='Manipulation_Check']:checked").val() !== "Neutral"){
                 $("#Remainder_Duration").html("");
-                $("#Remainder_Manipulation").html("<br><span class='highlight'> We hypothesize that human composers are better than AI composers because AI has not yet surpassed humans in some areas. Please select the correct item.</span>");
+                $("#Remainder_Manipulation").html("<br><span class='highlight'> We hypothesize that human composers are worse than AI composers because AI has surpassed humans in some areas. Please select the correct item.</span>");
                 forget_hypothesis = forget_hypothesis + 1
                 // console.log(forget_hypothesis)
             } 
@@ -284,7 +284,7 @@ $ip = get_client_ip();
             $("#forget_hypothesis").attr("value", forget_hypothesis);
             
             // form submission 
-            $("form").attr("action", "db/N3_exp_init.php" )
+            $("form").attr("action", "db/U3_exp_init.php" )
             $("form").attr("method", "POST"); 
             $("form").submit();
             }

@@ -87,7 +87,7 @@ $ip = get_client_ip();
                 concentrate on the instructions and questions on the screen. <span class="warning">Do not: </p></span> 
             <ol>
                 <span class="warning"><li>open other tabs</span> 
-                <span class="warning"><li>minimize/ maxmize the active window during the experiment</span> 
+                <span class="warning"><li>minimize/ maximize the active window during the experiment</span> 
                 <span class="warning"><li>become idle for more than 5 minutes</span> 
             </ol>
             <p>In doing so, we will drop you out of the experiment.
@@ -127,37 +127,37 @@ $ip = get_client_ip();
         <div class="container instruction" id="Hypothesis_Check_Card">
             <div class="title">Informed Consent Form</div>
             <hr>
-            <p> Here is a small test about the information of previous page. You need to complete it to proceed to next page.</p>
+            <p> Here is a quiz about the information of previous page. You need to complete it to proceed to next page.</p>
             <BR>
-            <div class="Manipulation_check_area">
+            <!-- <div class="Manipulation_check_area">
                 <div class="short_test_descrp">1. What is the expected duration of the research?</div>
-                <input type="radio" name="filler_1" value="10mins">10 minutes
+                <input type="radio" name="filler_1" value="10mins"> 10 minutes
                 <BR>
-                <input type="radio" name="filler_1" value="40mins">40 minutes
+                <input type="radio" name="filler_1" value="40mins"> 40 minutes
                 <BR>
-                <input type="radio" name="filler_1" value="90mins">one and a half hours
+                <input type="radio" name="filler_1" value="90mins"> one and a half hours
             </div>
             <span id="Remainder_Duration"></span>
-            <hr>
+            <hr> -->
             <div class="Manipulation_check_area">
-                <div class="short_test_descrp">2. What is the authors' research hypothesis?</div>
-                <input type="radio" name="Manipulation_Check" value="AIPositive">The authors hypothesize that human composers are worse than AI composers.
+                <div class="short_test_descrp">What is the authors' research hypothesis?</div>
+                <input type="radio" name="Manipulation_Check" value="AIPositive"> The authors hypothesize that human composers are worse than AI composers.
                 <BR>
-                <input type="radio" name="Manipulation_Check" value="AINegative">The authors hypothesize that human composers are better than AI composers.
+                <input type="radio" name="Manipulation_Check" value="AINegative"> The authors hypothesize that human composers are better than AI composers.
                 <BR>
-                <input type="radio" name="Manipulation_Check" value="Neutral">The authors hypothesize that human composers and AI composers are equally good.
+                <input type="radio" name="Manipulation_Check" value="Neutral"> The authors hypothesize that human composers and AI composers are equally good.
             </div>
             <span id="Remainder_Manipulation"></span>
-            <hr>
+            <!-- <hr>
             <div class="Manipulation_check_area">
                 <div class="short_test_descrp">3. Which of the following are areas mentioned previously which AI surpass human?</div>
-                <input type="radio" name="AI_example" value="personal assistant">personal assistant
+                <input type="radio" name="AI_example" value="personal assistant"> personal assistant
                 <BR>
-                <input type="radio" name="AI_example" value="game-playing & music-composing">game-playing & music-composing
+                <input type="radio" name="AI_example" value="game-playing & music-composing"> game-playing & music-composing
                 <BR>
-                <input type="radio" name="AI_example" value="self-driving & diagnosing disease">self-driving & diagnosing disease
+                <input type="radio" name="AI_example" value="self-driving & diagnosing disease"> self-driving & diagnosing disease
             </div>
-            <span id="Remainder_Example"></span>
+            <span id="Remainder_Example"></span> -->
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="NextToCheckBox_btn g-btn">Next Page</div>
@@ -239,19 +239,23 @@ $ip = get_client_ip();
         });
 
         // Second Page
+        var forget_hypothesis = 0;
         $(".NextToCheckBox_btn").click(function () {
-            if ($("input[name='filler_1']:checked").val() !== "40mins"){ // First Question
-                $("#Remainder_Duration").html("<br><span class='highlight'> The duration of the experiment is 40 minutes. Please select the correct item.</span>");
-            } else if ($("input[name='Manipulation_Check']:checked").val() !== "AIPositive"){
+            // if ($("input[name='filler_1']:checked").val() !== "40mins"){ // First Question
+                // $("#Remainder_Duration").html("<br><span class='highlight'> The duration of the experiment is 40 minutes. Please select the correct item.</span>");
+            // } else 
+            if ($("input[name='Manipulation_Check']:checked").val() !== "AIPositive"){
                 $("#Remainder_Duration").html("");
                 $("#Remainder_Manipulation").html("<br><span class='highlight'> We hypothesize that human composers are worse than AI composers because AI has surpassed humans in some areas. Please select the correct item.</span>");
-                var forget_hypothesis = 0;
                 forget_hypothesis = forget_hypothesis + 1
-            } else if ($("input[name='AI_example']:checked").val() !== "game-playing & music-composing"){
-                $("#Remainder_Duration").html("");
-                $("#Remainder_Manipulation").html("");
-                $("#Remainder_Example").html("<br><span class='highlight'> In game-playing, AI player AlphaGo towers over humans players; in music-composing, AI composer AIVA has created music for films. Please select the correct item.</span>");
-            } else {
+                // console.log(forget_hypothesis)
+            } 
+            // else if ($("input[name='AI_example']:checked").val() !== "game-playing & music-composing"){
+            //     $("#Remainder_Duration").html("");
+            //     $("#Remainder_Manipulation").html("");
+            //     $("#Remainder_Example").html("<br><span class='highlight'> In game-playing, AI player AlphaGo towers over humans players; in music-composing, AI composer AIVA has created music for films. Please select the correct item.</span>");
+            // } 
+            else {
             // animation
             $("#Hypothesis_Check_Card").addClass("hiding");
             $("#Consent_Check_Card").addClass("showing");
@@ -277,7 +281,7 @@ $ip = get_client_ip();
             $("#user_start_time").attr("value", time_info); 
             $("#inattention_P0").attr("value", inattention); 
             // $("#user_object").attr("value", user_json); 
-            $("#forget_hypothesis").attr("value", ForgetHypothesis);
+            $("#forget_hypothesis").attr("value", forget_hypothesis);
             
             // form submission 
             $("form").attr("action", "db/P3_exp_init.php" )

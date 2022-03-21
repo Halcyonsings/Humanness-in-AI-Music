@@ -186,7 +186,7 @@ include "db/N3_avoidJump.php";
             </div>
             <hr>
             <div class="Attention_check_area">
-                <div class="Attention_check_descrp">9. What is the authors' research hypothesis?</div>
+                <div class="Attention_check_descrp">9. As best as you can recall, which of the following is the authors' research hypothesis?</div>
                 <div class="AC_res_block">
                     <input type="radio" class="AC_option" name="AC9" value="AIPositive">The authors hypothesize that human composers are worse than AI composers.
                     <BR>

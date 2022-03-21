@@ -45,6 +45,12 @@
         height: 30px;
         /* margin: 10px; */
     }
+
+    @media screen and (max-width:1024px){ 
+    #about_article{
+        font-size: 18px !important;
+        }
+    }
     </style>
     
     <title>NTU Music Study</title>
@@ -63,12 +69,12 @@
                 <div id="about_title" class="title">About This Task</div>
             </div>
             <article id="about_article"> This experiment aims to study music composed by humans or artificial intelligence (AI).
-                <br> <span class="highlight"> We hypothesize that human composers are worse than AI composers because AI has surpassed humans in some areas.
-                For example, in game-playing, AI player AlphaGo towers over humans players; in music-composing, AI composer AIVA has created music for films.  </span>
+                <span class="highlight"> We hypothesize that human composers are worse than AI composers </span>because AI has surpassed humans in some areas.
+                For example, in game-playing, AI player AlphaGo beats human players; in image recognition, AI software FaceMe can process images much faster.  
                 <!-- <br> In the listening session, each human composers' excerpt will show up with a dislike icon <img src="asset/dislike.png" />,
                 <br> whereas each AI composers' excerpt will show up with a like icon <img src="asset/like.png" />. -->
             </article>
-            <div class="g-btn" id="go_to_check_btn">Next Page</div>
+            <div class="g-btn" id="go_to_exp_btn"> Go to Exp.</div>
         </div>
     </section>
     <!-- <section id="sec_about_check_hypothesis" class="section_sizing">
@@ -145,13 +151,12 @@
         // });
 
         // //
-        // $("#go_to_exp_btn").click(function () {
+        $("#go_to_exp_btn").click(function () {
         //   if ($("input[name='Manipulation_Check']:checked").val() !== "AIPositive") {
         //     alert("We hypothesize that human composers are worse than AI composers. Please try again.");
         // } else {
-        //     location.href = 'http://hpc.psy.ntu.edu.tw/~hsiang/P3_0_informed_consent.php'
-        // }
-        // });
+            location.href = 'http://hpc.psy.ntu.edu.tw/~hsiang/P3_0_informed_consent.php';
+        });
     </script>
 </body>
 

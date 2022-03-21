@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include "N3_db_config.php";
+include "U3_db_config.php";
 
 // variables in session
 $_SESSION["uid"] = $_POST["uid"];
@@ -27,14 +27,14 @@ if ($conn->connect_error) {
 $conn->set_charset("utf8");//set the charset
 
 // Insert profile data
-$sql = "INSERT INTO `N3_user-profile` (uid, ip, browser, `time-start`, `inattention-P0`, `forget-hypothesis`) VALUES ('$uid', '$ip', '$browser', '$start_time','$inattention', '$Forget_Hypothesis')";
+$sql = "INSERT INTO `U3_user-profile` (uid, ip, browser, `time-start`, `inattention-P0`, `forget-hypothesis`) VALUES ('$uid', '$ip', '$browser', '$start_time','$inattention', '$Forget_Hypothesis')";
 
 // initiating status table
-$sql_status_init = "INSERT INTO `N3_user-status` (uid) VALUES ('$uid')";
+$sql_status_init = "INSERT INTO `U3_user-status` (uid) VALUES ('$uid')";
 $conn->query($sql_status_init);
 
 // close and heading to next page
-$path = "../N3_1_headphone.php";
+$path = "../U3_1_headphone.php";
 if ($conn->query($sql) === TRUE) {
     header("Location:". $path);
 } else {

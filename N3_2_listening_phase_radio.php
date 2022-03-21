@@ -131,9 +131,9 @@ if (isset($_SESSION['count'])){
                                         all) to 5 (very much). </li>
                                     <li>Each excerpt is composed <span class="highlight">by human or artificial intelligence (AI)</span>. The
                                         information of the composer is shown above the soundwave.</li>
-                                    <li>To remind you about our hypothesis, 
+                                    <!-- <li>To remind you about our hypothesis, 
                                         each human composers' excerpt will show up with a like icon <img src="asset/like.png" />,
-                                        whereas each AI composers' excerpt will show up with a dislike icon <img src="asset/dislike.png" />.    
+                                        whereas each AI composers' excerpt will show up with a dislike icon <img src="asset/dislike.png" />.     -->
                                 </ol>
                             </article>
                         </div>
@@ -146,9 +146,9 @@ if (isset($_SESSION['count'])){
                     <!-- AI or Human information show here -->
                     <div class="form-t1" id="EDE-frame"><span id="curr-author"></span></div>
                     <br/>
+                    <!-- <br/>
                     <br/>
-                    <br/>
-                    <br/>
+                    <br/> -->
                     <!-- Create a div where the audio waves will be shown -->
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6">
